@@ -14,21 +14,7 @@ defined('YII_ENV') or define('YII_ENV', '1');
 //
 require(__DIR__ . '/../vendor/autoload.php');
 require(__DIR__ . '/../vendor/yiisoft/yii2/Yii.php');
-//增加移动端访问代�?
-//require(__DIR__ . '/../libs/Mobile_Detect.php');
-//$detect = new Mobile_Detect;
-//$deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
-//switch ($deviceType){
-//    case 'tablet':
-//        header('Location: http://m.thinkwithu.com/');
-//        break;
-//    case 'phone':
-//        header('Location: http://m.thinkwithu.com/');
-//        break;
-//    default:
-//        break;
-//}
-$config = require(__DIR__ . '/../config/web.php');
-error_reporting(0);
 
+$config = require(__DIR__ . '/../config/web.php');
+error_reporting(E_ALL);
 (new yii\web\Application($config))->run();

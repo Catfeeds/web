@@ -1,368 +1,682 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <!--阻止浏览器缓存-->
-    <meta http-equiv="pragma" content="no-cache">
-    <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
-    <meta http-equiv="expires" content="0">
-    <!-- Basic Page Needs
-     ================================================== -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta name="keywords" content="GMAT网课，GMAT培训，托福网课，托福培训，雅思网课，雅思培训，零中介留学，美国留学，出国留学，留学申请，留学文书、海外实习">
-    <meta name="description" content="雷哥网社区-我们就爱分享知识！申友旗下一站式互联网留学备考智能服务平台。">
-    <meta name="title" content="">
-    <meta name="author" content="">
-    <meta name="Copyright" content="">
-    <meta name="description" content="">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
-    ================================================== -->
-    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
-    <!-- IOS6全屏 Chrome高版本全屏
-    ================================================== -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    <!-- 让360双核浏览器用webkit内核渲染页面
-    ================================================== -->
-    <meta name="renderer" content="webkit">
-    <link rel="stylesheet" href="/cn/css/reset.css">
-    <link rel="stylesheet" href="/cn/css/common.css">
-    <link rel="stylesheet" href="/cn/css/swipebox.css">
-    <link rel="stylesheet" href="/cn/css/main.css">
-    <link rel="stylesheet" href="/cn/css/justifiedgallery.min.css">
-    <link rel="stylesheet" href="/cn/css/animate.min.css">
-    <script src="/cn/js/jquery-1.12.2.min.js"></script>
-    <script src="/cn/js/jquery.swipebox.js"></script>
-    <script src="/cn/js/justifiedgallery.js"></script>
-    <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
-    <script src="/cn/js/showImg.js"></script>
-    <title>雷哥网社区-我们就爱分享知识！</title>
-    <style>
-        .topic-list {
-            padding: 30px 5px 20px 40px;
-        }
-
-        .topic-list a {
-            display: inline-block;
-            margin: 5px 10px 5px 0;
-            padding: 1px 10px 2px;
-            border: 1px solid #00a0e9;
-            color: #ffffff;
-            font-size: 14px;
-            background: #00a0e9;
-            -webkit-border-radius: 15px;
-            -webkit-background-clip: padding-box;
-            -moz-border-radius: 15px;
-            -moz-background-clip: padding;
-            border-radius: 15px;
-            background-clip: padding-box;
-            text-decoration: none;
-        }
-
-        .topic-list a:hover {
-            color: #00b3ee;
-            border: 1px solid #00b3ee;
-            background: transparent;
-        }
-
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>中国鲜花快递网-鲜花速递|网上订花送花|网上花店鲜花预定|鲜花配送|专注于全国鲜花速递服务</title>
+    <meta name="description"
+          content="中国鲜花快递网是国内最早提供全国鲜花快递服务的公司之一，专注于全国鲜花速递服务，鲜花网提供网上订花送花、鲜花预定服务，鲜花配送范围覆盖全国各大中城市，市区最快2-3小时送达，国内领先的鲜花速递服务商。">
+    <meta name="keywords" content="鲜花速递,网上订花,送花,网上花店,鲜花预定,鲜花配送">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link href="/cn/css/base.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/cn/js/hm.js"></script>
+    <script type="text/javascript" src="/cn/js/banner.js"></script>
+    <script type="text/javascript" src="/cn/js/jquery-1.4.2.min.js"></script>
 </head>
-<body id="community">
-<!--搜索-->
-<?php use app\commands\front\NavWidget; ?>
-<?php NavWidget::begin(); ?>
-<?php NavWidget::end(); ?>
-<!--banner-->
-<section style="padding-top: 15px;">
-    <div class="w12 banner-wrap clearfix bg-f">
-        <div class="left fl">
-            <div class="slide-box relative">
-                <ul class="banner">
-                    <?php foreach ($banner as $b) { ?>
-                        <li><a href="<?php echo $b['url'] ?>"><img src="<?php echo $b['image'] ?>" alt=""></a></li>
+<body>
+<div id="top_banner">
+    <div class="ads">
+        <a href="<?php echo $stick['url']?>" target="_blank"><img src="<?php echo $stick['image']?>"  width="1180" height="80"></a>
+        <a onclick="document.getElementById('top_banner').style.display='none'" class="close-btn" href="javascript:void(0);" title="关闭"></a>
+    </div>
+</div>
+<?php use app\commands\front\NavWidget;?>
+<?php NavWidget::begin();?>
+<?php NavWidget::end();?>
+    <div class="menu">
+        <ul>
+            <?php
+                foreach($category as $k => $v) {
+            ?>
+            <li>
+                <div class="menu-left">
+                    <img src="<?php echo $v['image']?>" alt="图标"/>
+
+                    <p><?php echo $v['name']?></p>
+                </div>
+                <div class="menu-right padd01">
+                    <ul>
                         <?php
+                            foreach($v['child'] as $val) {
+                                ?>
+                                <li><a href="#"><?php echo $val['name']?></a></li>
+                            <?php
+                            }
+                        ?>
+                    </ul>
+                    <?php
+                    if ($k == 0) {
+                        ?>
+                        <div class="menu-r-sort">
+                            <ul>
+                                <?php
+                                    $data = \app\modules\cn\models\Category::find()->where("pid = 0 AND type =1")->all();
+                                ?>
+                                <?php
+                                    foreach($data as $val) {
+                                        ?>
+                                        <li>
+                                            <label><?php echo $val['name']?></label>
+
+                                            <div class="m-r-sli">
+                                                <?php
+                                                $child = \app\modules\cn\models\Category::find()->where("pid = {$val['id']}")->all();
+                                                ?>
+                                                <ul>
+                                                    <?php
+                                                    foreach($child as $value) {
+                                                        ?>
+                                                        <li><a href="#"><?php echo $value['name']?></a></li>
+                                                    <?php
+                                                    }
+                                                    ?>
+                                                </ul>
+                                            </div>
+                                            <div class="clearfloat"></div>
+                                        </li>
+                                    <?php
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    <?php
                     }
-                    ?>
+                            ?>
+                        </div>
+                        <div class="clearfloat"></div>
+                    </li>
+                <?php
+                }
+            ?>
+            <li>
+                <div class="last-sort">
+                    <ul>
+                        <?php
+                            foreach($especially as $v){
+                        ?>
+                        <li><a href="<?php echo $v['url']?>"><img src="<?php echo $v['image']?>" alt="图标"/><?php echo $v['name']?></a></li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+                        <?php
+                        $lianjie = "";
+                        $imgarr = "";
+                            foreach($banner as $v){
+                                $lianjie .= $v['url'].',';
+                                $imgarr .= $v['image'].',';
+                            }
+                        ?>
+    <div class="menu_mid" data-value="<?php echo $lianjie?>" data-image="<?php echo $imgarr?>">
+        <div class="banner">
+            <div id="lunbox">
+                <!--<ul class="imgList">-->
+                <!--<li style="opacity: 0; display: none;"><a target="_blank"-->
+                <!--href="/jieri/valentine.html"-->
+                <!--title="情人节鲜花" onfocus="this.blur();"><img border="0"-->
+                <!--style="cursor:pointer;outline:0;"-->
+                <!--src="/cn/images/ad_valentine.jpg"></a>-->
+                <!--</li>-->
+                <!--<li style="opacity: 0; display: none;"><a target="_blank" href="/flower/"-->
+                <!--title="鲜花速递" onfocus="this.blur();"><img border="0"-->
+                <!--style="cursor:pointer;outline:0;"-->
+                <!--src="/cn/images/ad_01.jpg"></a>-->
+                <!--</li>-->
+                <!--<li style="opacity: 1;"><a target="_blank" href="/birthday/" title="生日送花"-->
+                <!--onfocus="this.blur();"><img border="0" style="cursor:pointer;outline:0;"-->
+                <!--src="/cn/images/ad_birthday.jpg"></a></li>-->
+                <!--</ul>-->
+                <!--<ul class="countNum">-->
+                <!--<li class="">1</li>-->
+                <!--<li class="">2</li>-->
+                <!--<li class="current">3</li>-->
+                <!--</ul>-->
+            </div>
+            <script>lunboxaaa();</script>
+        </div>
+    </div>
+    <div class="menu_right">
+        <div class="cuxiao">
+            <a href="#" target="_blank">
+                <img src="/cn/images/index-guanzhu.png"/>
+            </a>
+            <div class="why-choose">
+                <h4>为何选择花间意？</h4>
+                <ul>
+                    <li>1、12年品牌花店，口碑相传，专业的服务、售后团队。</li>
+                    <li>2、连锁花店，全国3000多座城市，2万+家分店，配送范围覆盖全国。</li>
+                    <li>3、空运昆明顶级花材，花材提前预订，当天包扎，质量有保障。</li>
+                    <li>4、旗下签约花艺师均从业3年以上，产品够强势。</li>
+                    <li>5、30多家媒体报导，实力有见证！</li>
                 </ul>
-                <a class="crow prev" href="javascript:void (0);"><img src="/cn/images/crw-1.png" alt=""></a>
-                <a class="crow next" href="javascript:void (0);"><img src="/cn/images/crw-2.png" alt=""></a>
             </div>
         </div>
-        <div class="right fr">
-            <div class="tr moreBtn"><a href="/gossip/list.html">更多></a></div>
-            <ul class="active-list">
-                <?php foreach ($gossip as $h) { ?>
-                    <li>
-                        <div class="a-img fl"><img
-                                src="<?php echo '/cn/img/noavatar_big.gif' ?>" alt="图片">
-                        </div>
-                        <div class="aTit-wrap fr">
-                            <a href="/gossip/details/<?php echo $h['id'] ?>.html"><h1 class="a-tit ellipsis">
-                                    【<?php echo isset($h['publisher']) ? $h['publisher'] : '' ?>
-                                    】<?php echo base64_decode($h['title']) ?></h1></a>
+    </div>
+    <div class="clearfloat"></div>
 
-                            <p class="a-de ellipsis-2"><?php echo base64_decode($h['content']) ?></p>
+</div>
+<div id="container_wrap">
+    <div id="container">
+        <div class="remai_content">
+            <ul>
+                <li>
+                    <img src="/cn/images/index-xianshi.png" alt="限时推荐"/>
+                </li>
+                <?php foreach($recommend as $k => $v) { ?>
+                    <li>
+                        <div class="propic">
+                            <a href="#" target="_blank">
+                                <img src="<?php echo $v['defaultImage']?>">
+                            </a>
                         </div>
+                        <div class="protit">
+                            <a href="#" target="_blank"><?php echo $v['name']?></a>
+                        </div>
+                        <div class="yishou">已售：<span><?php echo $v['sales']?></span>束</div>
+                        <div class="proprice">￥<?php echo $v['price']?></div>
                     </li>
+                <?php
+                }
+                ?>
+            </ul>
+        </div>
+        <?php
+            foreach($head as $v) {
+                ?>
+                <?php
+                    if($v['type'] == 2) {
+                        ?>
+                        <div class="shengri_title">
+                            <h1><a href="javascript:;"  title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
+
+                            <div class="more">
+                                <?php
+                                    foreach($v['category'] as $val) {
+                                        ?>
+                                        <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
+                                    <?php
+                                    }
+                                        ?>
+                                <a href="#" target="_blank">更多&gt;&gt;</a>
+                            </div>
+                        </div>
+                        <div class="shengri_content">
+                            <div class="bottom_pic">
+                                <ul>
+                                    <?php
+                                        foreach($v['flower'] as $val) {
+                                            ?>
+                                            <li>
+                                                <div class="propic">
+                                                    <a href="/flower/HJY<?php echo $val['goodsNumber']?>.html" target="_blank">
+                                                        <img src="<?php echo $val['defaultImage']?>" title="flower"/>
+                                                    </a>
+                                                </div>
+                                                <div class="protit">
+                                                    <a href="#" target="_blank"><?php echo $val['flowerDes']?></a>
+                                                </div>
+                                                <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
+                                                <div class="proprice">￥<?php echo $val['price']?></div>
+                                            </li>
+                                        <?php
+                                        }
+                                            ?>
+                                </ul>
+                            </div>
+                        </div>
                     <?php
+                    }
+                        ?>
+                <?php
+                    if($v['type'] == 1) {
+                        ?>
+                        <div class="shengri_title">
+                            <h1><a href="javascript:;"  title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
+
+                            <div class="more">
+                                <?php
+                                foreach($v['category'] as $val) {
+                                    ?>
+                                    <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
+                                <?php
+                                }
+                                ?>
+                                <a href="#" target="_blank">更多&gt;&gt;</a>
+                            </div>
+                        </div>
+                        <div class="shengri_content">
+                            <div class="top_pic">
+                                <ul>
+                                    <?php
+                                    $left = unserialize($v['left']);
+                                    ?>
+                                    <li class="first">
+                                        <a href="<?php echo $left['url']?>" target="_blank">
+                                            <img src="<?php echo $left['image']?>" width="295" height="260">
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $middleImage = unserialize($v['middle']);
+                                    ?>
+                                    <li class="mid">
+                                        <a href="<?php echo $middleImage['url']?>" target="_blank">
+                                            <img src="<?php echo $middleImage['image']?>" width="586" height="260">
+                                        </a>
+                                    </li>
+                                    <?php
+                                    $right = unserialize($v['right']);
+                                    ?>
+                                    <li class="last">
+                                        <a href="<?php echo $right['url']?>" target="_blank">
+                                            <img src="<?php echo $middleImage['image']?>" width="295" height="260">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="bottom_pic">
+                                <ul>
+                                    <?php
+                                    foreach($v['flower'] as $val) {
+                                        ?>
+                                        <li>
+                                            <div class="propic"><a href="#" target="_blank"><img
+                                                        src="<?php echo $val['defaultImage']?>"></a></div>
+                                            <div class="protit"><a href="#"
+                                                                   target="_blank"><?php echo $val['name']?></a>
+                                            </div>
+                                            <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
+                                            <div class="proprice">￥<?php echo $val['price']?></div>
+                                        </li>
+                                    <?php
+                                    }
+                                        ?>
+                                </ul>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                        ?>
+            <?php
+            }
+        ?>
+        <div class="about-us"><a href="#"><img src="/cn/images/index-guanggao.png" alt="了解我们"/></a></div>
+        <!--爱情鲜花-->
+        <div class="love_flower">
+            <?php
+                foreach($middle as $v) {
+                    ?>
+                    <div class="love-l-left">
+                        <div class="left-title">
+                            <h1><a href="javascript:;" title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
+                            <ul>
+                                <?php
+                                foreach($v['category'] as $val) {
+                                    ?>
+                                        <li><a href="#"><?php echo $val['name']?></a></li>
+                                    <?php
+                                    }
+                                ?>
+                                <li><a href="#"><img src="/cn/images/index-smallSJ.png" alt="图标"/> 全部鲜花</a></li>
+                            </ul>
+                        </div>
+                        <div class="bottom_pic">
+                            <ul>
+                                <?php
+                                foreach($v['flower'] as $val) {
+                                    ?>
+                                        <li>
+                                            <div class="propic"><a href="/flower/detail.asp?ID=534" target="_blank"><img
+                                                        src="<?php echo $val['defaultImage']?>"></a></div>
+                                            <div class="protit"><a href="/flower/detail.asp?ID=534" target="_blank"><?php echo $val['name']?></a>
+                                            </div>
+                                            <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
+                                            <div class="proprice">￥<?php echo $val['price']?>.00</div>
+                                        </li>
+                                    <?php
+                                    }
+                                ?>
+                            </ul>
+                        </div>
+                    </div>
+                <?php
+                }
+            ?>
+            <div class="love-l-right">
+                <div class="love-r-title">
+                    花间意销售排行榜
+                </div>
+                <div class="r-con">
+                    <ul>
+<?php
+    foreach($top as $k => $v) {
+        if($k == 3){break;}
+        ?>
+        <li>
+            <div class="r-c-left">
+                <span><?php echo $k+1?></span>
+                <img src="<?php echo $v['image']?>" alt="flower">
+            </div>
+            <div class="r-c-right">
+                <h4><?php echo $v['name']?></h4>
+                <b><?php echo $v['price']?></b>
+
+                <p>销量：<span><?php echo $v['number']?></span>束</p>
+                <a href="#">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a href="#">购买</a>
+            </div>
+            <div class="clearfloat"></div>
+        </li>
+    <?php
+    }
+?>
+                        <?php
+                        foreach($top as $k => $v) {
+                            if ($k < 3) {
+                                continue;
+                            }
+                            ?>
+                            <li>
+                                <div class="phb-l">
+                                    <b><?php echo $k+1?></b>
+                                    <span><?php echo $v['name']?></span>
+                                </div>
+                                <div class="phb-c"><?php echo $v['price']?></div>
+                                <div class="phb-r"><span><?php echo $v['number']?></span>束</div>
+                                <div class="clearfloat"></div>
+                            </li>
+                        <?php
+                        }
+                        ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="clearfloat"></div>
+        </div>
+        <?php
+        foreach($foot as $v) {
+            ?>
+            <?php
+            if($v['type'] == 2) {
+                ?>
+                <div class="shengri_title">
+                    <h1><a href="javascript:;"  title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
+
+                    <div class="more">
+                        <?php
+                        foreach($v['category'] as $val) {
+                            ?>
+                            <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
+                        <?php
+                        }
+                        ?>
+                        <a href="#" target="_blank">更多&gt;&gt;</a>
+                    </div>
+                </div>
+                <div class="shengri_content">
+                    <div class="bottom_pic">
+                        <ul>
+                            <?php
+                            foreach($v['flower'] as $val) {
+                                ?>
+                                <li>
+                                    <div class="propic">
+                                        <a href="#" target="_blank">
+                                            <img src="<?php echo $val['defaultImage']?>" title="flower"/>
+                                        </a>
+                                    </div>
+                                    <div class="protit">
+                                        <a href="#" target="_blank"><?php echo $val['name']?></a>
+                                    </div>
+                                    <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
+                                    <div class="proprice">￥<?php echo $val['price']?></div>
+                                </li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+            <?php
+            if($v['type'] == 1) {
+                ?>
+                <div class="shengri_title">
+                    <h1><a href="javascript:;" title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
+
+                    <div class="more">
+                        <?php
+                        foreach($v['category'] as $val) {
+                            ?>
+                            <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
+                        <?php
+                        }
+                        ?>
+                        <a href="#" target="_blank">更多&gt;&gt;</a>
+                    </div>
+                </div>
+                <div class="shengri_content">
+                    <div class="top_pic">
+                        <ul>
+                            <?php
+                            $left = unserialize($v['left']);
+                            ?>
+                            <li class="first">
+                                <a href="<?php echo $left['url']?>" target="_blank">
+                                    <img src="<?php echo $left['image']?>" width="295" height="260">
+                                </a>
+                            </li>
+                            <?php
+                            $middleImage = unserialize($v['middle']);
+                            ?>
+                            <li class="mid">
+                                <a href="<?php echo $middleImage['url']?>" target="_blank">
+                                    <img src="<?php echo $middleImage['image']?>" width="586" height="260">
+                                </a>
+                            </li>
+                            <?php
+                            $right = unserialize($v['right']);
+                            ?>
+                            <li class="last">
+                                <a href="<?php echo $right['url']?>" target="_blank">
+                                    <img src="<?php echo $right['image']?>" width="295" height="260">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bottom_pic">
+                        <ul>
+                            <?php
+                            foreach($v['flower'] as $val) {
+                                ?>
+                                <li>
+                                    <div class="propic"><a href="#" target="_blank"><img
+                                                src="<?php echo $val['defaultImage']?>"></a></div>
+                                    <div class="protit"><a href="#"
+                                                           target="_blank"><?php echo $val['name']?></a>
+                                    </div>
+                                    <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
+                                    <div class="proprice">￥<?php echo $val['price']?></div>
+                                </li>
+                            <?php
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
+        <?php
+        }
+        ?>
+
+    </div>
+</div>
+<div class="caseBox">
+    <div class="case-yuding">
+        <div class="case-title">
+            <h2>蛋糕预定</h2>
+            <a href="#">更多蛋糕&gt;&gt;</a>
+            <div class="clearfloat"></div>
+        </div>
+        <div class="case-bot">
+            <ul>
+                <?php
+                foreach($cake as $v) {
+                    ?>
+                    <li>
+                        <div class="img-box">
+                            <a href="#"><img src="<?php echo $v['defaultImage']?>" alt="图片"/></a>
+                        </div>
+                        <h4><a href="#"><?php echo $v['name']?></a></h4>
+
+                        <p>￥<?php echo $v['price']?></p>
+                        <span>已售<b>6668</b>束</span>
+                    </li>
+                <?php
                 }
                 ?>
             </ul>
         </div>
     </div>
-</section>
-<!--社区内容-->
-<section>
-    <div class="w12 clearfix content-wrap">
-        <div class="left fl">
-            <div class="lc-1 bg-f">
-                <!--热帖-->
-                <div class="lc-tit">
-                    <div class="ic-wrap inb"><img src="/cn/images/ic-2.png" alt=""></div>
-                    <span class="lc-tit-word">最新话题</span>
-                    <a class="fr more" data-page="10" href="/topic_square.html"> 更多</a>
-                </div>
-                <div class="topic-list clearfix">
-                    <?php foreach ($newTopic as $n) { ?>
-                        <a href="/topic/<?php echo $n['id'] ?>.html"><?php echo $n['name'] ?></a>
-                        <?php
-                    }
-                    ?>
-
-                </div>
-                <!--APP下载-->
-                <div class="lc-tit">
-                    <div class="ic-wrap inb" style="line-height: 32px"><img src="/cn/images/ic-3.png" alt=""></div>
-                    <span class="lc-tit-word">APP下载</span>
-                </div>
-                <ul class="app-list">
-                    <li>
-                        <div class="app-img inb">
-                            <img src="/cn/images/icon-1.png" alt="">
-                            <p>雷哥GMAT</p>
-                        </div>
-                        <div class="download inb">
-                            <!--                            <p class="app-name">GMAT APP</p>-->
-                            <div class="inb erm-wrap2">
-                                <div class="erm-img2"><img src="/cn/images/erm-1.png" alt=""></div>
-                                <div class="logo-wrap">
-                                    <img class="logo" src="/cn/images/logo-1.png" alt="">
-                                    <span>IOS</span>
-                                    <!--                                <div class="erm-wrap"><img src="/cn/images/erm-1.png" alt=""></div>-->
-                                </div>
-                            </div>
-                            <div class="inb erm-wrap2">
-                                <div class="erm-img2"><img src="/cn/images/erm-1B.png" alt=""></div>
-                                <div class="logo-wrap">
-                                    <img class="logo" src="/cn/images/logo-2.png" alt="">
-                                    <span>安卓</span>
-                                    <!--                                <div class="erm-wrap"><img src="/cn/images/erm-1.png" alt=""></div>-->
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="app-img inb">
-                            <img src="/cn/images/icon-2.png" alt="">
-                            <p>雷哥托福</p>
-                        </div>
-                        <div class="download inb">
-                            <!--                            <p class="app-name">托福 APP</p>-->
-                            <div class="inb erm-wrap2">
-                                <div class="erm-img2"><img src="/cn/images-common/toeflQrCode.jpg" alt=""></div>
-                                <div class="logo-wrap">
-                                    <img class="logo" src="/cn/images/logo-1.png" alt="">
-                                    <span>IOS</span>
-                                    <!--                                <div class="erm-wrap"><img src="/cn/images/erm-1.png" alt=""></div>-->
-                                </div>
-                            </div>
-                            <!--                            <p class="app-name">托福 APP</p>-->
-                            <div class="inb erm-wrap2">
-                                <div class="erm-img2"><img src="/cn/images/erm-2B.png" alt=""></div>
-                                <div class="logo-wrap">
-                                    <img class="logo" src="/cn/images/logo-1.png" alt="">
-                                    <span>安卓</span>
-                                    <!--                                <div class="erm-wrap"><img src="/cn/images/erm-1.png" alt=""></div>-->
-                                </div>
-                            </div>
-                        </div>
-
-                    </li>
-                </ul>
-            </div>
-            <!--社区帖子导航-->
-            <div class="bg-f lc-2">
-                <ul class="post-list tm clearfix">
-                    <li>
-                        <a href="/">
-                            <div class="postNav-1">
-                                <img src="/cn/images/c-1.png" alt="">
-                                <P>全部帖子</P>
-                            </div>
-                            <img class="crow-3" src="/cn/images/crow-3.png" alt="">
-                        </a>
-                    </li>
-                    <?php
-                    foreach ($firstCategory as $v) {
-                        ?>
-                        <li <?php echo $pid == $v['id'] ? 'class="on"' : '' ?>>
-                            <a href="/post/<?php echo $v['id'] ?>.html#<?php echo $v['id'] ?>">
-                                <div class="postNav-1" id="<?php echo $v['id'] ?>">
-                                    <img src="<?php echo $v['image'] ?>" alt="">
-
-                                    <P style="color: #444444;"><?php echo $v['name'] ?></P>
-                                </div>
-                                <img class="crow-3" src="/cn/images/crow-3.png" alt="">
-                            </a>
-                        </li>
-                        <?php
-                    }
-                    ?>
-                </ul>
-                <div class="post-nav2">
-                    <?php
-                    if ($pid) {
-                        ?>
-                        <ul class="post-list2  clearfix" style="display: block">
-                            <?php
-                            foreach ($secondCategory as $v) {
-                                ?>
-                                <li <?php echo $catId == $v['id'] ? 'class="on"' : '' ?>>
-                                    <a href="/post/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a>
-                                </li>
-                                <?php
-                            }
-                            ?>
-                        </ul>
-                        <?php
-                    }
-                    ?>
-                </div>
-
-            </div>
-            <!--            帖子信息-->
-            <div class="chart bg-f">
-                <span>今日新贴：<span class="light"><?php echo $today?></span></span>
-                <span class="pipe">|</span>
-                <span>昨日发贴：<span class="light"><?php echo $lastDay?></span></span>
-                <span class="pipe">|</span>
-                <span>贴子总数：<span class="light"><?php echo $count?></span></span>
-<!--                <span class="pipe">|</span>-->
-<!--                <span>欢迎新成员：<span> iblisk</span></span>-->
-            </div>
-            <!--帖子列表-->
-            <div class="bg-f lc-3">
-                <ul class="post-list3">
-                    <?php
-                    foreach ($data as $v) {
+    <div class="case-yuding c-ml">
+        <div class="case-title">
+            <h2>花篮预定</h2>
+            <a href="#">更多花篮&gt;&gt;</a>
+            <div class="clearfloat"></div>
+        </div>
+        <div class="case-bot">
+            <ul>
+                <?php
+                    foreach($basket as $v) {
                         ?>
                         <li>
-                            <div class="user-head inb"><img
-                                    src="<?php echo isset($v['image']) ? $v['image'] : '/cn/img/noavatar_big.gif' ?>"
-                                    alt=""></div>
-                            <div class="post-info inb">
-                                <div class="post-tit">
-                                    <span><?php echo $v['catName'] ?></span>
-                                    <?php
-                                    if ($v['hot']) {
-                                        ?>
-                                        <span>HOT</span>
-                                        <?php
-                                    }
-                                    ?>
-                                    <a href="/post/details/<?php echo $v['id'] ?>.html"><?php echo $v['title'] ?></a>
-                                </div>
-
-                                <div class="publish-info clearfix">
-
-                                    <!--                                        <span class="author-name">-->
-                                    <?php //echo $v['nickname'] ? $v['nickname'] : $v['userName'] ?><!--</span>-->
-                                    <div class="author-info">
-                                        <span class="author-name"><?php echo $v['nickname'] ? $v['nickname'] : $v['username'] ?></span>
-                                        <span class="show-time">发布于 <?php echo $v['dateTime'] ?></span>
-                                    </div>
-
-                                    <?php
-                                    if ($v['replySign']) {
-                                        ?>
-                                        <!--                                        <div class="author-info">-->
-                                        <!--                                        <span class="reply-data">--><?php //echo $v['replyName'] ?><!--最后回复于 --><?php //echo date("Y-m-d H:i", $v['replyTime']) ?><!-- </span>-->
-                                        <!--                                        </div>-->
-                                        <div class="author-info">
-                                            <span class="author-date" title=""><?php echo $v['replyName'] ?></span>
-                                            <span class="show-time"
-                                                  title="09:01">最后回复于&nbsp;<span><?php echo date("Y-m-d H:i", $v['replyTime']) ?></span></span>
-                                        </div>
-                                        <?php
-                                    }
-                                    ?>
-                                    <div class="fans_numbox">
-                                        <span>查看：<span class="light"><?php echo $v['viewCount'] ?></span></span>|
-                                                <span>回复：<span class="light"><?php echo $v['replyCount'] ?></span>
-                                            </span>
-                                    </div>
-                                </div>
-                                <div class="picturedisplay">
-                                    <div class="thumblist ">
-                                        <?php
-                                        $images = unserialize($v['imageContent']);
-                                        foreach ($images as $val) {
-                                            ?>
-                                            <span onclick="showPicture(this);"><img
-                                                    src="http://gossip.gmatonline.cn<?php echo $val ?>" alt=""></span>
-                                            <?php
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="picturebox xs-image">
-                                        <div class="picturecontrol x-act"
-                                             style=" color: #9699a3;    padding-bottom: 20px;">
-                                            <a class="x-btn" onclick="closePicture(this);"
-                                               href="javascript:;">
-                                                <img src="/cn/images/Icon_shouqi.png">
-                                                收起
-
-                                            </a>
-                                            &nbsp;&nbsp;&nbsp;
-
-                                            <a class="icon_viewlarge x-btn" href="#" target="_blank">
-                                                <img src="/cn/images/Icon_chakandatu.png">
-                                                查看大图</a>
-                                            &nbsp;&nbsp;&nbsp;
-
-                                            <a class="icon_turnleft x-btn" onclick="turnImg(this);" href="javascript:;">
-                                                <img src="/cn/images/Icon_xuanzhuan.png">
-                                                旋转
-                                            </a>
-
-                                        </div>
-                                        <div class="bigpicture">
-                                            <div class="picturewrap" onclick="closePicture(this);"
-                                                 style="margin: 20px;">
-                                                <img deg="0" class="picture" src="/cn/images/nopic.jpg">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <p class="post-de"><?php echo $v['cnContent'] ?></p>
-
+                            <div class="img-box">
+                                <a href="#"><img src="<?php echo $v['defaultImage']?>" alt="图片"/></a>
                             </div>
-                        </li>
-                        <?php
-                    }
-                    ?>
-                </ul>
-                <div class="show-more tm">
-                    <a href="/post/list/<?php echo $selectId ?>.html">查看更多>></a>
-                </div>
-            </div>
-        </div>
-        <?php use app\commands\front\RightWidget; ?>
-        <?php RightWidget::begin(); ?>
-        <?php RightWidget::end(); ?>
-</section>
-</body>
+                            <h4><a href="#"><?php echo $v['name']?></a></h4>
 
+                            <p>￥<?php echo $v['price']?></p>
+                            <span>已售<b>6668</b>束</span>
+                        </li>
+                    <?php
+                    }
+                ?>
+            </ul>
+        </div>
+    </div>
+    <div class="clearfloat"></div>
+
+</div>
+<div class="kuaijie">
+    <ul class="k-ul01">
+        <?php
+            foreach($keywords as $k => $v) {
+                if($k >=9){
+                    break;
+                }
+                ?>
+                <li><a href="<?php echo $v['url']?>" <?php echo $v['type'] == 2?'class="bg01"':'class="bg02"'?>><?php echo $v['name']?></a></li>
+            <?php
+            }
+        ?>
+    </ul>
+    <ul class="k-ul02">
+        <?php
+        foreach($keywords as $k => $v) {
+            if($k <9){
+                continue;
+            }
+            ?>
+            <li><a href="<?php echo $v['url']?>" <?php echo $v['type'] == 2?'class="bg01"':'class="bg02"'?>><?php echo $v['name']?></a></li>
+        <?php
+        }
+        ?>
+        <li><a href="#" class="color">查看更多&gt;&gt;</a></li>
+    </ul>
+</div>
+<div id="footer">
+    <div class="bottom_trust"></div>
+    <div class="bottom_help">
+        <div class="list">
+            <strong>客户服务</strong>
+            <ul>
+                <li><a href="#" target="_blank">关于我们</a></li>
+                <li><a href="#" target="_blank">VIP会员</a></li>
+                <li><a href="#" target="_blank">隐私条款</a></li>
+                <li><a href="#" target="_blank">安全条款</a></li>
+                <li><a href="#" target="_blank">服务声明</a></li>
+            </ul>
+        </div>
+        <div class="list">
+            <strong>购物指南</strong>
+            <ul>
+                <li><a href="#" target="_blank">购物须知</a></li>
+                <li><a href="#" target="_blank">购物流程</a></li>
+                <li><a href="#" target="_blank">常见问题</a></li>
+                <li><a href="#" target="_blank">联系我们</a></li>
+                <li><a href="#" target="_blank">送花礼仪</a></li>
+            </ul>
+        </div>
+        <div class="list">
+            <strong>支付方式</strong>
+            <ul>
+                <li><a href="#" target="_blank">快捷支付</a></li>
+                <li><a href="#" target="_blank">在线支付</a></li>
+                <li><a href="#" target="_blank">货到付款</a></li>
+                <li><a href="#" target="_blank">在线补款</a></li>
+            </ul>
+        </div>
+        <div class="list">
+            <strong>配送方式</strong>
+            <ul>
+                <li><a href="#" target="_blank">配送说明</a></li>
+                <li><a href="#" target="_blank">定时配送</a></li>
+                <li><a href="#" target="_blank">发票说明</a></li>
+                <li><a href="#" target="_blank">配送范围及费用</a></li>
+
+            </ul>
+        </div>
+        <div class="list">
+            <strong>售后服务</strong>
+            <ul>
+                <li><a href="#" target="_blank">关于投诉</a></li>
+                <li><a href="#" target="_blank">订单查询</a></li>
+                <li><a href="#" target="_blank">订单修改</a></li>
+                <li><a href="#" target="_blank">订单取消</a></li>
+                <li><a href="#" target="_blank">品质标准</a></li>
+            </ul>
+        </div>
+        <div class="qrcode" id="site_qrcode">
+            <img src="/cn/images/qrcode_360flower.png" width="86" height="86">
+            <div>微信订花更快捷</div>
+        </div>
+        <div class="service">
+            <div class="kefu">客服电话</div>
+            <div class="tel400" id="site_tel400">400-XXX-XXX</div>
+            <div class="msg">周一至周日 8:30-18:00</div>
+            <div class="online"><a href="#" target="_blank">在线客服</a></div>
+        </div>
+    </div>
+</div>
+<div class="bottom_last">
+    <a href="#" target="_blank"><img src="/cn/images/pay_alipay1.gif"  border="0"></a>
+    <a href="#" target="_blank"><img src="/cn/images/pay_yeepay.gif"  border="0"></a>
+    <a href="#" target="_blank"><img src="/cn/images/pay_paypal1.gif"  border="0"></a>
+    <img src="/cn/images/f_icp.gif"  border="0">
+    <img src="/cn/images/trust_star.gif" alt="网站信用"  border="0">
+    <img src="/cn/images/footer-icon01.gif" alt="icon"  border="0">
+    <img src="/cn/images/footer-icon02.gif" alt="icon"  border="0">
+    <img src="/cn/images/footer-icon03.png" alt="icon"  border="0">
+    <p>Copyright© 2005-2017 花间意电子商务有限公司 版权所有，并保留所有权利。 www.521huadian.com All rights reserved</p>
+</div>
+<div id="backtop"></div>
+<script type="text/javascript" src="/cn/js/zxkf.js"></script>
+</body>
 </html>

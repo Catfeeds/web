@@ -24,52 +24,24 @@ $config = [
 
         'content' => [
 
-                    'class'=>'app\modules\content\ContentModule'
-
-                ],
-
-        'basic' => [
-
-            'class'=>'app\modules\basic\BasicModule'
+            'class'=>'app\modules\content\ContentModule'
 
         ],
+        'goods' => [
 
-
-
-        'user' => [
-
-            'class'=>'app\modules\user\UserModule'
+            'class'=>'app\modules\goods\GoodsModule'
 
         ],
+        'home' => [
 
+            'class'=>'app\modules\home\HomeModule'
 
-
+        ],
         'cn' => [
 
             'class'=>'app\modules\cn\CnModule'
 
         ],
-
-
-
-        'hot' => [
-
-            'class'=>'app\modules\hot\HotModule'
-
-        ],
-
-        'recommend' => [
-
-            'class'=>'app\modules\recommend\RecommendModule'
-
-        ],
-
-        'pay' => [
-
-            'class'=>'app\modules\pay\PayModule'
-
-        ],
-
     ],
 
     'components' => [
@@ -136,50 +108,37 @@ $config = [
 
              'showScriptName' => false,
 
-             //'suffix' => '.html',
+            'rules' => [
+                ''=>'cn/index',
 
-             'rules' => [
-                 ''=>'cn/index',
+                'post/<selectId:\d+>.html' => 'cn/index/index',
 
-                 'cn/heard/mo-kao.html'=>'cn/heard/mo-kao',
+                'add.html' => 'cn/post/add-post',
 
-                 'cn/heard'=>'error',
+                'flower-list.html' => 'cn/flower/list',
 
-                 'post/<selectId:\d+>.html' => 'cn/index/index',
+                'flower/HJY<number:\d+>.html' => 'cn/flower/details',
 
-                 'add.html' => 'cn/post/add-post',
+                'gossip/details/<id:\d+>.html' => 'cn/gossip/index',
 
-                 'gossip/<selectId:\d+>.html' => 'cn/index/gossip',
+                'post/list/<catId:\d+>.html' => 'cn/index/post-list',
 
-                 'post/details/<id:\d+>.html' => 'cn/post/index',
+                'post/list/<catId:\d+>/<page:\d+>.html' => 'cn/index/post-list',
 
-                 'gossip/details/<id:\d+>.html' => 'cn/gossip/index',
+                'gossip/list/<catId:\d+>.html' => 'cn/index/gossip-list',
 
-                 'post/list/<catId:\d+>.html' => 'cn/index/post-list',
+                'gossip/list/<catId:\d+>/<page:\d+>.html' => 'cn/index/gossip-list',
 
-                 'post/list/<catId:\d+>/<page:\d+>.html' => 'cn/index/post-list',
+                'search/<keywords>.html' => 'cn/index/search-list',
 
-                 'gossip/list/<catId:\d+>.html' => 'cn/index/gossip-list',
+                'search/<keywords>/<page:\d+>.html' => 'cn/index/search-list',
 
-                 'gossip/list/<catId:\d+>/<page:\d+>.html' => 'cn/index/gossip-list',
+                'listening/<id:\d+>/<type:\d+>/<num:\d+>.html' => 'cn/heard/careful-listening',
 
-                 'gossip/list.html' => 'cn/index/gossip-list',
+                'lock/<catId:\d+>.html' => 'cn/index/lock',
 
-                 'topic_square.html' => 'cn/topic/topic-list',  //话题广场
+            ],
 
-                 '/cn/question/<topicId:\d+>-<questionId:\d+>.html' =>'/cn/topic/question',
-
-                 'search/<keywords>.html' => 'cn/index/search-list',
-
-                 'search/<keywords>/<page:\d+>.html' => 'cn/index/search-list',
-
-                 'listening/<id:\d+>/<type:\d+>/<num:\d+>.html' => 'cn/heard/careful-listening',
-
-                 'lock/<catId:\d+>.html' => 'cn/index/lock',
-
-                 'topic/<topicId:\d+>.html' => 'cn/topic/index',
-
-             ],
 
          ],
 

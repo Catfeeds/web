@@ -317,6 +317,11 @@ function uc_user_edit_integral($username,$behavior,$type,$integral) {
     return $return;
 }
 
+function uc_user_edit_integral1($uid,$behavior,$type,$integral) {
+    $return = call_user_func(UC_API_FUNC, 'user', 'integral_edit1', array('uid'=>$uid,'behavior' => $behavior,'type' => $type,'integral' => $integral));
+    return $return;
+}
+
 function uc_user_synlogin($uid) {
 	$uid = intval($uid);
 	if(@include UC_ROOT.'./data/cache/apps.php') {
@@ -377,18 +382,9 @@ function uc_user_getprotected() {
 	return UC_CONNECT == 'mysql' ? $return : uc_unserialize($return);
 }
 
-function uc_user_integral1($uid,$limit="",$where=""){
-	$return = call_user_func(UC_API_FUNC, 'user', 'get_integral1', array('where' => $where, 'uid' => $uid, 'limit' => $limit));
-	return uc_unserialize($return);
-}
 function uc_get_user($username, $isuid=0) {
 	$return = call_user_func(UC_API_FUNC, 'user', 'get_user', array('username'=>$username, 'isuid'=>$isuid));
 	return UC_CONNECT == 'mysql' ? $return : uc_unserialize($return);
-}
-
-function uc_get_username($str) {
-    $return = call_user_func(UC_API_FUNC, 'user', 'get_username', array('str'=>$str));
-    return $return;
 }
 
 function uc_user_merge($oldusername, $newusername, $uid, $password, $email) {

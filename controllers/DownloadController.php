@@ -13,15 +13,14 @@ class DownloadController extends ApiControl
     {
 
         $file = substr($_GET['file'],1);
-        $fileName = $_GET['fileName'];
-        $this->downfile($file,$fileName);
+        $this->downfile($file);
     }
-    public function downfile($file,$fileName)
+    public function downfile($file)
     {
         if (file_exists($file)) {
 // 输入文件标签
             header ("Content-type: octet/stream");
-            header ("Content-disposition: attachment; filename=".$fileName.";");
+            header ("Content-disposition: attachment; filename=".$file.";");
             header("Content-Length: ".filesize($file));
             readfile($file);
         } else {

@@ -5,20 +5,20 @@ define('IN_DISCUZ', TRUE);
 define('UC_CLIENT_VERSION', '1.5.0');	//note UCenter 版本标识
 define('UC_CLIENT_RELEASE', '20081031');
 
-define('API_DELETEUSER', 1);		//note 用户删除 API 接口开关
-define('API_RENAMEUSER', 1);		//note 用户改名 API 接口开关
-define('API_GETTAG', 1);		//note 获取标签 API 接口开关
-define('API_SYNLOGIN', 1);		//note 同步登录 API 接口开关
-define('API_SYNLOGOUT', 1);		//note 同步登出 API 接口开关
-define('API_UPDATEPW', 1);		//note 更改用户密码 开关
-define('API_UPDATEBADWORDS', 1);	//note 更新关键字列表 开关
-define('API_UPDATEHOSTS', 1);		//note 更新域名解析缓存 开关
-define('API_UPDATEAPPS', 1);		//note 更新应用列表 开关
-define('API_UPDATECLIENT', 1);		//note 更新客户端缓存 开关
-define('API_UPDATECREDIT', 1);		//note 更新用户积分 开关
-define('API_GETCREDITSETTINGS', 1);	//note 向 UCenter 提供积分设置 开关
-define('API_GETCREDIT', 1);		//note 获取用户的某项积分 开关
-define('API_UPDATECREDITSETTINGS', 1);	//note 更新应用积分设置 开关
+define('API_DELETEUSER', 1);		//note 用户删除 API 接口开�?
+define('API_RENAMEUSER', 1);		//note 用户改名 API 接口开�?
+define('API_GETTAG', 1);		//note 获取标签 API 接口开�?
+define('API_SYNLOGIN', 1);		//note 同步登录 API 接口开�?
+define('API_SYNLOGOUT', 1);		//note 同步登出 API 接口开�?
+define('API_UPDATEPW', 1);		//note 更改用户密码 开�?
+define('API_UPDATEBADWORDS', 1);	//note 更新关键字列�?开�?
+define('API_UPDATEHOSTS', 1);		//note 更新域名解析缓存 开�?
+define('API_UPDATEAPPS', 1);		//note 更新应用列表 开�?
+define('API_UPDATECLIENT', 1);		//note 更新客户端缓�?开�?
+define('API_UPDATECREDIT', 1);		//note 更新用户积分 开�?
+define('API_GETCREDITSETTINGS', 1);	//note �?UCenter 提供积分设置 开�?
+define('API_GETCREDIT', 1);		//note 获取用户的某项积�?开�?
+define('API_UPDATECREDITSETTINGS', 1);	//note 更新应用积分设置 开�?
 
 define('API_RETURN_SUCCEED', '1');
 define('API_RETURN_FAILED', '-1');
@@ -84,7 +84,7 @@ class uc_note {
     function __construct(){
         require_once DISCUZ_ROOT . './libs/ucenter/include/db_mysql.class.php';
         $this->dbLink = new dbstuff;
-        $this->dbLink->connect('rm-2zey73j5g3cwl2sji.mysql.rds.aliyuncs.com', 'syzxleigewang', '4q8YmF48E78y', 'gossip', 0, true, 'utf-8');
+        $this->dbLink->connect('rm-2zey73j5g3cwl2sji.mysql.rds.aliyuncs.com', 'syzxleigewang', '4q8YmF48E78y', 'db_order', 0, true, 'utf-8');
     }
 
 	function _serialize($arr, $htmlon = 0) {
@@ -143,58 +143,8 @@ class uc_note {
 		if(!API_SYNLOGIN) {
 			return API_RETURN_FORBIDDEN;
 		}
-        $sql = "set names utf8";
-        $this->dbLink->query($sql);
-        $sql = "select * from x2_user WHERE  uid=$uid";
-        $u = $this->dbLink->fetch_first($sql);
-        if (!$u) {
-            $time = time();
-            $sql = "INSERT INTO x2_user (`username`,`email`,`password`,`phone`,`createTime`,`uid`,`roleId`) VALUES ('{$username}','{$email}','".md5($password)."','{$phone}','{$time}','{$uid}',4)";
-            $this->dbLink->query($sql);
-            $userId = $this->dbLink->insert_id();
-            $data = array(
-                'username' => $username,
-                'email' => $email,
-                'phone' => $phone,
-                'image' => '',
-                'nickname' => '',
-                'id' => $userId,
-                'roleId' => 4
-            );
-        } else {
-            if($phone != $u['phone']){
-                $sql = "UPDATE x2_user SET phone = '$phone' WHERE uid = $uid";
-                $this->dbLink->query($sql);
-            }
-            if($email != $u['email']){
-                $sql = "UPDATE x2_user SET email = '$email' WHERE uid = $uid";
-                $this->dbLink->query($sql);
-            }
-            if($username != $u['username']){
-                $sql = "UPDATE x2_user SET username = '$username' WHERE uid = $uid";
-                $this->dbLink->query($sql);
-            }
-
-            if(md5($password) != $u['password']){
-                $sql = "UPDATE x2_user SET password = '$password' WHERE uid = $uid";
-                $this->dbLink->query($sql);
-            }
-
-            if($u['roleId'] == ''){
-                $sql = "UPDATE x2_user SET roleId = 4 WHERE uid = $uid";
-                $this->dbLink->query($sql);
-            }
-
-            if(time()-strtotime($u['lastSignIn'])>86400){
-                $sql = "UPDATE x2_user SET continuousSign = 0 WHERE uid = $uid";
-                $this->dbLink->query($sql);
-            }
-            $sql = "select * from x2_user WHERE  uid=$uid";
-            $u = $this->dbLink->fetch_first($sql);
-            $data = $u;
-        }
         $_SESSION['uid'] = $uid;
-        $_SESSION['userData'] = $data;
+        $_SESSION['username'] = $username;
 		header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
 //		_setcookie('Example_auth', _authcode($uid."\t".$username, 'ENCODE'));
 	}
@@ -259,7 +209,7 @@ class uc_note {
 		}
 		$UC_API = $post['UC_API'];
 
-		//note 写 app 缓存文件
+		//note �?app 缓存文件
 		$cachefile = $this->appdir.'./uc_client/data/cache/apps.php';
 		$fp = fopen($cachefile, 'w');
 		$s = "<?php\r\n";
@@ -267,7 +217,7 @@ class uc_note {
 		fwrite($fp, $s);
 		fclose($fp);
 
-		//note 写配置文件
+		//note 写配置文�?
 		if(is_writeable($this->appdir.'./config.inc.php')) {
 			$configfile = trim(file_get_contents($this->appdir.'./config.inc.php'));
 			$configfile = substr($configfile, -2) == '?>' ? substr($configfile, 0, -2) : $configfile;
@@ -326,7 +276,7 @@ class uc_note {
 	}
 }
 
-//note 使用该函数前需要 require_once $this->appdir.'./config.inc.php';
+//note 使用该函数前需�?require_once $this->appdir.'./config.inc.php';
 function _setcookie($var, $value, $life = 0, $prefix = 1) {
 	global $cookiepre, $cookiedomain, $cookiepath, $timestamp, $_SERVER;
 	setcookie(($prefix ? $cookiepre : '').$var, $value,

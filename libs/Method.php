@@ -39,7 +39,7 @@ class Method
      */
     public static function orderNumber()
     {
-        $orderNumber = 'toefl'.time().rand(0,9);
+        $orderNumber = 'lgw'.time().rand(0,9);
         return $orderNumber;
     }
 
@@ -78,91 +78,18 @@ class Method
     }
 
     /**
-     * post请求
-     * @param $url
-     * @param string $post_data
-     * @param int $timeout
-     * @return mixed
+     * 生成字符串
+     * @param $i
+     * @return string
      * @Obelisk
      */
-    public static  function post($url, $post_data = '', $timeout = 5){//curl
-
-        $ch = curl_init();
-
-        curl_setopt ($ch, CURLOPT_URL, $url);
-
-        curl_setopt ($ch, CURLOPT_POST, 1);
-
-        if($post_data != ''){
-
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_data);
-
+    public static function randStr($i){
+        $str = "abcdefghijklmnopqrstuvwxyz";
+        $finalStr = "";
+        for($j=0;$j<$i;$j++)
+        {
+            $finalStr .= substr($str,rand(0,25),1);
         }
-
-        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
-
-        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
-
-        curl_setopt($ch, CURLOPT_HEADER, false);
-
-        $file_contents = curl_exec($ch);
-
-        curl_close($ch);
-
-        return $file_contents;
-
+        return $finalStr;
     }
-
-    public static function getStrImage($str){
-        $pattern="/<[img|IMG].*?src=[\'|\"](.*?(?:[\.gif|\.jpg]))[\'|\"].*?[\/]?>/";
-
-        preg_match_all($pattern,$str,$match);
-
-        return $match[1];
-    }
-
-    public static function sensitiveWords($str){
-        $allergicWord = explode(",",Yii::$app->params['sensitiveWords']);
-        for ($i=0;$i<count($allergicWord);$i++){
-            $content = substr_count($str, $allergicWord[$i]);
-            if($content>0){
-                $info = $allergicWord[$i];
-                break;
-            }
-        }
-        if($info>0){
-            return ['code' => 0,'info' => $info];
-        }else{
-            //没有违法字符
-            return ['code' => 1,'info' => ''];
-        }
-    }
-
-    public static function time_tran($the_time) {
-        $now_time = time();
-        $show_time = $the_time;
-        $dur = $now_time - $show_time;
-        if ($dur < 0) {
-            return $the_time;
-        } else {
-            if ($dur < 60) {
-                return $dur . '秒前';
-            } else {
-                if ($dur < 3600) {
-                    return floor($dur / 60) . '分钟前';
-                } else {
-                    if ($dur < 86400) {
-                        return floor($dur / 3600) . '小时前';
-                    } else {
-                        if ($dur < 259200) {//3天内
-                            return floor($dur / 86400) . '天前';
-                        } else {
-                            return date("Y-m-d",$the_time);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 }

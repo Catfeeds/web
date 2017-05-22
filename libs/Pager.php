@@ -14,12 +14,11 @@ class Pager
     private $totalNum;
 
     private $totalPagesCount;
-    private $pageClass;
 
     private $pageUrl;
     private static $_instance;
 
-    public function __construct($p_totalNum, $p_pageIndex, $p_pageSize = 10,$pageClass = 'iPage', $p_initNum = 3, $p_initMaxNum = 5)
+    public function __construct($p_totalNum, $p_pageIndex, $p_pageSize = 10, $p_initNum = 3, $p_initMaxNum = 5)
     {
         if (!isset ($p_totalNum) || !isset($p_pageIndex)) {
             die ("pager initial error");
@@ -30,7 +29,6 @@ class Pager
         $this->pageSize = $p_pageSize;
         $this->initNum = $p_initNum;
         $this->initMaxNum = $p_initMaxNum;
-        $this->pageClass = $pageClass;
         $this->totalPagesCount = ceil($p_totalNum / $p_pageSize);
 
         $this->_initPagerLegal();
@@ -59,9 +57,9 @@ class Pager
         //首页 上一页
         if( $this->pageIndex>0 && $this->totalPagesCount>0){
             if ($this->pageIndex == 1) {
-                $str .= '<li class="'.$this->pageClass.' on">1</li>';
+                $str .= '<li class="iPage on">1</li>';
             } else {
-                $str .= '<li class="'.$this->pageClass.'">1</li>';
+                $str .= '<li class="iPage">1</li>';
             }
         }
         /*
@@ -74,7 +72,7 @@ class Pager
                 if ($i == $this->pageIndex) {
                     $currnt = "class='on'";
                 } else {
-                    $currnt = "class='$this->pageClass'";
+                    $currnt = "class='iPage'";
                 }
                 $str .= "<li {$currnt}>$i</li>";
             }
@@ -86,7 +84,7 @@ class Pager
                     if ($i == $this->pageIndex) {
                         $currnt = " class='on'";
                     } else {
-                        $currnt = "class='$this->pageClass'";
+                        $currnt = "class='iPage'";
                     }
                     $str .= "<li {$currnt}>$i</li>";
                 }
@@ -99,7 +97,7 @@ class Pager
                     if ($i == $this->pageIndex) {
                         $currnt = " class='on'";
                     } else {
-                        $currnt = "class='$this->pageClass'";
+                        $currnt = "class='iPage'";
                     }
                     $str .= "<li {$currnt}>$i</li>";
 
@@ -113,7 +111,7 @@ class Pager
                     if ($i == $this->pageIndex) {
                         $currnt = " class='on'";
                     } else {
-                        $currnt = "class='$this->pageClass'";
+                        $currnt = "class='iPage'";
                     }
                     $str .= "<li {$currnt}>$i</li>";
                 }
@@ -126,7 +124,7 @@ class Pager
                     if ($i == $this->pageIndex) {
                         $currnt = " class='on'";
                     } else {
-                        $currnt = "class='$this->pageClass'";
+                        $currnt = "class='iPage'";
                     }
                     $str .= "<li {$currnt}>$i</li>";
 
@@ -141,7 +139,7 @@ class Pager
             if ($this->pageIndex == $this->totalPagesCount) {
                 $str .= '<li class="on">'.$this->totalPagesCount.'</li>';
             } else {
-                $str .= '<li class="'.$this->pageClass.'">'.$this->totalPagesCount.'</li>';
+                $str .= '<li class="iPage">'.$this->totalPagesCount.'</li>';
             }
         }
         return $str;

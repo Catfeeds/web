@@ -16,7 +16,7 @@ class AlipayPay {
     /**
      * @var String 收款支付宝账号
      */
-    public $seller_email = 'leigefinance@thinkwithu.com';
+    public $seller_email = 'lgwfinance@thinkwithu.com';
 
     /**
      * @var String 安全检验码，以数字和字母组成的32位字符
@@ -50,13 +50,13 @@ class AlipayPay {
      * @var String 服务器异步通知页面路径
      * 需http://格式的完整路径，不能加?id=123这类自定义参数
      */
-    public $notify_url = 'http://www.toeflonline.cn/pay/order/notify-url';
+    public $notify_url = 'http://shop.toeflonline.cn/pay/order/notify-url';
 
     /**
      * @var String 页面跳转同步通知页面路径
      * 需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
      */
-    public $return_url = 'http://www.toeflonline.cn/pay/order/return-url';
+    public $return_url = 'http://shop.toeflonline.cn/pay/order/return-url';
     public $extra_common_param = '';
 
     function __construct() {

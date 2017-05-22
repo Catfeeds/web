@@ -1,45 +1,61 @@
-`<script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" src="/ueditor/ueditor.config.js"></script>
 <!-- 编辑器源码文件 -->
 <script type="text/javascript" src="/ueditor/ueditor.all.min.js"></script>
-<!-- 编辑器公式插件 -->
-<script type="text/javascript" charset="utf-8" src="/ueditor/kityformula-plugin/addKityFormulaDialog.js"></script>
-<script type="text/javascript" charset="utf-8" src="/ueditor/kityformula-plugin/getKfContent.js"></script>
-<script type="text/javascript" charset="utf-8" src="/ueditor/kityformula-plugin/defaultFilterFix.js"></script>
-<script type="text/javascript" src="/My97DatePicker/WdatePicker.js"></script>
+<div class="span10" id="datacontent">
+    <ul class="breadcrumb">
+        <li><a href="/content/index/index">内容模块</a> <span class="divider">/</span></li>
+        <li><a href="/content/category/index">分类管理</a> <span class="divider">/</span></li>
+        <li class="active">添加分类</li>
+    </ul>
+    <form action="/content/category/add" method="post" class="form-horizontal">
+        <fieldset>
+            <div class="control-group">
+                <label for="modulename" class="control-label">父级分类</label>
+                <div class="controls">
+                    <select name="data[pid]">
+                        <option value="0">一级分类</option>
+                        <?php
+                            foreach($category as $v) {
+                                ?>
+                                <option <?php echo isset($data['pid'])&&$data['pid'] == $v['id']?"selected":''?>  value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
+                            <?php
+                            }
+                        ?>
+                    </select>
+                </div>
+            </div>
 
-    <div class="row control-tit wrapper border-bottom white-bg">
-        <span>添加分类</span>
-    </div>
-    <div>
-        <form action="/content/category/add" method="post">
-            <input type="hidden" name="uid" value="<?php  echo $uid?>">
-            <input type="hidden" name="id" value="<?php echo isset($data['id'])?$data['id']:'' ?>">
-            父级分类：
-            <input name="pid" class="easyui-combotree" value="<?php echo isset($parent['id'])?$parent['id']:' ' ?>" data-options="url:'/content/api/tree?pid=0&id=<?php echo $parent['id'] ?>',method:'get'" style="width:200px;">
-            分类名称：<input type="text" name="name" value="<?php echo isset($data['name'])?$data['name']:'' ?>">
-            分类图片：<input type="text" class="imageFile" name="img" value="<?php echo isset($data['image']) ? $data['image'] : '' ?>" placeholder="图片地址">
-            <a href="#" class="btn btn-info" onclick="upImage();">上传图片</a>
-            分类排序：<input type="text" name="sort" value="<?php echo isset($data['sort'])?$data['sort']:'' ?>">
-            八卦类型：<select name="gossip" id="">
-                <option <?php if((isset($data['gossipType'])?$data['gossipType']:'0')==0){ ?> selected="selected" <?php } ?> value="0">不是备考八卦</option>
-                <option <?php if((isset($data['gossipType'])?$data['gossipType']:'0')==1){ ?> selected="selected" <?php } ?> value="1">Gmat</option>
-                <option <?php if((isset($data['gossipType'])?$data['gossipType']:'0')==2){ ?> selected="selected" <?php } ?> value="2">托福</option>
-                <option <?php if((isset($data['gossipType'])?$data['gossipType']:'0')==3){ ?> selected="selected" <?php } ?> value="3">留学</option>
-                <option <?php if((isset($data['gossipType'])?$data['gossipType']:'0')==4){ ?> selected="selected" <?php } ?> value="4">雅思</option>
-            </select>
-            <input type="submit" value="<?php echo isset($data['id'])? '修改':'提交' ?>">
-        </form>
-    </div>
+            <div class="control-group">
+                <label for="modulename" class="control-label">分类名称</label>
+                <div class="controls">
+                    <input type="text" id="input1" name="data[name]" value="<?php echo isset($data['name'])?$data['name']:''?>" datatype="userName" needle="needle" msg="您必须输入中英文字符的分类名称">
+                    <span class="help-block">请输入分类名称</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="moduledescribe" class="control-label">分类图片</label>
+                <div class="controls">
+                    <div style="margin-bottom: 10px" id="InputsWrapper">
+                                  <span>
+                                      <input type="text" class="imageFile"   name="data[image]" value="<?php echo isset($data['image'])?$data['image']:''?>" placeholder="图片地址">
+                                  </span>
+                        <br>
+                        <br>
+                    </div>
+                    <a href="#" class="btn btn-info" onclick="upImage();">上传图片</a>
+                </div>
+            </div>
 
-<script type="text/plain" id="j_ueditorupload"></script>
-<script>
-    $('.main').tree({
-        onLoadSuccess: function (newValue, oldValue) {
-            $('.main').combotree('setValue', <?php echo isset($data['pid'])?$data['pid']:''?>);
-        }
-    })
-</script>
-<script>
+            <div class="control-group">
+                <div class="controls">
+                    <input name="id" type="hidden" value="<?php echo isset($id)?$id:''?>">
+                    <input type="submit"  class="btn btn-primary" value="提交">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script type="text/javascript">
     //实例化编辑器
     var o_ueditorupload = UE.getEditor('j_ueditorupload',
         {
@@ -67,9 +83,19 @@
 
         });
     });
+
+    //弹出图片上传的对话框
     function upImage()
     {
         var myImage = o_ueditorupload.getDialog("insertimage");
         myImage.open();
     }
+    //弹出文件上传的对话框
+    //    function upFiles()
+    //    {
+    //        var myFiles = o_ueditorupload.getDialog("attachment");
+    //        myFiles.open();
+    //    }
+
 </script>
+<script type="text/plain" id="j_ueditorupload"></script>

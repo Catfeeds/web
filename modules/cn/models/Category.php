@@ -1,49 +1,26 @@
-<?php
-
+<?php 
 namespace app\modules\cn\models;
 use yii\db\ActiveRecord;
-class Category extends ActiveRecord
-{
-    public $allCatArr = [];
+class Category extends ActiveRecord {
     public static function tableName(){
-        return '{{%category}}';
+            return '{{%category}}';
     }
 
-    public function getCategory($catId){
-        $arr = [];
-        $sign = $this->find()->asArray()->where("id=$catId")->one();
-        if($sign['pid']){
-            $sign = $this->find()->asArray()->where("id={$sign['pid']}")->one();
-            array_unshift($arr,['id' => $sign['id'],'name' => $sign['name']]);
+    public function getNavigationCategory(){
+        $data = $this->find()->asArray()->where('head=1')->orderBy('sort ASC')->all();
+        foreach($data as $k=>$v){
+            $data[$k]['child'] = $this->find()->asArray()->where('pid='.$v['id'])->orderBy('sort ASC')->limit(5)->all();
         }
-        if($sign['pid']){
-            $sign = $this->find()->asArray()->where("id={$sign['pid']}")->one();
-            array_unshift($arr,['id' => $sign['id'],'name' => $sign['name']]);
-        }
-        return $arr;
+        return $data;
     }
 
-    /**
-     * 获取下拉框
-     * @param $id
-     * @Obelisk
-     */
-    public function getAllCatArr($id){
-        $arr = $this->find()->asArray()->where("pid=$id")->orderBy('sort ASC')->all();
-        if($arr){
-            $this->allCatArr[] = $arr;
-            $this->getFirstCatArr($arr);
+    public function getAllCategory(){
+        $data = $this->find()->asArray()->where("type = 1 AND pid =0")->orderBy('sort ASC')->all();
+        foreach($data as $k => $v){
+            $child = $this->find()->asArray()->where("pid={$v['id']}")->orderBy('sort ASC')->all();
+            array_unshift($child,['name' => '全部','id' => $v['id']]);
+            $data[$k]['child']=$child;
         }
-        return $this->allCatArr;
-    }
-
-    private function getFirstCatArr($arr){
-        if(isset($arr[0])){
-            $arrNext =  $this->find()->asArray()->where("pid={$arr[0]['id']}")->orderBy('sort ASC')->all();
-            if($arrNext){
-                $this->allCatArr[] = $arrNext;
-                $this->getFirstCatArr($arrNext);
-            }
-        }
+        return $data;
     }
 }

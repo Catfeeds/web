@@ -1,55 +1,84 @@
-<div class="sidebar-collapse">
-    <ul class="nav metismenu" id="side-menu">
-        <li class="nav-header">
-            <div class="dropdown profile-element"> <span>
-                    <img alt="image" class="img-circle" src="<?php echo !empty($user['image'])?$user['image']:'/css/coreCss/new/img/profile_small.jpg' ?>" />
-                </span>
-                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                    <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><?php echo !empty($user['nickname'])?$user['nickname']: $user['username']?></strong>
-                        </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
-                <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                    <li><a href="profile.html">Profile</a></li>
-                    <li><a href="contacts.html">Contacts</a></li>
-                    <li><a href="mailbox.html">Mailbox</a></li>
-                    <li class="divider"></li>
-                    <li><a href="/user/login/login-out">Logout</a></li>
-                </ul>
-            </div>
-            <div class="logo-element">
-                IN+
-            </div>
-        </li>
-        <?php
-        foreach($data as $key=>$v){
-            if(isset($v['children'])) {
-                ?>
-                <li <?php if (strstr($_SERVER['REQUEST_URI'], $v['path'])) { ?> class="active" <?php } ?>>
-                    <a href="<?php echo $v['path'] ?>"><i class="fa fa-th-large"></i> <span
-                            class="nav-label"><?php echo $v['name'] ?></span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <?php
-                        foreach ($v['children'] as $va) { ?>
-                            <li<?php if (strstr($_SERVER['REQUEST_URI'], $va['path'])) { ?> class="active" <?php } ?> >
-                                <a href="<?php echo $va['path'] ?>"><?php echo $va['name'] ?></a></li>
-                            <?php
-                        }
-                        ?>
-                        <?php if ($key == 0) { ?>
-                            <li <?php if (strstr($_SERVER['REQUEST_URI'], 'basic/index/index')) { ?> class="active" <?php } ?> ><a href="/basic/index/index">模块管理</a></li>
-                            <?php
-                        }
-                        ?>
-                    </ul>
-                </li>
-                <?php
-            } else { ?>
-                <li <?php if (strstr($_SERVER['REQUEST_URI'], $v['path'])) { ?> class="active" <?php } ?>>
-                    <a href="<?php echo $v['path'] ?>index/index"><i class="fa fa-diamond"></i> <span class="nav-label"><?php echo $v['name'] ?></span></a>
-                </li>
-                <?php
-            }
-        }
-        ?>
-    </ul>
- </div>
 
+<ul class="nav nav-tabs nav-stacked">
+<?php $module = Yii::$app->controller->module->id;
+    $controller = Yii::$app->controller->id;
+?>
+    <?php
+        if($module == 'content') {
+            ?>
+            <li>
+                <a href="/content/category/index">鲜花分类</a>
+            </li>
+            <li>
+                <a href="/content/basket/index">花篮分类</a>
+            </li>
+            <li>
+                <a href="/content/cake/index">蛋糕分类</a>
+            </li>
+        <?php
+        }
+    ?>
+    <?php
+    if($module == 'goods') {
+        ?>
+        <li>
+            <a href="/goods/flower/index">鲜花管理</a>
+        </li>
+        <li>
+            <a href="/goods/basket/index">花篮管理</a>
+        </li>
+        <li>
+            <a href="/goods/cake/index">蛋糕管理</a>
+        </li>
+    <?php
+    }
+    ?>
+    <?php
+    if($module == 'home') {
+        ?>
+        <li>
+            <a href="/home/picture/picture">轮播图管理</a>
+        </li>
+        <li>
+            <a href="/home/recommend/index">推荐管理</a>
+        </li>
+        <li>
+            <a href="/home/module/index">模块管理</a>
+        </li>
+        <li>
+            <a href="/home/navigation/index">顶部导航</a>
+        </li>
+        <li>
+            <a href="/home/stick/index">置顶图片</a>
+        </li>
+        <li>
+            <a href="/home/top/index">排行榜</a>
+        </li>
+        <li>
+            <a href="/home/especially/index">推荐分类</a>
+        </li>
+        <li>
+            <a href="/home/keywords/index">底部关键字</a>
+        </li>
+        <li>
+            <a href="/home/bottom/index">搜索栏底部连接</a>
+        </li>
+        <li>
+            <a href="/home/phone/index">联系电话</a>
+        </li>
+        <li>
+            <a href="/home/about/index">了解我们</a>
+        </li>
+        <li>
+            <a href="/home/append/index">附件组件</a>
+        </li>
+        <li>
+            <a href="/home/feast/index">节日特价</a>
+        </li>
+        <li>
+            <a href="/home/hot-sell/index">热销推荐</a>
+        </li>
+    <?php
+    }
+    ?>
+</ul>

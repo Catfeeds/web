@@ -1,149 +1,65 @@
-<link rel="stylesheet" href="/cn/css/header.css">
-<?php
-    $loginOut = Yii::$app->session->get('loginOut');
-    if($loginOut){
-        echo $loginOut;
-        Yii::$app->session->remove('loginOut');
-    }
-?>
-<!--头部灰色条-->
-<div class="greyNav">
-    <div class="inGrey">
-        <div class="leftNav">
-            <ul>
-                <li>
-                    <img src="/cn/images-common/index_kevinIcon.png" alt="图标"/>
-                </li>
-                <li><a href="http://www.gmatonline.cn/">GMAT</a></li>
-                <li><a href="http://www.toeflonline.cn/" >TOEFL</a></li>
-                <li><a href="http://ielts.gmatonline.cn/">IELTS</a></li>
-                <li><a href="http://smartapply.gmatonline.cn/">留学</a></li>
-                <li>|</li>
-                <li><span>400-1816-180</span></li>
-                <li><a href="tencent://message/?uin=1746295647&Site=www.cnclcy&Menu=yes">在线咨询</a></li>
-            </ul>
+<div id="topbar">
+    <div id="top">
+        <div class="welcome">欢迎来到花间意鲜花店，12年老牌花店，品质有保障！</div>
+        <div class="topnav">
+            <a href="login.html">您好，请登录</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <a href="register.html">免费注册</a>
+            <a href="#" target="_blank">我的账户</a><em>|</em>
+            <a href="#" target="_blank" class="cart">购物车<strong><span id="cart_nmb">0</span></strong>件</a><em>|</em>
+            <a href="#" target="_blank">订单查询</a><em>|</em>
+            <a href="#" target="_blank">付款方式</a><em>|</em>
+            <a href="#" target="_blank">订单补款</a><em>|</em>
+            <a href="#" target="_blank">帮助中心</a><em>|</em>
+            <a href="#" target="_blank">祝福语大全</a>
         </div>
-        <div class="fl nav-de">互联网一站式托福备考平台</div>
-        <div class="rightLogin">
-            <?php
-            if(!$uid) {
-            ?>
-            <div class="loginBefore">
-                <input type="button" value="登陆" onclick="userLogin()"/>
-                <input type="button" value="注册" onclick="userRegister()"/>
-            </div>
-            <?php
-            }else {
-            ?>
-            <!--登陆之后展示-->
-            <div class="loginAfter">
-                <div class="whiteDiv"><img src="<?php echo '/cn/img/noavatar_big.gif' ?>" alt="用户头像"></div>
-                <div class="leftFont">
-                    <span><?php echo $userData['nickname']?$userData['nickname']:$userData['username']?>
-<!--                        （--><?php //echo Yii::$app->params['levelName'][$userData['level']]?><!--）-->
-                    </span>
-                    <i class="fa fa-angle-down"></i>
-                </div>
-                <div class="clearB"></div>
-                <!--下拉-->
-                <div class="xiala-con">
-                    <ul>
-                        <li><a href="/cn/user/index">个人中心</a></li>
-                        <li><a href="javascript:void(0);"  onclick="loginOut(this)">退出</a></li>
-                    </ul>
-                </div>
-            </div>
-            <?php
-            }
-            ?>
-        </div>
-        <!--        app下载-->
-        <div class="appDownload">
-            <span title="app下载" class="tit_t">APP <b></b></span>
-            <div class="pull_down">
-                <ul>
-                    <li>
-                        <div class="first_layer">
-                            <img src="/cn/images-common/gmatapp_logo.jpg" alt="app logo图标"/>
-                            <span>雷哥GMAT</span>
-                        </div>
-                        <div class="code_box">
-                            <img src="/cn/images-common/leigeQrCode.png" alt="app二维码图片"/>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="first_layer">
-                            <img src="/cn/images-common/toeflapp_logo.jpg" alt="app logo图标"/>
-                            <span>雷哥托福</span>
-                        </div>
-                        <div class="code_box">
-                            <img src="/cn/images-common/toeflQrCode.jpg" alt="app二维码图片"/>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!--        app下载 end-->
-        <div class="clearBr"></div>
     </div>
 </div>
 
-<?php
-$controller = Yii::$app->controller->id;
-    if($controller != 'user') {
-        ?>
-        <section>
-            <div class="w12 search clearfix bg-f">
-                <div class="fl"><a href="/"><img src="/cn/images/t-1.png" alt=""></a></div>
-                <div class="search-wrap fr">
-                    <div class="inb ic-1" onclick="searchList()"><img src="/cn/images/ic-1.png" alt=""></div>
-                    <input class="search-int" type="text">
-                </div>
-            </div>
-        </section>
-    <?php
-    }
-?>
-
-<script type="text/javascript">
-    function searchList(){
-        var keywords = $('.search-int').val();
-        if(keywords == ''){
-            alert('请输入关键字');
-        }else{
-            location.href="/search/"+keywords+'.html';
-        }
-    }
-
-    /**
-     * 登录框
-     */
-    function userLogin(){
-//        $('.maskLayer').show();
-//        $('.login').show();
-        location.href="http://login.gmatonline.cn/cn/index?source=8&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
-
-    }
-    /**
-     * 注册框
-     */
-    function userRegister(){
-        location.href="http://login.gmatonline.cn/cn/index/register?source=8&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
-    }
-    /**
-     * 用户退出
-     */
-    function loginOut(_this){
-        $.post('/cn/api/login-out',{},function(re){
-            var controller = $(_this).attr('data-value');
-            var action = $(_this).attr('data-title');
-            if(controller == 'person'){
-                window.location.href="/"
-            }else{
-                window.location.reload()
-            }
-        },'json')
-    }
-
-</script>
-
+<div id="header">
+    <div class="logo"><a href="#"><img src="/cn/images/logo.png" alt="中国鲜花快递网"></a></div>
+    <div class="header_right"></div>
+    <div class="search">
+        <form name="form1" method="post" action="#">
+            <span class="search-icon"></span>
+            <input name="sch" type="text" class="sch"
+                   onfocus="if (this.value==this.defaultValue) this.value='';"
+                   onblur="if (this.value=='') this.value=this.defaultValue;" value="请输入花束名称或编号">
+            <input class="btn" type="submit" name="Submit2" value="搜索">
+        </form>
+        <span><?php
+                foreach($bottom as $k => $v) {
+                    ?>
+                    <?php echo $v['name']?><?php echo $k != (count($bottom)-1)?' | ':'' ?>
+                <?php
+                }
+            ?>
+        </span>
+    </div>
+</div>
+<div class="nav-top-word"> <span>市(县)级城区最快1小时送达，郊区(乡镇)3小时内送达！</span></div>
+<div id="mainnav_wrap">
+    <div id="mainnavbar">
+        <div class="mainnav">
+            <ul>
+                <li class="first"><a href="javascript:;" target="_blank">全部鲜花分类</a></li>
+                <li><a class="hot" href="/"><span></span><b>首页</b></a></li>
+                <?php
+                    foreach($navigation as $v) {
+                        ?>
+                        <li><a href="<?php echo $v['url']?>" target="_blank"><?php echo $v['name']?></a></li>
+                    <?php
+                    }
+                ?>
+            </ul>
+        </div>
+        <div class="main-r-zixun">
+            <img src="/cn/images/index-phone.png" alt="电话图标"/>
+            <span><?php echo $phone['phone']?></span>
+            <a href="#">
+                <img src="/cn/images/index-zixun.png" alt="咨询图标"/>
+                <span>在线咨询</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div id="menuarea">

@@ -49,9 +49,9 @@ class GoodsPager
             // 上一页
             if( $this->page>0 && $this->totalPagesCount>0){
                 if ($this->page == 1) {
-                    $str .= '<li class="grey">&lt;</li>';
+                    $str .= '<span class="hid"><span class="page-go">&lt; </span>上一页</span>';
                 } else {
-                    $str .= '<li class="prev">&lt;</li>';
+                    $str .= '<a class="prev" href="javascript:;"><span class="page-go">&lt;</span>上一页</a>';
                 }
             }
             /*
@@ -62,22 +62,20 @@ class GoodsPager
             if ($this->totalPagesCount <= $this->pageNum) {
                 for ($i = 1; $i <= $this->totalPagesCount; $i++) {
                     if ($i == $this->page) {
-                        $currnt = "class='on'";
+                        $str .= "<b>$i</b>";
                     } else {
-                        $currnt = "class='iPage'";
+                        $str .= "<a class='iPage' href='javascript:;'>$i</a>";
                     }
-                    $str .= "<li {$currnt}>$i</li>";
                 }
             } else                                //10页以上
             {
                 if($this->page<=(1+$this->pageAdd)){
                     for ($i = 1; $i <= $this->pageNum; $i++) {
                         if ($i == $this->page) {
-                            $currnt = "class='on'";
+                            $str .= "<b>$i</b>";
                         } else {
-                            $currnt = "class='iPage'";
+                            $str .= "<a class='iPage' href='javascript:;'>$i</a>";
                         }
-                        $str .= "<li {$currnt}>$i</li>";
                     }
                 }
                 if($this->page<=($this->totalPagesCount-$this->pageAdd) && $this->page>(1+$this->pageAdd)){
@@ -85,21 +83,19 @@ class GoodsPager
                     $end = $this->page+$this->pageAdd;
                     for ($i = $first; $i <= $end; $i++) {
                         if ($i == $this->page) {
-                            $currnt = "class='on'";
+                            $str .= "<b>$i</b>";
                         } else {
-                            $currnt = "class='iPage'";
+                            $str .= "<a class='iPage' href='javascript:;'>$i</a>";
                         }
-                        $str .= "<li {$currnt}>$i</li>";
                     }
                 }
                 if($this->page>($this->totalPagesCount-$this->pageAdd)){
                     for ($i = $this->totalPagesCount-$this->pageNum+1; $i <= $this->totalPagesCount; $i++) {
                         if ($i == $this->page) {
-                            $currnt = "class='on'";
+                            $str .= "<b>$i</b>";
                         } else {
-                            $currnt = "class='iPage'";
+                            $str .= "<a class='iPage' href='javascript:;'>$i</a>";
                         }
-                        $str .= "<li {$currnt}>$i</li>";
                     }
                 }
             }
@@ -109,9 +105,9 @@ class GoodsPager
             //下一页 末页
 
             if ($this->page == $this->totalPagesCount) {
-                $str .= '<li class="grey">&gt;</li>';
+                $str .= '<span class="hid">下一页<span class="page-go"> &gt; </span></span>';
             } else {
-                $str .= '<li class="next">&gt;</li>';
+                $str .= '<a class="next" href="javascript:;">下一页<span class="page-go"> &gt;</span></a>';
             }
             return $str;
         }
