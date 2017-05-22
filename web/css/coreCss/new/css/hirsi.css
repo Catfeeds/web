@@ -1,0 +1,137 @@
+.control-tit {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding: 15px 20px!important;
+}
+.addRole{
+    padding-left: 50px;
+    text-align: right;
+
+}
+
+.tb1 {
+    margin-top: 20px;
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tb1 thead th {
+    text-align: center;
+}
+
+.tb1 tbody tr {
+    border-top: 1px solid #b6b6b6;
+    border-bottom: 1px solid #b6b6b6;
+}
+
+.tb1 tbody td {
+    font-size: 14px;
+    font-family: Arial, 宋体;
+    line-height: 21px;
+    padding: 15px 0;
+    color: #8f8f8f;
+}
+
+.tb1 thead th {
+    font-weight: normal;
+    padding: 10px 0;
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+.tb1 .handle a {
+    cursor: pointer;
+    text-align: center;
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.tb1 a.alter {
+    border-right: 1px solid #b6b6b6;
+}
+/*分页*/
+.pageSize{
+    text-align: center;
+}
+.pageSize li{
+    cursor: pointer;
+    font-family: 宋体;
+    margin-right: 15px;
+    display: inline-block;
+    font-size: 14px;
+    line-height: 30px;
+    box-shadow: rgba(0, 0, 0, 0.156863) 0px 0px 1px 1px;
+    color: rgb(153, 153, 153);
+    padding: 0px 13px;
+    background: rgb(245, 245, 245);
+}
+.pageSize li.on{
+    background: #83c527 !important;
+    color: #ffffff !important;
+}
+/*表格内容*/
+.table-container {
+    width: 100%;
+    overflow: auto;
+    _overflow: auto;
+    margin: 20px 0;
+    background: #ffffff;
+    border-radius: 5px;
+}
+.table-container th{
+    font-size: 16px;
+    text-align: center;
+}
+.table-container .tc-handle{
+    width: 150px;
+}
+
+.table-container td, .table-container th {
+    padding: 4px 7px;
+    border: 1px solid #999;
+}
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
+.tm{
+    text-align: center;
+}
+.w350{
+    width: 350px;
+}
+.w150{
+    width: 150px;
+}
+.w250{
+    width: 250px;
+}
+.ellipsis {text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.pushCn .pt{
+    width: 100%;
+}
+.pushTit{
+    margin-bottom: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+.over-auto{
+    overflow: auto;
+}
+.info-wrap{
+    padding: 15px 0 15px 15px;
+}
