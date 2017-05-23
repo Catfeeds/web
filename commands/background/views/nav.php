@@ -11,7 +11,7 @@
                             <a href="/content/category/index">分类模块</a>
                         </li>
                         <li class="<?php if (Yii::$app->controller->module->id == 'goods') echo 'active'?>">
-                            <a href="/goods/flower/index">鲜花模块</a>
+                            <a href="/goods/goods/index?type=1">商品模块</a>
                         </li>
                         <li class="<?php if (Yii::$app->controller->module->id == 'home') echo 'active'?>">
                             <a href="/home/picture/picture">设置模块</a>

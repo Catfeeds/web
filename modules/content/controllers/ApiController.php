@@ -24,32 +24,20 @@ class ApiController extends ApiControl {
     {
         $model = new Category();
         $pid = Yii::$app->request->get('pid','0');
-        $type = Yii::$app->request->get('type');
-        $data = $model->getAllCate($pid,$type);
+        $data = $model->getAllCate($pid);
         echo json_encode($data);
 
     }
 
     /**
-     * 获取一级分类
+     * 获取类型的树形分类
      * @Yanni
      */
     public function actionCat(){
         $model = new Category();
-        $pid = Yii::$app->request->get('pid','');
-        $id = Yii::$app->request->get('id','');
-        $data = $model->getAllCat($pid);
-//        $relatedcatid = \Yii::$app->db->createCommand('select Relatedcatid from {{%category}} where id='.$id.' and pid='.$pid)->queryAll();
-        $date = array();
-        foreach($data as $k => $v){
-            $date[$k]['id'] = $v['id'];
-            $date[$k]['text'] = $v['name'];
-//            if($v['id'] ==$relatedcatid[0]['Relatedcatid']){
-//                $date[$k]['checked'] = true;
-//            }
-        }
-//        var_dump($date);die;
-        echo json_encode($date);
+        $type = Yii::$app->request->post('type','');
+        $data = $model->getTree($type);
+        echo json_encode($data);
     }
 
     /**

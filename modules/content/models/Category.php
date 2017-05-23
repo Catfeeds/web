@@ -17,53 +17,22 @@ class Category extends ActiveRecord {
      * @return array
      * @Obelisk
      */
-    public function getAllCate($pid,$type){
-        $data = $this->find()->asArray()->where("pid=$pid AND type=$type")->orderBy('id ASC')->all();
+    public function getAllCate($pid){
+        $data = $this->find()->asArray()->where("pid=$pid")->orderBy('id ASC')->all();
         foreach($data as $k => $v){
             $str = "";
-            if($type == 1) {
-                $str .= '<a href="/content/category/update?id=' . $v['id'] . '">修改</a> ';
-                $str .= ' <a onclick="checkDelete(' . $v['id'] . ')" class="categoryDelete" href="javascript:;">删除</a> ';
-                if ($v['pid'] == 0) {
-                    if ($v['head'] == 1) {
-                        $str .= ' <a  class="categoryDelete" href="/content/category/head?id=' . $v['id'] . '">取消主页</a> ';
-                    } else {
-                        $str .= ' <a  class="categoryDelete" href="/content/category/head?id=' . $v['id'] . '">设为主页</a> ';
-                    }
-
-                }
-                $data[$k]['action'] = $str;
+            $str .= '<a href="/content/category/update?id=' . $v['id'] . '">修改</a> ';
+            $str .= ' <a onclick="checkDelete(' . $v['id'] . ')" class="categoryDelete" href="javascript:;">删除</a> ';
+            if ($v['head'] == 1) {
+                $str .= ' <a  class="categoryDelete" href="/content/category/head?id=' . $v['id'] . '">取消主页</a> ';
+            } else {
+                $str .= ' <a  class="categoryDelete" href="/content/category/head?id=' . $v['id'] . '">设为主页</a> ';
             }
-            if($type == 2) {
-                $str .= '<a href="/content/basket/update?id=' . $v['id'] . '">修改</a> ';
-                $str .= ' <a onclick="checkDelete(' . $v['id'] . ')" class="categoryDelete" href="javascript:;">删除</a> ';
-                if ($v['pid'] == 0) {
-                    if ($v['head'] == 1) {
-                        $str .= ' <a  class="categoryDelete" href="/content/basket/head?id=' . $v['id'] . '">取消主页</a> ';
-                    } else {
-                        $str .= ' <a  class="categoryDelete" href="/content/basket/head?id=' . $v['id'] . '">设为主页</a> ';
-                    }
-
-                }
-                $data[$k]['action'] = $str;
-            }
-            if($type == 3) {
-                $str .= '<a href="/content/cake/update?id=' . $v['id'] . '">修改</a> ';
-                $str .= ' <a onclick="checkDelete(' . $v['id'] . ')" class="categoryDelete" href="javascript:;">删除</a> ';
-                if ($v['pid'] == 0) {
-                    if ($v['head'] == 1) {
-                        $str .= ' <a  class="categoryDelete" href="/content/cake/head?id=' . $v['id'] . '">取消主页</a> ';
-                    } else {
-                        $str .= ' <a  class="categoryDelete" href="/content/cake/head?id=' . $v['id'] . '">设为主页</a> ';
-                    }
-
-                }
-                $data[$k]['action'] = $str;
-            }
-            $data[$k]['sort'] = '<input style="width: 30px;" type="text" onkeyup="changeSort(' . $v['id'] . ',\'category\',this)" value="' . $v['sort'] . '" name="sort"></span>';
+            $data[$k]['action'] = $str;
+        $data[$k]['sort'] = '<input style="width: 30px;" type="text" onkeyup="changeSort(' . $v['id'] . ',\'category\',this)" value="' . $v['sort'] . '" name="sort"></span>';
         }
         foreach($data as $k => $v){
-            $childData = $this->getAllCate($v['id'],$type);
+            $childData = $this->getAllCate($v['id']);
             if(count($childData) > 0){
                 $data[$k]['children'] = $childData ;
             }
@@ -99,31 +68,8 @@ class Category extends ActiveRecord {
      * @return array
      * @Obelisk
      */
-    public function getTree($pid,$id='',$show="",$major="",$type="",$data =array()){
-        if($major != ""){
-            $major = " AND isMajor = 1";
-        }
-        if($show != ""){
-            $show = " AND isShow = 1";
-        }
-        $data = \Yii::$app->db->createCommand('select id,name as text from {{%category}} where pid='.$pid.$major.$show)->queryAll();
-        if($id){
-            $idArr = explode(",",$id);
-        }
-        foreach($data as $k => $v){
-            if($id){
-                if(in_array($v['id'],$idArr)){
-                    $data[$k]['checked'] = true;
-                }
-            }
-            if($type == 0){
-                $childData = $this->getTree($v['id'],$id,$show,$major);
-                if(count($childData) > 0){
-                    $data[$k]['children'] = $childData ;
-                }
-            }
-
-        }
+    public function getTree($type){
+        $data = \Yii::$app->db->createCommand('select * from {{%category}} where type='.$type)->queryAll();
         return $data;
     }
 

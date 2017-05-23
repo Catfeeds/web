@@ -9,14 +9,18 @@
 namespace app\modules\goods\controllers;
 
 use app\modules\goods\models\Basket;
-use app\modules\goods\models\BasketCategory;
-use app\modules\goods\models\Cake;
-use app\modules\goods\models\CakeCategory;
+use app\modules\goods\models\Book;
 use app\modules\goods\models\Category;
+use app\modules\goods\models\Course;
+use app\modules\goods\models\En;
+use app\modules\goods\models\Extend;
+use app\modules\goods\models\Goods;
 use app\modules\goods\models\FlowerCategory;
+use app\modules\goods\models\Smart;
+use app\modules\goods\models\Vip;
 use yii;
 use app\libs\AppControl;
-class CakeController extends AppControl {
+class GoodsController extends AppControl {
     function init(){
         parent::init();
     }
@@ -36,6 +40,10 @@ class CakeController extends AppControl {
     {
         $beginTime  = Yii::$app->request->get('beginTime','');
         $page  = Yii::$app->request->get('page',1);
+        $type  = Yii::$app->request->get('type');
+        if($type){
+            Yii::$app->session->set('goodsType',$type);
+        }
         $endTime  = Yii::$app->request->get('endTime','');
         $id  = Yii::$app->request->get('id','');
         $goodsNumber  = Yii::$app->request->get('goodsNumber','');
@@ -76,37 +84,38 @@ class CakeController extends AppControl {
         if($id){
             $where .= " AND f.id = $id";
         }
-        $model = new Cake();
+        $model = new Goods();
         $data = $model->getList($page,$where);
+        $table = $this->getTable();
+        $data['table'] = $table;
         return $this->render('index',$data);
     }
 
     public function actionAdd(){
         if($_POST){
+            $type = Yii::$app->session->get('goodsType');
+            $extend = Extend::find()->asArray()->where("type = $type")->all();
             $data = Yii::$app->request->post('data');
-            $catId = $data['catId'];
-            $model = new Cake();
+            $model = $this->getModel();
             $model->name = $data['name'];
-            $model->goodsNumber = 'zp'.time();
             $model->price = $data['price'];
             $model->createTime = time();
-            $model->createTimeStr = date("Y-m-d");
+            $model->sales = $data['sales'];
             $model->description =  $data['description'];
-            $model->flowerLanguage =  $data['flowerLanguage'];
-            $model->defaultImage =  $data['defaultImage'];
-            $model->imageStr =  $data['imageStr'];
-            $model->save();
-            foreach($catId as $v){
-                $model1 = new CakeCategory();
-                $model1->cakeId = $model->primaryKey;
-                $model1->catId = $v;
-                $model1->save();
+            $model->url =  $data['url'];
+            $model->catId =  $data['catId'];
+            foreach($extend as $v) {
+                $model->$v['value'] = $data[$v['value']];
             }
-            $this->redirect('/goods/cake/index');
+            $model->image =  $data['image'];
+            $model->view =  $data['view'];
+            $model->save();
+            $this->redirect('/goods/goods/index');
         }else{
-            $model = new Category();
-            $category = $model->getAllCate(0,3);
-            return $this->render('add',['category' => $category]);
+            $type = Yii::$app->session->get('goodsType');
+            $category = Category::find()->asArray()->where("pid=0 AND type = $type")->all();
+            $extend = Extend::find()->asArray()->where("type = $type")->all();
+            return $this->render('add',['category' => $category,'extend' => $extend]);
         }
     }
 
@@ -114,50 +123,56 @@ class CakeController extends AppControl {
         if($_POST){
             $id = Yii::$app->request->post('id');
             $data = Yii::$app->request->post('data');
-            $catId = $data['catId'];
-            CakeCategory::deleteAll("cakeId=$id");
-            unset($data['catId']);
-            foreach($catId as $v){
-                $model1 = new CakeCategory();
-                $model1->cakeId = $id;
-                $model1->catId = $v;
-                $model1->save();
-            }
-            Cake::updateAll($data,"id=$id");
-            $this->redirect('/goods/cake/index');
+            $model = $this->getModel();
+            $model->updateAll($data,"id=$id");
+            $this->redirect('/goods/goods/index');
         }else{
+            $type = Yii::$app->session->get('goodsType');
             $id = Yii::$app->request->get('id');
-            $data = Cake::find()->asArray()->where("id=$id")->one();
-            $data['imageArr'] = explode("-",$data['imageStr']);
-            $catStr = "SELECT GROUP_CONCAT(fc.catId) catStr  FROM {{%cake_category}} fc WHERE cakeId = $id GROUP BY fc.cakeId";
-            $catStr = Yii::$app->db->createCommand($catStr)->queryOne();
-            $catStr = $catStr['catStr'];
+            $model = $this->getModel();
+            $data = $model->find()->asArray()->where("id=$id")->one();
             $model = new Category();
-            $category = $model->getAllCate(0,3);
-            return $this->render('update',['data' => $data,'id' => $id,'catStr' => $catStr,'category' => $category]);
+            $extend = Extend::find()->asArray()->where("type = $type")->all();
+            $category = $model->getParentCategory($data['catId']);
+            return $this->render('update',['extend' => $extend,'data' => $data,'id' => $id,'category' => $category]);
         }
     }
 
-    public function actionCakeStatus(){
+    public function actionGoodsStatus(){
         $id = Yii::$app->request->get('id');
-        $sign = Cake::findOne($id);
+        $type = Yii::$app->session->get('goodsType');
+        $model = $this->getModel();
+        $sign = $model->findOne($id);
         if($sign->status == 1){
-            Cake::updateAll(['status' => 2],"id=$id");
+            $model->updateAll(['status' => 2],"id=$id");
         }else{
-            Cake::updateAll(['status' => 1],"id=$id");
+            $model->updateAll(['status' => 1],"id=$id");
         }
-        $this->redirect('/goods/cake/index');
+        $this->redirect('/goods/goods/index?type='.$type);
     }
 
-    public function actionCakeIndex(){
-        $id = Yii::$app->request->get('id');
-        $sign = Cake::findOne($id);
-        if($sign->isIndex == 1){
-            Cake::updateAll(['isIndex' => 2],"id=$id");
-        }else{
-            Cake::updateAll(['isIndex' => 1],"id=$id");
+    private function getModel(){
+        $type = Yii::$app->session->get('goodsType');
+        switch ($type){
+            case 1: $model = new Course();break;
+            case 2: $model = new Smart();break;
+            case 3: $model = new En();break;
+            case 4: $model = new Book();break;
+            case 5: $model = new Vip();break;
         }
-        $this->redirect('/goods/cake/index');
+        return $model;
+    }
+
+    private function getTable(){
+        $type = Yii::$app->session->get('goodsType');
+        switch ($type){
+            case 1: $table = 'course';break;
+            case 2: $table = 'smart';break;
+            case 3: $table = 'en';break;
+            case 4: $table = 'book';break;
+            case 5: $table = 'vip';break;
+        }
+        return $table;
     }
 
 }

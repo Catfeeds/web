@@ -44,7 +44,6 @@ class CategoryController extends AppControl {
             if($id){
                 $re = $model->updateAll($data,'id = :id',[':id' => $id]);
             }else{
-                $data['type'] = 1;
                 $re = Yii::$app->db->createCommand()->insert("{{%category}}",$data)->execute();
             }
             if($re){
@@ -87,7 +86,7 @@ class CategoryController extends AppControl {
         $id = Yii::$app->request->get('id');
         $model = new Category();
         $data = $model->findOne($id);
-        $category = Category::find()->asArray()->where("pid=0 AND type=1")->all();
+        $category = Category::find()->asArray()->where("type=$data->type")->all();
         return $this->render('add',array('category'=> $category,'data' =>$data,'id' => $id));
     }
 

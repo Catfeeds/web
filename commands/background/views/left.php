@@ -7,13 +7,10 @@
         if($module == 'content') {
             ?>
             <li>
-                <a href="/content/category/index">鲜花分类</a>
+                <a href="/content/category/index">分类管理</a>
             </li>
             <li>
-                <a href="/content/basket/index">花篮分类</a>
-            </li>
-            <li>
-                <a href="/content/cake/index">蛋糕分类</a>
+                <a href="/content/extend/index">类别属性</a>
             </li>
         <?php
         }
@@ -22,13 +19,19 @@
     if($module == 'goods') {
         ?>
         <li>
-            <a href="/goods/flower/index">鲜花管理</a>
+            <a href="/goods/goods/index?type=1">课程管理</a>
         </li>
         <li>
-            <a href="/goods/basket/index">花篮管理</a>
+            <a href="/goods/goods/index?type=2">留学</a>
         </li>
         <li>
-            <a href="/goods/cake/index">蛋糕管理</a>
+            <a href="/goods/goods/index?type=3">英语</a>
+        </li>
+        <li>
+            <a href="/goods/goods/index?type=4">书籍</a>
+        </li>
+        <li>
+            <a href="/goods/goods/index?type=5">会员</a>
         </li>
     <?php
     }

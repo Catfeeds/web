@@ -5,7 +5,7 @@ namespace app\modules\goods\models;
 use app\libs\Method;
 use yii\db\ActiveRecord;
 
-class Flower extends ActiveRecord
+class Goods extends ActiveRecord
 {
     public static function tableName()
     {
@@ -13,10 +13,18 @@ class Flower extends ActiveRecord
     }
 
     public function getList($page,$where,$pageSize=10){
+        $type = \Yii::$app->session->get('goodsType');
         $limit = " limit ".($page-1)*$pageSize.",".$pageSize;
-        $order = " order by f.createTime DESC" ;
-        $sql = "select f.id,f.sort,f.status,f.goodsNumber,f.name,f.flowerDes,f.pack,f.price,f.createTimeStr,n.catName from {{%flower}} f LEFT JOIN (SELECT fc.flowerId,GROUP_CONCAT(ca.`name`) catName  FROM {{%flower_category}} fc LEFT JOIN {{%category}} ca on ca.id=fc.catId GROUP BY fc.flowerId )n ON n.flowerId = f.id  WHERE $where $order $limit";
-        $countSql = "select id from {{%flower}} WHERE $where";
+        $order = " order by f.sort DESC" ;
+        switch ($type){
+            case 1: $table = 'course';break;
+            case 2: $table = 'smart';break;
+            case 3: $table = 'en';break;
+            case 4: $table = 'book';break;
+            case 5: $table = 'vip';break;
+        }
+        $sql = "select f.*,n.name as catName from {{%$table}} f LEFT JOIN {{%category}} n ON n.id = f.catId  WHERE $where $order $limit";
+        $countSql = "select id from {{%$table}} WHERE $where";
         $data = \Yii::$app->db->createCommand($sql)->queryAll();
         $count = \Yii::$app->db->createCommand($countSql)->queryAll();
         $pageStr = Method::getPagedRows(['count'=>count($count),'pageSize'=>$pageSize, 'rows'=>'models']);

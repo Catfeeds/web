@@ -10,21 +10,46 @@
     <form action="/content/category/add" method="post" class="form-horizontal">
         <fieldset>
             <div class="control-group">
-                <label for="modulename" class="control-label">父级分类</label>
+                <label for="modulename" class="control-label">分类类型</label>
                 <div class="controls">
-                    <select name="data[pid]">
-                        <option value="0">一级分类</option>
-                        <?php
-                            foreach($category as $v) {
-                                ?>
-                                <option <?php echo isset($data['pid'])&&$data['pid'] == $v['id']?"selected":''?>  value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
-                            <?php
-                            }
-                        ?>
+                    <select onchange="getPidCategory(this)" name="data[type]">
+                        <option value="0">选择分类类型</option>
+                        <option <?php echo isset($data['type'])&&$data['type'] == 1?"selected":''?> value="1">课程分类</option>
+                        <option <?php echo isset($data['type'])&&$data['type'] == 2?"selected":''?> value="2">留学分类</option>
+                        <option <?php echo isset($data['type'])&&$data['type'] == 3?"selected":''?> value="3">英语分类</option>
+                        <option <?php echo isset($data['type'])&&$data['type'] == 4?"selected":''?> value="4">书籍分类</option>
+                        <option <?php echo isset($data['type'])&&$data['type'] == 5?"selected":''?> value="5">会员分类</option>
                     </select>
                 </div>
             </div>
 
+            <?php
+                if(isset($id)) {
+                    ?>
+                    <div class="control-group pcat">
+                        <label for="modulename" class="control-label">父级分类</label>
+                        <div class="controls">
+                        <select onchange="getPidCategory(this)" name="data[pid]">
+                        <option value="0">一级分类</option>
+                        <?php
+                            foreach($category as $v) {
+                                ?>
+                                <option <?php echo isset($data['pid'])&&$data['pid'] == $v['id']?"selected":''?> value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
+                            <?php
+                            }
+                        ?>
+                            </select>
+                    </div>
+                        </div>
+                <?php
+                }else {
+                    ?>
+                    <div class="control-group pcat">
+
+                    </div>
+                <?php
+                }
+            ?>
             <div class="control-group">
                 <label for="modulename" class="control-label">分类名称</label>
                 <div class="controls">
@@ -43,6 +68,13 @@
                         <br>
                     </div>
                     <a href="#" class="btn btn-info" onclick="upImage();">上传图片</a>
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="modulename" class="control-label">是否有SDK</label>
+                <div class="controls" id="checkbox_digui">
+                    <input type="radio" <?php echo isset($data['sdk']) && $data['sdk'] ==1?"checked":""?> name="data[sdk]" value="1"/> 有&nbsp;&nbsp;&nbsp;
+                    <input type="radio" <?php echo isset($data['sdk']) && $data['sdk']==2?"checked":""?> name="data[sdk]" value="2"/> 无
                 </div>
             </div>
 
@@ -99,3 +131,16 @@
 
 </script>
 <script type="text/plain" id="j_ueditorupload"></script>
+<script type="text/javascript">
+    function getPidCategory(_this){
+        var type = $(_this).val();
+        var str = '<label for="modulename" class="control-label">父级分类</label> <div class="controls"> <select name="data[pid]" style="width: 400px" ><option value="0">一级分类</option>'
+        $.post("/content/api/cat",{type:type},function(re){
+            for(var i=0;i<re.length;i++){
+                str += '<option value="'+re[i].id+'">'+re[i].name+'</option>';
+            }
+            str += '</select></div>'
+            $(".pcat").html(str);
+        },'json')
+    }
+</script>
