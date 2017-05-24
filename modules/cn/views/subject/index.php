@@ -27,77 +27,9 @@
     <title>网校课程</title>
 </head>
 <body>
-<!--顶部导航栏-->
-<section id="nav_wrap">
-    <div class="w12 clearfix">　　
-        <ul class="nav_list fl clearfix">
-            <li>
-                <a href="#">雷哥网网校<img src="images/crow_1.png" style="margin-left: 7px" alt=""></a>
-                <dl class="nav2_list">
-                    <dt><a href="#">雷哥网留学</a></dt>
-                    <dt><a href="#">雷哥网GMAT</a></dt>
-                    <dt><a href="#">雷哥网托福</a></dt>
-                    <dt><a href="#">雷哥网雅思</a></dt>
-                </dl>
-            </li>
-            <li><a href="#">首页</a></li>
-            <li><a href="#">学习工具</a></li>
-            <li><a href="#">会员</a></li>
-            <li><a href="#">学习小组</a></li>
-            <li><a href="#">活动</a></li>
-            <li><a href="#">八卦社区</a></li>
-            <li class="shop_car">
-                <div class="shoppingIcon inm relative">
-                    <img src="images/shopping_icon.png" alt="">
-                    <span class="shop_msg ani">1</span>
-                </div>
-                <a href="#">购物车</a>
-            </li>
-        </ul>
-        <!--未登录-->
-        <div class="noLogin fr">
-            <a href="#">登录</a>
-            <span class="fg_line inm"></span>
-            <a href="#">注册</a>
-        </div>
-        <!--已登录-->
-        <div class="yesLogin fr">
-            <div class="common_user_head inm"><img src="images/common_head.png" alt=""></div>
-            <span class="header_username inm">Tina2017</span>
-        </div>
-    </div>
-</section>
-<!--搜索栏-->
-<section id="search_wrap" class="bg_f">
-    <div class="w12">
-        <div class="clearfix">
-            <div class="leige_logo fl">
-                <a href="/">
-                    <img src="images/logo.png" alt="">
-                </a>
-            </div>
-            <div class="search_wrap fl">
-                <span class="search_name inm">选课中心</span>
-                <div class="inm sint_wrap">
-                    <input class="search_int inm" type="search">
-                    <a class="search_btn inm tm" href="javascript:;">搜索</a>
-                </div>
-            </div>
-            <div class="fr search_ermList">
-                <div class="int sint_el">
-                    <div class="erm_k">
-                        <a href="#"><img src="images/erm_1.png" alt=""></a>
-                    </div>
-                    <p class="erm_de">雷哥GMATAPP</p>
-                </div>
-                <div class="int sint_el">
-                    <div class="erm_k"><img src="images/erm_2.png" alt=""></div>
-                    <p class="erm_de">雷哥托福APP</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<?php use app\commands\front\NavWidget; ?>
+<?php NavWidget::begin(); ?>
+<?php NavWidget::end(); ?>
 <!--内容-->
 <section id="interSchool_content" class="bg_g">
     <div class="w12">
@@ -172,7 +104,7 @@
         <!--推荐版块课程-->
         <ul class="bg_f recommend_list">
             <li>
-                <div class="subject_img inm"><img src="images/subject_icon.png" alt=""></div>
+                <div class="subject_img inm"><img src="/cn/images/subject_icon.png" alt=""></div>
                 <p class="ellipsis-2 inm recommend_subject_name">2017年gmat在线强化全程课程</p>
                 <div class="inm recommend_subject_data">
                     <p>时间：2016/6/17至2017/6/30每天17：30</p>
@@ -189,7 +121,7 @@
                 </div>
             </li>
             <li>
-                <div class="subject_img inm"><img src="images/subject_icon.png" alt=""></div>
+                <div class="subject_img inm"><img src="/cn/images/subject_icon.png" alt=""></div>
                 <p class="ellipsis-2 inm recommend_subject_name">2017年gmat在线强化全程课程</p>
                 <div class="inm recommend_subject_data">
                     <p>时间：2016/6/17至2017/6/30每天17：30</p>
@@ -211,7 +143,7 @@
             <div class="left-subject bg_f fl">
                 <ul class="subject_list">
                     <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="images/sub_img.png" alt=""></a></div>
+                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
                         <div class="subject_data inb">
                             <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
                             <dl class="subject_data_wrap">
@@ -229,7 +161,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="images/sub_img.png" alt=""></a></div>
+                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
                         <div class="subject_data inb">
                             <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
                             <dl class="subject_data_wrap">
@@ -247,7 +179,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="images/sub_img.png" alt=""></a></div>
+                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
                         <div class="subject_data inb">
                             <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
                             <dl class="subject_data_wrap">
@@ -265,7 +197,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="images/sub_img.png" alt=""></a></div>
+                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
                         <div class="subject_data inb">
                             <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
                             <dl class="subject_data_wrap">
@@ -283,7 +215,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="images/sub_img.png" alt=""></a></div>
+                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
                         <div class="subject_data inb">
                             <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
                             <dl class="subject_data_wrap">
@@ -301,7 +233,7 @@
                         </div>
                     </li>
                     <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="images/sub_img.png" alt=""></a></div>
+                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
                         <div class="subject_data inb">
                             <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
                             <dl class="subject_data_wrap">
@@ -331,12 +263,12 @@
             <div class="right_ad fr">
                 <div class="bg_f recommend_like_wrap">
                     <div class="rad_tit_wrap">
-                        <img src="images/heart_1.png" alt="">
+                        <img src="/cn/images/heart_1.png" alt="">
                         <span class="inm">猜你喜欢</span>
                     </div>
                     <ul class="like_list">
                         <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="images/r_img.png" alt=""></a></div>
+                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
                             <dl class="int like_data">
                                 <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
                                 <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
@@ -344,7 +276,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="images/r_img.png" alt=""></a></div>
+                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
                             <dl class="int like_data">
                                 <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
                                 <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
@@ -352,7 +284,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="images/r_img.png" alt=""></a></div>
+                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
                             <dl class="int like_data">
                                 <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
                                 <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
@@ -360,7 +292,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="images/r_img.png" alt=""></a></div>
+                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
                             <dl class="int like_data">
                                 <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
                                 <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
@@ -368,7 +300,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="images/r_img.png" alt=""></a></div>
+                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
                             <dl class="int like_data">
                                 <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
                                 <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
@@ -376,7 +308,7 @@
                             </dl>
                         </li>
                         <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="images/r_img.png" alt=""></a></div>
+                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
                             <dl class="int like_data">
                                 <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
                                 <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
@@ -387,9 +319,9 @@
                 </div>
                 <!--广告位-->
                 <ul class="adPosition">
-                    <li><a href="#"><img src="images/ad_1.png" alt=""></a></li>
-                    <li><a href="#"><img src="images/ad_2.png" alt=""></a></li>
-                    <li><a href="#"><img src="images/ad_3.png" alt=""></a></li>
+                    <li><a href="#"><img src="/cn/images/ad_1.png" alt=""></a></li>
+                    <li><a href="#"><img src="/cn/images/ad_2.png" alt=""></a></li>
+                    <li><a href="#"><img src="/cn/images/ad_3.png" alt=""></a></li>
                 </ul>
             </div>
         </div>
@@ -415,24 +347,24 @@
         <ul class="footer-list erm-3-wrap">
             <li><a href="javascript:void(0);">关注我们</a></li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="images/icon-wx.png" alt=""></div>：雷哥GMAT</a>
-                <div class="erm-3"><img src="images/erm-6.jpg" alt=""></div>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥GMAT</a>
+                <div class="erm-3"><img src="/cn/images/erm-6.jpg" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="images/icon-wx.png" alt=""></div>：雷哥托福</a>
-                <div class="erm-3"><img src="images/erm-7.jpg" alt=""></div>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥托福</a>
+                <div class="erm-3"><img src="/cn/images/erm-7.jpg" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="images/icon-wx.png" alt=""></div>：雷哥雅思</a>
-                <div class="erm-3"><img src="images/erm-8.png" alt=""></div>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥雅思</a>
+                <div class="erm-3"><img src="/cn/images/erm-8.png" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="images/icon-wx.png" alt=""></div>：雷哥留学</a>
-                <div class="erm-3"><img src="images/erm-9.jpg" alt=""></div>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥留学</a>
+                <div class="erm-3"><img src="/cn/images/erm-9.jpg" alt=""></div>
             </li>
         </ul>
         <div class="leige-tag inb">
-            <div><img src="images/logo-2.png" alt=""></div>
+            <div><img src="/cn/images/logo-2.png" alt=""></div>
             <div class="ft-tag">
                 <span><em class="point"></em>优质教学</span>
                 <span><em class="point"></em>海量题库</span>
