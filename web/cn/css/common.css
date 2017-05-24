@@ -1,0 +1,338 @@
+.w12 {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.bg_f {
+    background: #fff;
+}
+
+.bg_g {
+    background: #f3f3f3;
+}
+.bg_g2{
+    background: #5afc6a;
+}
+.bg_f2{
+    background: #ffa700;
+}
+
+.pl_20 {
+    padding-left: 20px;
+}
+
+#nav_wrap {
+    background: url("../images/nav_bg.png") no-repeat 0 0;
+    background-size: 100%;
+}
+
+.nav_list {
+    padding-top: 11px;
+}
+
+.nav_list li {
+    float: left;
+    height: 70px;
+    margin-right: 50px;
+    position: relative;
+}
+
+.nav_list li:nth-child(1) {
+    background: #2c2725;
+    margin-left: 10px;
+    /*background: rgba(44, 39, 37, 0.49);*/
+    padding: 0 8px 0 13px;
+}
+
+.nav_list li:nth-child(1):hover .nav2_list {
+    display: block;
+}
+
+.nav_list li:last-child {
+    margin-right: 0;
+}
+
+.nav_list li a {
+    color: #fff;
+    line-height: 70px;
+    font-size: 16px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.nav_list li a:hover{
+    color: #ffa800;
+}
+
+.shoppingIcon {
+    margin-right: 10px;
+}
+
+.shop_msg {
+    color: #fff;
+    font-size: 12px;
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    background: #ffa800;
+    right: -7px;
+    top: -2px;
+}
+
+/*二级菜单栏*/
+.nav2_list {
+    width: 100%;
+    left: 0;
+    zoom: 1;
+    z-index: 999;
+    display: none;
+    position: absolute;
+    /*background: #2c2725;*/
+    background: rgba(44, 39, 37, 0.85);
+}
+
+.nav2_list dt {
+    padding-left: 13px;
+}
+
+.nav2_list dt a {
+    font-size: 16px;
+}
+
+/*登录状态*/
+.noLogin {
+    display: none;
+    padding-top: 33px;
+}
+
+.noLogin a {
+    color: #fff;
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #c5c6c7;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 25px;
+    line-height: 24px;
+    padding: 0 18px;
+    margin-right: 8px;
+}
+
+.noLogin span.fg_line {
+    border-left: 1px solid #c5c6c7;
+    height: 28px;
+    margin: 0 8px;
+
+}
+/*已登录*/
+.yesLogin{
+    margin-top: 20px;
+    height: 45px;
+}
+.common_user_head{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    text-align: center;
+    background: #ffa800;
+}
+.header_username{
+    color: #ffa800;
+    font-size: 14px;
+    height: 45px;
+    line-height: 45px;
+    margin-left: 5px;
+    max-width: 60px;
+    overflow: hidden;
+}
+.username_r{
+    font-size: 12px;
+    color: #ffa800;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 50px;
+}
+
+/*搜索栏*/
+#search_wrap {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.leige_logo {
+    margin-left: 10px;
+}
+
+.search_wrap {
+    margin: 20px 0 0 65px;
+}
+
+.search_name {
+    font-size: 26px;
+    color: #ffa800;
+    margin-right: 15px;
+}
+
+.sint_wrap {
+    border: 1px solid #ffa800;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.search_int {
+    width: 440px;
+    padding: 0 10px;
+    border: none;
+    font-size: 16px;
+    height: 46px;
+}
+
+.search_btn {
+    width: 110px;
+    height: 46px;
+    margin-left: -3px;
+    line-height: 46px;
+    font-size: 20px;
+    outline: none;
+    color: #fff;
+    background: #ffa800;
+}
+
+.search_btn:hover {
+    background: #e49300;
+}
+
+.sint_el:first-child {
+    margin-right: 10px;
+}
+
+.erm_k {
+    width: 75px;
+    height: 75px;
+    overflow: hidden;
+    margin: 0 auto;
+    line-height: 75px;
+    text-align: center;
+}
+
+.erm_de {
+    text-align: center;
+    font-size: 12px;
+    color: #434343;
+}
+/*分页*/
+.pageSize {
+    padding: 30px 20px;
+}
+
+.pageSize a {
+    display: inline-block;
+    vertical-align: middle;
+    color: #959595;
+    border: 1px solid #959595;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    height: 22px;
+    line-height: 22px;
+    font-size: 12px;
+    padding: 0 8px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.pageSize a:hover{
+    color: #fff;
+    background: #ffa800;
+    border-color: #ffa800;
+}
+
+.pageSize a.on {
+    color: #fff;
+    background: #ffa800;
+    border-color: #ffa800;
+}
+
+.light{
+    font-style: normal;
+    color: #ff2447;
+}
+/*footer*/
+footer{
+    padding-bottom: 15px;
+    background: #222933;
+}
+.footer-list{
+    display: inline-block;
+    vertical-align: top;
+    margin-right: 110px;
+}
+.footer-list li{
+    position: relative;
+    text-align: left;
+}
+.footer-list li a{
+    font-size: 16px;
+    color: #dddddd;
+    line-height: 45px;
+}
+.footer-list li a:hover{
+    color: #d62b50;
+}
+.footer-list li:first-child a{
+    color: #9d9e9f;
+}
+.ft-icon{
+    width: 30px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.erm-3-wrap li:hover .erm-3{
+    display: block;
+}
+.erm-3{
+    display: none;
+    width: 100px;
+    height: 100px;
+}
+.footer-list li .erm-3{
+    right: -110px;
+    top: -40px;
+    position: absolute;
+}
+.leige-tag{
+    margin-top: 35px;
+}
+.ft-tag em.point{
+    display: inline-block;
+    vertical-align: middle;
+    width: 7px;
+    height: 7px;
+    margin-right: 2px;
+    background: #27d58d;
+    border-radius: 50%;
+}
+.ft-tag{
+    margin-top: 15px;
+}
+.ft-tag span,.ft-de{
+    font-size: 12px;
+    color: #d6d6d6;
+    padding-right: 5px;
+}
+.ft-de{
+    padding-right: 0;
+    margin-top: 15px;
+}
+.copyRight,.copyRight a{
+    font-size: 12px;
+    color: #f4f4f4;
+}
+.copyRight a:hover{
+    color: #ff0000;
+}

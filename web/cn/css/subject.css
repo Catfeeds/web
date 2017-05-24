@@ -1,0 +1,377 @@
+/*内容*/
+#interSchool_content {
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+.address_bar {
+    border-top: 1px solid #ffce6e;
+    padding: 15px 0 10px 20px;
+    color: #5f5f5f;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.address_bar a, .address_bar em {
+    vertical-align: middle;
+}
+.address_bar a:hover{
+    color: #ff5361;
+}
+
+.address_bar em {
+    margin: 0 8px;
+}
+
+.address_nav2 {
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    background: #f6f6f6;
+    border: 1px dashed #fadb9e;
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.address_nav2 em:before{
+    transition: all 0.3s ease;
+}
+
+.address_nav2:hover {
+    border-bottom-color: #f6f6f6;
+}
+.address_nav2:hover .address_nav3 {
+    display: block;
+}
+.address_nav2:hover em.icon-angle-down:before{
+    transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+}
+
+.address_nav3 {
+    display: none;
+    position: absolute;
+    left: -1px;
+    top: 30px;
+    min-width: 600px;
+    padding: 30px 0;
+    overflow: hidden;
+    background: #f6f6f6;
+    border: 1px dashed #fadb9e;
+}
+
+.address_nav3 li {
+    float: left;
+    margin-right: 30px;
+}
+
+.address_nav3 li a {
+    display: block;
+    padding-left: 10px;
+}
+
+.search_tag_bar {
+    padding: 15px 0 10px 20px;
+    margin-bottom: 25px;
+}
+
+.sTAG-list {
+    max-width: 1040px;
+}
+
+.sTAG-list li {
+    float: left;
+    height: 24px;
+    text-align: center;
+    cursor: pointer;
+    line-height: 24px;
+    padding: 0 7px;
+    margin-bottom: 8px;
+    border: 1px solid transparent;
+    margin-right: 29px;
+}
+
+.sTAG-list li:hover {
+    color: #ffc24b;
+}
+
+.sTAG-list li.on {
+    color: #ffc24b;
+    border-color: #ffc24b;
+}
+
+.stag_list_wrap {
+    font-size: 15px;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+.tag_classify {
+    height: 30px;
+    line-height: 30px;
+    text-align: left;
+    margin-right: 35px;
+}
+
+/*推荐课程*/
+.recommend_list {
+    padding: 0 20px;
+    margin-bottom: 35px;
+}
+
+.recommend_list li {
+    padding: 15px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.recommend_list li:last-child {
+    border-bottom: none;
+}
+
+.subject_img {
+    width: 57px;
+    height: 57px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.recommend_subject_name {
+    display: inline-block;
+    font-size: 24px;
+    color: #ffa800;
+    line-height: 30px;
+    width: 240px;
+    max-height: 60px;
+    overflow: hidden;
+}
+
+.recommend_quota {
+    width: 86px;
+    height: 89px;
+    background: url("../images/sm_bg.png") no-repeat 0 0;
+
+}
+
+.quota_num {
+    color: #ffc14b;
+    font-size: 18px;
+    padding-top: 15px;
+    font-weight: 600;
+}
+
+.quota_name {
+    color: #fff;
+    font-size: 14px;
+}
+
+.recommend_subject_price {
+    font-size: 24px;
+    color: #e72f65;
+    line-height: 30px;
+    font-weight: 600;
+    width: 110px;
+    text-align: center;
+    margin: 0 30px 0 20px;
+}
+
+.recommend_subject_check a {
+    display: block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.recommend_subject_check a:nth-child(1) {
+    background: #ffa700;
+    margin-bottom: 10px;
+}
+
+.recommend_subject_check a:nth-child(1):hover {
+    background: #e39300;
+}
+
+.recommend_subject_check a:nth-child(2) {
+    background: #e72f65;
+}
+
+.recommend_subject_check a:nth-child(2):hover {
+    background: #ba2855;
+}
+
+.recommend_subject_data {
+    width: 400px;
+    margin-left: 8px;
+    padding: 7px 0 7px 15px;
+    border-left: 1px dashed #ffc452;
+}
+
+.recommend_subject_data p {
+    font-size: 18px;
+    color: #656565;
+    line-height: 30px;
+}
+
+/*两侧内容*/
+.left-subject {
+    width: 860px;
+}
+
+.right_ad {
+    width: 320px;
+}
+
+.subject_list {
+    padding: 0 20px;
+}
+
+.subject_list li {
+    padding: 25px 0 20px;
+    border-bottom: 1px dashed #dedede;
+}
+
+.subject_img2 {
+    width: 240px;
+    height: 145px;
+    overflow: hidden;
+}
+
+.subject_btn a {
+    display: block;
+    width: 145px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color: #ffffff;
+    font-size: 16px;
+    border-top-left-radius: 10px;
+}
+
+.subject_btn a:nth-child(1) {
+    background: #5fc654;
+    margin-bottom: 15px;
+}
+
+.subject_btn a:nth-child(1):hover {
+    background: #56ad4f;
+}
+
+.subject_btn a:nth-child(2) {
+    background: #ffa800;
+}
+
+.subject_btn a:nth-child(2):hover {
+    background: #dc9000;
+}
+
+.subject_name {
+    color: #393939;
+    font-size: 22px;
+    font-weight: normal;
+}
+.sbj_name .kg{
+    margin: 0 16px;
+}
+
+.new_price {
+    font-size: 22px;
+    color: #ffa800;
+}
+
+.old_price {
+    padding-left: 15px;
+    text-decoration: line-through;
+    font-size: 16px;
+    color: #b3b3b3;
+}
+
+.subject_data_wrap {
+    font-size: 16px;
+    color: #4e4e4e;
+}
+
+.subject_data_wrap dt {
+    padding: 5px 0;
+}
+
+.subject_data {
+    width: 395px;
+    padding-left: 20px;
+    margin-right: 10px;
+}
+
+/*右侧*/
+.recommend_like_wrap {
+    padding: 0 10px;
+}
+
+.rad_tit_wrap {
+    padding: 20px 0 10px;
+    border-bottom: 1px solid #c3c1c1;
+
+}
+
+.rad_tit_wrap span {
+    padding-left: 8px;
+    font-size: 22px;
+    color: #333333;
+}
+.recommend_like_img{
+    width: 122px;
+    height: 72px;
+    overflow: hidden;
+}
+.like_list,.like_list li{
+    padding: 10px 0;
+}
+.like_data{
+    padding-left: 5px;
+    max-width: 165px;
+}
+.like_name{
+    font-size: 14px;
+    color: #333333;
+}
+.like_new_price{
+    color: #ffa800;
+    font-size: 14px;
+}
+.like_old_price{
+    color: #a9a9a9;
+    padding-left: 5px;
+    text-decoration: line-through;
+    font-size: 12px;
+}
+.like_btn{
+    display: inline-block;
+    vertical-align: middle;
+    width: 52px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    font-size: 12px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: #ffa800;
+}
+.like_btn:hover{
+    background: #c68100;
+}
+.like_data dt{
+    margin-bottom: 2px;
+}
+.adPosition {
+    padding-top: 20px;
+}
+.adPosition li{
+    margin-bottom: 25px;
+}

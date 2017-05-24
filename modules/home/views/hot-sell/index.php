@@ -6,12 +6,12 @@
     </ul>
     <ul class="nav">
         <li class="dropdown pull-right">
-            <a class="dropdown-toggle" href="/home/top/add">添加热销</a>
+            <a class="dropdown-toggle" href="/home/top/add">添加促销</a>
         </li>
     </ul>
     <ul class="nav nav-tabs">
         <li class="active">
-            <a href="javascript:;" >热销</a>
+            <a href="javascript:;" >促销活动</a>
         </li>
     </ul>
     <form action="/content/top/sort" method="post">
@@ -21,8 +21,6 @@
                 <th>排序</th>
                 <th>ID</th>
                 <th>名称</th>
-                <th>图片</th>
-                <th>价格</th>
                 <th>链接</th>
                 <th>创建时间</th>
                 <th >操作</th>
@@ -36,8 +34,6 @@
                     <td><span><input style="width: 30px;" type="text" onkeyup="changeSort(<?php echo $v['id']?>,'hot_sell',this)" value="<?php echo $v['sort']?>" name="sort"></span></td>
                     <td><span><?php echo $v['id']?></span></td>
                     <td><span><?php echo $v['name']?></span></td>
-                    <td><span><img height="10" width="100" src="<?php echo $v['image']?>"></span></td>
-                    <td><span><?php echo $v['price']?></span></td>
                     <td><span><?php echo $v['url']?></span></td>
                     <td><span><?php echo date("Y-m-d",$v['createTime'])?></span></td>
                     <td><span> <a href="/home/hot-sell/update?id=<?php echo $v['id']?>">修改</a> <a href="/home/hot-sell/delete?id=<?php echo $v['id']?>">删除</a></span></td>

@@ -1,682 +1,1015 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>中国鲜花快递网-鲜花速递|网上订花送花|网上花店鲜花预定|鲜花配送|专注于全国鲜花速递服务</title>
-    <meta name="description"
-          content="中国鲜花快递网是国内最早提供全国鲜花快递服务的公司之一，专注于全国鲜花速递服务，鲜花网提供网上订花送花、鲜花预定服务，鲜花配送范围覆盖全国各大中城市，市区最快2-3小时送达，国内领先的鲜花速递服务商。">
-    <meta name="keywords" content="鲜花速递,网上订花,送花,网上花店,鲜花预定,鲜花配送">
-    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <link href="/cn/css/base.css" rel="stylesheet" type="text/css">
-    <script type="text/javascript" src="/cn/js/hm.js"></script>
-    <script type="text/javascript" src="/cn/js/banner.js"></script>
-    <script type="text/javascript" src="/cn/js/jquery-1.4.2.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="title" content="">
+    <meta name="author" content="">
+    <meta name="Copyright" content="">
+    <!-- <meta name="description" content=""> -->
+    <!-- 让IE浏览器用最高级内核渲染页面 还有用 Chrome 框架的页面用webkit 内核
+    <!-- ================================================== -->
+    <meta http-equiv="X-UA-Compatible" content="chrome=1,IE=edge">
+    <!-- IOS6全屏 Chrome高版本全屏-->
+    <!-- ================================================== -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- 让360双核浏览器用webkit内核渲染页面-->
+    <!-- ================================================== -->
+    <meta name="renderer" content="webkit">
+    <link rel="stylesheet" href="/cn/css/reset.css">
+    <link rel="stylesheet" href="/cn/css/common.css">
+    <link rel="stylesheet" href="/cn/css/main.css">
+    <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
+    <script src="/cn/js/jquery-1.12.2.min.js"></script>
+    <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
+    <title>网校首页</title>
 </head>
 <body>
-<div id="top_banner">
-    <div class="ads">
-        <a href="<?php echo $stick['url']?>" target="_blank"><img src="<?php echo $stick['image']?>"  width="1180" height="80"></a>
-        <a onclick="document.getElementById('top_banner').style.display='none'" class="close-btn" href="javascript:void(0);" title="关闭"></a>
-    </div>
-</div>
-<?php use app\commands\front\NavWidget;?>
-<?php NavWidget::begin();?>
-<?php NavWidget::end();?>
-    <div class="menu">
-        <ul>
-            <?php
-                foreach($category as $k => $v) {
-            ?>
+<!--顶部导航栏-->
+<section id="nav_wrap">
+    <div class="w12 clearfix">　　
+        <ul class="nav_list fl clearfix">
             <li>
-                <div class="menu-left">
-                    <img src="<?php echo $v['image']?>" alt="图标"/>
-
-                    <p><?php echo $v['name']?></p>
+                <a href="#">雷哥网网校<img src="/cn/images/crow_1.png" style="margin-left: 7px" alt=""></a>
+                <dl class="nav2_list">
+                    <dt><a href="#">雷哥网留学</a></dt>
+                    <dt><a href="#">雷哥网GMAT</a></dt>
+                    <dt><a href="#">雷哥网托福</a></dt>
+                    <dt><a href="#">雷哥网雅思</a></dt>
+                </dl>
+            </li>
+            <li><a href="#">首页</a></li>
+            <li><a href="#">学习工具</a></li>
+            <li><a href="#">会员</a></li>
+            <li><a href="#">学习小组</a></li>
+            <li><a href="#">活动</a></li>
+            <li><a href="#">八卦社区</a></li>
+            <li class="shop_car">
+                <div class="shoppingIcon inm relative">
+                    <img src="/cn/images/shopping_icon.png" alt="">
+                    <span class="shop_msg ani">1</span>
                 </div>
-                <div class="menu-right padd01">
-                    <ul>
-                        <?php
-                            foreach($v['child'] as $val) {
+                <a href="#">购物车</a>
+            </li>
+        </ul>
+        <!--未登录-->
+        <div class="noLogin fr">
+            <a href="#">登录</a>
+            <span class="fg_line inm"></span>
+            <a href="#">注册</a>
+        </div>
+        <!--已登录-->
+        <div class="yesLogin fr">
+            <div class="common_user_head inm"><img src="/cn/images/common_head.png" alt=""></div>
+            <span class="header_username inm">Tina2017</span>
+        </div>
+    </div>
+</section>
+<!--搜索栏-->
+<section id="search_wrap" class="bg_f">
+    <div class="w12">
+        <div class="clearfix">
+            <div class="leige_logo fl">
+                <a href="/">
+                    <img src="/cn/images/logo.png" alt="">
+                </a>
+            </div>
+            <div class="search_wrap fl">
+                <span class="search_name inm">选课中心</span>
+                <div class="inm sint_wrap">
+                    <input class="search_int inm" type="search">
+                    <a class="search_btn inm tm" href="javascript:;">搜索</a>
+                </div>
+            </div>
+            <div class="fr search_ermList">
+                <div class="int sint_el">
+                    <div class="erm_k">
+                        <a href="#"><img src="/cn/images/erm_1.png" alt=""></a>
+                    </div>
+                    <p class="erm_de">雷哥GMATAPP</p>
+                </div>
+                <div class="int sint_el">
+                    <div class="erm_k"><img src="/cn/images/erm_2.png" alt=""></div>
+                    <p class="erm_de">雷哥托福APP</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--首页内容-->
+<section id="index_content" class="bg_g">
+    <div class="w12 clearfix">
+        <!--banner版块-->
+        <div class="index_head_top clearfix">
+            <!--左侧导航-->
+            <div class="left_nav bg_f fl">
+                <div class="left_nav_tit">课程分类</div>
+                <ul class="nav3_list">
+                    <?php
+                        foreach($category as $v) {
+                            ?>
+                            <li>
+                                <p class="nav3_tit"><?php echo $v['name']?></p>
+
+                                <div class="nav3_link">
+                                    <?php
+                                        foreach($v['child'] as $k =>$val) {
+                                            if($k>4){break;}
+                                            ?>
+
+                                            <a href="#"><?php echo $val['name']?></a>
+                                        <?php
+                                        }
+                                    ?>
+                                </div>
+                                <?php
+                                    if(count($v['child'])>0){
                                 ?>
-                                <li><a href="#"><?php echo $val['name']?></a></li>
+                                <div class="nav3right_wrap">
+                                    <?php
+                                        foreach($v['child'] as $val) {
+                                            ?>
+                                            <a href="#"><?php echo $val['name']?></a>
+                                        <?php
+                                        }
+                                    ?>
+                                </div>
                             <?php
                             }
-                        ?>
-                    </ul>
-                    <?php
-                    if ($k == 0) {
-                        ?>
-                        <div class="menu-r-sort">
-                            <ul>
-                                <?php
-                                    $data = \app\modules\cn\models\Category::find()->where("pid = 0 AND type =1")->all();
                                 ?>
-                                <?php
-                                    foreach($data as $val) {
-                                        ?>
-                                        <li>
-                                            <label><?php echo $val['name']?></label>
-
-                                            <div class="m-r-sli">
-                                                <?php
-                                                $child = \app\modules\cn\models\Category::find()->where("pid = {$val['id']}")->all();
-                                                ?>
-                                                <ul>
-                                                    <?php
-                                                    foreach($child as $value) {
-                                                        ?>
-                                                        <li><a href="#"><?php echo $value['name']?></a></li>
-                                                    <?php
-                                                    }
-                                                    ?>
-                                                </ul>
-                                            </div>
-                                            <div class="clearfloat"></div>
-                                        </li>
-                                    <?php
-                                    }
-                                ?>
-                            </ul>
-                        </div>
-                    <?php
-                    }
-                            ?>
-                        </div>
-                        <div class="clearfloat"></div>
-                    </li>
-                <?php
-                }
-            ?>
-            <li>
-                <div class="last-sort">
-                    <ul>
-                        <?php
-                            foreach($especially as $v){
-                        ?>
-                        <li><a href="<?php echo $v['url']?>"><img src="<?php echo $v['image']?>" alt="图标"/><?php echo $v['name']?></a></li>
+                            </li>
                         <?php
                         }
-                        ?>
+                    ?>
+                </ul>
+            </div>
+            <!--中间 banner-->
+            <div class="slideBox fl">
+                <ul class="hd clearfix"></ul>
+                <ul class="banner">
+                    <li><a href="#"><img src="/cn/images/banner-1.png" alt=""></a></li>
+                    <li><a href="#"><img src="/cn/images/banner-1.png" alt=""></a></li>
+                    <li><a href="#"><img src="/cn/images/banner-1.png" alt=""></a></li>
+                </ul>
+            </div>
+            <!--右侧&登录状态-->
+            <div class="fr right_data bg_f">
+                <!--首页登录状态-->
+                <div class="index_noLogin">
+                    <div>
+                        <div class="user_head2 inm"><img src="/cn/images/user_head_2.png" alt=""></div>
+                        <div class="inm welcome_hint">Hi，<span class="username_r">Tina2017</span><br>欢迎来到雷哥网！</div>
+                    </div>
+                    <div class="clearfix login_check">
+                        <a class="fl on" href="#">登录</a>
+                        <a class="fr" href="#">注册</a>
+                    </div>
+                </div>
+                <!--促销活动-->
+                <div class="right_item">
+                    <div class="ritem_tit"><span>|</span>促销活动</div>
+                    <ul class="cx_list">
+                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
+                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
+                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
+                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
                     </ul>
+                </div>
+                <!--免费领取课程-->
+                <div class="right_item">
+                    <div class="ritem_tit"><span>|</span>免费领取课程</div>
+                    <div class="user_int_wrap">
+                        <div class="row_int">
+                            <div class="int_k">
+                                <div class="int_icon"><img src="/cn/images/int_icon_1.png" alt=""></div>
+                                <input type="text" placeholder="填写你的姓名">
+                            </div>
+                        </div>
+                        <div class="row_int">
+                            <div class="int_k">
+                                <div class="int_icon"><img src="/cn/images/int_icon_2.png" alt=""></div>
+                                <input type="text" placeholder="填写你的手机号码">
+                            </div>
+                        </div>
+                        <div class="row_int clearfix">
+                            <div class="int_k code_int fl">
+                                <div class="int_icon"><img src="/cn/images/int_icon_3.png" alt=""></div>
+                                <input type="text" placeholder="填写验证码">
+                            </div>
+                            <div class="code_btn fr">发送验证码</div>
+                        </div>
+                        <button class="form_submit">免费领取课程</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!--老师答疑-->
+        <ul class="help_live clearfix">
+            <li>
+                <div class="live_time ani">时间：2017.05.30</div>
+                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
+                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
+                <div class="tm">
+                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
+                    <div class="inm tl P_info">
+                        <p>主讲人：Victoria</p>
+                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
+                        <p class="price">￥：6666</p>
+                        <a class="inm playback_btn" href="#">观看回放</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="live_time ani">时间：2017.05.30</div>
+                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
+                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
+                <div class="tm">
+                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
+                    <div class="inm tl P_info">
+                        <p>主讲人：Victoria</p>
+                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
+                        <p class="price">￥：6666</p>
+                        <a class="inm playback_btn" href="#">观看回放</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="live_time ani">时间：2017.05.30</div>
+                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
+                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
+                <div class="tm">
+                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
+                    <div class="inm tl P_info">
+                        <p>主讲人：Victoria</p>
+                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
+                        <p class="price">￥：6666</p>
+                        <a class="inm playback_btn" href="#">观看回放</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="live_time ani">时间：2017.05.30</div>
+                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
+                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
+                <div class="tm">
+                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
+                    <div class="inm tl P_info">
+                        <p>主讲人：Victoria</p>
+                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
+                        <p class="price">￥：6666</p>
+                        <a class="inm playback_btn" href="#">观看回放</a>
+                    </div>
                 </div>
             </li>
         </ul>
-    </div>
-                        <?php
-                        $lianjie = "";
-                        $imgarr = "";
-                            foreach($banner as $v){
-                                $lianjie .= $v['url'].',';
-                                $imgarr .= $v['image'].',';
-                            }
-                        ?>
-    <div class="menu_mid" data-value="<?php echo $lianjie?>" data-image="<?php echo $imgarr?>">
-        <div class="banner">
-            <div id="lunbox">
-                <!--<ul class="imgList">-->
-                <!--<li style="opacity: 0; display: none;"><a target="_blank"-->
-                <!--href="/jieri/valentine.html"-->
-                <!--title="情人节鲜花" onfocus="this.blur();"><img border="0"-->
-                <!--style="cursor:pointer;outline:0;"-->
-                <!--src="/cn/images/ad_valentine.jpg"></a>-->
-                <!--</li>-->
-                <!--<li style="opacity: 0; display: none;"><a target="_blank" href="/flower/"-->
-                <!--title="鲜花速递" onfocus="this.blur();"><img border="0"-->
-                <!--style="cursor:pointer;outline:0;"-->
-                <!--src="/cn/images/ad_01.jpg"></a>-->
-                <!--</li>-->
-                <!--<li style="opacity: 1;"><a target="_blank" href="/birthday/" title="生日送花"-->
-                <!--onfocus="this.blur();"><img border="0" style="cursor:pointer;outline:0;"-->
-                <!--src="/cn/images/ad_birthday.jpg"></a></li>-->
-                <!--</ul>-->
-                <!--<ul class="countNum">-->
-                <!--<li class="">1</li>-->
-                <!--<li class="">2</li>-->
-                <!--<li class="current">3</li>-->
-                <!--</ul>-->
+        <!--课程分类&直播课程-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_1.png" alt=""></div>
+                    <span class="inm sort_name">直播课程</span>
+                    <img src="/cn/images/sort_icon_1b.png" alt="">
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
             </div>
-            <script>lunboxaaa();</script>
-        </div>
-    </div>
-    <div class="menu_right">
-        <div class="cuxiao">
-            <a href="#" target="_blank">
-                <img src="/cn/images/index-guanzhu.png"/>
-            </a>
-            <div class="why-choose">
-                <h4>为何选择花间意？</h4>
-                <ul>
-                    <li>1、12年品牌花店，口碑相传，专业的服务、售后团队。</li>
-                    <li>2、连锁花店，全国3000多座城市，2万+家分店，配送范围覆盖全国。</li>
-                    <li>3、空运昆明顶级花材，花材提前预订，当天包扎，质量有保障。</li>
-                    <li>4、旗下签约花艺师均从业3年以上，产品够强势。</li>
-                    <li>5、30多家媒体报导，实力有见证！</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="clearfloat"></div>
-
-</div>
-<div id="container_wrap">
-    <div id="container">
-        <div class="remai_content">
-            <ul>
+            <ul class="live_course_list clearfix">
                 <li>
-                    <img src="/cn/images/index-xianshi.png" alt="限时推荐"/>
-                </li>
-                <?php foreach($recommend as $k => $v) { ?>
-                    <li>
-                        <div class="propic">
-                            <a href="#" target="_blank">
-                                <img src="<?php echo $v['defaultImage']?>">
-                            </a>
-                        </div>
-                        <div class="protit">
-                            <a href="#" target="_blank"><?php echo $v['name']?></a>
-                        </div>
-                        <div class="yishou">已售：<span><?php echo $v['sales']?></span>束</div>
-                        <div class="proprice">￥<?php echo $v['price']?></div>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
-        </div>
-        <?php
-            foreach($head as $v) {
-                ?>
-                <?php
-                    if($v['type'] == 2) {
-                        ?>
-                        <div class="shengri_title">
-                            <h1><a href="javascript:;"  title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
-
-                            <div class="more">
-                                <?php
-                                    foreach($v['category'] as $val) {
-                                        ?>
-                                        <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
-                                    <?php
-                                    }
-                                        ?>
-                                <a href="#" target="_blank">更多&gt;&gt;</a>
+                    <div class="ani live_user_check">
+                        <div class="relative rh100">
+                            <div class="user_handle_wrap">
+                                <div class="big_try_btn">
+                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                    <span class="inm">点击试听</span>
+                                </div>
+                                <div class="live_user_handle clearfix">
+                                    <a class="fl" href="#">购买</a>
+                                    <a class="fr" href="#">详情</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="shengri_content">
-                            <div class="bottom_pic">
-                                <ul>
-                                    <?php
-                                        foreach($v['flower'] as $val) {
-                                            ?>
-                                            <li>
-                                                <div class="propic">
-                                                    <a href="/flower/HJY<?php echo $val['goodsNumber']?>.html" target="_blank">
-                                                        <img src="<?php echo $val['defaultImage']?>" title="flower"/>
-                                                    </a>
-                                                </div>
-                                                <div class="protit">
-                                                    <a href="#" target="_blank"><?php echo $val['flowerDes']?></a>
-                                                </div>
-                                                <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
-                                                <div class="proprice">￥<?php echo $val['price']?></div>
-                                            </li>
-                                        <?php
-                                        }
-                                            ?>
-                                </ul>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                        ?>
-                <?php
-                    if($v['type'] == 1) {
-                        ?>
-                        <div class="shengri_title">
-                            <h1><a href="javascript:;"  title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
-
-                            <div class="more">
-                                <?php
-                                foreach($v['category'] as $val) {
-                                    ?>
-                                    <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
-                                <?php
-                                }
-                                ?>
-                                <a href="#" target="_blank">更多&gt;&gt;</a>
-                            </div>
-                        </div>
-                        <div class="shengri_content">
-                            <div class="top_pic">
-                                <ul>
-                                    <?php
-                                    $left = unserialize($v['left']);
-                                    ?>
-                                    <li class="first">
-                                        <a href="<?php echo $left['url']?>" target="_blank">
-                                            <img src="<?php echo $left['image']?>" width="295" height="260">
-                                        </a>
-                                    </li>
-                                    <?php
-                                    $middleImage = unserialize($v['middle']);
-                                    ?>
-                                    <li class="mid">
-                                        <a href="<?php echo $middleImage['url']?>" target="_blank">
-                                            <img src="<?php echo $middleImage['image']?>" width="586" height="260">
-                                        </a>
-                                    </li>
-                                    <?php
-                                    $right = unserialize($v['right']);
-                                    ?>
-                                    <li class="last">
-                                        <a href="<?php echo $right['url']?>" target="_blank">
-                                            <img src="<?php echo $middleImage['image']?>" width="295" height="260">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="bottom_pic">
-                                <ul>
-                                    <?php
-                                    foreach($v['flower'] as $val) {
-                                        ?>
-                                        <li>
-                                            <div class="propic"><a href="#" target="_blank"><img
-                                                        src="<?php echo $val['defaultImage']?>"></a></div>
-                                            <div class="protit"><a href="#"
-                                                                   target="_blank"><?php echo $val['name']?></a>
-                                            </div>
-                                            <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
-                                            <div class="proprice">￥<?php echo $val['price']?></div>
-                                        </li>
-                                    <?php
-                                    }
-                                        ?>
-                                </ul>
-                            </div>
-                        </div>
-                    <?php
-                    }
-                        ?>
-            <?php
-            }
-        ?>
-        <div class="about-us"><a href="#"><img src="/cn/images/index-guanggao.png" alt="了解我们"/></a></div>
-        <!--爱情鲜花-->
-        <div class="love_flower">
-            <?php
-                foreach($middle as $v) {
-                    ?>
-                    <div class="love-l-left">
-                        <div class="left-title">
-                            <h1><a href="javascript:;" title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
-                            <ul>
-                                <?php
-                                foreach($v['category'] as $val) {
-                                    ?>
-                                        <li><a href="#"><?php echo $val['name']?></a></li>
-                                    <?php
-                                    }
-                                ?>
-                                <li><a href="#"><img src="/cn/images/index-smallSJ.png" alt="图标"/> 全部鲜花</a></li>
-                            </ul>
-                        </div>
-                        <div class="bottom_pic">
-                            <ul>
-                                <?php
-                                foreach($v['flower'] as $val) {
-                                    ?>
-                                        <li>
-                                            <div class="propic"><a href="/flower/detail.asp?ID=534" target="_blank"><img
-                                                        src="<?php echo $val['defaultImage']?>"></a></div>
-                                            <div class="protit"><a href="/flower/detail.asp?ID=534" target="_blank"><?php echo $val['name']?></a>
-                                            </div>
-                                            <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
-                                            <div class="proprice">￥<?php echo $val['price']?>.00</div>
-                                        </li>
-                                    <?php
-                                    }
-                                ?>
-                            </ul>
                         </div>
                     </div>
-                <?php
-                }
-            ?>
-            <div class="love-l-right">
-                <div class="love-r-title">
-                    花间意销售排行榜
-                </div>
-                <div class="r-con">
-                    <ul>
-<?php
-    foreach($top as $k => $v) {
-        if($k == 3){break;}
-        ?>
-        <li>
-            <div class="r-c-left">
-                <span><?php echo $k+1?></span>
-                <img src="<?php echo $v['image']?>" alt="flower">
-            </div>
-            <div class="r-c-right">
-                <h4><?php echo $v['name']?></h4>
-                <b><?php echo $v['price']?></b>
+                    <div class="live_time2 ani">时间：2017.05.30</div>
+                    <div class="cr1_img"><img src="/cn/images/1cr_1.png" alt=""></div>
+                    <div class="live_course_info">
+                        <div class="live_course_name_wrap">
+                            <p class="live_course_name">托福周末班一对一</p>
+                            <p class="live_course_ks">课时：80课时</p>
+                        </div>
+                        <div>
+                            <div class="inb">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
+                            </div>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
 
-                <p>销量：<span><?php echo $v['number']?></span>束</p>
-                <a href="#">查看</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                <a href="#">购买</a>
-            </div>
-            <div class="clearfloat"></div>
-        </li>
-    <?php
-    }
-?>
-                        <?php
-                        foreach($top as $k => $v) {
-                            if ($k < 3) {
-                                continue;
-                            }
-                            ?>
-                            <li>
-                                <div class="phb-l">
-                                    <b><?php echo $k+1?></b>
-                                    <span><?php echo $v['name']?></span>
+                    </div>
+                </li>
+                <li>
+                    <div class="ani live_user_check">
+                        <div class="relative rh100">
+                            <div class="user_handle_wrap">
+                                <div class="big_try_btn">
+                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                    <span class="inm">点击试听</span>
                                 </div>
-                                <div class="phb-c"><?php echo $v['price']?></div>
-                                <div class="phb-r"><span><?php echo $v['number']?></span>束</div>
-                                <div class="clearfloat"></div>
-                            </li>
-                        <?php
-                        }
-                        ?>
+                                <div class="live_user_handle clearfix">
+                                    <a class="fl" href="#">购买</a>
+                                    <a class="fr" href="#">详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="live_time2 ani">时间：2017.05.30</div>
+                    <div class="cr1_img"><img src="/cn/images/1cr_2.png" alt=""></div>
+                    <div class="live_course_info">
+                        <div class="live_course_name_wrap">
+                            <p class="live_course_name">托福周末班一对一</p>
+                            <p class="live_course_ks">课时：80课时</p>
+                        </div>
+                        <div>
+                            <div class="inb">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
+                            </div>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
+
+                    </div>
+                </li>
+                <li>
+                    <div class="ani live_user_check">
+                        <div class="relative rh100">
+                            <div class="user_handle_wrap">
+                                <div class="big_try_btn">
+                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                    <span class="inm">点击试听</span>
+                                </div>
+                                <div class="live_user_handle clearfix">
+                                    <a class="fl" href="#">购买</a>
+                                    <a class="fr" href="#">详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="live_time2 ani">时间：2017.05.30</div>
+                    <div class="live_course_info">
+                        <div class="live_course_name_wrap">
+                            <p class="live_course_name">托福周末班一对一</p>
+                            <p class="live_course_ks">课时：80课时</p>
+                        </div>
+                        <div>
+                            <div class="inb">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
+                            </div>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
+
+                    </div>
+                    <div class="cr1_img"><img src="/cn/images/1cr_3.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="ani live_user_check">
+                        <div class="relative rh100">
+                            <div class="user_handle_wrap">
+                                <div class="big_try_btn">
+                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                    <span class="inm">点击试听</span>
+                                </div>
+                                <div class="live_user_handle clearfix">
+                                    <a class="fl" href="#">购买</a>
+                                    <a class="fr" href="#">详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="live_time2 ani">时间：2017.05.30</div>
+                    <div class="cr1_img"><img src="/cn/images/1cr_4.png" alt=""></div>
+                    <div class="live_course_info">
+                        <div class="live_course_name_wrap">
+                            <p class="live_course_name">托福周末班一对一</p>
+                            <p class="live_course_ks">课时：80课时</p>
+                        </div>
+                        <div>
+                            <div class="inb">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
+                            </div>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <!--课程分类&回放课程-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_2.png" alt=""></div>
+                    <span class="inm sort_name">回放课程</span>
+                    <img src="/cn/images/sort_icon_2b.png" alt="">
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <div class="playback_course_list clearfix">
+                <div class="pb_left fl">
+                    <div class="pb_list_item">
+                        <div class="ani pb_check">
+                            <div class="rh100 relative">
+                                <div class="pb_handle-wrap">
+                                    <a href="#" class="pb_big_btn bg_g2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                        <span class="inm">回放课程</span>
+                                    </a>
+                                    <a href="#" class="pb_big_btn bg_f2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                        <span class="inm">查看详情</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
+                        <div class="pb_btn_wrap">
+                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
+                            <a class="small_try_btn inb" href="#">详情</a>
+                        </div>
+                        <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_1.png" alt=""></div>
+                    </div>
+                    <div class="pb_list_item">
+                        <div class="ani pb_check">
+                            <div class="rh100 relative">
+                                <div class="pb_handle-wrap">
+                                    <a href="#" class="pb_big_btn bg_g2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                        <span class="inm">回放课程</span>
+                                    </a>
+                                    <a href="#" class="pb_big_btn bg_f2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                        <span class="inm">查看详情</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
+                        <div class="pb_btn_wrap tr">
+                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
+                            <a class="small_try_btn inb" href="#">详情</a>
+                        </div>
+                        <div class="2cr_img cr2_2 ani"><img src="/cn/images/2cr_2.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="pb_middle fl">
+                    <div class="pb_list_item">
+                        <div class="ani pb_check">
+                            <div class="rh100 relative">
+                                <div class="pb_handle-wrap">
+                                    <a href="#" class="pb_big_btn bg_g2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                        <span class="inm">回放课程</span>
+                                    </a>
+                                    <a href="#" class="pb_big_btn bg_f2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                        <span class="inm">查看详情</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
+                        <div class="pb_btn_wrap tl">
+                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
+                            <a class="small_try_btn inb" href="#">详情</a>
+                        </div>
+                        <div class="2cr_img cr2_3 ani"><img src="/cn/images/2cr_5.png" alt=""></div>
+                    </div>
+                </div>
+                <div class="pb_fight fl">
+                    <div class="pb_list_item">
+                        <div class="ani pb_check">
+                            <div class="rh100 relative">
+                                <div class="pb_handle-wrap">
+                                    <a href="#" class="pb_big_btn bg_g2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                        <span class="inm">回放课程</span>
+                                    </a>
+                                    <a href="#" class="pb_big_btn bg_f2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                        <span class="inm">查看详情</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
+                        <div class="pb_btn_wrap">
+                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
+                            <a class="small_try_btn inb" href="#">详情</a>
+                        </div>
+                        <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_3.png" alt=""></div>
+                    </div>
+                    <div class="pb_list_item">
+                        <div class="ani pb_check">
+                            <div class="rh100 relative">
+                                <div class="pb_handle-wrap">
+                                    <a href="#" class="pb_big_btn bg_g2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                        <span class="inm">回放课程</span>
+                                    </a>
+                                    <a href="#" class="pb_big_btn bg_f2">
+                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                        <span class="inm">查看详情</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
+                        <div class="pb_btn_wrap tr">
+                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
+                            <a class="small_try_btn inb" href="#">详情</a>
+                        </div>
+                        <div class="2cr_img cr2_2 ani"><img src="/cn/images/2cr_4.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--雷哥网GMAT-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_3.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网GMAT</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <ul class="gmat_course_list clearfix">
+                <li>
+                    <p class="gmat_cr_name">GMAT周末班一对一</p>
+                    <div class="gmat_price_wrap">
+                        <span class="index_new_price">￥400</span>
+                        <span class="index_old_price">￥700</span>
+                    </div>
+                    <a class="small_try_btn inb" href="#">试听</a>
+                    <div class="cr3_img"><img src="/cn/images/3cr_1.png" alt=""></div>
+                </li>
+                <li>
+                    <p class="gmat_cr_name">GMAT周末班一对一</p>
+                    <div class="gmat_price_wrap">
+                        <span class="index_new_price">￥400</span>
+                        <span class="index_old_price">￥700</span>
+                    </div>
+                    <a class="small_try_btn inb" href="#">试听</a>
+                    <div class="cr3_img"><img src="/cn/images/3cr_2.png" alt=""></div>
+                </li>
+                <li>
+                    <p class="gmat_cr_name">GMAT周末班一对一</p>
+                    <div class="gmat_price_wrap">
+                        <span class="index_new_price">￥400</span>
+                        <span class="index_old_price">￥700</span>
+                    </div>
+                    <a class="small_try_btn inb" href="#">试听</a>
+                    <div class="cr3_img"><img src="/cn/images/3cr_3.png" alt=""></div>
+                </li>
+                <li>
+                    <p class="gmat_cr_name">GMAT周末班一对一</p>
+                    <div class="gmat_price_wrap">
+                        <span class="index_new_price">￥400</span>
+                        <span class="index_old_price">￥700</span>
+                    </div>
+                    <a class="small_try_btn inb" href="#">试听</a>
+                    <div class="cr3_img"><img src="/cn/images/3cr_4.png" alt=""></div>
+                </li>
+            </ul>
+        </div>
+        <!--雷哥网托福-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_4.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网托福</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <ul class="teofl_course_list clearfix">
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/4cr_1.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/4cr_2.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/4cr_3.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/4cr_4.png" alt=""></div>
+                </li>
+
+            </ul>
+        </div>
+        <!--雷哥网雅思-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_5.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网雅思</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <ul class="teofl_course_list yasi_list clearfix">
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/5cr_1.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/5cr_2.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/5cr_3.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="cr4_img"><img src="/cn/images/5cr_4.png" alt=""></div>
+                </li>
+
+            </ul>
+        </div>
+        <!--雷哥网留学-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_6.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网留学</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <div class="smartList clearfix">
+
+                <div class="smartItem_1 fl smartItem">
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="smartImg"><img src="/cn/images/6cr_1.png" alt=""></div>
+                </div>
+                <div class="sr_wrap fl">
+                    <div class="smartItem_2 smartItem">
+                        <div class="wrap_info">
+                            <p class="common_cr_name">GMAT周末班一对一</p>
+                            <div class="gmat_price_wrap">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
+                            </div>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
+                        <div class="smartImg"><img src="/cn/images/6cr_2.png" alt=""></div>
+                    </div>
+                    <div class="sbtm_wrap clearfix">
+                        <div class="smartItem_3 fl smartItem">
+                            <div class="wrap_info">
+                                <p class="common_cr_name">GMAT周末班一对一</p>
+                                <div class="gmat_price_wrap">
+                                    <span class="index_new_price">￥400</span>
+                                    <span class="index_old_price">￥700</span>
+                                </div>
+                                <a class="small_try_btn inb" href="#">试听</a>
+                            </div>
+                            <div class="smartImg"><img src="/cn/images/6cr_3.png" alt=""></div>
+                        </div>
+                        <div class="smartItem_3 fr smartItem">
+                            <div class="wrap_info">
+                                <p class="common_cr_name">GMAT周末班一对一</p>
+                                <div class="gmat_price_wrap">
+                                    <span class="index_new_price">￥400</span>
+                                    <span class="index_old_price">￥700</span>
+                                </div>
+                                <a class="small_try_btn inb" href="#">试听</a>
+                            </div>
+                            <div class="smartImg"><img src="/cn/images/6cr_4.png" alt=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--雷哥网英语-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_7.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网英语</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <ul class="lgyList clearfix">
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="lgyImg"><img src="/cn/images/7cr_1.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="lgyImg"><img src="/cn/images/7cr_2.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="lgyImg"><img src="/cn/images/7cr_3.png" alt=""></div>
+                </li>
+                <li>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥400</span>
+                            <span class="index_old_price">￥700</span>
+                        </div>
+                        <a class="small_try_btn inb" href="#">试听</a>
+                    </div>
+                    <div class="lgyImg"><img src="/cn/images/7cr_4.png" alt=""></div>
+                </li>
+            </ul>
+
+
+        </div>
+        <!--雷哥网书籍-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_8.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网书籍</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
+                </div>
+            </div>
+            <div class="picMarquee-left relative">
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
+                        </li>
                     </ul>
                 </div>
+                <a class="next npBtn ani"><i class="icon-caret-right"></i></a>
+                <a class="prev npBtn ani"><i class="icon-caret-left"></i></a>
             </div>
-            <div class="clearfloat"></div>
         </div>
-        <?php
-        foreach($foot as $v) {
-            ?>
-            <?php
-            if($v['type'] == 2) {
-                ?>
-                <div class="shengri_title">
-                    <h1><a href="javascript:;"  title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
-
-                    <div class="more">
-                        <?php
-                        foreach($v['category'] as $val) {
-                            ?>
-                            <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
-                        <?php
-                        }
-                        ?>
-                        <a href="#" target="_blank">更多&gt;&gt;</a>
-                    </div>
+        <!--雷哥网会员课程-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_9.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网会员课程</span>
                 </div>
-                <div class="shengri_content">
-                    <div class="bottom_pic">
-                        <ul>
-                            <?php
-                            foreach($v['flower'] as $val) {
-                                ?>
-                                <li>
-                                    <div class="propic">
-                                        <a href="#" target="_blank">
-                                            <img src="<?php echo $val['defaultImage']?>" title="flower"/>
-                                        </a>
-                                    </div>
-                                    <div class="protit">
-                                        <a href="#" target="_blank"><?php echo $val['name']?></a>
-                                    </div>
-                                    <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
-                                    <div class="proprice">￥<?php echo $val['price']?></div>
-                                </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="#">查看更多></a>
                 </div>
-            <?php
-            }
-            ?>
-            <?php
-            if($v['type'] == 1) {
-                ?>
-                <div class="shengri_title">
-                    <h1><a href="javascript:;" title="<?php echo $v['name']?>"><?php echo $v['name']?></a></h1>
-
-                    <div class="more">
-                        <?php
-                        foreach($v['category'] as $val) {
-                            ?>
-                            <a href="#" target="_blank"><?php echo $val['name']?></a><em>|</em>
-                        <?php
-                        }
-                        ?>
-                        <a href="#" target="_blank">更多&gt;&gt;</a>
-                    </div>
-                </div>
-                <div class="shengri_content">
-                    <div class="top_pic">
-                        <ul>
-                            <?php
-                            $left = unserialize($v['left']);
-                            ?>
-                            <li class="first">
-                                <a href="<?php echo $left['url']?>" target="_blank">
-                                    <img src="<?php echo $left['image']?>" width="295" height="260">
-                                </a>
-                            </li>
-                            <?php
-                            $middleImage = unserialize($v['middle']);
-                            ?>
-                            <li class="mid">
-                                <a href="<?php echo $middleImage['url']?>" target="_blank">
-                                    <img src="<?php echo $middleImage['image']?>" width="586" height="260">
-                                </a>
-                            </li>
-                            <?php
-                            $right = unserialize($v['right']);
-                            ?>
-                            <li class="last">
-                                <a href="<?php echo $right['url']?>" target="_blank">
-                                    <img src="<?php echo $right['image']?>" width="295" height="260">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="bottom_pic">
-                        <ul>
-                            <?php
-                            foreach($v['flower'] as $val) {
-                                ?>
-                                <li>
-                                    <div class="propic"><a href="#" target="_blank"><img
-                                                src="<?php echo $val['defaultImage']?>"></a></div>
-                                    <div class="protit"><a href="#"
-                                                           target="_blank"><?php echo $val['name']?></a>
-                                    </div>
-                                    <div class="yishou">已售：<span><?php echo $val['sales']?></span>束</div>
-                                    <div class="proprice">￥<?php echo $val['price']?></div>
-                                </li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                </div>
-            <?php
-            }
-            ?>
-        <?php
-        }
-        ?>
-
-    </div>
-</div>
-<div class="caseBox">
-    <div class="case-yuding">
-        <div class="case-title">
-            <h2>蛋糕预定</h2>
-            <a href="#">更多蛋糕&gt;&gt;</a>
-            <div class="clearfloat"></div>
-        </div>
-        <div class="case-bot">
-            <ul>
-                <?php
-                foreach($cake as $v) {
-                    ?>
-                    <li>
-                        <div class="img-box">
-                            <a href="#"><img src="<?php echo $v['defaultImage']?>" alt="图片"/></a>
-                        </div>
-                        <h4><a href="#"><?php echo $v['name']?></a></h4>
-
-                        <p>￥<?php echo $v['price']?></p>
-                        <span>已售<b>6668</b>束</span>
-                    </li>
-                <?php
-                }
-                ?>
-            </ul>
-        </div>
-    </div>
-    <div class="case-yuding c-ml">
-        <div class="case-title">
-            <h2>花篮预定</h2>
-            <a href="#">更多花篮&gt;&gt;</a>
-            <div class="clearfloat"></div>
-        </div>
-        <div class="case-bot">
-            <ul>
-                <?php
-                    foreach($basket as $v) {
-                        ?>
-                        <li>
-                            <div class="img-box">
-                                <a href="#"><img src="<?php echo $v['defaultImage']?>" alt="图片"/></a>
+            </div>
+            <div class="vipCourse_list clearfix">
+                <div class="vipCourse_item_1 fl vc_im">
+                    <div class="vcImg"><img src="/cn/images/9cr_1.png" alt=""></div>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <div class="inb pr_wrap">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
                             </div>
-                            <h4><a href="#"><?php echo $v['name']?></a></h4>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
+                    </div>
+                </div>
+                <ul class="vip_middle_md fl">
+                    <li>
+                        <div class="wrap_info">
+                            <p class="common_cr_name">GMAT周末班一对一</p>
+                            <div class="gmat_price_wrap">
+                                <div class="inb pr_wrap">
+                                    <span class="index_new_price">￥400</span>
+                                    <span class="index_old_price">￥700</span>
+                                </div>
+                                <a class="small_try_btn inb" href="#">试听</a>
+                            </div>
+                        </div>
+                        <div class="vcImg"><img src="/cn/images/9cr_2.png" alt=""></div>
+                    </li>
+                    <li>
+                        <div class="wrap_info">
+                            <p class="common_cr_name">GMAT周末班一对一</p>
+                            <div class="gmat_price_wrap">
+                                <div class="inb pr_wrap">
+                                    <span class="index_new_price">￥400</span>
+                                    <span class="index_old_price">￥700</span>
+                                </div>
+                                <a class="small_try_btn inb" href="#">试听</a>
+                            </div>
+                        </div>
+                        <div class="vcImg"><img src="/cn/images/9cr_3.png" alt=""></div>
+                    </li>
+                </ul>
+                <div class="vipCourse_item_1 fl vc_im">
+                    <div class="vcImg"><img src="/cn/images/9cr_4.png" alt=""></div>
+                    <div class="wrap_info">
+                        <p class="common_cr_name">GMAT周末班一对一</p>
+                        <div class="gmat_price_wrap">
+                            <div class="inb pr_wrap">
+                                <span class="index_new_price">￥400</span>
+                                <span class="index_old_price">￥700</span>
+                            </div>
+                            <a class="small_try_btn inb" href="#">试听</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                            <p>￥<?php echo $v['price']?></p>
-                            <span>已售<b>6668</b>束</span>
-                        </li>
-                    <?php
-                    }
-                ?>
-            </ul>
         </div>
     </div>
-    <div class="clearfloat"></div>
-
-</div>
-<div class="kuaijie">
-    <ul class="k-ul01">
-        <?php
-            foreach($keywords as $k => $v) {
-                if($k >=9){
-                    break;
-                }
-                ?>
-                <li><a href="<?php echo $v['url']?>" <?php echo $v['type'] == 2?'class="bg01"':'class="bg02"'?>><?php echo $v['name']?></a></li>
-            <?php
-            }
-        ?>
-    </ul>
-    <ul class="k-ul02">
-        <?php
-        foreach($keywords as $k => $v) {
-            if($k <9){
-                continue;
-            }
-            ?>
-            <li><a href="<?php echo $v['url']?>" <?php echo $v['type'] == 2?'class="bg01"':'class="bg02"'?>><?php echo $v['name']?></a></li>
-        <?php
-        }
-        ?>
-        <li><a href="#" class="color">查看更多&gt;&gt;</a></li>
-    </ul>
-</div>
-<div id="footer">
-    <div class="bottom_trust"></div>
-    <div class="bottom_help">
-        <div class="list">
-            <strong>客户服务</strong>
-            <ul>
-                <li><a href="#" target="_blank">关于我们</a></li>
-                <li><a href="#" target="_blank">VIP会员</a></li>
-                <li><a href="#" target="_blank">隐私条款</a></li>
-                <li><a href="#" target="_blank">安全条款</a></li>
-                <li><a href="#" target="_blank">服务声明</a></li>
-            </ul>
-        </div>
-        <div class="list">
-            <strong>购物指南</strong>
-            <ul>
-                <li><a href="#" target="_blank">购物须知</a></li>
-                <li><a href="#" target="_blank">购物流程</a></li>
-                <li><a href="#" target="_blank">常见问题</a></li>
-                <li><a href="#" target="_blank">联系我们</a></li>
-                <li><a href="#" target="_blank">送花礼仪</a></li>
-            </ul>
-        </div>
-        <div class="list">
-            <strong>支付方式</strong>
-            <ul>
-                <li><a href="#" target="_blank">快捷支付</a></li>
-                <li><a href="#" target="_blank">在线支付</a></li>
-                <li><a href="#" target="_blank">货到付款</a></li>
-                <li><a href="#" target="_blank">在线补款</a></li>
-            </ul>
-        </div>
-        <div class="list">
-            <strong>配送方式</strong>
-            <ul>
-                <li><a href="#" target="_blank">配送说明</a></li>
-                <li><a href="#" target="_blank">定时配送</a></li>
-                <li><a href="#" target="_blank">发票说明</a></li>
-                <li><a href="#" target="_blank">配送范围及费用</a></li>
-
-            </ul>
-        </div>
-        <div class="list">
-            <strong>售后服务</strong>
-            <ul>
-                <li><a href="#" target="_blank">关于投诉</a></li>
-                <li><a href="#" target="_blank">订单查询</a></li>
-                <li><a href="#" target="_blank">订单修改</a></li>
-                <li><a href="#" target="_blank">订单取消</a></li>
-                <li><a href="#" target="_blank">品质标准</a></li>
-            </ul>
-        </div>
-        <div class="qrcode" id="site_qrcode">
-            <img src="/cn/images/qrcode_360flower.png" width="86" height="86">
-            <div>微信订花更快捷</div>
-        </div>
-        <div class="service">
-            <div class="kefu">客服电话</div>
-            <div class="tel400" id="site_tel400">400-XXX-XXX</div>
-            <div class="msg">周一至周日 8:30-18:00</div>
-            <div class="online"><a href="#" target="_blank">在线客服</a></div>
+</section>
+<!--footer-->
+<footer>
+    <div class="w12 tm" style="padding: 30px 0">
+        <ul class="footer-list">
+            <li><a href="javascript:void(0);">课程类型</a></li>
+            <li><a href="http://www.gmatonline.cn/index.html">GMAT</a></li>
+            <li><a href="http://www.toeflonline.cn/">TOEFL</a></li>
+            <li><a href="http://ielts.gmatonline.cn/">IELTS</a></li>
+            <li><a href="http://smartapply.gmatonline.cn/">留学</a></li>
+        </ul>
+        <ul class="footer-list">
+            <li><a href="javascript:void(0);">题库</a></li>
+            <li><a href="http://www.gmatonline.cn/question/stog8leetkey.html">PREP</a></li>
+            <li><a href="http://www.gmatonline.cn/question/stog1leetkey.html">OG</a></li>
+            <li><a href="http://www.toeflonline.cn/tpoExam.html">TPO</a></li>
+            <li><a href="http://ielts.gmatonline.cn/">剑桥</a></li>
+        </ul>
+        <ul class="footer-list erm-3-wrap">
+            <li><a href="javascript:void(0);">关注我们</a></li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥GMAT</a>
+                <div class="erm-3"><img src="/cn/images/erm-6.jpg" alt=""></div>
+            </li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥托福</a>
+                <div class="erm-3"><img src="/cn/images/erm-7.jpg" alt=""></div>
+            </li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥雅思</a>
+                <div class="erm-3"><img src="/cn/images/erm-8.png" alt=""></div>
+            </li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥留学</a>
+                <div class="erm-3"><img src="/cn/images/erm-9.jpg" alt=""></div>
+            </li>
+        </ul>
+        <div class="leige-tag inb">
+            <div><img src="/cn/images/logo-2.png" alt=""></div>
+            <div class="ft-tag">
+                <span><em class="point"></em>优质教学</span>
+                <span><em class="point"></em>海量题库</span>
+                <span><em class="point"></em>全方位服务</span>
+                <span><em class="point"></em>超值课程礼包</span>
+            </div>
+            <p class="ft-de">雷哥网  让你学的更好、效率更高、让你每天进步一点点</p>
         </div>
     </div>
-</div>
-<div class="bottom_last">
-    <a href="#" target="_blank"><img src="/cn/images/pay_alipay1.gif"  border="0"></a>
-    <a href="#" target="_blank"><img src="/cn/images/pay_yeepay.gif"  border="0"></a>
-    <a href="#" target="_blank"><img src="/cn/images/pay_paypal1.gif"  border="0"></a>
-    <img src="/cn/images/f_icp.gif"  border="0">
-    <img src="/cn/images/trust_star.gif" alt="网站信用"  border="0">
-    <img src="/cn/images/footer-icon01.gif" alt="icon"  border="0">
-    <img src="/cn/images/footer-icon02.gif" alt="icon"  border="0">
-    <img src="/cn/images/footer-icon03.png" alt="icon"  border="0">
-    <p>Copyright© 2005-2017 花间意电子商务有限公司 版权所有，并保留所有权利。 www.521huadian.com All rights reserved</p>
-</div>
-<div id="backtop"></div>
-<script type="text/javascript" src="/cn/js/zxkf.js"></script>
+    <div class="copyRight tm">
+        ©2016 gmatonline.cn All Rights Reserved    京ICP备15001182号-1 京公网安备11010802017681
+        <a href="http://www.gmatonline.cn/aboutUs/16.html#free_shengm">免责声明</a>
+    </div>
+</footer>
 </body>
+<script>
+    $(function () {
+        //        banner 轮播
+        jQuery(".slideBox").slide({
+            mainCell: ".banner",
+            titCell: ".hd",
+            effect: "left",
+            autoPlay: true,
+            autoPage: "<li></li>"
+        });
+        jQuery(".picMarquee-left").slide({
+            mainCell: ".bd ul",
+            autoPlay: true,
+            effect: "leftMarquee",
+            vis: 6,
+            interTime: 50
+        });
+    })
+</script>
 </html>

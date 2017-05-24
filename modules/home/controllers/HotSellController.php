@@ -27,12 +27,8 @@ class HotSellController extends AppControl {
         if($_POST){
             $data = Yii::$app->request->post('data');
             $model = new HotSell();
-            $model->image = $data['image'];
             $model->name = $data['name'];
             $model->url = $data['url'];
-            $model->number = $data['number'];
-            $model->price = $data['price'];
-            $model->flowerId = $data['flowerId'];
             $model->createTime = time();
             $model->save();
             $this->redirect('/home/hot-sell/index');

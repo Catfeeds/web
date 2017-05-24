@@ -58,6 +58,13 @@
                 </div>
             </div>
             <div class="control-group">
+                <label for="modulename" class="control-label">分类标题</label>
+                <div class="controls">
+                    <input type="text" id="input1" name="data[title]" value="<?php echo isset($data['title'])?$data['title']:''?>" datatype="userName" needle="needle" msg="您必须输入中英文字符的分类名称">
+                    <span class="help-block">请输入分类名称</span>
+                </div>
+            </div>
+            <div class="control-group">
                 <label for="moduledescribe" class="control-label">分类图片</label>
                 <div class="controls">
                     <div style="margin-bottom: 10px" id="InputsWrapper">

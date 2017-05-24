@@ -1,0 +1,257 @@
+.address_location{
+    padding: 5px 0 25px;
+}
+.address_location .location {
+    font-size: 16px;
+    vertical-align: baseline;
+    color: #ffa800;
+}
+
+.address_location a {
+    color: #8a8a8a;
+    font-size: 16px;
+}
+
+.address_location a:hover {
+    color: #ffa800;
+}
+
+.address_location i {
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+.address_location a, .address_location i {
+    vertical-align: baseline;
+}
+
+.sd_img {
+    width: 544px;
+    height: 294px;
+    margin-right: 40px;
+    overflow: hidden;
+    position: relative;
+}
+
+.try_listen {
+    position: absolute;
+    width: 260px;
+    height: 70px;
+    line-height: 70px;
+    left: 50%;
+    top: 50%;
+    margin-top: -35px;
+    margin-left: -130px;
+    color: #fff;
+    font-size: 20px;
+    background: rgba(0, 0, 0, 0.48);
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.try_listen:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.try_listen .try_listen_btn {
+    color: #ffa800;
+    font-size: 30px;
+    margin-right: 25px;
+    vertical-align: middle;
+}
+
+.sd_info_wrap {
+    font-size: 22px;
+    color: #393939;
+}
+
+.sd_info_wrap dt {
+    margin-bottom: 16px;
+}
+
+.sd_info_wrap .new_price {
+    font-size: 22px;
+    color: #ffa800;
+}
+
+.sd_info_wrap .old_price {
+    padding-left: 15px;
+    text-decoration: line-through;
+    font-size: 18px;
+    color: #b3b3b3;
+}
+
+.sd_name .kg {
+    margin: 0 22px;
+}
+
+.sd_tit_name {
+    margin-bottom: 10px;
+    font-size: 30px;
+    color: #393939;
+    max-height: 80px;
+}
+
+.subject_detail_info_wrap {
+    width: 570px;
+}
+
+.sd_check_bt {
+    padding-bottom: 15px;
+}
+
+.sd_check_bt a {
+    display: inline-block;
+    vertical-align: middle;
+    width: 170px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-top-left-radius: 10px;
+    color: #ffffff;
+}
+
+.sd_check_bt a:nth-child(1) {
+    background: #5fc654;
+    margin-right: 30px;
+}
+
+.sd_check_bt a:nth-child(1):hover {
+    background: #50a945;
+}
+
+.sd_check_bt a:nth-child(2) {
+    background: #ffa800;
+}
+
+.sd_check_bt a:nth-child(2):hover {
+    background: #de9200;
+}
+
+.view_data {
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+.view_data .view_eye {
+    font-size: 16px;
+    margin-right: 6px;
+    color: #ffa800;
+}
+
+.share_wrap {
+    padding-top: 20px;
+    border-top: 1px solid #dbdbdb;
+}
+.collect{
+    padding-top: 10px;
+    font-size: 14px;
+    color: #767676;
+}
+.subject_detail_wrap{
+    padding-bottom: 40px;
+}
+/*详情简介*/
+.sub_info_wrap{
+    /*padding: 0 20px;*/
+    border: 1px solid #ffa800;
+}
+.sub-info-check{
+    padding: 25px 20px;
+}
+.sub-info-check span{
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #ffa800;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    width: 174px;
+    height: 56px;
+    line-height: 56px;
+    text-align: center;
+    color: #ffa800;
+    font-size: 20px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+.sub-info-check span:last-child{
+    margin-right: 0;
+}
+.sub-info-check span.on{
+    color: #fff;
+    background: #ffa800;
+}
+.checked_item{
+    display: none;
+    padding: 0 20px;
+}
+.checked_item:first-child{
+    display: block;
+}
+.reply_list_wrap{
+    padding: 35px 0 0;
+    background: #f3f3f3;
+}
+.reply_list_wrap li{
+    padding: 15px 20px;
+    background: #ffffff;
+    margin-bottom: 20px;
+}
+.reply_list_wrap li:last-child{
+    margin-bottom: 10px;
+}
+.reply_list_wrap .user_head{
+    height: 84px;
+    width: 84px;
+    overflow: hidden;
+}
+.reply_data_wrap{
+    padding-left: 25px;
+    max-width: 950px;
+}
+.reply_data_wrap .nick_name{
+    color: #ffa800;
+    font-size: 24px;
+}
+.reply_data_wrap .reply_time{
+    color: #5b5b5a;
+    font-size: 12px;
+    padding: 10px 0;
+}
+.reply_data_wrap .reply_text{
+    color: #5b5b5a;
+    font-size: 18px;
+}
+.reply_int_wrap{
+    padding: 15px 20px;
+}
+#reply_value{
+    width: 99.5%;
+    padding: 0.5%;
+    height: 200px;
+    border: 1px solid #b8b5c0;
+    resize: none;
+    margin-bottom: 20px;
+}
+.reply_submit{
+    display: inline-block;
+    vertical-align: middle;
+    color: #ffffff;
+    background: #ffa800;
+    width: 110px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 16px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.reply_submit:hover{
+    background: #df9200;
+}

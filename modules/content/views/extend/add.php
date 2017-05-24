@@ -30,6 +30,15 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label for="modulename" class="control-label">样式</label>
+                        <div class="controls">
+                            <select  name="data[style]">
+                                <option  value="1">普通文本</option>
+                                <option  value="2">时间控件</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <div class="controls">
                             <input type="submit" class="btn btn-primary" value="提交">
                         </div>

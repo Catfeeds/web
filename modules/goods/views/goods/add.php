@@ -115,7 +115,20 @@
                                 <label for="modulename" class="control-label"><?php echo $v['name']?></label>
 
                                 <div class="controls">
-                                    <input type="text" id="input1" name="data[<?php echo $v['value']?>]">
+                                    <?php
+                                        if($v['style'] == 1) {
+                                            ?>
+                                            <input type="text" id="input1" name="data[<?php echo $v['value']?>]">
+                                        <?php
+                                        }
+                                    ?>
+                                    <?php
+                                    if($v['style'] == 2) {
+                                        ?>
+                                        <input type="text" class="Wdate" onclick="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" name="data[<?php echo $v['value']?>]" value="" datatype="" needle="needle" msg="">
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         <?php

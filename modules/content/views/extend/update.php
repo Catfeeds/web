@@ -30,6 +30,15 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label for="modulename" class="control-label">样式</label>
+                        <div class="controls">
+                            <select onchange="getPidCategory(this)" name="data[style]">
+                                <option <?php echo isset($data['style'])&&$data['style'] == 1?"selected":''?> value="1">普通文本</option>
+                                <option <?php echo isset($data['style'])&&$data['style'] == 2?"selected":''?> value="2">时间控件</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <div class="controls">
                             <input type="hidden" value="<?php echo $id?>" id="input1" name="id">
                             <input type="submit" class="btn btn-primary" value="提交">

@@ -30,6 +30,7 @@ class ExtendController extends AppControl {
             $model->name = $data['name'];
             $model->type = $data['type'];
             $model->value = $data['value'];
+            $model->style = $data['style'];
             $model->save();
             $this->redirect('/content/extend/index');
         }else{

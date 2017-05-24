@@ -43,43 +43,7 @@
             <a href="/home/picture/picture">轮播图管理</a>
         </li>
         <li>
-            <a href="/home/recommend/index">推荐管理</a>
-        </li>
-        <li>
-            <a href="/home/module/index">模块管理</a>
-        </li>
-        <li>
-            <a href="/home/navigation/index">顶部导航</a>
-        </li>
-        <li>
-            <a href="/home/stick/index">置顶图片</a>
-        </li>
-        <li>
-            <a href="/home/top/index">排行榜</a>
-        </li>
-        <li>
-            <a href="/home/especially/index">推荐分类</a>
-        </li>
-        <li>
-            <a href="/home/keywords/index">底部关键字</a>
-        </li>
-        <li>
-            <a href="/home/bottom/index">搜索栏底部连接</a>
-        </li>
-        <li>
-            <a href="/home/phone/index">联系电话</a>
-        </li>
-        <li>
-            <a href="/home/about/index">了解我们</a>
-        </li>
-        <li>
-            <a href="/home/append/index">附件组件</a>
-        </li>
-        <li>
-            <a href="/home/feast/index">节日特价</a>
-        </li>
-        <li>
-            <a href="/home/hot-sell/index">热销推荐</a>
+            <a href="/home/hot-sell/index">促销活动</a>
         </li>
     <?php
     }

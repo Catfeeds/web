@@ -18,6 +18,7 @@
         <table class="table table-hover add_defined">
             <thead>
             <tr>
+                <th>排序</th>
                 <th>ID</th>
                 <th>名称</th>
                 <th>值</th>
@@ -30,6 +31,8 @@
             foreach($extend as $v) {
                 ?>
                 <tr>
+                    <td><span><input style="width: 30px;" type="text" onkeyup="changeSort(<?php echo $v['id']?>,'extend',this)" value="<?php echo $v['sort']?>" name="sort"></span></td>
+
                     <td><span><?php echo $v['id']?></span></td>
                     <td><span><?php echo $v['name']?></span></td>
                     <td><span><?php echo $v['value']?></span></td>
