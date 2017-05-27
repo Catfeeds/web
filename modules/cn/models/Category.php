@@ -44,4 +44,11 @@ class Category extends ActiveRecord {
             $this->category[] = $category;
         }
     }
+    /**
+     * 获取分类属性值
+     * by  yanni
+     */
+    public function getCategoryExtend($catId){
+        $sql = "select * from {{%category}} as c LEFT JOIN {{%extend}} as e on c.type=e.type where c.id=$catId";
+    }
 }

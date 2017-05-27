@@ -29,8 +29,15 @@ class IndexController extends ToeflController {
         $model = new Category();
         $category = $model->getNavigationCategory();
         $banner = Banner::find()->asArray()->all();
-        $hot = HotSell::find()->asArray()->orderBy("sort ASC")->all();
-        return $this->renderPartial('index',['hot' => $hot,'category' => $category,'banner' => $banner]);
+        $hot = HotSell::find()->asArray()->orderBy("sort ASC")->limit(4)->all();
+        $openClass = file_get_contents("http://smartapply.gmatonline.cn/cn/api/class");
+        $openClass = json_decode($openClass,true);
+        foreach($openClass as $k=>$v){
+            $openClass[$k]['cnName'] = strtotime($v['cnName']);
+            $res[$k] = strtotime($v['cnName']);
+        }
+        array_multisort($res,$openClass);
+        return $this->renderPartial('index',['hot' => $hot,'category' => $category,'banner' => $banner,'openClass'=>$openClass]);
     }
 
 }

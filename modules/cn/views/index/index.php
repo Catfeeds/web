@@ -81,9 +81,13 @@
             <div class="slideBox fl">
                 <ul class="hd clearfix"></ul>
                 <ul class="banner">
-                    <li><a href="#"><img src="/cn/images/banner-1.png" alt=""></a></li>
-                    <li><a href="#"><img src="/cn/images/banner-1.png" alt=""></a></li>
-                    <li><a href="#"><img src="/cn/images/banner-1.png" alt=""></a></li>
+                    <?php
+                    foreach($banner as $v) {
+                        ?>
+                        <li><a href="<?php echo $v['url']; ?>"><img src="<?php echo $v['image']; ?>" alt=""></a></li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <!--右侧&登录状态-->
@@ -103,10 +107,13 @@
                 <div class="right_item">
                     <div class="ritem_tit"><span>|</span>促销活动</div>
                     <ul class="cx_list">
-                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
-                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
-                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
-                        <li><i class="icon_circle"></i><a href="#">雷哥网一对一课程打五折</a></li>
+                        <?php
+                        foreach($hot as $v) {
+                            ?>
+                            <li><i class="icon_circle"></i><a href="<?php echo $v['url']; ?>"><?php echo $v['name']; ?></a></li>
+                            <?php
+                        }
+                        ?>
                     </ul>
                 </div>
                 <!--免费领取课程-->
@@ -140,62 +147,38 @@
         </div>
         <!--老师答疑-->
         <ul class="help_live clearfix">
-            <li>
-                <div class="live_time ani">时间：2017.05.30</div>
-                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
-                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
-                <div class="tm">
-                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
-                    <div class="inm tl P_info">
-                        <p>主讲人：Victoria</p>
-                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
-                        <p class="price">￥：6666</p>
-                        <a class="inm playback_btn" href="#">观看回放</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="live_time ani">时间：2017.05.30</div>
-                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
-                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
-                <div class="tm">
-                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
-                    <div class="inm tl P_info">
-                        <p>主讲人：Victoria</p>
-                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
-                        <p class="price">￥：6666</p>
-                        <a class="inm playback_btn" href="#">观看回放</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="live_time ani">时间：2017.05.30</div>
-                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
-                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
-                <div class="tm">
-                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
-                    <div class="inm tl P_info">
-                        <p>主讲人：Victoria</p>
-                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
-                        <p class="price">￥：6666</p>
-                        <a class="inm playback_btn" href="#">观看回放</a>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="live_time ani">时间：2017.05.30</div>
-                <p class="help_live_tit"><a class="ellipsis" href="#">如何突破托福口语详细信息</a></p>
-                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
-                <div class="tm">
-                    <div class="user_head3 inm"><img src="/cn/images/user_head2.png" alt=""></div>
-                    <div class="inm tl P_info">
-                        <p>主讲人：Victoria</p>
-                        <p>课<i class="inm tp_zw"></i>时：80课时</p>
-                        <p class="price">￥：6666</p>
-                        <a class="inm playback_btn" href="#">观看回放</a>
-                    </div>
-                </div>
-            </li>
+            <?php
+            foreach(array_reverse($openClass) as $key=>$v ) {
+                if ($key < 4) {
+                    ?>
+                    <li>
+                        <div class="live_time ani">时间：<?php echo date('Y-m-d', $v['cnName']) ?></div>
+                        <p class="help_live_tit"><a class="ellipsis" href="#"><?php echo $v['name'] ?></a></p>
+                        <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
+                        <div class="tm">
+                            <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://smartapply.gmatonline.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
+                            <div class="inm tl P_info">
+                                <p>主讲人：<?php echo $v['listeningFile'] ?></p>
+                                <p>课<i class="inm tp_zw"></i>时：<?php echo $v['problemComplement'] ?></p>
+                                <p class="price">￥：<?php echo isset($v['price']) ? $v['price'] : '0' ?></p>
+                                <?php
+                                if ($v['duration']) {
+                                    ?>
+                                    <a class="inm playback_btn" href="http://smartapply.gmatonline.cn/public-class/back/<?php echo $v['id'] ?>.html">观看回放</a>
+                                    <?php
+                                } else {
+                                    ?>
+                                    <a class="inm playback_btn" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html">详情</a>
+                                    <?php
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </li>
+                    <?php
+                }
+            }
+            ?>
         </ul>
         <!--课程分类&直播课程-->
         <div class="bg_f sort_wrap">
