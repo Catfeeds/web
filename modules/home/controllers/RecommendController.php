@@ -8,10 +8,10 @@
  */
 namespace app\modules\home\controllers;
 
-use app\modules\home\models\HotSell;
+use app\modules\home\models\Recommend;
 use yii;
 use app\libs\AppControl;
-class HotSellController extends AppControl {
+class RecommendController extends AppControl {
     public $enableCsrfValidation = false;
     /**
      * 首页banner图
@@ -19,19 +19,19 @@ class HotSellController extends AppControl {
      */
     public function actionIndex()
     {
-        $hot = HotSell::find()->asArray()->all();
-        return $this->render('index',['hot' => $hot]);
+        $recommend = Recommend::find()->asArray()->all();
+        return $this->render('index',['recommend' => $recommend]);
     }
 
     public function actionAdd(){
         if($_POST){
             $data = Yii::$app->request->post('data');
-            $model = new HotSell();
-            $model->name = $data['name'];
-            $model->url = $data['url'];
+            $model = new Recommend();
+            $model->goodsId = $data['goodsId'];
+            $model->type = $data['type'];
             $model->createTime = time();
             $model->save();
-            $this->redirect('/home/hot-sell/index');
+            $this->redirect('/home/recommend/index');
         }else{
             return $this->render('add');
         }
@@ -41,19 +41,19 @@ class HotSellController extends AppControl {
         if($_POST){
             $id = Yii::$app->request->post('id');
             $data = Yii::$app->request->post('data');
-            HotSell::updateAll($data,"id=$id");
-            $this->redirect('/home/hot-sell/index');
+            Recommend::updateAll($data,"id=$id");
+            $this->redirect('/home/recommend/index');
         }else{
             $id = Yii::$app->request->get('id');
-            $data = HotSell::find()->asArray()->where("id=$id")->one();
+            $data = Recommend::find()->asArray()->where("id=$id")->one();
             return $this->render('update',['data' => $data,'id' => $id]);
         }
     }
 
     public function actionDelete(){
         $id = Yii::$app->request->get('id');
-        HotSell::findOne($id)->delete();
-        return $this->redirect('/home/hot-sell/index');
+        Recommend::findOne($id)->delete();
+        return $this->redirect('/home/recommend/index');
     }
 
 

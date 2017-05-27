@@ -45,6 +45,12 @@
         <li>
             <a href="/home/hot-sell/index">促销活动</a>
         </li>
+        <li>
+            <a href="/home/recommend/index">特别推荐</a>
+        </li>
+        <li>
+            <a href="/home/hot-sell/index">猜你喜欢</a>
+        </li>
     <?php
     }
     ?>

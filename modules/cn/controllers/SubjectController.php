@@ -9,7 +9,9 @@ use app\modules\cn\models\Append;
 use app\modules\cn\models\AppendDetails;
 use app\modules\cn\models\Category;
 use app\modules\cn\models\Flower;
+use app\modules\cn\models\Goods;
 use app\modules\cn\models\HotSell;
+use app\modules\content\models\Extend;
 use yii;
 use app\libs\ToeflController;
 
@@ -24,7 +26,15 @@ class SubjectController extends ToeflController {
         $page = Yii::$app->request->get('page',1);
         $model = new Category();
         $category = $model->getRelateAllCategory($catId);
-        return $this->renderPartial('index',['category' => $category]);
+        $model = new Goods();
+        $where = $model->getChild($catId);
+        $sign = Category::findOne($catId);
+        $where = "catId in (".implode(",",$where).")";
+        $data = $model->getAllGoods($where,$page,10,$sign->type);
+        $extend = Extend::find()->asArray()->where("type = $sign->type")->orderBy("sort ASC")->limit(2)->all();
+        $pageStr = $data['pageStr'];
+        $data = $data['data'];
+        return $this->renderPartial('index',['extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
     }
 
     public function actionDetails(){

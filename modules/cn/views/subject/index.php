@@ -142,122 +142,49 @@
         <div class="clearfix">
             <div class="left-subject bg_f fl">
                 <ul class="subject_list">
-                    <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
-                        <div class="subject_data inb">
-                            <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
-                            <dl class="subject_data_wrap">
-                                <dt>
-                                    <span class="sbj_name">价<i class="kg inm"></i>格：</span>
-                                    <span class="new_price">￥6800</span><span class="old_price">￥1200</span>
-                                </dt>
-                                <dt><span class="sbj_name">课程时长：</span>60课时</dt>
-                                <dt><span class="sbj_name">开课日期：</span>4月23日-6月30日</dt>
-                            </dl>
-                        </div>
-                        <div class="subject_btn inb">
-                            <a href="#">免费试听</a>
-                            <a href="#">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
-                        <div class="subject_data inb">
-                            <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
-                            <dl class="subject_data_wrap">
-                                <dt>
-                                    <span class="sbj_name">价<i class="kg inm"></i>格：</span>
-                                    <span class="new_price">￥6800</span><span class="old_price">￥1200</span>
-                                </dt>
-                                <dt><span class="sbj_name">课程时长：</span>60课时</dt>
-                                <dt><span class="sbj_name">开课日期：</span>4月23日-6月30日</dt>
-                            </dl>
-                        </div>
-                        <div class="subject_btn inb">
-                            <a href="#">免费试听</a>
-                            <a href="#">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
-                        <div class="subject_data inb">
-                            <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
-                            <dl class="subject_data_wrap">
-                                <dt>
-                                    <span class="sbj_name">价<i class="kg inm"></i>格：</span>
-                                    <span class="new_price">￥6800</span><span class="old_price">￥1200</span>
-                                </dt>
-                                <dt><span class="sbj_name">课程时长：</span>60课时</dt>
-                                <dt><span class="sbj_name">开课日期：</span>4月23日-6月30日</dt>
-                            </dl>
-                        </div>
-                        <div class="subject_btn inb">
-                            <a href="#">免费试听</a>
-                            <a href="#">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
-                        <div class="subject_data inb">
-                            <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
-                            <dl class="subject_data_wrap">
-                                <dt>
-                                    <span class="sbj_name">价<i class="kg inm"></i>格：</span>
-                                    <span class="new_price">￥6800</span><span class="old_price">￥1200</span>
-                                </dt>
-                                <dt><span class="sbj_name">课程时长：</span>60课时</dt>
-                                <dt><span class="sbj_name">开课日期：</span>4月23日-6月30日</dt>
-                            </dl>
-                        </div>
-                        <div class="subject_btn inb">
-                            <a href="#">免费试听</a>
-                            <a href="#">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
-                        <div class="subject_data inb">
-                            <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
-                            <dl class="subject_data_wrap">
-                                <dt>
-                                    <span class="sbj_name">价<i class="kg inm"></i>格：</span>
-                                    <span class="new_price">￥6800</span><span class="old_price">￥1200</span>
-                                </dt>
-                                <dt><span class="sbj_name">课程时长：</span>60课时</dt>
-                                <dt><span class="sbj_name">开课日期：</span>4月23日-6月30日</dt>
-                            </dl>
-                        </div>
-                        <div class="subject_btn inb">
-                            <a href="#">免费试听</a>
-                            <a href="#">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="subject_img2 inm"><a href="#"><img src="/cn/images/sub_img.png" alt=""></a></div>
-                        <div class="subject_data inb">
-                            <h1 class="subject_name ellipsis"><a href="#">2017年GMAT在线强化全程课程</a></h1>
-                            <dl class="subject_data_wrap">
-                                <dt>
-                                    <span class="sbj_name">价<i class="kg inm"></i>格：</span>
-                                    <span class="new_price">￥6800</span><span class="old_price">￥1200</span>
-                                </dt>
-                                <dt><span class="sbj_name">课程时长：</span>60课时</dt>
-                                <dt><span class="sbj_name">开课日期：</span>4月23日-6月30日</dt>
-                            </dl>
-                        </div>
-                        <div class="subject_btn inb">
-                            <a href="#">免费试听</a>
-                            <a href="#">查看详情</a>
-                        </div>
-                    </li>
+                    <?php
+                        foreach($data as $v) {
+                            ?>
+                            <li>
+                                <div class="subject_img2 inm"><a href="#"><img src="<?php echo $v['image']?>" alt=""></a>
+                                </div>
+                                <div class="subject_data inb">
+                                    <h1 class="subject_name ellipsis"><a href="#"><?php echo $v['name']?></a></h1>
+                                    <dl class="subject_data_wrap">
+                                        <dt>
+                                            <span class="sbj_name">价<i class="kg inm"></i>格：</span>
+                                            <span class="new_price">￥<?php echo $v['price']?></span><span class="old_price">￥<?php echo $v['sales']?></span>
+                                        </dt>
+                                        <?php
+                                            foreach($extend as $k => $val) {
+                                                if($k == 2){break;}
+                                                ?>
+                                                <dt><span class="sbj_name"><?php echo $val['name']?>：</span><?php echo $v[$val['value']]?></dt>
+                                            <?php
+                                            }
+                                        ?>
+                                    </dl>
+                                </div>
+                                <div class="subject_btn inb">
+                                    <?php
+                                        if(isset($v['url'])&&!empty($v['url'])) {
+                                            ?>
+                                            <a href="<?php echo $v['url']?>">免费试听</a>
+                                        <?php
+                                        }
+                                    ?>
+                                    <a href="#">加入购物车</a>
+                                </div>
+                            </li>
+                        <?php
+                        }
+                    ?>
                 </ul>
                 <!--分页-->
                 <div class="tr pageSize">
-                    <a href="#">上一页</a>
-                    <a href="#" class="on">1</a>
-                    <a href="#">2</a>
-                    <a href="#">...</a>
-                    <a href="#">下一页</a>
+<?php
+    echo $pageStr
+?>
                 </div>
             </div>
             <div class="right_ad fr">

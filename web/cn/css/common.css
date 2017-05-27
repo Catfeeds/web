@@ -23,7 +23,6 @@
 
 #nav_wrap {
     background: url("../images/nav_bg.png") no-repeat 0 0;
-    background-size: 100%;
 }
 
 .nav_list {
@@ -143,6 +142,8 @@
     color: #ffa800;
     font-size: 14px;
     height: 45px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
     line-height: 45px;
     margin-left: 5px;
     max-width: 60px;
@@ -152,6 +153,8 @@
     font-size: 12px;
     color: #ffa800;
     overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
     display: inline-block;
     vertical-align: middle;
     max-width: 50px;
@@ -231,7 +234,8 @@
     padding: 30px 20px;
 }
 
-.pageSize a {
+.pageSize li {
+    cursor: pointer;
     display: inline-block;
     vertical-align: middle;
     color: #959595;
@@ -246,13 +250,13 @@
     font-weight: bold;
     margin-right: 5px;
 }
-.pageSize a:hover{
+.pageSize li:hover{
     color: #fff;
     background: #ffa800;
     border-color: #ffa800;
 }
 
-.pageSize a.on {
+.pageSize li.on {
     color: #fff;
     background: #ffa800;
     border-color: #ffa800;
