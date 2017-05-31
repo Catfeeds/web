@@ -16,6 +16,9 @@
                         <li class="<?php if (Yii::$app->controller->module->id == 'home') echo 'active'?>">
                             <a href="/home/picture/picture">设置模块</a>
                         </li>
+                        <li class="<?php if (Yii::$app->controller->module->id == 'collection') echo 'active'?>">
+                            <a href="/collection/collection/index">信息采集</a>
+                        </li>
                     </ul>
                 </ul>
                 <ul class="nav pull-right">

@@ -193,70 +193,45 @@
                 </div>
             </div>
             <ul class="live_course_list clearfix">
-                <li>
-                    <div class="ani live_user_check">
-                        <div class="relative rh100">
-                            <div class="user_handle_wrap">
-                                <div class="big_try_btn">
-                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
-                                    <span class="inm">点击试听</span>
-                                </div>
-                                <div class="live_user_handle clearfix">
-                                    <a class="fl" href="#">购买</a>
-                                    <a class="fr" href="#">详情</a>
+                <?php
+                foreach($recording as $v) {
+                    ?>
+                    <li>
+                        <div class="ani live_user_check">
+                            <div class="relative rh100">
+                                <div class="user_handle_wrap">
+                                    <div class="big_try_btn">
+                                        <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                        <span class="inm">点击试听</span>
+                                    </div>
+                                    <div class="live_user_handle clearfix">
+                                        <a class="fl" href="#">购买</a>
+                                        <a class="fr" href="#">详情</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="live_time2 ani">时间：2017.05.30</div>
-                    <div class="cr1_img"><img src="/cn/images/1cr_1.png" alt=""></div>
-                    <div class="live_course_info">
-                        <div class="live_course_name_wrap">
-                            <p class="live_course_name">托福周末班一对一</p>
-                            <p class="live_course_ks">课时：80课时</p>
-                        </div>
-                        <div>
-                            <div class="inb">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
+                        <div class="live_time2 ani">时间：<?php echo date('Y-m-d', strtotime($v['startTime']));?></div>
+                        <div class="cr1_img"><img src="<?php echo $v['image'] ?>" alt=""></div>
+                        <div class="live_course_info">
+                            <div class="live_course_name_wrap">
+                                <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
                             </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
-                        </div>
+                            <div>
+                                <div class="inb">
+                                    <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                    <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                </div>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                            </div>
 
-                    </div>
-                </li>
-                <li>
-                    <div class="ani live_user_check">
-                        <div class="relative rh100">
-                            <div class="user_handle_wrap">
-                                <div class="big_try_btn">
-                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
-                                    <span class="inm">点击试听</span>
-                                </div>
-                                <div class="live_user_handle clearfix">
-                                    <a class="fl" href="#">购买</a>
-                                    <a class="fr" href="#">详情</a>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="live_time2 ani">时间：2017.05.30</div>
-                    <div class="cr1_img"><img src="/cn/images/1cr_2.png" alt=""></div>
-                    <div class="live_course_info">
-                        <div class="live_course_name_wrap">
-                            <p class="live_course_name">托福周末班一对一</p>
-                            <p class="live_course_ks">课时：80课时</p>
-                        </div>
-                        <div>
-                            <div class="inb">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
-                            </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
-                        </div>
+                    </li>
+                    <?php
+                }
+                ?>
 
-                    </div>
-                </li>
                 <li>
                     <div class="ani live_user_check">
                         <div class="relative rh100">
@@ -337,28 +312,34 @@
             </div>
             <div class="playback_course_list clearfix">
                 <div class="pb_left fl">
-                    <div class="pb_list_item">
-                        <div class="ani pb_check">
-                            <div class="rh100 relative">
-                                <div class="pb_handle-wrap">
-                                    <a href="#" class="pb_big_btn bg_g2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
-                                        <span class="inm">回放课程</span>
-                                    </a>
-                                    <a href="#" class="pb_big_btn bg_f2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
-                                        <span class="inm">查看详情</span>
-                                    </a>
+                    <?php
+                    foreach($playback as $v) {
+                        ?>
+                        <div class="pb_list_item">
+                            <div class="ani pb_check">
+                                <div class="rh100 relative">
+                                    <div class="pb_handle-wrap">
+                                        <a href="#" class="pb_big_btn bg_g2">
+                                            <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                            <span class="inm">回放课程</span>
+                                        </a>
+                                        <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_f2">
+                                            <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                            <span class="inm">查看详情</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
+                            <p class="pb_name"><?php echo $v['name'] ?></p>
+                            <div class="pb_btn_wrap">
+                                <a class="small_try_btn pb_btn inb" href="#">回放</a>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">详情</a>
+                            </div>
+                            <div class="2cr_img cr2_1 ani"><img src="<?php echo isset($v['name'])?$v['name']:'/cn//images/2cr_1.png' ?>" alt=""></div>
                         </div>
-                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
-                        <div class="pb_btn_wrap">
-                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
-                            <a class="small_try_btn inb" href="#">详情</a>
-                        </div>
-                        <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_1.png" alt=""></div>
-                    </div>
+                        <?php
+                    }
+                    ?>
                     <div class="pb_list_item">
                         <div class="ani pb_check">
                             <div class="rh100 relative">
@@ -466,15 +447,21 @@
                 </div>
             </div>
             <ul class="gmat_course_list clearfix">
-                <li>
-                    <p class="gmat_cr_name">GMAT周末班一对一</p>
-                    <div class="gmat_price_wrap">
-                        <span class="index_new_price">￥400</span>
-                        <span class="index_old_price">￥700</span>
-                    </div>
-                    <a class="small_try_btn inb" href="#">试听</a>
-                    <div class="cr3_img"><img src="/cn/images/3cr_1.png" alt=""></div>
-                </li>
+                <?php
+                foreach($lgwGmat as $v) {
+                    ?>
+                    <li>
+                        <p class="gmat_cr_name"><?php echo $v['name'] ?></p>
+                        <div class="gmat_price_wrap">
+                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                        </div>
+                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                        <div class="cr3_img"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/3cr_1.png' ?>" alt=""></div>
+                    </li>
+                    <?php
+                }
+                ?>
                 <li>
                     <p class="gmat_cr_name">GMAT周末班一对一</p>
                     <div class="gmat_price_wrap">
@@ -516,17 +503,23 @@
                 </div>
             </div>
             <ul class="teofl_course_list clearfix">
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
+                <?php
+                foreach($lgwToefl as $v) {
+                    ?>
+                    <li>
+                        <div class="wrap_info">
+                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <div class="gmat_price_wrap">
+                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                            </div>
+                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                         </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/4cr_1.png" alt=""></div>
-                </li>
+                        <div class="cr4_img"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/4cr_1.png' ?>" alt=""></div>
+                    </li>
+                    <?php
+                }
+                ?>
                 <li>
                     <div class="wrap_info">
                         <p class="common_cr_name">GMAT周末班一对一</p>
@@ -575,17 +568,23 @@
                 </div>
             </div>
             <ul class="teofl_course_list yasi_list clearfix">
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
+                <?php
+                foreach($lgwIelts as $v) {
+                    ?>
+                    <li>
+                        <div class="wrap_info">
+                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <div class="gmat_price_wrap">
+                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                            </div>
+                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                         </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/5cr_1.png" alt=""></div>
-                </li>
+                        <div class="cr4_img"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/5cr_1.png' ?>" alt=""></div>
+                    </li>
+                    <?php
+                }
+                ?>
                 <li>
                     <div class="wrap_info">
                         <p class="common_cr_name">GMAT周末班一对一</p>
@@ -634,55 +633,81 @@
                 </div>
             </div>
             <div class="smartList clearfix">
-
-                <div class="smartItem_1 fl smartItem">
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="smartImg"><img src="/cn/images/6cr_1.png" alt=""></div>
-                </div>
-                <div class="sr_wrap fl">
-                    <div class="smartItem_2 smartItem">
-                        <div class="wrap_info">
-                            <p class="common_cr_name">GMAT周末班一对一</p>
-                            <div class="gmat_price_wrap">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
-                            </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
-                        </div>
-                        <div class="smartImg"><img src="/cn/images/6cr_2.png" alt=""></div>
-                    </div>
-                    <div class="sbtm_wrap clearfix">
-                        <div class="smartItem_3 fl smartItem">
+                <?php
+                foreach($lgwLiuxue as $key=>$v) {
+                    if ($key == 0) {
+                        ?>
+                        <div class="smartItem_1 fl smartItem">
                             <div class="wrap_info">
-                                <p class="common_cr_name">GMAT周末班一对一</p>
+                                <p class="common_cr_name"><?php echo $v['name'] ?></p>
                                 <div class="gmat_price_wrap">
-                                    <span class="index_new_price">￥400</span>
-                                    <span class="index_old_price">￥700</span>
+                                    <span class="index_new_price">￥<?php echo $v['pirce'] ?></span>
+                                    <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                 </div>
-                                <a class="small_try_btn inb" href="#">试听</a>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                             </div>
-                            <div class="smartImg"><img src="/cn/images/6cr_3.png" alt=""></div>
+                            <div class="smartImg"><img
+                                    src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_1.png' ?>"
+                                    alt=""></div>
                         </div>
-                        <div class="smartItem_3 fr smartItem">
-                            <div class="wrap_info">
-                                <p class="common_cr_name">GMAT周末班一对一</p>
-                                <div class="gmat_price_wrap">
-                                    <span class="index_new_price">￥400</span>
-                                    <span class="index_old_price">￥700</span>
+                        <?php
+                    }
+                    ?>
+                    <div class="sr_wrap fl">
+                        <?php
+                        if($key==1) {
+                            ?>
+                            <div class="smartItem_2 smartItem">
+                                <div class="wrap_info">
+                                    <p class="common_cr_name">GMAT周末班一对一</p>
+                                    <div class="gmat_price_wrap">
+                                        <span class="index_new_price">￥400</span>
+                                        <span class="index_old_price">￥700</span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="#">试听</a>
                                 </div>
-                                <a class="small_try_btn inb" href="#">试听</a>
+                                <div class="smartImg"><img src="/cn/images/6cr_2.png" alt=""></div>
                             </div>
-                            <div class="smartImg"><img src="/cn/images/6cr_4.png" alt=""></div>
+                            <?php
+                        }
+                        ?>
+                        <div class="sbtm_wrap clearfix">
+                            <?php
+                            if($key==2) {
+                                ?>
+                                <div class="smartItem_3 fl smartItem">
+                                    <div class="wrap_info">
+                                        <p class="common_cr_name">GMAT周末班一对一</p>
+                                        <div class="gmat_price_wrap">
+                                            <span class="index_new_price">￥400</span>
+                                            <span class="index_old_price">￥700</span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="#">试听</a>
+                                    </div>
+                                    <div class="smartImg"><img src="/cn/images/6cr_3.png" alt=""></div>
+                                </div>
+                                <?php
+                            } if($key==3) {
+                                ?>
+                                <div class="smartItem_3 fr smartItem">
+                                    <div class="wrap_info">
+                                        <p class="common_cr_name">GMAT周末班一对一</p>
+                                        <div class="gmat_price_wrap">
+                                            <span class="index_new_price">￥400</span>
+                                            <span class="index_old_price">￥700</span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="#">试听</a>
+                                    </div>
+                                    <div class="smartImg"><img src="/cn/images/6cr_4.png" alt=""></div>
+                                </div>
+                                <?php
+                            }
+                            ?>
                         </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
             </div>
 
         </div>
@@ -698,17 +723,23 @@
                 </div>
             </div>
             <ul class="lgyList clearfix">
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
+                <?php
+                foreach($lgwEnglish as $v) {
+                    ?>
+                    <li>
+                        <div class="wrap_info">
+                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <div class="gmat_price_wrap">
+                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                            </div>
+                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                         </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="lgyImg"><img src="/cn/images/7cr_1.png" alt=""></div>
-                </li>
+                        <div class="lgyImg"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/7cr_1.png' ?>>" alt=""></div>
+                    </li>
+                    <?php
+                }
+                ?>
                 <li>
                     <div class="wrap_info">
                         <p class="common_cr_name">GMAT周末班一对一</p>
@@ -760,9 +791,15 @@
             <div class="picMarquee-left relative">
                 <div class="bd">
                     <ul>
-                        <li>
-                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
-                        </li>
+                        <?php
+                        foreach($lgwBook as $v) {
+                            ?>
+                            <li>
+                                <a href="<?php echo $v['url'] ?>" title="<?php echo $v['name'] ?>"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/books.png' ?>" alt=""></a>
+                            </li>
+                            <?php
+                        }
+                        ?>
                         <li>
                             <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
                         </li>
@@ -795,63 +832,87 @@
                     <a class="sort_more" href="#">查看更多></a>
                 </div>
             </div>
-            <div class="vipCourse_list clearfix">
-                <div class="vipCourse_item_1 fl vc_im">
-                    <div class="vcImg"><img src="/cn/images/9cr_1.png" alt=""></div>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <div class="inb pr_wrap">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
+            <?php
+            foreach($lgwVip as $k=>$v) {
+                if ($k==0) {
+                    ?>
+                    <div class="vipCourse_list clearfix">
+                    <div class="vipCourse_item_1 fl vc_im">
+                        <div class="vcImg"><img src="/cn/images/9cr_1.png" alt=""></div>
+                        <div class="wrap_info">
+                            <p class="common_cr_name">GMAT周末班一对一</p>
+                            <div class="gmat_price_wrap">
+                                <div class="inb pr_wrap">
+                                    <span class="index_new_price">￥400</span>
+                                    <span class="index_old_price">￥700</span>
+                                </div>
+                                <a class="small_try_btn inb" href="#">试听</a>
                             </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
                         </div>
                     </div>
-                </div>
+                    <?php
+                }
+                ?>
                 <ul class="vip_middle_md fl">
-                    <li>
-                        <div class="wrap_info">
-                            <p class="common_cr_name">GMAT周末班一对一</p>
-                            <div class="gmat_price_wrap">
-                                <div class="inb pr_wrap">
-                                    <span class="index_new_price">￥400</span>
-                                    <span class="index_old_price">￥700</span>
+                    <?php
+                    if($k==1) {
+                        ?>
+                        <li>
+                            <div class="wrap_info">
+                                <p class="common_cr_name">GMAT周末班一对一</p>
+                                <div class="gmat_price_wrap">
+                                    <div class="inb pr_wrap">
+                                        <span class="index_new_price">￥400</span>
+                                        <span class="index_old_price">￥700</span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="#">试听</a>
                                 </div>
-                                <a class="small_try_btn inb" href="#">试听</a>
                             </div>
-                        </div>
-                        <div class="vcImg"><img src="/cn/images/9cr_2.png" alt=""></div>
-                    </li>
-                    <li>
-                        <div class="wrap_info">
-                            <p class="common_cr_name">GMAT周末班一对一</p>
-                            <div class="gmat_price_wrap">
-                                <div class="inb pr_wrap">
-                                    <span class="index_new_price">￥400</span>
-                                    <span class="index_old_price">￥700</span>
+                            <div class="vcImg"><img src="/cn/images/9cr_2.png" alt=""></div>
+                        </li>
+                        <?php
+                    } if($k==2) {
+                        ?>
+                        <li>
+                            <div class="wrap_info">
+                                <p class="common_cr_name">GMAT周末班一对一</p>
+                                <div class="gmat_price_wrap">
+                                    <div class="inb pr_wrap">
+                                        <span class="index_new_price">￥400</span>
+                                        <span class="index_old_price">￥700</span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="#">试听</a>
                                 </div>
-                                <a class="small_try_btn inb" href="#">试听</a>
                             </div>
-                        </div>
-                        <div class="vcImg"><img src="/cn/images/9cr_3.png" alt=""></div>
-                    </li>
+                            <div class="vcImg"><img src="/cn/images/9cr_3.png" alt=""></div>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
-                <div class="vipCourse_item_1 fl vc_im">
-                    <div class="vcImg"><img src="/cn/images/9cr_4.png" alt=""></div>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <div class="inb pr_wrap">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
+                <?php
+                if($k==3) {
+                    ?>
+                    <div class="vipCourse_item_1 fl vc_im">
+                        <div class="vcImg"><img src="/cn/images/9cr_4.png" alt=""></div>
+                        <div class="wrap_info">
+                            <p class="common_cr_name">GMAT周末班一对一</p>
+                            <div class="gmat_price_wrap">
+                                <div class="inb pr_wrap">
+                                    <span class="index_new_price">￥400</span>
+                                    <span class="index_old_price">￥700</span>
+                                </div>
+                                <a class="small_try_btn inb" href="#">试听</a>
                             </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
                         </div>
                     </div>
+                    <?php
+                }
+                ?>
                 </div>
-            </div>
-
+                <?php
+            }
+            ?>
         </div>
     </div>
 </section>

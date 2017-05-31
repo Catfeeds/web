@@ -1,5 +1,10 @@
 <?php 
 namespace app\modules\cn\models;
+use app\modules\goods\models\Book;
+use app\modules\goods\models\Course;
+use app\modules\goods\models\En;
+use app\modules\goods\models\Smart;
+use app\modules\goods\models\Vip;
 use yii\db\ActiveRecord;
 class Category extends ActiveRecord {
     public $category;
@@ -45,10 +50,86 @@ class Category extends ActiveRecord {
         }
     }
     /**
-     * 获取分类属性值
+     * 获取内容属性值
      * by  yanni
      */
-    public function getCategoryExtend($catId){
-        $sql = "select * from {{%category}} as c LEFT JOIN {{%extend}} as e on c.type=e.type where c.id=$catId";
+    public function getContentExtend($catId){
+        $model = new Goods();
+        $cat = $model->getChild($catId);
+        $data = Course::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('startTime desc')->limit(4)->all();
+        return $data;
+    }
+
+    /**
+     * 获取分类内容
+     * by  yanni
+     */
+    public function getCategoryContent($catIds){
+        $cats = array();
+        foreach($catIds as $v) {
+            $model = new Goods();
+            $cats[] = $model->getChild($v);
+        }
+        $cat = $this->arrToOne($cats);
+        $data = Course::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('startTime desc')->limit(4)->all();
+        return $data;
+    }
+
+    /**
+     * 获取留学分类内容
+     * by  yanni
+     */
+    public function getSmatContent($catId){
+        $model = new Goods();
+        $cat = $model->getChild($catId);
+        $data = Smart::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(4)->all();
+        return $data;
+    }
+    /**
+     * 获取英语分类内容
+     * by  yanni
+     */
+    public function getEnglishContent($catId){
+        $model = new Goods();
+        $cat = $model->getChild($catId);
+        $data = En::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(4)->all();
+        return $data;
+    }
+
+    /**
+     * 获取书籍分类内容
+     * by  yanni
+     */
+    public function getBookContent($catId){
+        $model = new Goods();
+        $cat = $model->getChild($catId);
+        $data = Book::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(10)->all();
+        return $data;
+    }
+
+    /**
+     * 获取vip分类内容
+     * by  yanni
+     */
+    public function getVipContent($catId){
+        $model = new Goods();
+        $cat = $model->getChild($catId);
+        $data = Vip::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(4)->all();
+        return $data;
+    }
+    /**
+     * 多维数组转换成一维数组
+     * by  yanni
+     */
+    public function arrToOne($arr) {
+        $data = array();
+        foreach ($arr as $key => $val) {
+            if( is_array($val) ) {
+                $data = array_merge($data, $this->arrToOne($val));
+            } else {
+                $data[] = $val;
+            }
+        }
+        return $data;
     }
 }

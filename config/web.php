@@ -42,6 +42,11 @@ $config = [
             'class'=>'app\modules\cn\CnModule'
 
         ],
+        'collection' => [
+
+            'class'=>'app\modules\collection\CollectionModule'
+
+        ],
     ],
 
     'components' => [

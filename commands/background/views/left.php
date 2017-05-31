@@ -54,4 +54,13 @@
     <?php
     }
     ?>
+    <?php
+    if($module == 'collection') {
+        ?>
+        <li>
+            <a href="/collection/receive-courses/index">领取课程用户</a>
+        </li>
+        <?php
+    }
+    ?>
 </ul>
