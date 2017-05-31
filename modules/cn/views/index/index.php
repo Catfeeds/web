@@ -140,7 +140,7 @@
                             </div>
                             <div class="code_btn fr"  onclick="sendYzm(this)">发送验证码</div>
                         </div>
-                        <button class="form_submit">免费领取课程</button>
+                        <button class="form_submit"  onclick="subInformation()">免费领取课程</button>
                     </div>
 
                 </div>
