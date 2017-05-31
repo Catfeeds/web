@@ -124,7 +124,7 @@
                         <div class="row_int">
                             <div class="int_k">
                                 <div class="int_icon"><img src="/cn/images/int_icon_1.png" alt=""></div>
-                                <input type="text" placeholder="填写你的姓名">
+                                <input type="text" placeholder="填写你的姓名" id="name">
                             </div>
                         </div>
                         <div class="row_int">
