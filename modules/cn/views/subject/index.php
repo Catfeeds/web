@@ -90,7 +90,9 @@
                                 <?php
                                     foreach($v as $val) {
                                         ?>
-                                        <li <?php echo isset($val['checked'])&&$val['checked']==1?'class="on"':''?>><?php echo $val['name']?></li>
+                                        <li <?php echo isset($val['checked'])&&$val['checked']==1?'class="on"':''?>>
+                                            <a href="#"><?php echo $val['name']?></a>
+                                        </li>
                                     <?php
                                     }
                                         ?>
