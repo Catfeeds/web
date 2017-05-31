@@ -21,6 +21,10 @@ use app\libs\Sms;
 
 use app\modules\cn\models\Content;
 
+use app\modules\cn\models\ReceiveUser;
+
+use app\modules\cn\models\User;
+
 use app\modules\cn\models\UserDiscuss;
 
 use UploadFile;
@@ -39,6 +43,85 @@ class ApiController extends ToeflApiControl
     public $enableCsrfValidation = false;
 
 
+    /**
+     * 领取课程接口
+     * by yanni
+     */
+    public function actionReceiveCourses(){
+        $phone = Yii::$app->request->post('phone');
+        $code = Yii::$app->request->post('code');
+        $name = Yii::$app->request->post('name');
+        $checkTime = $this->checkTime();
+        if(!$checkTime){
+            $res['code'] = 0;
+            $res['message'] = '验证码过期';
+        }else{
+            $checkCode = $this->checkCode($phone,$code);
+            if(!$checkCode){
+                $res['code'] = 0;
+                $res['message'] = '验证码错误';
+            }else{
+                $checkPhone = $this->checkPhone($phone);
+                if($checkPhone){
+                    $model = new ReceiveUser();
+                    $model->name = $name;
+                    $model->phone = $phone;
+                    $model->createTime = time();
+                    $re = $model->save();
+                    if($re>0){
+                        $res['code'] = 1;
+                        $res['message'] = '我们的工作人员将于1-2个工作日内跟你联系';
+                    }
+                } else {
+                    $res['code'] = 0;
+                    $res['message'] = '此电话已经有人领取过';
+                }
+            }
+        }
+        die(json_encode($res));
+    }
+
+    /**
+     * 验证短信码
+     * @Obelisk
+     */
+    public function checkCode($phone,$code){
+        $phoneCode = \Yii::$app->session->get($phone.'phoneCode');
+        if($phoneCode == $code){
+            \Yii::$app->session->remove($phone.'phoneCode');
+            $re = true;
+        }else{
+            $re = false;
+        }
+        return $re;
+    }
+    /**
+     * 验证短信的时间是否过期
+     * @Obelisk
+     */
+    public function checkTime(){
+        $phoneTime = \Yii::$app->session->get('phoneTime');
+        $timeLimit = \Yii::$app->params['timeLimit'];
+        if(time()-$phoneTime>$timeLimit){
+            $re = false;
+        }else{
+            $re = true;
+        }
+        return $re;
+    }
+    /**
+     * 验证电话是否领取过课程
+     * by yanni
+     */
+    public function checkPhone($phone){
+        $data = ReceiveUser::find()->asArray()->where("phone=".$phone)->one();
+        if(count($data)>0){
+            $res = false;
+        } else {
+            $res = true;
+        }
+        return $res;
+    }
     /**
      * 短信接口
      * @Obelisk
@@ -62,8 +145,8 @@ class ApiController extends ToeflApiControl
 
             $session->set('phoneTime', time());
 
-            $content = '【小申托福在线】【SmartApply留学商城】验证码：' . $phoneCode . '（10分钟有效），您正在通过手机注册SmartApply留学商城免费会员！关注微信:toeflgo，获取更多信息；若有gmat/toefl/留学等问题，请咨询管理员QQ/微信2649471578
-';
+            $content = '验证码：' . $phoneCode . '（10分钟有效），您正在通过手机免费领取课程！【雷哥网】';
+
             $sms->send($phoneNum, $content, $ext = '', $stime = '', $rrid = '');
 
             $res['code'] = 1;
@@ -162,23 +245,6 @@ class ApiController extends ToeflApiControl
 
         die(json_encode($res));
 
-    }
-
-    /**
-     * 添加购物车
-     * @Obelisk
-     */
-    public function actionAddShopping()
-    {
-        $userId = Yii::$app->session->get('userId');
-        $contentId = Yii::$app->request->post('contentId');
-        $num = Yii::$app->request->post('num');
-        $price = Yii::$app->request->post('price');
-        if ($userId) {
-
-        } else {
-
-        }
     }
 
     /**
