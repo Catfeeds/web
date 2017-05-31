@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
     <script src="/cn/js/jquery-1.12.2.min.js"></script>
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script src="/cn/js/index.js"></script>
     <title>网校首页</title>
 </head>
 <body>
@@ -129,15 +130,15 @@
                         <div class="row_int">
                             <div class="int_k">
                                 <div class="int_icon"><img src="/cn/images/int_icon_2.png" alt=""></div>
-                                <input type="text" placeholder="填写你的手机号码">
+                                <input type="text" placeholder="填写你的手机号码" id="phone">
                             </div>
                         </div>
                         <div class="row_int clearfix">
                             <div class="int_k code_int fl">
                                 <div class="int_icon"><img src="/cn/images/int_icon_3.png" alt=""></div>
-                                <input type="text" placeholder="填写验证码">
+                                <input type="text" placeholder="填写验证码" id="code">
                             </div>
-                            <div class="code_btn fr">发送验证码</div>
+                            <div class="code_btn fr"  onclick="sendYzm(this)">发送验证码</div>
                         </div>
                         <button class="form_submit">免费领取课程</button>
                     </div>
