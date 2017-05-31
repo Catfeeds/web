@@ -141,6 +141,10 @@
     border-radius: 50%;
     margin-right: 15px;
 }
+.subject_img img{
+    width: 100%;
+    height: 100%;
+}
 
 .recommend_subject_name {
     display: inline-block;
@@ -247,6 +251,10 @@
     height: 145px;
     overflow: hidden;
 }
+.subject_img2 img{
+    width: 240px;
+    height: 145px;
+}
 
 .subject_btn a {
     display: block;
@@ -329,9 +337,13 @@
     color: #333333;
 }
 .recommend_like_img{
-    width: 122px;
-    height: 72px;
+    width: 120px;
+    height: 70px;
     overflow: hidden;
+}
+.recommend_like_img img{
+    width: 100%;
+    height: 100%;
 }
 .like_list,.like_list li{
     padding: 10px 0;
@@ -378,5 +390,15 @@
     padding-top: 20px;
 }
 .adPosition li{
+    overflow: hidden;
+    width: 320px;
+    height: 180px;
     margin-bottom: 25px;
+}
+.adPosition li img{
+    width: 100%;
+    height: 100%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }

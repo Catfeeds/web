@@ -138,7 +138,7 @@
                                 <div class="int_icon"><img src="/cn/images/int_icon_3.png" alt=""></div>
                                 <input type="text" placeholder="填写验证码" id="code">
                             </div>
-                            <div class="code_btn fr"  onclick="sendYzm(this)">发送验证码</div>
+                            <input class="code_btn fr" type="button"  onclick="sendYzm(this)" value="发送验证码">
                         </div>
                         <button class="form_submit"  onclick="subInformation()">免费领取课程</button>
                     </div>
