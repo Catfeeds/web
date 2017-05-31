@@ -543,6 +543,7 @@
 }
 
 .big_try_btn {
+    display: block;
     height: 38px;
     line-height: 38px;
     color: #fff;

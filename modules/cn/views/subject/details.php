@@ -53,16 +53,18 @@
                 <div class="sd_img">
                     <img src="<?php echo $data['image']?>" alt="">
                     <?php if(isset($data['url'])&&$data['url']) { ?>
-                        <div class="try_listen">
+                        <a href="#" class="try_listen">
                             <i class="icon-play try_listen_btn"></i>免费试听
-                        </div>
+                        </a>
                     <?php
                     }
                     ?>
                 </div>
                 <div class="collect">
+                    <span class="sc">
                     <i class="icon-star-empty"></i>
                     收藏课程（2000）
+                    </span>
                 </div>
             </div>
             <div class="int subject_detail_info_wrap">
@@ -250,6 +252,10 @@
         $('.sub-info-check span').click(function(){
             var obj=$(this).index();
             $('.checked_item').eq(obj).fadeIn().siblings('div.checked_item').hide();
+        });
+        $('.collect span.sc').click(function(){
+            $(this).addClass('on');
+           $(this).find("i").removeClass(' icon-star-empty').addClass(' icon-star');
         })
     })
 </script>

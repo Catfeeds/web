@@ -200,10 +200,10 @@
                         <div class="ani live_user_check">
                             <div class="relative rh100">
                                 <div class="user_handle_wrap">
-                                    <div class="big_try_btn">
+                                    <a class="big_try_btn" href="#">
                                         <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                         <span class="inm">点击试听</span>
-                                    </div>
+                                    </a>
                                     <div class="live_user_handle clearfix">
                                         <a class="fl" href="#">购买</a>
                                         <a class="fr" href="#">详情</a>
@@ -236,10 +236,10 @@
                     <div class="ani live_user_check">
                         <div class="relative rh100">
                             <div class="user_handle_wrap">
-                                <div class="big_try_btn">
+                                <a href="#" class="big_try_btn">
                                     <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                     <span class="inm">点击试听</span>
-                                </div>
+                                </a>
                                 <div class="live_user_handle clearfix">
                                     <a class="fl" href="#">购买</a>
                                     <a class="fr" href="#">详情</a>
@@ -268,10 +268,10 @@
                     <div class="ani live_user_check">
                         <div class="relative rh100">
                             <div class="user_handle_wrap">
-                                <div class="big_try_btn">
+                                <a href="#" class="big_try_btn">
                                     <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                     <span class="inm">点击试听</span>
-                                </div>
+                                </a>
                                 <div class="live_user_handle clearfix">
                                     <a class="fl" href="#">购买</a>
                                     <a class="fr" href="#">详情</a>
