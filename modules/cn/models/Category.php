@@ -1,10 +1,10 @@
 <?php 
 namespace app\modules\cn\models;
-use app\modules\goods\models\Book;
-use app\modules\goods\models\Course;
-use app\modules\goods\models\En;
-use app\modules\goods\models\Smart;
-use app\modules\goods\models\Vip;
+use app\modules\cn\models\Book;
+use app\modules\cn\models\Course;
+use app\modules\cn\models\En;
+use app\modules\cn\models\Smart;
+use app\modules\cn\models\Vip;
 use yii\db\ActiveRecord;
 class Category extends ActiveRecord {
     public $category;
@@ -41,6 +41,15 @@ class Category extends ActiveRecord {
         if($data['pid'] >0){
             $this->getParentCategory($data['pid']);
         }
+    }
+
+    public function getParentCategoryArr($id){
+        $data = $this->find()->asArray()->where("id=$id")->one();
+        $this->category[] = $data;
+        if($data['pid'] >0){
+            $this->getParentCategoryArr($data['pid']);
+        }
+        return $this->category;
     }
 
     public function getChildCategory($id){
