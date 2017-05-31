@@ -37,9 +37,14 @@
     <div class="w12 clearfix">
         <!--第二种地址栏-->
         <div class="address_location">
-            <a href="#">全部课程<i class="icon-angle-right"></i></a>
-            <a href="#">GMAT<i class="icon-angle-right"></i></a>
-            <a href="#">强化<i class="icon-angle-right"></i></a>
+            <a href="/">全部<i class="icon-angle-right"></i></a>
+            <?php
+                foreach($category as $v) {
+                    ?>
+                    <a href="/subject/<?php echo $v['id']?>.html"><?php echo $v['name']?><i class="icon-angle-right"></i></a>
+                <?php
+                }
+            ?>
             <span class="location"><?php echo $data['name']?></span>
         </div>
         <!--课程信息-->
