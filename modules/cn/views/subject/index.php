@@ -35,7 +35,7 @@
     <div class="w12">
         <!--当前地址-->
         <div class="address_bar bg_f">
-            <div class="inm"><a href="#">全部</a></div>
+            <div class="inm"><a href="/">全部</a></div>
             <?php
                 foreach($category as $k => $v) {
                         if($k == count($category)-1){
@@ -50,7 +50,7 @@
                                 <?php
                                     if(isset($val['checked'])&&$val['checked'] == 1) {
                                         ?>
-                                        <a href="#"><?php echo $val['name']?><em class="icon-angle-down"></em></a>
+                                        <a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name']?><em class="icon-angle-down"></em></a>
                                     <?php
                                     }
                                         ?>
@@ -66,7 +66,7 @@
                                 continue;
                             }
                                 ?>
-                                <li><a href="#"><?php echo $val['name'] ?></a></li>
+                                <li><a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name'] ?></a></li>
                             <?php
                             }
                             ?>
@@ -91,7 +91,7 @@
                                     foreach($v as $val) {
                                         ?>
                                         <li <?php echo isset($val['checked'])&&$val['checked']==1?'class="on"':''?>>
-                                            <a href="#"><?php echo $val['name']?></a>
+                                            <a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name']?></a>
                                         </li>
                                     <?php
                                     }
@@ -151,7 +151,7 @@
                         foreach($data as $v) {
                             ?>
                             <li>
-                                <div class="subject_img2 inm"><a href="#"><img src="<?php echo $v['image']?>" alt=""></a>
+                                <div class="subject_img2 inm"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="<?php echo $v['image']?>" alt=""></a>
                                 </div>
                                 <div class="subject_data inb">
                                     <h1 class="subject_name ellipsis"><a href="#"><?php echo $v['name']?></a></h1>

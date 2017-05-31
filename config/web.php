@@ -111,31 +111,9 @@ $config = [
             'rules' => [
                 ''=>'cn/index',
 
-                'post/<selectId:\d+>.html' => 'cn/index/index',
+                'subject/<catId:\d+>.html' => 'cn/subject/index',
 
-                'add.html' => 'cn/post/add-post',
-
-                'flower-list.html' => 'cn/flower/list',
-
-                'flower/HJY<number:\d+>.html' => 'cn/flower/details',
-
-                'gossip/details/<id:\d+>.html' => 'cn/gossip/index',
-
-                'post/list/<catId:\d+>.html' => 'cn/index/post-list',
-
-                'post/list/<catId:\d+>/<page:\d+>.html' => 'cn/index/post-list',
-
-                'gossip/list/<catId:\d+>.html' => 'cn/index/gossip-list',
-
-                'gossip/list/<catId:\d+>/<page:\d+>.html' => 'cn/index/gossip-list',
-
-                'search/<keywords>.html' => 'cn/index/search-list',
-
-                'search/<keywords>/<page:\d+>.html' => 'cn/index/search-list',
-
-                'listening/<id:\d+>/<type:\d+>/<num:\d+>.html' => 'cn/heard/careful-listening',
-
-                'lock/<catId:\d+>.html' => 'cn/index/lock',
+                'goods/<id:\d+>/<type:\d+>.html' => 'cn/subject/details',
 
             ],
 
