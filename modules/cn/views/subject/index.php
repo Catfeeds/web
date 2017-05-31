@@ -35,7 +35,7 @@
     <div class="w12">
         <!--当前地址-->
         <div class="address_bar bg_f">
-            <div class="inm"><a href="#">全部</a></div>
+            <div class="inm"><a href="/">全部</a></div>
             <?php
                 foreach($category as $k => $v) {
                         if($k == count($category)-1){
@@ -50,7 +50,7 @@
                                 <?php
                                     if(isset($val['checked'])&&$val['checked'] == 1) {
                                         ?>
-                                        <a href="#"><?php echo $val['name']?><em class="icon-angle-down"></em></a>
+                                        <a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name']?><em class="icon-angle-down"></em></a>
                                     <?php
                                     }
                                         ?>
@@ -66,7 +66,7 @@
                                 continue;
                             }
                                 ?>
-                                <li><a href="#"><?php echo $val['name'] ?></a></li>
+                                <li><a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name'] ?></a></li>
                             <?php
                             }
                             ?>
@@ -90,7 +90,9 @@
                                 <?php
                                     foreach($v as $val) {
                                         ?>
-                                        <li <?php echo isset($val['checked'])&&$val['checked']==1?'class="on"':''?>><?php echo $val['name']?></li>
+                                        <li <?php echo isset($val['checked'])&&$val['checked']==1?'class="on"':''?>>
+                                            <a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name']?></a>
+                                        </li>
                                     <?php
                                     }
                                         ?>
@@ -103,40 +105,43 @@
         </div>
         <!--推荐版块课程-->
         <ul class="bg_f recommend_list">
-            <li>
-                <div class="subject_img inm"><img src="/cn/images/subject_icon.png" alt=""></div>
-                <p class="ellipsis-2 inm recommend_subject_name">2017年gmat在线强化全程课程</p>
-                <div class="inm recommend_subject_data">
-                    <p>时间：2016/6/17至2017/6/30每天17：30</p>
-                    <p>课时：共计8课时</p>
-                </div>
-                <div class="recommend_quota inm tm">
-                    <p class="quota_num">10</p>
-                    <p class="quota_name">剩余名额</p>
-                </div>
-                <span class="recommend_subject_price inm">￥2600</span>
-                <div class="inm recommend_subject_check">
-                    <a href="#">免费试听</a>
-                    <a href="#">立即报名</a>
-                </div>
-            </li>
-            <li>
-                <div class="subject_img inm"><img src="/cn/images/subject_icon.png" alt=""></div>
-                <p class="ellipsis-2 inm recommend_subject_name">2017年gmat在线强化全程课程</p>
-                <div class="inm recommend_subject_data">
-                    <p>时间：2016/6/17至2017/6/30每天17：30</p>
-                    <p>课时：共计8课时</p>
-                </div>
-                <div class="recommend_quota inm tm">
-                    <p class="quota_num">10</p>
-                    <p class="quota_name">剩余名额</p>
-                </div>
-                <span class="recommend_subject_price inm">￥2600</span>
-                <div class="inm recommend_subject_check">
-                    <a href="#">免费试听</a>
-                    <a href="#">立即报名</a>
-                </div>
-            </li>
+            <?php
+                foreach($recommend as $v) {
+                    ?>
+                    <li>
+                        <div class="subject_img inm"><img src="<?php echo $v['image']?>" alt=""></div>
+                        <p class="ellipsis-2 inm recommend_subject_name"><?php echo $v['name']?></p>
+
+                        <div class="inm recommend_subject_data">
+                            <p>时间：<?php echo isset($v['openingDate'])?$v['openingDate']:'滚动开课'?></p>
+
+                            <p>课时：<?php echo isset($v['courseDuration'])?$v['courseDuration']:'待定'?></p>
+                        </div>
+                        <div class="recommend_quota inm tm">
+                            <p class="quota_num"><?php echo isset($v['quota'])?$v['quota']:'10'?></p>
+
+                            <p class="quota_name">剩余名额</p>
+                        </div>
+                        <span class="recommend_subject_price inm">￥<?php echo $v['price']?></span>
+
+                        <div class="inm recommend_subject_check">
+                            <?php if(isset($v['url'])&&$v['url']) {
+                                ?>
+                                <a href="<?php echo $v['url']?>">免费试听</a>
+                            <?php
+                            }else {
+                                ?>
+                                <a onclick="addCart(<?php echo $v['id'],$v['type']?>)" href="javascript:;">加入购物车</a>
+                            <?php
+                            }
+                            ?>
+                            <a onclick="toBuy(<?php echo $v['id'],$v['type']?>)" href="javascript:;">立即报名</a>
+                        </div>
+                    </li>
+                <?php
+                }
+            ?>
+            <??>
         </ul>
         <!--两侧内容-->
         <div class="clearfix">
@@ -146,7 +151,7 @@
                         foreach($data as $v) {
                             ?>
                             <li>
-                                <div class="subject_img2 inm"><a href="#"><img src="<?php echo $v['image']?>" alt=""></a>
+                                <div class="subject_img2 inm"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="<?php echo $v['image']?>" alt=""></a>
                                 </div>
                                 <div class="subject_data inb">
                                     <h1 class="subject_name ellipsis"><a href="#"><?php echo $v['name']?></a></h1>
@@ -173,7 +178,7 @@
                                         <?php
                                         }
                                     ?>
-                                    <a href="#">加入购物车</a>
+                                    <a onclick="addCart(<?php echo $v['id']?>,<?php echo $v['type']?>)" href="javascript:;">加入购物车</a>
                                 </div>
                             </li>
                         <?php
@@ -194,54 +199,31 @@
                         <span class="inm">猜你喜欢</span>
                     </div>
                     <ul class="like_list">
-                        <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
-                            <dl class="int like_data">
-                                <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
-                                <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
-                                <dt><a class="like_btn" href="#">试听</a></dt>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
-                            <dl class="int like_data">
-                                <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
-                                <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
-                                <dt><a class="like_btn" href="#">试听</a></dt>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
-                            <dl class="int like_data">
-                                <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
-                                <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
-                                <dt><a class="like_btn" href="#">试听</a></dt>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
-                            <dl class="int like_data">
-                                <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
-                                <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
-                                <dt><a class="like_btn" href="#">试听</a></dt>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
-                            <dl class="int like_data">
-                                <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
-                                <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
-                                <dt><a class="like_btn" href="#">试听</a></dt>
-                            </dl>
-                        </li>
-                        <li>
-                            <div class="recommend_like_img int"><a href="#"><img src="/cn/images/r_img.png" alt=""></a></div>
-                            <dl class="int like_data">
-                                <dt class="like_name ellipsis"><a href="#">GMAT周末班一对一</a></dt>
-                                <dt><span class="like_new_price">￥400</span> <span class="like_old_price">￥700</span></dt>
-                                <dt><a class="like_btn" href="#">试听</a></dt>
-                            </dl>
-                        </li>
+                        <?php
+                            foreach($love as $v) {
+                                ?>
+                                <li>
+                                    <div class="recommend_like_img int"><a href="#"><img src="<?php echo $v['image']?>"
+                                                                                         alt=""></a></div>
+                                    <dl class="int like_data">
+                                        <dt class="like_name ellipsis"><a href="#"><?php echo $v['name']?></a></dt>
+                                        <dt><span class="like_new_price">￥<?php echo $v['price']?></span> <span
+                                                class="like_old_price">￥<?php echo $v['sales']?></span></dt>
+                                        <?php if(isset($v['url'])&&$v['url']) {
+                                            ?>
+                                            <dt><a class="like_btn" href="<?php echo $v['url']?>">试听</a></dt>
+                                        <?php
+                                        }else {
+                                            ?>
+                                            <dt><a onclick="toBuy(<?php echo $v['id']?>,<?php echo $v['type']?>)" class="like_btn" href="javascript">购买</a></dt>
+                                        <?php
+                                        }
+                                        ?>
+                                    </dl>
+                                </li>
+                            <?php
+                            }
+                        ?>
                     </ul>
                 </div>
                 <!--广告位-->

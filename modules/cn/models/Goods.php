@@ -16,9 +16,20 @@ class Goods extends ActiveRecord
         return '{{%course}}';
     }
 
+    /**
+     * @param $where
+     * @param $page
+     * @param $pageSize
+     * @param $type
+     * @return array
+     * @Obelisk
+     */
     public function getAllGoods($where,$page,$pageSize,$type){
         $model = $this->getModel($type);
         $data = $model->find()->asArray()->where($where)->orderBy('sort ASC')->limit($pageSize)->offset(($page-1)*$pageSize)->all();
+        foreach($data as $k => $v){
+            $data[$k]['type'] = $type;
+        }
         $count = $model->find()->where($where)->count();
         $pageModel = new Pager($count,$page,$pageSize);
         $pageStr = $pageModel->GetPagerContent();
@@ -42,6 +53,57 @@ class Goods extends ActiveRecord
         return $this->childCat;
     }
 
+    /**
+     * @param $limit
+     * @return array|\yii\db\ActiveRecord[]
+     * @Obelisk
+     */
+
+    public function getAllRecommend($limit)
+    {
+        $data = Recommend::find()->asArray()->orderBy('sort ASC')->limit($limit)->all();
+        foreach ($data as $k => $v) {
+            $model = $this->getModel($v['type']);
+            $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+            $arr['type'] = $v['type'];
+            $data[$k] = $arr;
+        }
+        return $data;
+    }
+
+    /**
+     * @param $limit
+     * @return array|\yii\db\ActiveRecord[]
+     * @Obelisk
+     */
+    public function getAllLove($limit){
+        $data = Love::find()->asArray()->orderBy('sort ASC')->limit($limit)->all();
+        foreach($data as $k =>$v){
+            $model = $this->getModel($v['type']);
+            $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+            $arr['type'] = $v['type'];
+            $data[$k] = $arr;
+        }
+        return $data;
+    }
+
+    /**
+     * @param $id
+     * @param $type
+     * @return array|null|ActiveRecord
+     * @Obelisk
+     */
+    public function getGoodsDetails($id,$type){
+        $model = $this->getModel($type);
+        $arr = $model->find()->asArray()->where("id = $id")->one();
+        return $arr;
+    }
+
+    /**
+     * @param $type
+     * @return Book|Course|En|Smart|Vip
+     * @Obelisk
+     */
     private function getModel($type){
         switch ($type){
             case 1: $model = new Course();break;
@@ -53,6 +115,11 @@ class Goods extends ActiveRecord
         return $model;
     }
 
+    /**
+     * @param $type
+     * @return string
+     * @Obelisk
+     */
     private function getTable($type){
         switch ($type){
             case 1: $table = 'course';break;

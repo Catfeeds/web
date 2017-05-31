@@ -6,12 +6,12 @@
     </ul>
     <ul class="nav">
         <li class="dropdown pull-right">
-            <a class="dropdown-toggle" href="/home/recommend/add">特别推荐</a>
+            <a class="dropdown-toggle" href="/home/love/add">猜你喜欢</a>
         </li>
     </ul>
     <ul class="nav nav-tabs">
         <li class="active">
-            <a href="javascript:;" >特别推荐</a>
+            <a href="javascript:;" >猜你喜欢</a>
         </li>
     </ul>
     <form action="/content/top/sort" method="post">
@@ -28,15 +28,15 @@
             </thead>
             <tbody>
             <?php
-            foreach($recommend as $v) {
+            foreach($love as $v) {
                 ?>
                 <tr>
-                    <td><span><input style="width: 30px;" type="text" onkeyup="changeSort(<?php echo $v['id']?>,'recommend',this)" value="<?php echo $v['sort']?>" name="sort"></span></td>
+                    <td><span><input style="width: 30px;" type="text" onkeyup="changeSort(<?php echo $v['id']?>,'love',this)" value="<?php echo $v['sort']?>" name="sort"></span></td>
                     <td><span><?php echo $v['id']?></span></td>
                     <td><span><?php echo $v['goodsId']?></span></td>
                     <td><span><?php echo $v['type']?></span></td>
                     <td><span><?php echo date("Y-m-d",$v['createTime'])?></span></td>
-                    <td><span> <a href="/home/recommend/update?id=<?php echo $v['id']?>">修改</a> <a href="/home/recommend/delete?id=<?php echo $v['id']?>">删除</a></span></td>
+                    <td><span> <a href="/home/love/update?id=<?php echo $v['id']?>">修改</a> <a href="/home/love/delete?id=<?php echo $v['id']?>">删除</a></span></td>
                 </tr>
             <?php
             }

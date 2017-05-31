@@ -11,6 +11,7 @@ use app\modules\cn\models\Category;
 use app\modules\cn\models\Flower;
 use app\modules\cn\models\Goods;
 use app\modules\cn\models\HotSell;
+use app\modules\cn\models\Recommend;
 use app\modules\content\models\Extend;
 use yii;
 use app\libs\ToeflController;
@@ -34,41 +35,19 @@ class SubjectController extends ToeflController {
         $extend = Extend::find()->asArray()->where("type = $sign->type")->orderBy("sort ASC")->limit(2)->all();
         $pageStr = $data['pageStr'];
         $data = $data['data'];
-        return $this->renderPartial('index',['extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
+        $recommend = $model ->getAllRecommend(2);
+        $love = $model ->getAllLove(200);
+        return $this->renderPartial('index',['love' => $love,'recommend' => $recommend,'extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
     }
 
     public function actionDetails(){
-        $browse = isset($_COOKIE['browse'])?unserialize($_COOKIE['browse']):[];
-        $number = Yii::$app->request->get('number');
-        if(isset($browse["hjy$number"])){
-            unset($browse["hjy$number"]);
-        }
-        $browse["hjy$number"] = $number;
-        $browseStr = '';
-        $browse=array_reverse($browse);
-        $i = 0;
-        foreach($browse as $k => $v){
-            if($i>4){
-                unset($browse[$k]);
-            }else{
-                $browseStr .= $v.",";
-            }
-$i++;
-        }
-        setcookie("browse", serialize($browse), time()+(3600*24*30));
-        $browseStr = substr($browseStr,0,-1);
-        $flower = Flower::find()->asArray()->where("goodsNumber='$number'")->one();
-        $browse = Flower::find()->asArray()->where("goodsNumber in ($browseStr)")->all();
-        $append = Append::find()->asArray()->all();
-        foreach($append as $k => $v){
-            $append[$k]['details'] = AppendDetails::find()->asArray()->where("appendId = {$v['id']}")->all();
-        }
-        $category = Category::find()->asArray()->where("type=1 AND pid=0")->all();
-        foreach($category as $k => $v){
-            $category[$k]['child']  = Category::find()->asArray()->where("pid={$v['id']}")->all();
-        }
-        $hot = HotSell::find()->asArray()->orderBy('sort ASC')->all();
-        return $this->renderPartial('details',['browse' => $browse,'hot' => $hot,'flower' => $flower,'append' => $append,'category' => $category]);
+        $id = Yii::$app->request->get('id');
+        $type = Yii::$app->request->get('type');
+        $model = new Goods();
+        $data = $model->getGoodsDetails($id,$type);
+        $extend = Extend::find()->asArray()->where("type = $type")->orderBy("sort ASC")->limit(2)->all();
+//        $reply = $model->getGoodsReply($id,$type);
+        return $this->renderPartial('details',['extend' => $extend,'data' => $data,'type' => $type]);
     }
 
 }

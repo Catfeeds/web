@@ -91,14 +91,19 @@
     border: 1px solid transparent;
     margin-right: 29px;
 }
+.sTAG-list li a{
+    display: block;
+}
 
-.sTAG-list li:hover {
+.sTAG-list li:hover{
     color: #ffc24b;
 }
 
-.sTAG-list li.on {
-    color: #ffc24b;
+.sTAG-list li.on{
     border-color: #ffc24b;
+}
+.sTAG-list li.on a{
+    color: #ffc24b;
 }
 
 .stag_list_wrap {

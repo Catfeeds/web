@@ -8,7 +8,7 @@
  */
 namespace app\modules\home\controllers;
 
-use app\modules\home\models\Recommend;
+use app\modules\home\models\Love;
 use yii;
 use app\libs\AppControl;
 class LoveController extends AppControl {
@@ -19,19 +19,19 @@ class LoveController extends AppControl {
      */
     public function actionIndex()
     {
-        $recommend = Recommend::find()->asArray()->all();
-        return $this->render('index',['recommend' => $recommend]);
+        $love = Love::find()->asArray()->all();
+        return $this->render('index',['love' => $love]);
     }
 
     public function actionAdd(){
         if($_POST){
             $data = Yii::$app->request->post('data');
-            $model = new Recommend();
+            $model = new Love();
             $model->goodsId = $data['goodsId'];
             $model->type = $data['type'];
             $model->createTime = time();
             $model->save();
-            $this->redirect('/home/recommend/index');
+            $this->redirect('/home/love/index');
         }else{
             return $this->render('add');
         }
@@ -41,19 +41,19 @@ class LoveController extends AppControl {
         if($_POST){
             $id = Yii::$app->request->post('id');
             $data = Yii::$app->request->post('data');
-            Recommend::updateAll($data,"id=$id");
-            $this->redirect('/home/recommend/index');
+            Love::updateAll($data,"id=$id");
+            $this->redirect('/home/love/index');
         }else{
             $id = Yii::$app->request->get('id');
-            $data = Recommend::find()->asArray()->where("id=$id")->one();
+            $data = Love::find()->asArray()->where("id=$id")->one();
             return $this->render('update',['data' => $data,'id' => $id]);
         }
     }
 
     public function actionDelete(){
         $id = Yii::$app->request->get('id');
-        Recommend::findOne($id)->delete();
-        return $this->redirect('/home/recommend/index');
+        Love::findOne($id)->delete();
+        return $this->redirect('/home/love/index');
     }
 
 
