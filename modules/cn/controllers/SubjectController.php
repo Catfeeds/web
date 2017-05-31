@@ -11,6 +11,7 @@ use app\modules\cn\models\Category;
 use app\modules\cn\models\Flower;
 use app\modules\cn\models\Goods;
 use app\modules\cn\models\HotSell;
+use app\modules\cn\models\Recommend;
 use app\modules\content\models\Extend;
 use yii;
 use app\libs\ToeflController;
@@ -34,7 +35,9 @@ class SubjectController extends ToeflController {
         $extend = Extend::find()->asArray()->where("type = $sign->type")->orderBy("sort ASC")->limit(2)->all();
         $pageStr = $data['pageStr'];
         $data = $data['data'];
-        return $this->renderPartial('index',['extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
+        $recommend = $model ->getAllRecommend(2);
+        $love = $model ->getAllLove(200);
+        return $this->renderPartial('index',['love' => $love,'recommend' => $recommend,'extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
     }
 
     public function actionDetails(){

@@ -19,6 +19,9 @@ class Goods extends ActiveRecord
     public function getAllGoods($where,$page,$pageSize,$type){
         $model = $this->getModel($type);
         $data = $model->find()->asArray()->where($where)->orderBy('sort ASC')->limit($pageSize)->offset(($page-1)*$pageSize)->all();
+        foreach($data as $k => $v){
+            $data[$k]['type'] = $type;
+        }
         $count = $model->find()->where($where)->count();
         $pageModel = new Pager($count,$page,$pageSize);
         $pageStr = $pageModel->GetPagerContent();
@@ -40,6 +43,29 @@ class Goods extends ActiveRecord
             $this->childCat[] = $catId;
         }
         return $this->childCat;
+    }
+
+    public function getAllRecommend($limit)
+    {
+        $data = Recommend::find()->asArray()->orderBy('sort ASC')->limit($limit)->all();
+        foreach ($data as $k => $v) {
+            $model = $this->getModel($v['type']);
+            $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+            $arr['type'] = $v['type'];
+            $data[$k] = $arr;
+        }
+        return $data;
+    }
+
+    public function getAllLove($limit){
+        $data = Love::find()->asArray()->orderBy('sort ASC')->limit($limit)->all();
+        foreach($data as $k =>$v){
+            $model = $this->getModel($v['type']);
+            $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+            $arr['type'] = $v['type'];
+            $data[$k] = $arr;
+        }
+        return $data;
     }
 
     private function getModel($type){

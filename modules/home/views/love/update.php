@@ -3,7 +3,7 @@
             <ul class="breadcrumb">
                 <li class="active">修改热销</li>
             </ul>
-            <form action="/home/recommend/update" method="post" class="form-horizontal">
+            <form action="/home/love/update" method="post" class="form-horizontal">
                 <fieldset>
                     <div class="control-group">
                         <label for="modulename" class="control-label">商品Id</label>
