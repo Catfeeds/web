@@ -22,6 +22,25 @@ function oneChecked(){
             }
             $("#lastTotal").html(allXJ);
             $("#piece").html(totalPiece);
+            //判断全选框选中与否
+            if($(".catContent table tr:not(:first-child) td input:checked").length==0){
+                $(".catContent table tr:first-child th input").attr("checked",false);
+                $(".catContent table tr:first-child th input").prop("checked",false);
+                $("#allC").attr("checked",false);
+                $("#allC").prop("checked",false);
+            }
+            if($(".catContent table tr:not(:first-child) td input:checked").length==
+                $(".catContent table tr:not(:first-child) td:first-child input").length){
+                $(".catContent table tr:first-child th input").attr("checked",true);
+                $(".catContent table tr:first-child th input").prop("checked",true);
+                $("#allC").attr("checked",true);
+                $("#allC").prop("checked",true);
+            }else{
+                $(".catContent table tr:first-child th input").attr("checked",false);
+                $(".catContent table tr:first-child th input").prop("checked",false);
+                $("#allC").attr("checked",false);
+                $("#allC").prop("checked",false);
+            }
         });
     });
 }
