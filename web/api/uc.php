@@ -133,29 +133,79 @@ class uc_note {
 		return $this->_serialize($return, 1);
 	}
 
-	function synlogin($get, $post) {
+    function synlogin($get, $post) {
         session_start();
-		$uid = $get['uid'];
-		$email = $get['email'];
-		$phone = $get['phone'];
-		$username = $get['username'];
-		$password = $get['password'];
-		if(!API_SYNLOGIN) {
-			return API_RETURN_FORBIDDEN;
-		}
+        $uid = $get['uid'];
+        $email = $get['email'];
+        $phone = $get['phone'];
+        $username = $get['username'];
+        $password = $get['password'];
+        if(!API_SYNLOGIN) {
+            return API_RETURN_FORBIDDEN;
+        }
+        $sql = "set names utf8";
+        $this->dbLink->query($sql);
+        $sql = "select * from x2_user WHERE  uid=$uid";
+        $u = $this->dbLink->fetch_first($sql);
+        if (!$u) {
+            $time = time();
+            $sql = "INSERT INTO x2_user (`username`,`email`,`password`,`phone`,`createTime`,`uid`,`roleId`) VALUES ('{$username}','{$email}','".md5($password)."','{$phone}','{$time}','{$uid}',4)";
+            $this->dbLink->query($sql);
+            $userId = $this->dbLink->insert_id();
+            $data = array(
+                'username' => $username,
+                'email' => $email,
+                'phone' => $phone,
+                'image' => '',
+                'nickname' => '',
+                'id' => $userId,
+                'roleId' => 4
+            );
+        } else {
+            if($phone != $u['phone']){
+                $sql = "UPDATE x2_user SET phone = '$phone' WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+            if($email != $u['email']){
+                $sql = "UPDATE x2_user SET email = '$email' WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+            if($username != $u['username']){
+                $sql = "UPDATE x2_user SET username = '$username' WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+
+            if(md5($password) != $u['password']){
+                $sql = "UPDATE x2_user SET password = '$password' WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+
+            if($u['roleId'] == ''){
+                $sql = "UPDATE x2_user SET roleId = 4 WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+
+            if(time()-strtotime($u['lastSignIn'])>86400){
+                $sql = "UPDATE x2_user SET continuousSign = 0 WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+            $sql = "select * from x2_user WHERE  uid=$uid";
+            $u = $this->dbLink->fetch_first($sql);
+            $data = $u;
+        }
         $_SESSION['uid'] = $uid;
-        $_SESSION['username'] = $username;
-		header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
+        $_SESSION['userData'] = $data;
+        $_SESSION['cartSign'] = 1;
+        header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
 //		_setcookie('Example_auth', _authcode($uid."\t".$username, 'ENCODE'));
-	}
+    }
 
 	function synlogout($get, $post) {
         session_start();
 		if(!API_SYNLOGOUT) {
 			return API_RETURN_FORBIDDEN;
 		}
-        unset( $_SESSION['userId']);
-        unset( $_SESSION['userData']);
+        session_destroy();
 		//note 同步登出 API 接口
 		header('P3P: CP="CURa ADMa DEVa PSAo PSDo OUR BUS UNI PUR INT DEM STA PRE COM NAV OTC NOI DSP COR"');
 //		_setcookie('Example_auth', '', -86400 * 365);

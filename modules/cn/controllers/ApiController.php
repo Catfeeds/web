@@ -11,6 +11,7 @@ namespace app\modules\cn\controllers;
 
 use app\libs\Method;
 
+use app\modules\cn\models\Cart;
 use yii;
 
 use app\libs\ToeflApiControl;
@@ -165,6 +166,134 @@ class ApiController extends ToeflApiControl
 
     }
 
+
+    /**
+     * 添加购物车
+     * @Obelisk
+     */
+    public function actionAddCart(){
+        $session =  Yii::$app->session;
+        $uid = $session->get('uid');
+        $id = Yii::$app->request->post('id');
+        $type = Yii::$app->request->post('type');
+        $num = Yii::$app->request->post('num',1);
+        $model = new Cart();
+        $sign = 0;
+        if($uid){
+            $sign = $model->find()->where("type = $type AND goodsId=$id AND uid=$uid")->one();
+            if($sign){
+                Cart::updateAll(['num' =>($sign->num+$num)],"id=$sign->id");
+            }else{
+                $model->uid = $uid;
+                $model->num = $num;
+                $model->goodsId = $id;
+                $model->type = $type;
+                $model->createTime = time();
+                $model->save();
+            }
+        }else{
+            $shopCart = $session->get('shopCart');
+            if(!$shopCart){
+                $arr = [];
+                $shopCart = [];
+                $arr['num'] = $num;
+                $arr['goodsId'] = $id;
+                $arr['type'] = $type;
+                $arr['createTime'] = time();
+                $shopCart[] = $arr;
+                $session->set('shopCart',$shopCart);
+            }else{
+                foreach($shopCart as $k => $v){
+                    if($v['goodsId'] == $id && $v['type'] == $type){
+                        $shopCart[$k]['num'] += $num;
+                        $sign = 1;break;
+                    }
+                }
+                if(!$sign){
+                    $arr = [];
+                    $arr['num'] = $num;
+                    $arr['goodsId'] = $id;
+                    $arr['type'] = $type;
+                    $arr['createTime'] = time();
+                    $shopCart[] = $arr;
+                }
+                $session->set('shopCart',$shopCart);
+            }
+        }
+        die(json_encode(['code' => 1]));
+    }
+
+    /**
+     * @Obelisk
+     */
+    public function actionCartChangeNum(){
+        $session =  Yii::$app->session;
+        $uid = $session->get('uid');
+        $goodsId = Yii::$app->request->post('goodsId');
+        $type = Yii::$app->request->post('type');
+        $num = Yii::$app->request->post('num');
+        if($uid){
+            $sign = Cart::updateAll(['num' => $num],"goodsId=$goodsId AND type=$type AND uid=$uid");
+        }else{
+            $data = $session->get('shopCart');
+            foreach($data as $k=>$v){
+                if($goodsId==$v['goodsId'] && $type==$v['type']){
+                    $data[$k]['num'] = $num;
+                    $sign = 1;break;
+                }else{
+                    $sign = 0;
+                }
+            }
+            $session->set('shopCart',$data);
+        }
+        if($sign){
+            $res['code'] = 1;
+
+            $res['message'] = '修改成功';
+        }else{
+            $res['code'] = 0;
+
+            $res['message'] = '修改失败';
+        }
+
+        die(json_encode($res));
+    }
+
+    public function actionDeleteCart(){
+        $session =  Yii::$app->session;
+        $uid = $session->get('uid');
+        $goodsId = Yii::$app->request->post('goodsId');
+        $type = Yii::$app->request->post('type');
+        if($uid){
+            if(is_array($goodsId)){
+                foreach($goodsId as $k=>$v){
+                    $sign = Cart::deleteAll("goodsId=$v AND type={$type[$k]} AND uid=$uid");
+                }
+            }else{
+                $sign = Cart::deleteAll("goodsId=$goodsId AND type=$type AND uid=$uid");
+            }
+        }else{
+
+            $data = $session->get('shopCart');
+            if(is_array($goodsId)){
+                foreach($data as $k=>$v){
+                    foreach($goodsId as $key => $val){
+                        if($val==$v['goodsId'] && $type[$key]==$v['type']){
+                            unset($data[$k]);break;
+                        }
+                    }
+                }
+            }else{
+                foreach($data as $k=>$v){
+                    if($goodsId==$v['goodsId'] && $type==$v['type']){
+                        unset($data[$k]);
+                    }
+                }
+            }
+            $session->set('shopCart',$data);
+        }
+        die(json_encode(['code' => 1,'message' => '删除成功']));
+    }
 
 
     /**
@@ -344,5 +473,6 @@ class ApiController extends ToeflApiControl
         }
         $session->set('userId', $loginsdata['id']);
         $session->set('userData', $loginsdata);
+        $session->set('cartSign', 1);
     }
 }

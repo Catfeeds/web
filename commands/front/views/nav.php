@@ -68,3 +68,12 @@
         </div>
     </div>
 </section>
+<script type="text/javascript">
+    function addCart(id,type){
+        $.post("/cn/api/add-cart",{id:id,type:type},function(re){
+            if(re.code == 1){
+                alert('加入购物车');
+            }
+        },'json')
+    }
+</script>

@@ -7,6 +7,7 @@
 namespace app\modules\cn\controllers;
 use app\modules\cn\models\Banner;
 use app\modules\cn\models\Basket;
+use app\modules\cn\models\Cart;
 use app\modules\cn\models\Category;
 use app\modules\cn\models\Especially;
 use app\modules\cn\models\Keywords;
@@ -22,7 +23,7 @@ use app\libs\ToeflController;
 class IndexController extends ToeflController {
     public $enableCsrfValidation = false;
     /**
-     * 托福首页
+     * 网校首页
      * @Obelisk
      */
     public function actionIndex(){
@@ -49,5 +50,7 @@ class IndexController extends ToeflController {
         array_multisort($res,$openClass);
         return $this->renderPartial('index',['hot' => $hot,'category' => $category,'banner' => $banner,'openClass'=>$openClass,'playback'=>$playback,'lgwIelts'=>$lgwIelts,'recording'=>$recording,'lgwGmat'=>$lgwGmat,'lgwToefl'=>$lgwToefl,'lgwLiuxue'=>$lgwLiuxue,'lgwEnglish'=>$lgwEnglish,'lgwBook'=>$lgwBook,'lgwVip'=>$lgwVip]);
     }
+
+
 
 }
