@@ -115,14 +115,29 @@ function deleteRecord(o){
 }
 //删除选中产品
 function deleteChecked(){
+    var arrId=[];
+    var arrType=[];
     $(".catContent table tr:not(:first-child)").each(function(){
-            if($(this).find("td input")[0].checked){
-                $(this).remove();
-                //计算合计
-                var xiaoji=$(this).find("td .subtotal span").html();
-                var num=$(this).find("td .calculate span").html();
-                $("#lastTotal").html(parseFloat( $("#lastTotal").html())-parseFloat(xiaoji));
-                $("#piece").html(parseInt( $("#piece").html())-parseInt(num));
+        var _that=$(this);
+            if(_that.find("td input")[0].checked){
+                arrId.push(_that.find("td:last-child a.redColor").attr("data-id"));
+                arrType.push(_that.find("td:last-child a.redColor").attr("data-type"));
             }
     });
+    $.post('/cn/api/delete-cart',{goodsId:arrId,type:arrType},function(re){
+        if(re.code==1){
+            //删除成功
+            $(".catContent table tr:not(:first-child)").each(function(){
+                var _that=$(this);
+                if(_that.find("td input")[0].checked){
+                    _that.remove();
+                    //计算合计
+                    var xiaoji=_that.find("td .subtotal span").html();
+                    var num=_that.find("td .calculate span").html();
+                    $("#lastTotal").html(parseFloat( $("#lastTotal").html())-parseFloat(xiaoji));
+                    $("#piece").html(parseInt( $("#piece").html())-parseInt(num));
+                }
+            });
+        }
+    },'json');
 }
