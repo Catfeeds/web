@@ -108,60 +108,21 @@
                 <div class="checked_item"><?php echo $data['description']?></div>
                 <div class="checked_item bg_g">
                     <ul class="reply_list_wrap">
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
+                        <?php
+                        foreach(array_reverse($evaluate['data']) as $v) {
+                            ?>
+                            <li>
+                                <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
+                                <div class="reply_data_wrap inm">
+                                    <p class="nick_name">Tina小姐姐</p>
+                                    <p class="reply_time">2017.05.12</p>
+                                    <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
+                                        <br>你会非常有帮助的。</p>
+                                </div>
+                            </li>
+                            <?php
+                        }
+                        ?>
                         <li>
                             <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
                             <div class="reply_data_wrap inm">
@@ -174,11 +135,14 @@
                     </ul>
                     <!--分页-->
                     <div class="tr bg_g pageSize">
-                        <a href="#">上一页</a>
-                        <a href="#" class="on">1</a>
-                        <a href="#">2</a>
-                        <a href="#">...</a>
-                        <a href="#">下一页</a>
+                        <ul class="pageSize">
+                            <?php echo  $evaluate['pageStr'] ?>
+                        </ul>
+<!--                        <a href="#">上一页</a>-->
+<!--                        <a href="#" class="on">1</a>-->
+<!--                        <a href="#">2</a>-->
+<!--                        <a href="#">...</a>-->
+<!--                        <a href="#">下一页</a>-->
                     </div>
                     <!--输入框-->
                     <div class="reply_int_wrap bg_g">

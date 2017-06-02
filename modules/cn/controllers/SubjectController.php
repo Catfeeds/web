@@ -46,11 +46,12 @@ class SubjectController extends ToeflController {
         $model = new Goods();
         $data = $model->getGoodsDetails($id,$type);
         $extend = Extend::find()->asArray()->where("type = $type")->orderBy("sort ASC")->limit(2)->all();
+        $evaluate = $model->getGoodsEvaluate($id);
         $model = new Category();
         $category = $model->getParentCategoryArr($data['catId']);
 
 //        $reply = $model->getGoodsReply($id,$type);
-        return $this->renderPartial('details',['category' => array_reverse($category),'extend' => $extend,'data' => $data,'type' => $type]);
+        return $this->renderPartial('details',['category' => array_reverse($category),'extend' => $extend,'data' => $data,'type' => $type,'evaluate'=>$evaluate]);
     }
 
 }

@@ -100,6 +100,20 @@ class Goods extends ActiveRecord
     }
 
     /**
+     * 获取商品评价
+     * by  yanni
+     */
+    public function getGoodsEvaluate($id,$page=1,$pageSize=10){
+        $limit = " limit ".($page-1)*$pageSize.",$pageSize";
+        $sql = 'select u.username,ue.value,ue.createTime from {{%user_evaluate}} as ue LEFT JOIN {{%user}} as u ON ue.userId=u.id where contentId='.$id.'  order by createTime desc';
+        $count = count(\Yii::$app->db->createCommand($sql)->queryAll());
+        $sql .= " $limit";
+        $data = \Yii::$app->db->createCommand($sql)->queryAll();
+        $pageModel = new GoodsPager($count,$page,$pageSize,10);
+        $pageStr = $pageModel->GetPagerContent();
+        return ['data' => $data,'pageStr' => $pageStr,'count' => $count,'page' => $page];
+    }
+    /**
      * @param $type
      * @return Book|Course|En|Smart|Vip
      * @Obelisk

@@ -62,10 +62,12 @@ class Category extends ActiveRecord {
      * 获取内容属性值
      * by  yanni
      */
-    public function getContentExtend($catId){
+    public function getContentExtend($catId,$limit=4){
         $model = new Goods();
         $cat = $model->getChild($catId);
-        $data = Course::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('startTime desc')->limit(4)->all();
+        $sign = Category::findOne($catId);
+        $models = $this->getModel($sign['type']);
+        $data = $models->find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit($limit)->all();
         return $data;
     }
 
@@ -140,5 +142,20 @@ class Category extends ActiveRecord {
             }
         }
         return $data;
+    }
+    /**
+     * @param $type
+     * @return Book|Course|En|Smart|Vip
+     * @Obelisk
+     */
+    private function getModel($type){
+        switch ($type){
+            case 1: $model = new Course();break;
+            case 2: $model = new Smart();break;
+            case 3: $model = new En();break;
+            case 4: $model = new Book();break;
+            case 5: $model = new Vip();break;
+        }
+        return $model;
     }
 }
