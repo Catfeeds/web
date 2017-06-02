@@ -87,6 +87,35 @@ class Goods extends ActiveRecord
         return $data;
     }
 
+    public function getCart($uid){
+        if($uid){
+            $data = Cart::find()->asArray()->where("uid=$uid")->orderBy("createTime DESC")->all();
+            foreach($data as $k =>$v){
+                $model = $this->getModel($v['type']);
+                $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+                $arr['type'] = $v['type'];
+                $arr['createTime'] = $v['createTime'];
+                $arr['num'] = $v['num'];
+                $data[$k] = $arr;
+            }
+        }else{
+            $data = \Yii::$app->session->get('shopCart');
+            if($data) {
+                foreach ($data as $k => $v) {
+                    $model = $this->getModel($v['type']);
+                    $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+                    $arr['type'] = $v['type'];
+                    $arr['createTime'] = $v['createTime'];
+                    $arr['num'] = $v['num'];
+                    $data[$k] = $arr;
+                }
+            }else{
+                $data = [];
+            }
+        }
+        return $data;
+    }
+
     /**
      * @param $id
      * @param $type
@@ -96,6 +125,7 @@ class Goods extends ActiveRecord
     public function getGoodsDetails($id,$type){
         $model = $this->getModel($type);
         $arr = $model->find()->asArray()->where("id = $id")->one();
+        $model->updateAll(['view' => $arr['view']+1],"id=$id");
         return $arr;
     }
 

@@ -1,0 +1,112 @@
+/*如何使用雷豆样式*/
+.howUseLD{
+    width: 1198px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.useLd{
+    width: 100%;
+    border-bottom: 2px #c9caca solid;
+    padding-bottom: 34px;
+}
+.useLd-left{
+    width: 886px;
+    float: left;
+    margin-left: 11px;
+}
+.useLd-left ul li{
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.useLd-left span{
+    color: red;
+}
+.useLd-left h1{
+    height: 33px;
+    line-height: 33px;
+    font-size: 20px;
+    color: #f7ae07;
+    padding-left: 38px;
+    margin-bottom: 13px;
+    background: url("../images/leiDou_leiIcon.png") no-repeat left center;
+}
+.useLd-right{
+    width: 223px;
+    float: left;
+    text-align: center;
+}
+.useLd-right p{
+    color: #e94046;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.howGetLD{
+    width: 1198px;
+    margin: 0 auto;
+    margin-top: 28px;
+    margin-bottom: 60px;
+}
+.howGetLD h1{
+    height: 33px;
+    line-height: 33px;
+    font-size: 20px;
+    color: #f7ae07;
+    padding-left: 38px;
+    margin-bottom: 23px;
+    background: url("../images/leiDou_leiIcon.png") no-repeat left center;
+    margin-left: 8px;
+}
+.howGetLD ul li{
+    float: left;
+    margin-right: 27px;
+    margin-bottom: 19px;
+}
+.howGetLD ul li:nth-child(2n){
+    margin-right: 0;
+}
+.howGetLD ul:after{
+    display:block;clear:both;content:"";visibility:hidden;height:0;
+}
+.howGetLD ul li:first-child .get-left{
+    background: #a8d958;
+}
+.howGetLD ul li:nth-child(2) .get-left{
+    background: #ffc65b;
+}
+.howGetLD ul li:nth-child(3) .get-left{
+    background: #fc9789;
+}
+.howGetLD ul li:nth-child(4) .get-left{
+    background: #75cbec;
+}
+.howGetLD ul li:nth-child(5) .get-left{
+    background: #ac96cf;
+}
+.get-left{
+    width: 93px;
+    height: 95px;
+    line-height: 95px;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 60px;
+    font-weight: bold;
+}
+.get-right{
+    width: 468px;
+    height: 95px;
+    background: #eeeeef;
+    float: left;
+    padding: 0 14px 0 32px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    display: table;
+}
+.get-right p{
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 16px;
+}

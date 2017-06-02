@@ -7,6 +7,7 @@
 namespace app\modules\cn\controllers;
 use app\modules\cn\models\Banner;
 use app\modules\cn\models\Basket;
+use app\modules\cn\models\Cart;
 use app\modules\cn\models\Category;
 use app\modules\cn\models\Especially;
 use app\modules\cn\models\Keywords;
@@ -22,7 +23,7 @@ use app\libs\ToeflController;
 class IndexController extends ToeflController {
     public $enableCsrfValidation = false;
     /**
-     * 托福首页
+     * 网校首页
      * @Obelisk
      */
     public function actionIndex(){
@@ -53,5 +54,7 @@ class IndexController extends ToeflController {
             'lgwVip'=>$model->getContentExtend(200)   //获取vip课程
         ]);
     }
+
+
 
 }

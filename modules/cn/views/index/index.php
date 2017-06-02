@@ -138,7 +138,7 @@
                                 <div class="int_icon"><img src="/cn/images/int_icon_3.png" alt=""></div>
                                 <input type="text" placeholder="填写验证码" id="code">
                             </div>
-                            <div class="code_btn fr"  onclick="sendYzm(this)">发送验证码</div>
+                            <input class="code_btn fr" type="button"  onclick="sendYzm(this)" value="发送验证码">
                         </div>
                         <button class="form_submit"  onclick="subInformation()">免费领取课程</button>
                     </div>
@@ -201,10 +201,10 @@
                         <div class="ani live_user_check">
                             <div class="relative rh100">
                                 <div class="user_handle_wrap">
-                                    <div class="big_try_btn">
+                                    <a class="big_try_btn" href="#">
                                         <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                         <span class="inm">点击试听</span>
-                                    </div>
+                                    </a>
                                     <div class="live_user_handle clearfix">
                                         <a class="fl" href="#">购买</a>
                                         <a class="fr" href="/goods/<?php echo $v['id']?>/1.html">详情</a>
@@ -237,10 +237,10 @@
                     <div class="ani live_user_check">
                         <div class="relative rh100">
                             <div class="user_handle_wrap">
-                                <div class="big_try_btn">
+                                <a href="#" class="big_try_btn">
                                     <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                     <span class="inm">点击试听</span>
-                                </div>
+                                </a>
                                 <div class="live_user_handle clearfix">
                                     <a class="fl" href="#">购买</a>
                                     <a class="fr" href="#">详情</a>
@@ -269,10 +269,10 @@
                     <div class="ani live_user_check">
                         <div class="relative rh100">
                             <div class="user_handle_wrap">
-                                <div class="big_try_btn">
+                                <a href="#" class="big_try_btn">
                                     <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                     <span class="inm">点击试听</span>
-                                </div>
+                                </a>
                                 <div class="live_user_handle clearfix">
                                     <a class="fl" href="#">购买</a>
                                     <a class="fr" href="#">详情</a>

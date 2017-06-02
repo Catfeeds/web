@@ -32,6 +32,10 @@
     overflow: hidden;
     position: relative;
 }
+.sd_img img{
+    width: 100%;
+    height: 100%;
+}
 
 .try_listen {
     position: absolute;
@@ -151,6 +155,15 @@
     padding-top: 10px;
     font-size: 14px;
     color: #767676;
+}
+.collect span.sc{
+    cursor: pointer;
+}
+.collect span.on i{
+    color: #ff6264;
+}
+.collect span.sc:hover{
+    color: #ff6264;
 }
 .subject_detail_wrap{
     padding-bottom: 40px;
