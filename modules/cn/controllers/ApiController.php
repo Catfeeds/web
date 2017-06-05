@@ -27,7 +27,7 @@ use app\modules\cn\models\ReceiveUser;
 
 use app\modules\cn\models\User;
 
-use app\modules\cn\models\UserDiscuss;
+use app\modules\cn\models\UserEvaluate;
 
 use UploadFile;
 
@@ -45,6 +45,38 @@ class ApiController extends ToeflApiControl
     public $enableCsrfValidation = false;
 
 
+    /**
+     * 学员评价接口
+     * by yanni
+     */
+    public function actionUserEvaluate(){
+        $session = Yii::$app->session;
+        $userId = $session->get('userId');
+        $smartId = Yii::$app->request->post('smartId');
+        $content = Yii::$app->request->post('content');
+        if (!$userId) {
+            die(json_encode(['code' => 0,'message'=>'请登录']));
+        }
+        if($content){
+            $model = new UserEvaluate();
+            $model->contentId = $smartId;
+            $model->userId = $userId;
+            $model->value = $content;
+            $model->createTime = time();
+            $re = $model->save();
+            if($re>0){
+                $data = UserEvaluate::findOne($model->primaryKey);
+                $sign = User::findOne($data['userId']);
+                $data['username'] =$sign['username'];
+                $res = ['code'=>1,'message'=>'评价成功','data'=>$data];
+            } else {
+                $res = ['code'=>0,'message'=>'评价失败'];
+            }
+        } else{
+            $res = ['code'=>0,'message'=>'请填写评价'];
+        }
+        die(json_encode($res));
+    }
     /**
      * 领取课程接口
      * by yanni
