@@ -142,6 +142,10 @@
                             <li class="topLi">
                                 <div class="order-num">
                                     <p><?php echo date("Y-m-d H:i:s",$v['createTime'])?> <span class="orderml">订单号：<?php echo $v['orderNumber']?></span></p>
+                                     <div class="order-n-right">
+                                         <span>总金额：<b>￥890.00</b></span>
+                                         <span class="red">未付款</span>
+                                     </div>
                                 </div>
                                 <div class="order-course">
                                     <ul>
