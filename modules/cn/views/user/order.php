@@ -97,13 +97,30 @@
                                                     </li>
                                                 </ul>
                                             </div>
-                                            <!--进入视频界面入口-->
-                                            <div class="showVideo">
-
-                                                <a href="#" target="_blank">
-                                                    <button type="button" value="">day1雷哥GMAT PREP08 SC1—18题</button>
-                                                </a>
-                                            </div>
+                                            <?php
+                                                if($v['order_status'] == 1) {
+                                                    ?>
+                                                    <!--进入视频界面入口-->
+                                                    <?php
+                                                    $video = \app\libs\Method::post(Yii::$app->params['gmatUrl'] . "/index.php?web/webapi/getVideo", ['contentId' => $v['commodity_id']]);
+                                                    $video = json_decode($video['VideoSdk'], true);
+                                                    ?>
+                                                    <div class="showVideo">
+                                                        <?php
+                                                        foreach ($video as $val) {
+                                                            ?>
+                                                            <a href="#" target="_blank">
+                                                                <button type="button"
+                                                                        value=""><?php echo $val['name'] ?>
+                                                                </button>
+                                                            </a>
+                                                        <?php
+                                                        }
+                                                        ?>
+                                                    </div>
+                                                <?php
+                                                }
+                                            ?>
                                         </li>
                                     </ul>
                                 </div>
