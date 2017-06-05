@@ -103,17 +103,29 @@
                                                     <!--进入视频界面入口-->
                                                     <?php
                                                     $video = \app\libs\Method::post(Yii::$app->params['gmatUrl'] . "/index.php?web/webapi/getVideo", ['contentId' => $v['commodity_id']]);
-                                                    $video = json_decode($video['VideoSdk'], true);
+                                                    $video = json_decode($video, true);
+                                                    $video = json_decode(\app\libs\Method::getextbyhtml1($video['VideoSDK']), true);
                                                     ?>
                                                     <div class="showVideo">
                                                         <?php
-                                                        foreach ($video as $val) {
+                                                        foreach ($video as $k =>$val) {
                                                             ?>
-                                                            <a href="#" target="_blank">
-                                                                <button type="button"
-                                                                        value=""><?php echo $val['name'] ?>
-                                                                </button>
-                                                            </a>
+                                                            <?php
+                                                                if($val['-'] == 1) {
+                                                                    ?>
+                                                                    <div style="clear: both"></div>
+                                                                    <div style="width: 100%;border: 1px #ff4502 solid;margin: 10px 0;"></div>
+                                                                <?php
+                                                                }else {
+                                                                    ?>
+                                                                    <a href="<?php echo Yii::$app->params['gmatUrl']?>/livevideo/<?php echo $v['order_id']?>-<?php echo $k+1?>.html" target="_blank">
+                                                                        <button type="button"
+                                                                                value=""><?php echo $val['name'] ?>
+                                                                        </button>
+                                                                    </a>
+                                                                <?php
+                                                                }
+                                                                    ?>
                                                         <?php
                                                         }
                                                         ?>
