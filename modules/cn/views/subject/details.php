@@ -82,7 +82,7 @@
 
                 </dl>
                 <div class="sd_check_bt">
-                    <a href="javascript:;">立即购买</a>
+                    <a onclick="toBuy(<?php echo $data['id']?>,<?php echo $type?>)" href="javascript:;">立即购买</a>
                     <a href="javascript:;">在线咨询</a>
                 </div>
                 <!--分享-->

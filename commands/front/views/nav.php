@@ -21,7 +21,7 @@
                     <img src="/cn/images/shopping_icon.png" alt="">
                     <span class="shop_msg ani">1</span>
                 </div>
-                <a href="#">购物车</a>
+                <a href="/cart.html">购物车</a>
             </li>
         </ul>
         <!--未登录-->
@@ -73,6 +73,14 @@
         $.post("/cn/api/add-cart",{id:id,type:type},function(re){
             if(re.code == 1){
                 alert('加入购物车');
+            }
+        },'json')
+    }
+
+    function toBuy(id,type){
+        $.post("/cn/api/to-buy",{id:id,type:type},function(re){
+            if(re.code == 1){
+                location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
             }
         },'json')
     }

@@ -12,6 +12,7 @@ namespace app\modules\cn\controllers;
 use app\libs\Method;
 
 use app\modules\cn\models\Cart;
+use app\modules\cn\models\Goods;
 use yii;
 
 use app\libs\ToeflApiControl;
@@ -259,6 +260,9 @@ class ApiController extends ToeflApiControl
         die(json_encode($res));
     }
 
+    /**
+     * @Obelisk
+     */
     public function actionDeleteCart(){
         $session =  Yii::$app->session;
         $uid = $session->get('uid');
@@ -295,6 +299,47 @@ class ApiController extends ToeflApiControl
         die(json_encode(['code' => 1,'message' => '删除成功']));
     }
 
+    public function actionToBuy(){
+        $session =  Yii::$app->session;
+        $uid = $session->get('uid');
+        if(!$uid){
+            $re['code'] = 0;
+            $re['message'] = '请登录';
+            die(json_encode($re));
+        }
+        $id = Yii::$app->request->post('id');
+        $type = Yii::$app->request->post('type');
+        $model = new Goods();
+        $data = $model->getBuyGoods($id,$type);
+        $goods[0] = $data;
+        $data = ['typeUrl' => 'classUrl','type' => 5,'totalMoney' => $data['price'],'goods' =>$goods];
+        $re = ['code' => 1,'data' => serialize($data)];
+        die(json_encode($re));
+    }
+
+    /**
+     * @Obelisk
+     */
+    public function actionCartClearing(){
+        $session =  Yii::$app->session;
+        $uid = $session->get('uid');
+        if(!$uid){
+            $re['code'] = 0;
+            $re['message'] = '请登录';
+            die(json_encode($re));
+        }
+        $id = Yii::$app->request->post('id');
+        if(count($id)<=0){
+            $re['code'] = 0;
+            $re['message'] = '请选择结算商品';
+            die(json_encode($re));
+        }
+        $model = new Goods();
+        $data = $model->getCartGoods($id,$uid);
+        $data = ['typeUrl' => 'classUrl','type' => 5,'totalMoney' => $data['totalMoney'],'goods' =>$data['data']];
+        $re = ['code' => 1,'data' => serialize($data)];
+        die(json_encode($re));
+    }
 
     /**
      * 发送邮箱
@@ -411,68 +456,49 @@ class ApiController extends ToeflApiControl
      */
     public function actionUnifyLogin(){
         $session = Yii::$app->session;
-        $logins = new Login();
+        $model = new User();
         $uid = Yii::$app->request->get('uid');
         $username = Yii::$app->request->get('username');
         $phone = Yii::$app->request->get('phone');
-        $password = Yii::$app->request->get('password');
         $email =Yii::$app->request->get('email');
-        $loginsdata = $logins->find()->where("uid=$uid")->one();
-        if(empty($loginsdata['id'])){
-            $where = '';
-            if(!empty($email) ){
-                $where .= empty($where)?"email='$email'":" or email='$email'";
-            }
-            if(!empty($username) ){
-                $where .= empty($where)?"userName='$username'":" or userName='$username'";
-            }
-            if(!empty($phone) ){
-                $where .= empty($where)?"phone='$phone'":" or phone='$phone'";
-            }
-            $loginsdata = $logins->find()->where("$where")->one();
-            if (empty($loginsdata['id'])) {
-                $login = new Login();
-                $login->phone = $phone;
+        $password =Yii::$app->request->get('password');
+        $loginsdata = $model->find()->where("uid = $uid")->one();
+        if (empty($loginsdata['uid'])) {
+            $login = clone $model;
 
-                $login->userPass = $password;
+            $login->phone = $phone;
 
-                $login->email = $email;
+            $login->email = $email;
 
-                $login->createTime = time();
+            $login->createTime = time();
 
-                $login->userName = $username;
-                $login->uid = $uid;
-                $login->save();
-                $loginsdata = $logins->find()->where("$where")->one();
-            }else{
-                if($phone != $loginsdata['phone']){
-                    Login::updateAll(['phone' => $phone],"id={$loginsdata['id']}");
-                }
-                if($email != $loginsdata['email']){
-                    Login::updateAll(['email' => "$email"],"id={$loginsdata['id']}");
-                }
-                if($username != $loginsdata['userName']){
-                    Login::updateAll(['userName' => "$username"],"id={$loginsdata['id']}");
-                }
-                if($uid != $loginsdata['uid']){
-                    Login::updateAll(['uid' => "$uid"],"id={$loginsdata['id']}");
-                }
-                $loginsdata = $logins->find()->where("id={$loginsdata['id']}")->one();
-            }
+            $login->username = $username;
+
+            $login->password = md5($password);
+
+            $login->roleId = 4;
+
+            $login->uid = $uid;
+
+            $login->save();
         }else{
             if($phone != $loginsdata['phone']){
-                Login::updateAll(['phone' => $phone],"id={$loginsdata['id']}");
+                User::updateAll(['phone' => $phone],"uid=$uid");
             }
             if($email != $loginsdata['email']){
-                Login::updateAll(['email' => "$email"],"id={$loginsdata['id']}");
+                User::updateAll(['email' => "$email"],"uid=$uid");
             }
-            if($username != $loginsdata['userName']){
-                Login::updateAll(['userName' => "$username"],"id={$loginsdata['id']}");
+            if($username != $loginsdata['username']){
+                User::updateAll(['username' => "$username"],"uid=$uid");
             }
-            $loginsdata = $logins->find()->where("id={$loginsdata['id']}")->one();
+            if(md5($password) != $loginsdata['password']){
+                $password = md5($password);
+                User::updateAll(['password' => "$password"],"uid=$uid");
+            }
         }
-        $session->set('userId', $loginsdata['id']);
-        $session->set('userData', $loginsdata);
+        $session->set('uid', $uid);
+        $data = User::find()->asArray()->where("uid=$uid")->one();
+        $session->set('userData', $data);
         $session->set('cartSign', 1);
     }
 }

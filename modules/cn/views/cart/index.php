@@ -35,7 +35,7 @@
                 foreach($data as $v) {
                     ?>
                     <tr>
-                        <td><input data-id="<?php echo $v['id']?>" data-type="<?php echo $v['type']?>" type="checkbox"/></td>
+                        <td><input data-id="<?php echo $v['id']?>" data-type="<?php echo $v['type']?>"  value="<?php echo $v['recordId']?>" type="checkbox"/></td>
                         <td>
                             <div class="cat-left">
                                 <img src="<?php echo $v['image']?>" alt="商品图片"/>
@@ -57,7 +57,7 @@
                         <td><b class="subtotal">￥<span><?php echo $v['num']*$v['price']?></span></b></td>
                         <td>
                             <a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html">商品详情</a>
-                            <a href="#" class="redColor" data-id="<?php echo $v['id']?>" data-type="<?php echo $v['type']?>" onclick="deleteRecord(this)">删除记录</a>
+                            <a href="#" class="redColor" data-recordId="<?php echo $v['recordId']?>" data-id="<?php echo $v['id']?>" data-type="<?php echo $v['type']?>" onclick="deleteRecord(this)">删除记录</a>
                         </td>
                     </tr>
                 <?php
@@ -73,10 +73,29 @@
             <div class="info-right">
                 <span>已选商品<b class="redFont" id="piece">0</b>件</span>
                 <span>&nbsp;&nbsp;&nbsp;&nbsp;合计：<b class="redFont"><span>￥<span id="lastTotal">0</span></span></b></span>
-                <input type="button" value="结算"/>
+                <input onclick="clearing()" type="button" value="结算"/>
             </div>
             <div style="clear: both"></div>
         </div>
+        <script type="text/javascript">
+            function clearing(){
+                var arr=[];
+                $(".catContent table tr:not(:first-child)").each(function(){
+                    var _that=$(this);
+                    if(_that.find("td input")[0].checked){
+                        arr.push(_that.find("td:last-child a.redColor").attr("data-recordId"));
+                    }
+                });
+                if(arr.length <= 0){
+                    alert('请选择结算商品');return false;
+                }
+                $.post("/cn/api/cart-clearing",{id:arr},function(re){
+                    if(re.code == 1){
+                        location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
+                    }
+                },'json')
+            }
+        </script>
     </div>
 </div>
 
