@@ -81,7 +81,7 @@
                                                     </li>
                                                     <li class="btnMartop">
                                                         <?php
-                                                            if($v['typeid'] == 1) {
+                                                            if($v['order_status'] == 1) {
                                                                 ?>
                                                                 <a href="<?php echo Yii::$app->params['gmatUrl']?>/liveclass/<?php echo $v['order_id']?>.html" class="orderD">进入教室</a>
                                                             <?php
