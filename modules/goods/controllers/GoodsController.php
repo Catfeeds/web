@@ -160,6 +160,7 @@ class GoodsController extends AppControl {
      */
     public function actionVideo(){
         if($_POST){
+            $type = Yii::$app->request->post('type');
             $contentId = Yii::$app->request->post('contentId');
             $kidId = Yii::$app->request->post('kidId');
             $teacherKey = Yii::$app->request->post('teacherKey');
@@ -176,6 +177,7 @@ class GoodsController extends AppControl {
                 $model->webKey = $webKey;
                 $model->clientKey = $clientKey;
                 $model->createTime = time();
+                $model->type = $type;
                 $res = $model->save();
             } else {
                 $model = Livesdkid::findOne($sign['id']);
@@ -211,6 +213,7 @@ class GoodsController extends AppControl {
         $cid = Yii::$app->request->post('cid');
         $name = Yii::$app->request->post('kname');
         $pwd = Yii::$app->request->post('pwd');
+        $type = Yii::$app->request->post('catType');
 //        $files = Yii::$app->request->post('files');
         $sdk = Yii::$app->request->post('sdk');
         if($name && $cid && $pwd && $sdk){
@@ -228,6 +231,7 @@ class GoodsController extends AppControl {
                 $model->pwd = $pwd;
                 $model->sdk = $sdk;
                 $model->createTime = time();
+                $model->type = $type;
                 $res = $model->save();
             }
             if($res>0){

@@ -14,6 +14,7 @@
     </ul>
     <form action="/goods/goods/video" method="post" class="form-horizontal">
         <fieldset>
+            <input type="hidden" name="type" value="<?php echo isset($_GET['type'])?$_GET['type']:'' ?>">
             <input type="hidden" name="contentId" value="<?php echo isset($_GET['id'])?$_GET['id']:'' ?>">
             <div class="control-group">
                 <label for="modulename" class="control-label">LIVESDKID：</label>
@@ -125,6 +126,7 @@
         <fieldset>
             <div class="hid control-group">
                 <label for="modulename" class="control-label">课程名称：</label>
+                <input type="hidden" name="catType" value="<?php echo isset($_GET['type'])?$_GET['type']:'' ?>">
                 <input type="text" name="kname" value="">
             </div>
             <div class="hid control-group">
