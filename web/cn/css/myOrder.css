@@ -117,6 +117,7 @@ body{
     color: #ff4604;
     font-size: 20px;
     font-weight: normal;
+    padding-right: 10px;
 }
 .order-n-right span.red{
     color: red;
@@ -232,6 +233,9 @@ body{
     background-color: #ff4502;
     border-radius: 3px;
     text-align: center;
+}
+.orderD02:hover{
+    color: #ffffff;
 }
 .dis-B{
     display: block;
