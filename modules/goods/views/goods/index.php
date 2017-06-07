@@ -39,7 +39,7 @@
                     <td><span><?php echo $v['catName']?></span></td>
                     <td><span><?php echo $v['price']?></span></td>
                     <td><span><?php echo $v['status']==1?'下架':'上架'?></span></td>
-                    <td><span><a href="/goods/goods/goods-status?id=<?php echo $v['id']?>"><?php echo $v['status']==1?'上架':'下架'?></a> <a href="javascript:;" onclick="flowerUpdate(<?php echo $v['status'];?>,<?php echo $v['id'];?>)">修改</a></span></td>
+                    <td><span><a href="/goods/goods/goods-status?id=<?php echo $v['id']?>"><?php echo $v['status']==1?'上架':'下架'?></a> <a href="javascript:;" onclick="flowerUpdate(<?php echo $v['status'];?>,<?php echo $v['id'];?>)">修改</a> <a href="/goods/goods/video?id=<?php echo $v['id']?>">SDK</a></span></td>
                 </tr>
             <?php
             }

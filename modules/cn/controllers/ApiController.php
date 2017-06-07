@@ -13,6 +13,7 @@ use app\libs\Method;
 
 use app\modules\cn\models\Cart;
 use app\modules\cn\models\Goods;
+use app\modules\cn\models\Category;
 use yii;
 
 use app\libs\ToeflApiControl;
@@ -22,6 +23,10 @@ use app\libs\VerificationCode;
 use app\libs\Sms;
 
 use app\modules\cn\models\Content;
+
+use app\modules\cn\models\Login;
+
+use app\modules\cn\models\Collection;
 
 use app\modules\cn\models\ReceiveUser;
 
@@ -74,6 +79,53 @@ class ApiController extends ToeflApiControl
             }
         } else{
             $res = ['code'=>0,'message'=>'请填写评价'];
+        }
+        die(json_encode($res));
+    }
+
+
+    /**
+     * 添加收藏
+     * by yanni
+     */
+
+    public function actionAddCollect()
+    {
+        $session = Yii::$app->session;
+        $userId = $session->get('userId',1);
+        if($userId){
+            $contentId = Yii::$app->request->post('contentId');
+            $sign = Collection::find()->where("contentId=$contentId AND userId=$userId")->one();
+            if($sign){
+                $res['code'] = 0;
+
+                $res['message'] = '已收藏';
+
+                die(json_encode($res));
+            } else {
+                $catId = Yii::$app->request->post('catId');
+                $catType = Category::findOne($catId);
+                $catType = $catType['type'];
+                $model = new Collection();
+                $model->contentId = $contentId;
+                $model->userId = $userId;
+                $model->catType = $catType;
+                $model->createTime = time();
+                $re = $model->save();
+                if($re>0){
+                    $res['code'] = 1;
+
+                    $res['message'] = '收藏成功';
+                } else {
+                    $res['code'] = 0;
+
+                    $res['message'] = '收藏失败';
+                }
+            }
+        } else {
+            $res['code'] = 2;
+
+            $res['message'] = '请登录';
         }
         die(json_encode($res));
     }

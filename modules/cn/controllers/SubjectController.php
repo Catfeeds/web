@@ -8,7 +8,7 @@ namespace app\modules\cn\controllers;
 use app\modules\cn\models\Append;
 use app\modules\cn\models\AppendDetails;
 use app\modules\cn\models\Category;
-use app\modules\cn\models\Flower;
+use app\modules\cn\models\Collection;
 use app\modules\cn\models\Goods;
 use app\modules\cn\models\HotSell;
 use app\modules\cn\models\Recommend;
@@ -41,8 +41,18 @@ class SubjectController extends ToeflController {
     }
 
     public function actionDetails(){
+        $userId = Yii::$app->session->get('userId',1);
         $id = Yii::$app->request->get('id');
         $type = Yii::$app->request->get('type');
+        $collection = 0;
+        if($userId){
+            $sign = Collection::find()->where("contentId=$id AND userId=$userId")->one();
+            if($sign){
+                $collection = 1;
+            } else {
+                $collection = 0;
+            }
+        }
         $model = new Goods();
         $data = $model->getGoodsDetails($id,$type);
         $extend = Extend::find()->asArray()->where("type = $type")->orderBy("sort ASC")->limit(2)->all();
@@ -51,7 +61,7 @@ class SubjectController extends ToeflController {
         $category = $model->getParentCategoryArr($data['catId']);
 
 //        $reply = $model->getGoodsReply($id,$type);
-        return $this->renderPartial('details',['category' => array_reverse($category),'extend' => $extend,'data' => $data,'type' => $type,'evaluate'=>$evaluate]);
+        return $this->renderPartial('details',['category' => array_reverse($category),'extend' => $extend,'data' => $data,'type' => $type,'evaluate'=>$evaluate,'collection'=>$collection]);
     }
 
 }
