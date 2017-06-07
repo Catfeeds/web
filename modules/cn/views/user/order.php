@@ -162,7 +162,14 @@
                                     <p><?php echo date("Y-m-d H:i:s",$v['createTime'])?> <span class="orderml">订单号：<?php echo $v['orderNumber']?></span></p>
                                      <div class="order-n-right">
                                          <span>总金额：<b>￥<?php echo $v['payable']?></b></span>
-                                         <a href="<?php echo Yii::$app->params['orderUrl']?>/payType/<?php echo $v['id']?>.html" class="orderD02" style="display: inline-block;">立即购买</a>
+                                         <?php
+                                            if($v['status'] == 1) {
+                                                ?>
+                                                <a href="<?php echo Yii::$app->params['orderUrl']?>/payType/<?php echo $v['id']?>.html"
+                                                   class="orderD02" style="display: inline-block;">立即购买</a>
+                                            <?php
+                                            }
+                                         ?>
                                      </div>
                                 </div>
                                 <div class="order-course">
