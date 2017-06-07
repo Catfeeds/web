@@ -177,6 +177,12 @@ class Goods extends ActiveRecord
         $pageStr = $pageModel->GetPagerContent();
         return ['data' => $data,'pageStr' => $pageStr,'count' => $count,'page' => $page];
     }
+
+    public static function getVideo($goodsId,$type){
+        $model = self::getModel($type);
+        $data = $model->find()->asArray()->where("id=$goodsId")->one();
+        return $data;
+    }
     /**
      * @param $type
      * @return Book|Course|En|Smart|Vip

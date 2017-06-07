@@ -238,12 +238,21 @@
         $('.reply_submit').click(function () {
             var _val = $("#reply_value").val();
             $.post('/cn/api/user-evaluate', {smartId: <?php echo $_GET['id'] ?>, content: _val}, function (data) {
+                alert(data.message);
                 if (data.code == 0) {
 
                 }
-                console.log(data)
-
-
+                if(data.code==1){
+                    var str='<li>'+
+                        '<div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>'+
+                        '<div class="reply_data_wrap inm">'+
+                        '<p class="nick_name">'+data.data.username+'</p>'+
+                        '<p class="reply_time">2017-06-07</p>'+
+                        '<p class="reply_text">'+data.data.value+'</p>'+
+                        '</div>'+
+                        '</li>';
+                    $('.reply_list_wrap').append(str);
+                }
             },"json")
         });
     })

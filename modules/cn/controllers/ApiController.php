@@ -14,6 +14,7 @@ use app\libs\Method;
 use app\modules\cn\models\Cart;
 use app\modules\cn\models\Goods;
 use app\modules\cn\models\Category;
+use app\modules\cn\models\Video;
 use yii;
 
 use app\libs\ToeflApiControl;
@@ -584,5 +585,26 @@ class ApiController extends ToeflApiControl
         $data = User::find()->asArray()->where("uid=$uid")->one();
         $session->set('userData', $data);
         $session->set('cartSign', 1);
+    }
+
+    /**
+     * 获取公开课
+     * by  obelisk
+     */
+    public function actionGetVideo(){
+        $videoId = Yii::$app->request->post('videoId');
+        $type = Yii::$app->request->post('type');
+        $video = Video::find()->asArray()->where("id=$videoId")->one();
+        if(!$video){
+            die(json_encode(['code' => 0]));
+        }
+        $content = Goods::getVideo($video['cid'],$type);
+        $data['sdk'] = $video['sdk'];
+        $data['pwd'] = $video['pwd'];
+        $data['name'] = $video['name'];
+        $data['image'] = $content['image'];
+        $data['duration'] = $content['courseDuration'];
+        $data['commencement'] = $content['openingDate'];
+        die(json_encode($data));
     }
 }
