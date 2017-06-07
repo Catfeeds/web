@@ -161,8 +161,15 @@
                                 <div class="order-num">
                                     <p><?php echo date("Y-m-d H:i:s",$v['createTime'])?> <span class="orderml">订单号：<?php echo $v['orderNumber']?></span></p>
                                      <div class="order-n-right">
-                                         <span>总金额：<b>￥890.00</b></span>
-                                         <a href="#" class="orderD02" style="display: inline-block;">立即购买</a>
+                                         <span>总金额：<b>￥<?php echo $v['payable']?></b></span>
+                                         <?php
+                                            if($v['status'] == 1) {
+                                                ?>
+                                                <a href="<?php echo Yii::$app->params['orderUrl']?>/payType/<?php echo $v['id']?>.html"
+                                                   class="orderD02" style="display: inline-block;">立即购买</a>
+                                            <?php
+                                            }
+                                         ?>
                                      </div>
                                 </div>
                                 <div class="order-course">
@@ -206,6 +213,13 @@
                                                                 <span class="greyColor02"><?php echo $v['status']>2?'已付款':'待付款'?></span>
                                                             </li>
                                                             <li class="btnMartop02">
+                                                                <?php
+                                                                if($v['status']>2) {
+                                                                    ?>
+                                                                    <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/index?contentId=<?php echo $val['contentId']?>" class="orderD">进入教室</a>
+                                                                <?php
+                                                                }
+                                                                ?>
                                                                 <!--<a href="#" class="dis-B">订单详情</a>-->
                                                                 <a href="#" class="dis-B redColor"
                                                                    onclick="deleteCourseRecord(this)">删除记录</a>
