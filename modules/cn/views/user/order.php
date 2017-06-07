@@ -235,7 +235,7 @@
                                                             <?php
                                                             foreach ($video as $value) {
                                                                 ?>
-                                                                <a href="" target="_blank">
+                                                                <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/video?id=<?php echo $val['id']?>&videoId=<?php echo $value['id']?>" target="_blank">
                                                                     <button type="button"
                                                                             value=""><?php echo $value['name'] ?>
                                                                     </button>
