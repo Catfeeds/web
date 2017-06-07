@@ -38,7 +38,14 @@
             <div class="inm"><a href="/">全部</a></div>
             <?php
                 foreach($category as $k => $v) {
-                        if($k == count($category)-1){
+                        foreach($v as $val){
+                            if(isset($val['checked'])&&$val['checked'] == 1) {
+                                $sign = 1;break;
+                            }else{
+                                $sign = 0;
+                            }
+                        }
+                        if($sign == 0){
                             break;
                         }
                     ?>

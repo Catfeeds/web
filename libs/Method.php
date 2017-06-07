@@ -92,4 +92,61 @@ class Method
         }
         return $finalStr;
     }
+
+    /**
+     * post请求
+     * @param $url
+     * @param string $post_data
+     * @param int $timeout
+     * @return mixed
+     * @Obelisk
+     */
+    public static  function post($url, $post_data = '', $timeout = 5){//curl
+
+        $ch = curl_init();
+
+        curl_setopt ($ch, CURLOPT_URL, $url);
+
+        curl_setopt ($ch, CURLOPT_POST, 1);
+
+        if($post_data != ''){
+
+            curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
+
+        }
+
+        curl_setopt ($ch, CURLOPT_RETURNTRANSFER, 1);
+
+        curl_setopt ($ch, CURLOPT_CONNECTTIMEOUT, $timeout);
+
+        curl_setopt($ch, CURLOPT_HEADER, false);
+
+        $file_contents = curl_exec($ch);
+
+        curl_close($ch);
+
+        return $file_contents;
+
+    }
+
+    /**
+     * @param string $html html内容
+     * @param string $tags 保留标签
+     * @return string
+     */
+    function getextbyhtml1($html = '', $tags = '')
+    {
+        if (!empty($html)) {
+            //$res = preg_replace('/&nbsp;/', ' ', trim(strip_tags(htmlspecialchars_decode($html), $tags)));
+            $res = htmlspecialchars_decode($html);
+            $res = strip_tags($res, $tags);
+            $res = trim($res);
+            $res = preg_replace('/&nbsp;/', ' ', $res);//处理空格字符，解决在自动换行时出现的问题
+            $res = html_entity_decode($res, ENT_QUOTES);
+            $res = preg_replace('/<(p|P)>(\s*)<\/(p|P)>/', '', $res);
+        } else {
+            $res = false;
+        }
+        return $res;
+    }
 }

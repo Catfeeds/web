@@ -120,6 +120,12 @@ $config = [
 
                 'goods/<id:\d+>/<type:\d+>.html' => 'cn/subject/details',
 
+                'cart.html' => 'cn/cart/index',
+
+                'order.html' => 'cn/user/order',
+
+                'order/<status:\d+>/<page:\d+>.html' => 'cn/user/order',
+
             ],
 
 

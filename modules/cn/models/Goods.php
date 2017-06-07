@@ -96,6 +96,7 @@ class Goods extends ActiveRecord
                 $arr['type'] = $v['type'];
                 $arr['createTime'] = $v['createTime'];
                 $arr['num'] = $v['num'];
+                $arr['recordId'] = $v['id'];
                 $data[$k] = $arr;
             }
         }else{
@@ -107,6 +108,7 @@ class Goods extends ActiveRecord
                     $arr['type'] = $v['type'];
                     $arr['createTime'] = $v['createTime'];
                     $arr['num'] = $v['num'];
+                    $arr['recordId'] = '';
                     $data[$k] = $arr;
                 }
             }else{
@@ -129,6 +131,38 @@ class Goods extends ActiveRecord
         return $arr;
     }
 
+    /**
+     * @param $id
+     * @param $type
+     * @return array|bool
+     * @Obelisk
+     */
+    public function getBuyGoods($id,$type){
+        $table = $this->getTable($type);
+        $sql = "select g.id as contentId,g.image,c.name as catName,c.id as catId,g.name as contentName,g.price from {{%$table}} g LEFT JOIN {{%category}} c on g.catId=c.id WHERE g.id=$id";
+        $data = \Yii::$app->db->createCommand($sql)->queryOne();
+        $data['tag'] = '';
+        $data['num'] = 1;
+        $data['type'] = $type;
+        return $data;
+    }
+
+    public function getCartGoods($id,$uid){
+        $totalMoney = 0;
+        $data = Cart::find()->asArray()->where(['in','id',$id])->all();
+        foreach($data as $k => $v){
+            $table = $this->getTable($v['type']);
+            $sql = "select g.id as contentId,g.image,c.name as catName,c.id as catId,g.name as contentName,g.price from {{%$table}} g LEFT JOIN {{%category}} c on g.catId=c.id WHERE g.id={$v['goodsId']}";
+            $arr = \Yii::$app->db->createCommand($sql)->queryOne();
+            $arr['tag'] = '';
+            $arr['num'] = $v['num'];
+            $arr['type'] = $v['type'];
+            $totalMoney += $arr['num']*$arr['price'];
+            $data[$k] = $arr;
+        }
+        return ['data' => $data,'totalMoney' => $totalMoney];
+
+    }
     /**
      * 获取商品评价
      * by  yanni
