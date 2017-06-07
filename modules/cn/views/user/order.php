@@ -211,7 +211,7 @@
                                                                     ?>
                                                                     <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/index?contentId=<?php echo $val['contentId']?>.html" class="orderD">进入教室</a>
                                                                 <?php
-                                                                }else {
+                                                                }
                                                                 ?>
                                                                 <!--<a href="#" class="dis-B">订单详情</a>-->
                                                                 <a href="#" class="dis-B redColor"
