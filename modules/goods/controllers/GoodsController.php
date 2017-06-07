@@ -18,6 +18,8 @@ use app\modules\goods\models\Goods;
 use app\modules\goods\models\FlowerCategory;
 use app\modules\goods\models\Smart;
 use app\modules\goods\models\Vip;
+use app\modules\goods\models\Livesdkid;
+use app\modules\goods\models\Video;
 use yii;
 use app\libs\AppControl;
 class GoodsController extends AppControl {
@@ -151,6 +153,92 @@ class GoodsController extends AppControl {
         $this->redirect('/goods/goods/index?type='.$type);
     }
 
+    /**
+     * 视频课程
+     * @return string
+     * by yanni
+     */
+    public function actionVideo(){
+        if($_POST){
+            $contentId = Yii::$app->request->post('contentId');
+            $kidId = Yii::$app->request->post('kidId');
+            $teacherKey = Yii::$app->request->post('teacherKey');
+            $assistantKey = Yii::$app->request->post('assistantKey');
+            $webKey = Yii::$app->request->post('webKey');
+            $clientKey = Yii::$app->request->post('clientKey');
+            $sign = Livesdkid::find()->where('contentId='.$contentId)->one();
+            if(empty($sign)){
+                $model = new Livesdkid();
+                $model->contentId = $contentId;
+                $model->livesdkid = $kidId;
+                $model->teacherKey = $teacherKey;
+                $model->assistantKey = $assistantKey;
+                $model->webKey = $webKey;
+                $model->clientKey = $clientKey;
+                $model->createTime = time();
+                $res = $model->save();
+            } else {
+                $model = Livesdkid::findOne($sign['id']);
+                $model->contentId = $contentId;
+                $model->livesdkid = $kidId;
+                $model->teacherKey = $teacherKey;
+                $model->assistantKey = $assistantKey;
+                $model->webKey = $webKey;
+                $model->clientKey = $clientKey;
+                $model->createTime = time();
+                $res = $model->save();
+            }
+            if($res>0){
+                die('<script>alert("操作成功");history.go(-1);</script>');
+            } else {
+                die('<script>alert("操作失败");history.go(-1);</script>');
+            }
+        } else {
+            $contentId = Yii::$app->request->get('id');
+            $data = Livesdkid::find()->where('contentId='.$contentId)->one();
+            $video = Video::find()->where('cid='.$contentId)->all();
+            return $this->render('video',['data'=>$data,'video'=>$video]);
+        }
+    }
+
+    /**
+     * 提交视频课程
+     * by yanni
+     */
+
+    public function actionFileVideo(){
+        $id = Yii::$app->request->post('id');
+        $cid = Yii::$app->request->post('cid');
+        $name = Yii::$app->request->post('kname');
+        $pwd = Yii::$app->request->post('pwd');
+//        $files = Yii::$app->request->post('files');
+        $sdk = Yii::$app->request->post('sdk');
+        if($name && $cid && $pwd && $sdk){
+            $model = new Video();
+            if($id){
+                $re = $model->findOne($id);
+                $re->cid = $cid;
+                $re->name = $name;
+                $re->pwd = $pwd;
+                $re->sdk = $sdk;
+                $res = $re->save();
+            } else {
+                $model->cid = $cid;
+                $model->name = $name;
+                $model->pwd = $pwd;
+                $model->sdk = $sdk;
+                $model->createTime = time();
+                $res = $model->save();
+            }
+            if($res>0){
+                die('<script>alert("提交成功");history.go(-1);</script>');
+            } else {
+                die('<script>alert("提交失败；请重试");history.go(-1);</script>');
+            }
+        } else {
+            die('<script>alert("提交失败；请检查填写内容");history.go(-1);</script>');
+        }
+    }
     private function getModel(){
         $type = Yii::$app->session->get('goodsType');
         switch ($type){
