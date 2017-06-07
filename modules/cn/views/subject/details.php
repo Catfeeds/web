@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="int subject_detail_info_wrap">
-                <p class="ellipsis-2 sd_tit_name"><?php echo $data['name']?></p>
+                <p class="ellipsis-2 sd_tit_name" data-samrtid="<?php echo $_GET['id'] ?>"><?php echo $data['name']?></p>
                 <dl class="sd_info_wrap">
                     <dt><span class="sd_name">价<i class="inm kg"></i>格：</span><span class="new_price">￥<?php echo $data['name']?></span><span
                             class="old_price">￥<?php echo $data['sales']?></span></dt>
@@ -215,11 +215,22 @@
     $(function(){
         $('.sub-info-check span').click(function(){
             var obj=$(this).index();
+            $(this).addClass('on').siblings("span").removeClass('on');
             $('.checked_item').eq(obj).fadeIn().siblings('div.checked_item').hide();
         });
         $('.collect span.sc').click(function(){
             $(this).addClass('on');
            $(this).find("i").removeClass(' icon-star-empty').addClass(' icon-star');
+        });
+//        提交评价
+        $('.reply_submit').click(function(){
+            var _val=$("#reply_value").val();
+            $.post('/cn/api/user-evaluate', {smartId: <?php echo $_GET['id'] ?>, content: _val}, function (data) {
+                if(data.code==0){
+
+                }
+                console.log(data)
+            }, "json")
         })
     })
 </script>
