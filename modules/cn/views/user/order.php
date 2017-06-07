@@ -8,13 +8,19 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="/cn/css/public.css"/>
     <link rel="stylesheet" href="/cn/css/myOrder.css"/>
+    <link rel="stylesheet" href="/cn/css/reset.css">
+    <link rel="stylesheet" href="/cn/css/common.css">
+    <link rel="stylesheet" href="/cn/css/main.css">
+    <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
     <script type="text/javascript" src="/cn/js/jquery-1.11.1.min.js"></script>
     <script type="text/javascript" src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript" src="/cn/js/myOrder.js"></script>
 
 </head>
 <body>
-
+<?php use app\commands\front\NavWidget; ?>
+<?php NavWidget::begin(); ?>
+<?php NavWidget::end(); ?>
 <div class="orderContent">
     <div class="order-left">
         <ul>

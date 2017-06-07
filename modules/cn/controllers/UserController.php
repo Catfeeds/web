@@ -59,7 +59,7 @@ class UserController extends ToeflController {
         $count = $count1+$count2;
         $pageModel = new Pager($count,$page,10);
         $pageStr = $pageModel->GetPagerContent();
-        return $this->render("order",['data' => $data,'order' => $order,'pageStr' =>$pageStr]);
+        return $this->renderPartial("order",['data' => $data,'order' => $order,'pageStr' =>$pageStr]);
     }
 
     /**
