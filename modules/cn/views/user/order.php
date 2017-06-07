@@ -207,33 +207,40 @@
                                                         </ul>
                                                     </div>
                                                     <?php
-                                                    if($v['orderBelong'] == 2){
-                                                        $video = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
-                                                    }
-                                                    if($v['orderBelong'] == 3){
-                                                        $video = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
-                                                    }
-                                                    if($v['orderBelong'] == 5){
-                                                        $video = \app\modules\cn\models\Goods::getSdk($val['contentId'],$val['type']);
-                                                    }
-
-
-                                                    $video = json_decode($video, true);
-
-                                                    ?>
-                                                    <!--进入视频界面入口-->
-                                                    <div class="showVideo">
+                                                    if($v['status'] > 2) {
+                                                        ?>
                                                         <?php
-                                                            foreach($video as $value) {
+                                                        if ($v['orderBelong'] == 2) {
+                                                            $video = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
+                                                        }
+                                                        if ($v['orderBelong'] == 3) {
+                                                            $video = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
+                                                        }
+                                                        if ($v['orderBelong'] == 5) {
+                                                            $video = \app\modules\cn\models\Goods::getSdk($val['contentId'], $val['type']);
+                                                        }
+
+
+                                                        $video = json_decode($video, true);
+
+                                                        ?>
+                                                        <!--进入视频界面入口-->
+                                                        <div class="showVideo">
+                                                            <?php
+                                                            foreach ($video as $value) {
                                                                 ?>
                                                                 <a href="" target="_blank">
-                                                                    <button type="button" value=""><?php echo $value['name']?>
+                                                                    <button type="button"
+                                                                            value=""><?php echo $value['name'] ?>
                                                                     </button>
                                                                 </a>
                                                             <?php
                                                             }
-                                                        ?>
-                                                    </div>
+                                                            ?>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </li>
                                             <?php
                                             }
