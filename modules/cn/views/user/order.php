@@ -25,8 +25,8 @@
     <div class="order-left">
         <ul>
             <li class="on"><a href="/order.html">我的订单</a></li>
-            <li><a href="#">我的雷豆</a></li>
-            <li><a href="#">我的购物车</a></li>
+            <li><a href="/integral.html">我的雷豆</a></li>
+            <li><a href="/cart.html">我的购物车</a></li>
         </ul>
     </div>
     <div class="order-right">

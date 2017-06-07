@@ -124,6 +124,12 @@ $config = [
 
                 'order.html' => 'cn/user/order',
 
+                'integral.html' => 'cn/lei-dou/index', //雷豆
+
+                'integral/<type:\d+>/<page:\d+>.html' => 'cn/lei-dou/index', //雷豆
+
+                'use.html' => 'cn/lei-dou/use',
+
                 'order/<status:\d+>/<page:\d+>.html' => 'cn/user/order',
 
             ],

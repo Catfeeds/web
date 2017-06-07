@@ -1,6 +1,7 @@
 body{
     background: #eeeeee;
 }
+
 .orderContent{
     width: 1194px;
     margin: 0 auto;
@@ -20,11 +21,11 @@ body{
     border-left: 5px white solid;
 }
 .order-left ul li.on{
-    border-left: 5px #ffa902 solid;
-    color: #ffa902;
+    border-left: 5px #02acb3 solid;
+    color: #02aeb4;
 }
 .order-left ul li.on a{
-    color: #ffa902;
+    color: #02aeb4;
 }
 .order-left ul li:hover{
     cursor: pointer;
@@ -52,7 +53,7 @@ body{
     width: 100%;
 }
 .use-center{
-    width: 523px;
+   width: 523px;
     float: left;
     border-left: 1px #e2e2e2 solid;
     margin-left: 25px;
@@ -193,12 +194,12 @@ table tr td span.grey{
     cursor: pointer;
 }
 .table-page ul li.on{
-    background: #ffa902;
+    background: #02abb4;
     color: white;
 }
 .table-page ul li.grey{
     background: #e3e3e3;
-    color: #a8a8a8;
+    color: #c6c6c6;
 }
 .table-page ul li:first-child,.table-page ul li:last-child{
     width: 80px;
