@@ -39,57 +39,65 @@
         <div class="address_location">
             <a href="/">全部<i class="icon-angle-right"></i></a>
             <?php
-                foreach($category as $v) {
-                    ?>
-                    <a href="/subject/<?php echo $v['id']?>.html"><?php echo $v['name']?><i class="icon-angle-right"></i></a>
+            foreach ($category as $v) {
+                ?>
+                <a href="/subject/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?><i class="icon-angle-right"></i></a>
                 <?php
-                }
+            }
             ?>
-            <span class="location"><?php echo $data['name']?></span>
+            <span class="location"><?php echo $data['name'] ?></span>
         </div>
         <!--课程信息-->
         <div class="subject_detail_wrap">
             <div class="int">
                 <div class="sd_img">
-                    <img src="<?php echo $data['image']?>" alt="">
-                    <?php if(isset($data['url'])&&$data['url']) { ?>
+                    <img src="<?php echo $data['image'] ?>" alt="">
+                    <?php if (isset($data['url']) && $data['url']) { ?>
                         <a href="#" class="try_listen">
                             <i class="icon-play try_listen_btn"></i>免费试听
                         </a>
-                    <?php
+                        <?php
                     }
                     ?>
                 </div>
                 <div class="collect">
-                    <span class="sc <?php if($collection==1){ echo 'on'; } ?>">
-                    <i class="<?php if($collection==1){ echo 'icon-star'; } else { echo 'icon-star-empty'; } ?>"></i>
+                    <span class="sc <?php if ($collection == 1) {
+                        echo 'on';
+                    } ?>">
+                    <i class="<?php if ($collection == 1) {
+                        echo 'icon-star';
+                    } else {
+                        echo 'icon-star-empty';
+                    } ?>"></i>
                     收藏课程（2000）
                     </span>
                 </div>
             </div>
             <div class="int subject_detail_info_wrap">
-                <p class="ellipsis-2 sd_tit_name" data-samrtid="<?php echo $_GET['id'] ?>"><?php echo $data['name']?></p>
+                <p class="ellipsis-2 sd_tit_name"
+                   data-samrtid="<?php echo $_GET['id'] ?>"><?php echo $data['name'] ?></p>
                 <dl class="sd_info_wrap">
-                    <dt><span class="sd_name">价<i class="inm kg"></i>格：</span><span class="new_price">￥<?php echo $data['name']?></span><span
-                            class="old_price">￥<?php echo $data['sales']?></span></dt>
+                    <dt><span class="sd_name">价<i class="inm kg"></i>格：</span><span
+                            class="new_price">￥<?php echo $data['name'] ?></span><span
+                            class="old_price">￥<?php echo $data['sales'] ?></span></dt>
                     <?php
-                        foreach($extend as $v) {
-                            ?>
-                            <dt><span class="sd_name"><?php echo $v['name']?>：</span><?php echo $data[$v['value']]?></dt>
+                    foreach ($extend as $v) {
+                        ?>
+                        <dt><span class="sd_name"><?php echo $v['name'] ?>：</span><?php echo $data[$v['value']] ?></dt>
                         <?php
-                        }
+                    }
                     ?>
 
                 </dl>
                 <div class="sd_check_bt">
-                    <a onclick="toBuy(<?php echo $data['id']?>,<?php echo $type?>)" href="javascript:;">立即购买</a>
+                    <a onclick="toBuy(<?php echo $data['id'] ?>,<?php echo $type ?>)" href="javascript:;">立即购买</a>
                     <a href="javascript:;">在线咨询</a>
                 </div>
                 <!--分享-->
                 <div class="share_wrap clearfix">
                     <div class="view_data fl">
                         <i class="icon-eye-open view_eye"></i>
-                        <span>共<i class="light"><?php echo $data['view']?></i>次浏览</span>
+                        <span>共<i class="light"><?php echo $data['view'] ?></i>次浏览</span>
                     </div>
                     <div class="bshare-custom fr">
                         <a title="分享到微信" class="bshare-weixin"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a
@@ -107,11 +115,11 @@
                 <span>学员评价</span>
             </div>
             <div class="check_num-content">
-                <div class="checked_item"><?php echo $data['description']?></div>
+                <div class="checked_item"><?php echo $data['description'] ?></div>
                 <div class="checked_item bg_g">
                     <ul class="reply_list_wrap">
                         <?php
-                        foreach(array_reverse($evaluate['data']) as $v) {
+                        foreach (array_reverse($evaluate['data']) as $v) {
                             ?>
                             <li>
                                 <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
@@ -138,13 +146,13 @@
                     <!--分页-->
                     <div class="tr bg_g pageSize">
                         <ul class="pageSize">
-                            <?php echo  $evaluate['pageStr'] ?>
+                            <?php echo $evaluate['pageStr'] ?>
                         </ul>
-<!--                        <a href="#">上一页</a>-->
-<!--                        <a href="#" class="on">1</a>-->
-<!--                        <a href="#">2</a>-->
-<!--                        <a href="#">...</a>-->
-<!--                        <a href="#">下一页</a>-->
+                        <!--                        <a href="#">上一页</a>-->
+                        <!--                        <a href="#" class="on">1</a>-->
+                        <!--                        <a href="#">2</a>-->
+                        <!--                        <a href="#">...</a>-->
+                        <!--                        <a href="#">下一页</a>-->
                     </div>
                     <!--输入框-->
                     <div class="reply_int_wrap bg_g">
@@ -178,19 +186,27 @@
         <ul class="footer-list erm-3-wrap">
             <li><a href="javascript:void(0);">关注我们</a></li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥GMAT</a>
+                <a href="#">
+                    <div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>
+                    ：雷哥GMAT</a>
                 <div class="erm-3"><img src="/cn/images/erm-6.jpg" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥托福</a>
+                <a href="#">
+                    <div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>
+                    ：雷哥托福</a>
                 <div class="erm-3"><img src="/cn/images/erm-7.jpg" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥雅思</a>
+                <a href="#">
+                    <div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>
+                    ：雷哥雅思</a>
                 <div class="erm-3"><img src="/cn/images/erm-8.png" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥留学</a>
+                <a href="#">
+                    <div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>
+                    ：雷哥留学</a>
                 <div class="erm-3"><img src="/cn/images/erm-9.jpg" alt=""></div>
             </li>
         </ul>
@@ -202,45 +218,44 @@
                 <span><em class="point"></em>全方位服务</span>
                 <span><em class="point"></em>超值课程礼包</span>
             </div>
-            <p class="ft-de">雷哥网  让你学的更好、效率更高、让你每天进步一点点</p>
+            <p class="ft-de">雷哥网 让你学的更好、效率更高、让你每天进步一点点</p>
         </div>
     </div>
     <div class="copyRight tm">
-        ©2016 gmatonline.cn All Rights Reserved    京ICP备15001182号-1 京公网安备11010802017681
+        ©2016 gmatonline.cn All Rights Reserved 京ICP备15001182号-1 京公网安备11010802017681
         <a href="http://www.gmatonline.cn/aboutUs/16.html#free_shengm">免责声明</a>
     </div>
 </footer>
 </body>
 <script>
-    $(function(){
-        $('.sub-info-check span').click(function(){
-            var obj=$(this).index();
+    $(function () {
+        $('.sub-info-check span').click(function () {
+            var obj = $(this).index();
             $(this).addClass('on').siblings("span").removeClass('on');
             $('.checked_item').eq(obj).fadeIn().siblings('div.checked_item').hide();
         });
-        $('.collect span.sc').click(function(){
-<<<<<<< HEAD
-            $(this).addClass('on');
-           $(this).find("i").removeClass(' icon-star-empty').addClass(' icon-star');
+        $('.collect span.sc').click(function () {
+            $.post('/cn/api/add-collect', {contentId: 25, catId: 188}, function (re) {
+                alert(re.message);
+                if (re == 1) {
+                    $(this).addClass('on');
+                    $(this).find("i").removeClass(' icon-star-empty').addClass(' icon-star');
+                }
+
+            }, "json")
         });
 //        提交评价
-        $('.reply_submit').click(function(){
-            var _val=$("#reply_value").val();
+        $('.reply_submit').click(function () {
+            var _val = $("#reply_value").val();
             $.post('/cn/api/user-evaluate', {smartId: <?php echo $_GET['id'] ?>, content: _val}, function (data) {
-                if(data.code==0){
+                if (data.code == 0) {
 
                 }
                 console.log(data)
-=======
-            $.post('/cn/api/add-collect', {contentId: 25, catId: 188}, function (re) {
-                alert(re.message);
-                if(re ==1){
-                    $('.collect span.sc').addClass('on');
-                    $('.collect span.sc').find("i").removeClass(' icon-star-empty').addClass(' icon-star');
-                }
->>>>>>> 3fbc36b19f8921f47134b314f112b94131aab34e
-            }, "json")
-        })
+
+
+            },"json")
+        });
     })
 </script>
 </html>
