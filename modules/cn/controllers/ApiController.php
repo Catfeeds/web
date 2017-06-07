@@ -71,7 +71,7 @@ class ApiController extends ToeflApiControl
             $re = $model->save();
             if($re>0){
                 $data = UserEvaluate::findOne($model->primaryKey);
-                $sign = User::findOne($data['userId']);
+                $sign = User::find()->asArray()->where("uid=".$data['uid'])->one();
                 $data['username'] =$sign['username'];
                 $res = ['code'=>1,'message'=>'评价成功','data'=>$data];
             } else {
