@@ -8,13 +8,19 @@
     <meta name="description" content="">
     <link rel="stylesheet" href="/cn/css/public.css"/>
     <link rel="stylesheet" href="/cn/css/myOrder.css"/>
-    <script type="text/javascript" src="/cn/js/jquery-1.11.1.min.js"></script>
+    <link rel="stylesheet" href="/cn/css/reset.css">
+    <link rel="stylesheet" href="/cn/css/common.css">
+    <link rel="stylesheet" href="/cn/css/main.css">
+    <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
+    <script type="text/javascript" src="/cn/js/jquery-1.12.2.min.js"></script>
     <script type="text/javascript" src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
     <script type="text/javascript" src="/cn/js/myOrder.js"></script>
 
 </head>
 <body>
-
+<?php use app\commands\front\NavWidget; ?>
+<?php NavWidget::begin(); ?>
+<?php NavWidget::end(); ?>
 <div class="orderContent">
     <div class="order-left">
         <ul>
@@ -207,33 +213,40 @@
                                                         </ul>
                                                     </div>
                                                     <?php
-                                                    if($v['orderBelong'] == 2){
-                                                        $video = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
-                                                    }
-                                                    if($v['orderBelong'] == 3){
-                                                        $video = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
-                                                    }
-                                                    if($v['orderBelong'] == 5){
-                                                        $video = \app\modules\cn\models\Goods::getSdk($val['contentId'],$val['type']);
-                                                    }
-
-
-                                                    $video = json_decode($video, true);
-
-                                                    ?>
-                                                    <!--进入视频界面入口-->
-                                                    <div class="showVideo">
+                                                    if($v['status'] > 2) {
+                                                        ?>
                                                         <?php
-                                                            foreach($video as $value) {
+                                                        if ($v['orderBelong'] == 2) {
+                                                            $video = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
+                                                        }
+                                                        if ($v['orderBelong'] == 3) {
+                                                            $video = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
+                                                        }
+                                                        if ($v['orderBelong'] == 5) {
+                                                            $video = \app\modules\cn\models\Goods::getSdk($val['contentId'], $val['type']);
+                                                        }
+
+
+                                                        $video = json_decode($video, true);
+
+                                                        ?>
+                                                        <!--进入视频界面入口-->
+                                                        <div class="showVideo">
+                                                            <?php
+                                                            foreach ($video as $value) {
                                                                 ?>
                                                                 <a href="" target="_blank">
-                                                                    <button type="button" value=""><?php echo $value['name']?>
+                                                                    <button type="button"
+                                                                            value=""><?php echo $value['name'] ?>
                                                                     </button>
                                                                 </a>
                                                             <?php
                                                             }
-                                                        ?>
-                                                    </div>
+                                                            ?>
+                                                        </div>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </li>
                                             <?php
                                             }
