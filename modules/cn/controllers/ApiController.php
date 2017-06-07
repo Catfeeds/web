@@ -56,7 +56,7 @@ class ApiController extends ToeflApiControl
      */
     public function actionUserEvaluate(){
         $session = Yii::$app->session;
-        $userId = $session->get('userId');
+        $userId = $session->get('uid');
         $smartId = Yii::$app->request->post('smartId');
         $content = Yii::$app->request->post('content');
         if (!$userId) {
@@ -92,7 +92,7 @@ class ApiController extends ToeflApiControl
     public function actionAddCollect()
     {
         $session = Yii::$app->session;
-        $userId = $session->get('userId',1);
+        $userId = $session->get('uid',1);
         if($userId){
             $contentId = Yii::$app->request->post('contentId');
             $sign = Collection::find()->where("contentId=$contentId AND userId=$userId")->one();
