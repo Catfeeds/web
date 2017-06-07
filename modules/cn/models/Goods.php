@@ -135,7 +135,7 @@ class Goods extends ActiveRecord
      */
     public function getGoodsEvaluate($id,$page=1,$pageSize=10){
         $limit = " limit ".($page-1)*$pageSize.",$pageSize";
-        $sql = 'select u.username,ue.value,ue.createTime from {{%user_evaluate}} as ue LEFT JOIN {{%user}} as u ON ue.userId=u.id where contentId='.$id.'  order by createTime desc';
+        $sql = 'select u.username,ue.value,ue.createTime from {{%user_evaluate}} as ue LEFT JOIN {{%user}} as u ON ue.userId=u.uid where contentId='.$id.'  order by createTime desc';
         $count = count(\Yii::$app->db->createCommand($sql)->queryAll());
         $sql .= " $limit";
         $data = \Yii::$app->db->createCommand($sql)->queryAll();

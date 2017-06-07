@@ -23,6 +23,8 @@ use app\libs\Sms;
 
 use app\modules\cn\models\Content;
 
+use app\modules\cn\models\Login;
+
 use app\modules\cn\models\Collection;
 
 use app\modules\cn\models\ReceiveUser;
