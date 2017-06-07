@@ -209,7 +209,7 @@
                                                                 <?php
                                                                 if($v['status']>2) {
                                                                     ?>
-                                                                    <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/index?contentId=<?php echo $val['contentId']?>.html" class="orderD">进入教室</a>
+                                                                    <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/index?contentId=<?php echo $val['contentId']?>" class="orderD">进入教室</a>
                                                                 <?php
                                                                 }
                                                                 ?>
