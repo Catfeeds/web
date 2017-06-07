@@ -206,12 +206,33 @@
                                                             </li>
                                                         </ul>
                                                     </div>
+                                                    <?php
+                                                    if($v['orderBelong'] == 2){
+                                                        $video = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
+                                                    }
+                                                    if($v['orderBelong'] == 3){
+                                                        $video = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/get-sdk", ['contentId' => $val['contentId']]);
+                                                    }
+                                                    if($v['orderBelong'] == 5){
+                                                        $video = \app\modules\cn\models\Goods::getSdk($val['contentId'],$val['type']);
+                                                    }
+
+
+                                                    $video = json_decode($video, true);
+
+                                                    ?>
                                                     <!--进入视频界面入口-->
                                                     <div class="showVideo">
-                                                        <a href="#" target="_blank">
-                                                            <button type="button" value="">day1雷哥GMAT PREP08 SC1—18题
-                                                            </button>
-                                                        </a>
+                                                        <?php
+                                                            foreach($video as $value) {
+                                                                ?>
+                                                                <a href="" target="_blank">
+                                                                    <button type="button" value=""><?php echo $value['name']?>
+                                                                    </button>
+                                                                </a>
+                                                            <?php
+                                                            }
+                                                        ?>
                                                     </div>
                                                 </li>
                                             <?php
