@@ -61,8 +61,8 @@
                     ?>
                 </div>
                 <div class="collect">
-                    <span class="sc">
-                    <i class="icon-star-empty"></i>
+                    <span class="sc <?php if($collection==1){ echo 'on'; } ?>">
+                    <i class="<?php if($collection==1){ echo 'icon-star'; } else { echo 'icon-star-empty'; } ?>"></i>
                     收藏课程（2000）
                     </span>
                 </div>
@@ -219,6 +219,7 @@
             $('.checked_item').eq(obj).fadeIn().siblings('div.checked_item').hide();
         });
         $('.collect span.sc').click(function(){
+<<<<<<< HEAD
             $(this).addClass('on');
            $(this).find("i").removeClass(' icon-star-empty').addClass(' icon-star');
         });
@@ -230,6 +231,14 @@
 
                 }
                 console.log(data)
+=======
+            $.post('/cn/api/add-collect', {contentId: 25, catId: 188}, function (re) {
+                alert(re.message);
+                if(re ==1){
+                    $('.collect span.sc').addClass('on');
+                    $('.collect span.sc').find("i").removeClass(' icon-star-empty').addClass(' icon-star');
+                }
+>>>>>>> 3fbc36b19f8921f47134b314f112b94131aab34e
             }, "json")
         })
     })
