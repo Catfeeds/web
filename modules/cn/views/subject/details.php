@@ -124,24 +124,14 @@
                             <li>
                                 <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
                                 <div class="reply_data_wrap inm">
-                                    <p class="nick_name">Tina小姐姐</p>
-                                    <p class="reply_time">2017.05.12</p>
-                                    <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                        <br>你会非常有帮助的。</p>
+                                    <p class="nick_name"><?php echo $v['username'] ?></p>
+                                    <p class="reply_time"><?php echo date('Y-m-d',$v['createTime']) ?></p>
+                                    <p class="reply_text"><?php echo $v['value'] ?></p>
                                 </div>
                             </li>
                             <?php
                         }
                         ?>
-                        <li>
-                            <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
-                            <div class="reply_data_wrap inm">
-                                <p class="nick_name">Tina小姐姐</p>
-                                <p class="reply_time">2017.05.12</p>
-                                <p class="reply_text">雷哥网的老师真的真的好热情啊，讲得特别好呢，要出国的小伙伴一定要来听雷哥的课程哦，对
-                                    <br>你会非常有帮助的。</p>
-                            </div>
-                        </li>
                     </ul>
                     <!--分页-->
                     <div class="tr bg_g pageSize">

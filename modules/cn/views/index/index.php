@@ -642,7 +642,7 @@
                             <div class="wrap_info">
                                 <p class="common_cr_name"><?php echo $v['name'] ?></p>
                                 <div class="gmat_price_wrap">
-                                    <span class="index_new_price">￥<?php echo $v['pirce'] ?></span>
+                                    <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                     <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                 </div>
                                 <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
@@ -662,7 +662,7 @@
                                 <div class="wrap_info">
                                     <p class="common_cr_name"><?php echo $v['name'] ?></p>
                                     <div class="gmat_price_wrap">
-                                        <span class="index_new_price">￥<?php echo $v['pirce'] ?></span>
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
                                     <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
@@ -680,7 +680,7 @@
                                     <div class="wrap_info">
                                         <p class="common_cr_name"><?php echo $v['name'] ?></p>
                                         <div class="gmat_price_wrap">
-                                            <span class="index_new_price">￥<?php echo $v['pirce'] ?></span>
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                         </div>
                                         <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
@@ -694,7 +694,7 @@
                                     <div class="wrap_info">
                                         <p class="common_cr_name"><?php echo $v['name'] ?></p>
                                         <div class="gmat_price_wrap">
-                                            <span class="index_new_price">￥<?php echo $v['pirce'] ?></span>
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                         </div>
                                         <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
