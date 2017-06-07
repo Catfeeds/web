@@ -1,3 +1,5 @@
+<?php $userId = Yii::$app->session->get('uid'); ?>
+<?php $userData = Yii::$app->session->get('userData')?>
 <section id="nav_wrap">
     <div class="w12 clearfix">　　
         <ul class="nav_list fl clearfix">
@@ -25,16 +27,27 @@
             </li>
         </ul>
         <!--未登录-->
-        <div class="noLogin fr">
-            <a href="#">登录</a>
-            <span class="fg_line inm"></span>
-            <a href="#">注册</a>
-        </div>
-        <!--已登录-->
-        <div class="yesLogin fr">
-            <div class="common_user_head inm"><img src="/cn/images/common_head.png" alt=""></div>
-            <span class="header_username inm">Tina2017</span>
-        </div>
+        <?php
+        if(!$userId) {
+            ?>
+            <div class="noLogin fr">
+                <a href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>">登录</a>
+                <span class="fg_line inm"></span>
+                <a href="http://login.gmatonline.cn/cn/index/register?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>">注册</a>
+            </div>
+            <?php
+        } else {
+            ?>
+            <!--已登录-->
+            <div class="yesLogin fr">
+                <a href="/order.html">
+                <div class="common_user_head inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
+                <span class="header_username inm"><?php echo $userData['username']?></span>
+                </a>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 </section>
 <!--搜索栏-->

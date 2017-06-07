@@ -1,3 +1,5 @@
+<?php $userId = Yii::$app->session->get('uid'); ?>
+<?php $userData = Yii::$app->session->get('userData')?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -95,14 +97,23 @@
             <div class="fr right_data bg_f">
                 <!--首页登录状态-->
                 <div class="index_noLogin">
-                    <div>
-                        <div class="user_head2 inm"><img src="/cn/images/user_head_2.png" alt=""></div>
-                        <div class="inm welcome_hint">Hi，<span class="username_r">Tina2017</span><br>欢迎来到雷哥网！</div>
-                    </div>
-                    <div class="clearfix login_check">
-                        <a class="fl on" href="#">登录</a>
-                        <a class="fr" href="#">注册</a>
-                    </div>
+                    <?php
+                    if($userId) {
+                        ?>
+                        <div>
+                            <div class="user_head2 inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
+                            <div class="inm welcome_hint">Hi，<span class="username_r"><?php echo $userData['username'] ?></span><br>欢迎来到雷哥网！</div>
+                        </div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="clearfix login_check">
+                            <a class="fl on" href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>">登录</a>
+                            <a class="fr" href="http://login.gmatonline.cn/cn/index/register?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>">注册</a>
+                        </div>
+                        <?php
+                    }
+                    ?>
                 </div>
                 <!--促销活动-->
                 <div class="right_item">
