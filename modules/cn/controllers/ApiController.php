@@ -599,7 +599,7 @@ class ApiController extends ToeflApiControl
     }
 
     /**
-     * 获取公开课
+     * 获取视频课
      * by  obelisk
      */
     public function actionGetVideo(){
