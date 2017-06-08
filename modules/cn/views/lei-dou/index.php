@@ -78,6 +78,9 @@
     </div>
     <div style="clear: both"></div>
 </div>
+<?php use app\commands\front\FooterWidget; ?>
+<?php FooterWidget::begin(); ?>
+<?php FooterWidget::end(); ?>
 <script type="text/javascript">
     $(function(){
         /**

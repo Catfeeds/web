@@ -76,3 +76,6 @@
         </li>
     </ul>
 </div>
+<?php use app\commands\front\FooterWidget; ?>
+<?php FooterWidget::begin(); ?>
+<?php FooterWidget::end(); ?>

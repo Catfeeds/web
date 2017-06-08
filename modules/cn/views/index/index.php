@@ -165,7 +165,7 @@
                     ?>
                     <li>
                         <div class="live_time ani">时间：<?php echo date('Y-m-d', $v['cnName']) ?></div>
-                        <p class="help_live_tit"><a class="ellipsis" href="#"><?php echo $v['name'] ?></a></p>
+                        <p class="help_live_tit"><a class="ellipsis" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
                         <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
                         <div class="tm">
                             <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://smartapply.gmatonline.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
@@ -201,7 +201,7 @@
                     <img src="/cn/images/sort_icon_1b.png" alt="">
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/188.html">查看更多></a>
                 </div>
             </div>
             <ul class="live_course_list clearfix">
@@ -243,71 +243,6 @@
                     <?php
                 }
                 ?>
-
-                <li>
-                    <div class="ani live_user_check">
-                        <div class="relative rh100">
-                            <div class="user_handle_wrap">
-                                <a href="#" class="big_try_btn">
-                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
-                                    <span class="inm">点击试听</span>
-                                </a>
-                                <div class="live_user_handle clearfix">
-                                    <a class="fl" href="#">购买</a>
-                                    <a class="fr" href="#">详情</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="live_time2 ani">时间：2017.05.30</div>
-                    <div class="live_course_info">
-                        <div class="live_course_name_wrap">
-                            <p class="live_course_name">托福周末班一对一</p>
-                            <p class="live_course_ks">课时：80课时</p>
-                        </div>
-                        <div>
-                            <div class="inb">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
-                            </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
-                        </div>
-
-                    </div>
-                    <div class="cr1_img"><img src="/cn/images/1cr_3.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="ani live_user_check">
-                        <div class="relative rh100">
-                            <div class="user_handle_wrap">
-                                <a href="#" class="big_try_btn">
-                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
-                                    <span class="inm">点击试听</span>
-                                </a>
-                                <div class="live_user_handle clearfix">
-                                    <a class="fl" href="#">购买</a>
-                                    <a class="fr" href="#">详情</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="live_time2 ani">时间：2017.05.30</div>
-                    <div class="cr1_img"><img src="/cn/images/1cr_4.png" alt=""></div>
-                    <div class="live_course_info">
-                        <div class="live_course_name_wrap">
-                            <p class="live_course_name">托福周末班一对一</p>
-                            <p class="live_course_ks">课时：80课时</p>
-                        </div>
-                        <div>
-                            <div class="inb">
-                                <span class="index_new_price">￥400</span>
-                                <span class="index_old_price">￥700</span>
-                            </div>
-                            <a class="small_try_btn inb" href="#">试听</a>
-                        </div>
-
-                    </div>
-                </li>
             </ul>
         </div>
         <!--课程分类&回放课程-->
@@ -319,37 +254,43 @@
                     <img src="/cn/images/sort_icon_2b.png" alt="">
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/190.html">查看更多></a>
                 </div>
             </div>
             <div class="playback_course_list clearfix">
                 <div class="pb_left fl">
                     <?php
-                    foreach($playback as $v) {
-                        ?>
-                        <div class="pb_list_item">
-                            <div class="ani pb_check">
-                                <div class="rh100 relative">
-                                    <div class="pb_handle-wrap">
-                                        <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
-                                            <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
-                                            <span class="inm">回放课程</span>
-                                        </a>
-                                        <a href="/goods/<?php echo $v['id']?>/1.html" class="pb_big_btn bg_f2">
-                                            <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
-                                            <span class="inm">查看详情</span>
-                                        </a>
+                    foreach($playback as $k=>$v) {
+                        if($k<2) {
+                            ?>
+                            <div class="pb_list_item">
+                                <div class="ani pb_check">
+                                    <div class="rh100 relative">
+                                        <div class="pb_handle-wrap">
+                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt="">
+                                                </div>
+                                                <span class="inm">回放课程</span>
+                                            </a>
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt="">
+                                                </div>
+                                                <span class="inm">查看详情</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
+                                <p class="pb_name"><?php echo $v['name'] ?></p>
+                                <div class="pb_btn_wrap">
+                                    <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
+                                    <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                </div>
+                                <div class="2cr_img cr2_1 ani"><img
+                                        src="<?php echo isset($v['name']) ? $v['name'] : '/cn//images/2cr_1.png' ?>"
+                                        alt=""></div>
                             </div>
-                            <p class="pb_name"><?php echo $v['name'] ?></p>
-                            <div class="pb_btn_wrap">
-                                <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
-                                <a class="small_try_btn inb" href="/goods/<?php echo $v['id']?>/1.html">详情</a>
-                            </div>
-                            <div class="2cr_img cr2_1 ani"><img src="<?php echo isset($v['name'])?$v['name']:'/cn//images/2cr_1.png' ?>" alt=""></div>
-                        </div>
-                        <?php
+                            <?php
+                        }
                     }
                     ?>
                     <div class="pb_list_item">
@@ -376,74 +317,77 @@
                     </div>
                 </div>
                 <div class="pb_middle fl">
-                    <div class="pb_list_item">
-                        <div class="ani pb_check">
-                            <div class="rh100 relative">
-                                <div class="pb_handle-wrap">
-                                    <a href="#" class="pb_big_btn bg_g2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
-                                        <span class="inm">回放课程</span>
-                                    </a>
-                                    <a href="#" class="pb_big_btn bg_f2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
-                                        <span class="inm">查看详情</span>
-                                    </a>
+                    <?php
+                    foreach($playback as $k=>$v) {
+                        if ($k == 2) {
+                            ?>
+                            <div class="pb_list_item">
+                                <div class="ani pb_check">
+                                    <div class="rh100 relative">
+                                        <div class="pb_handle-wrap">
+                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt="">
+                                                </div>
+                                                <span class="inm">回放课程</span>
+                                            </a>
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt="">
+                                                </div>
+                                                <span class="inm">查看详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pb_name"><?php echo $v['name'] ?></p>
+                                <div class="pb_btn_wrap">
+                                    <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
+                                    <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                </div>
+                                <div class="2cr_img cr2_1 ani"><img
+                                        src="<?php echo isset($v['name']) ? $v['name'] : '/cn//images/2cr_1.png' ?>"
+                                        alt="">
                                 </div>
                             </div>
-                        </div>
-                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
-                        <div class="pb_btn_wrap tl">
-                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
-                            <a class="small_try_btn inb" href="#">详情</a>
-                        </div>
-                        <div class="2cr_img cr2_3 ani"><img src="/cn/images/2cr_5.png" alt=""></div>
-                    </div>
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
                 <div class="pb_fight fl">
-                    <div class="pb_list_item">
-                        <div class="ani pb_check">
-                            <div class="rh100 relative">
-                                <div class="pb_handle-wrap">
-                                    <a href="#" class="pb_big_btn bg_g2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
-                                        <span class="inm">回放课程</span>
-                                    </a>
-                                    <a href="#" class="pb_big_btn bg_f2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
-                                        <span class="inm">查看详情</span>
-                                    </a>
+                    <?php
+                    foreach($playback as $k=>$v) {
+                        if ($k > 2) {
+                            ?>
+                            <div class="pb_list_item">
+                                <div class="ani pb_check">
+                                    <div class="rh100 relative">
+                                        <div class="pb_handle-wrap">
+                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt="">
+                                                </div>
+                                                <span class="inm">回放课程</span>
+                                            </a>
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt="">
+                                                </div>
+                                                <span class="inm">查看详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
-                        <div class="pb_btn_wrap">
-                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
-                            <a class="small_try_btn inb" href="#">详情</a>
-                        </div>
-                        <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_3.png" alt=""></div>
-                    </div>
-                    <div class="pb_list_item">
-                        <div class="ani pb_check">
-                            <div class="rh100 relative">
-                                <div class="pb_handle-wrap">
-                                    <a href="#" class="pb_big_btn bg_g2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
-                                        <span class="inm">回放课程</span>
-                                    </a>
-                                    <a href="#" class="pb_big_btn bg_f2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
-                                        <span class="inm">查看详情</span>
-                                    </a>
+                                <p class="pb_name"><?php echo $v['name'] ?></p>
+                                <div class="pb_btn_wrap">
+                                    <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
+                                    <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                 </div>
+                                <div class="2cr_img cr2_1 ani"><img
+                                        src="<?php echo isset($v['name']) ? $v['name'] : '/cn//images/2cr_1.png' ?>"
+                                        alt=""></div>
                             </div>
-                        </div>
-                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
-                        <div class="pb_btn_wrap tr">
-                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
-                            <a class="small_try_btn inb" href="#">详情</a>
-                        </div>
-                        <div class="2cr_img cr2_2 ani"><img src="/cn/images/2cr_4.png" alt=""></div>
-                    </div>
+                            <?php
+                        }
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -455,7 +399,7 @@
                     <span class="inm sort_name">雷哥网GMAT</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/193.html">查看更多></a>
                 </div>
             </div>
             <ul class="gmat_course_list clearfix">
@@ -474,33 +418,6 @@
                     <?php
                 }
                 ?>
-                <li>
-                    <p class="gmat_cr_name">GMAT周末班一对一</p>
-                    <div class="gmat_price_wrap">
-                        <span class="index_new_price">￥400</span>
-                        <span class="index_old_price">￥700</span>
-                    </div>
-                    <a class="small_try_btn inb" href="#">试听</a>
-                    <div class="cr3_img"><img src="/cn/images/3cr_2.png" alt=""></div>
-                </li>
-                <li>
-                    <p class="gmat_cr_name">GMAT周末班一对一</p>
-                    <div class="gmat_price_wrap">
-                        <span class="index_new_price">￥400</span>
-                        <span class="index_old_price">￥700</span>
-                    </div>
-                    <a class="small_try_btn inb" href="#">试听</a>
-                    <div class="cr3_img"><img src="/cn/images/3cr_3.png" alt=""></div>
-                </li>
-                <li>
-                    <p class="gmat_cr_name">GMAT周末班一对一</p>
-                    <div class="gmat_price_wrap">
-                        <span class="index_new_price">￥400</span>
-                        <span class="index_old_price">￥700</span>
-                    </div>
-                    <a class="small_try_btn inb" href="#">试听</a>
-                    <div class="cr3_img"><img src="/cn/images/3cr_4.png" alt=""></div>
-                </li>
             </ul>
         </div>
         <!--雷哥网托福-->
@@ -511,7 +428,7 @@
                     <span class="inm sort_name">雷哥网托福</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/192.html">查看更多></a>
                 </div>
             </div>
             <ul class="teofl_course_list clearfix">
@@ -532,40 +449,6 @@
                     <?php
                 }
                 ?>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/4cr_2.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/4cr_3.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/4cr_4.png" alt=""></div>
-                </li>
-
             </ul>
         </div>
         <!--雷哥网雅思-->
@@ -576,7 +459,7 @@
                     <span class="inm sort_name">雷哥网雅思</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/203.html">查看更多></a>
                 </div>
             </div>
             <ul class="teofl_course_list yasi_list clearfix">
@@ -597,40 +480,6 @@
                     <?php
                 }
                 ?>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/5cr_2.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/5cr_3.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="cr4_img"><img src="/cn/images/5cr_4.png" alt=""></div>
-                </li>
-
             </ul>
         </div>
         <!--雷哥网留学-->
@@ -641,7 +490,7 @@
                     <span class="inm sort_name">雷哥网留学</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/194.html">查看更多></a>
                 </div>
             </div>
             <div class="smartList clearfix">
@@ -731,7 +580,7 @@
                     <span class="inm sort_name">雷哥网英语</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/196.html">查看更多></a>
                 </div>
             </div>
             <ul class="lgyList clearfix">
@@ -752,39 +601,6 @@
                     <?php
                 }
                 ?>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="lgyImg"><img src="/cn/images/7cr_2.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="lgyImg"><img src="/cn/images/7cr_3.png" alt=""></div>
-                </li>
-                <li>
-                    <div class="wrap_info">
-                        <p class="common_cr_name">GMAT周末班一对一</p>
-                        <div class="gmat_price_wrap">
-                            <span class="index_new_price">￥400</span>
-                            <span class="index_old_price">￥700</span>
-                        </div>
-                        <a class="small_try_btn inb" href="#">试听</a>
-                    </div>
-                    <div class="lgyImg"><img src="/cn/images/7cr_4.png" alt=""></div>
-                </li>
             </ul>
 
 
@@ -797,7 +613,7 @@
                     <span class="inm sort_name">雷哥网书籍</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/198.html">查看更多></a>
                 </div>
             </div>
             <div class="picMarquee-left relative">
@@ -812,21 +628,6 @@
                             <?php
                         }
                         ?>
-                        <li>
-                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#" title="书本名称"><img src="/cn/images/books.png" alt=""></a>
-                        </li>
                     </ul>
                 </div>
                 <a class="next npBtn ani"><i class="icon-caret-right"></i></a>
@@ -841,7 +642,7 @@
                     <span class="inm sort_name">雷哥网会员课程</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="#">查看更多></a>
+                    <a class="sort_more" href="/subject/200.html">查看更多></a>
                 </div>
             </div>
             <?php
@@ -929,57 +730,9 @@
     </div>
 </section>
 <!--footer-->
-<footer>
-    <div class="w12 tm" style="padding: 30px 0">
-        <ul class="footer-list">
-            <li><a href="javascript:void(0);">课程类型</a></li>
-            <li><a href="http://www.gmatonline.cn/index.html">GMAT</a></li>
-            <li><a href="http://www.toeflonline.cn/">TOEFL</a></li>
-            <li><a href="http://ielts.gmatonline.cn/">IELTS</a></li>
-            <li><a href="http://smartapply.gmatonline.cn/">留学</a></li>
-        </ul>
-        <ul class="footer-list">
-            <li><a href="javascript:void(0);">题库</a></li>
-            <li><a href="http://www.gmatonline.cn/question/stog8leetkey.html">PREP</a></li>
-            <li><a href="http://www.gmatonline.cn/question/stog1leetkey.html">OG</a></li>
-            <li><a href="http://www.toeflonline.cn/tpoExam.html">TPO</a></li>
-            <li><a href="http://ielts.gmatonline.cn/">剑桥</a></li>
-        </ul>
-        <ul class="footer-list erm-3-wrap">
-            <li><a href="javascript:void(0);">关注我们</a></li>
-            <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥GMAT</a>
-                <div class="erm-3"><img src="/cn/images/erm-6.jpg" alt=""></div>
-            </li>
-            <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥托福</a>
-                <div class="erm-3"><img src="/cn/images/erm-7.jpg" alt=""></div>
-            </li>
-            <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥雅思</a>
-                <div class="erm-3"><img src="/cn/images/erm-8.png" alt=""></div>
-            </li>
-            <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥留学</a>
-                <div class="erm-3"><img src="/cn/images/erm-9.jpg" alt=""></div>
-            </li>
-        </ul>
-        <div class="leige-tag inb">
-            <div><img src="/cn/images/logo-2.png" alt=""></div>
-            <div class="ft-tag">
-                <span><em class="point"></em>优质教学</span>
-                <span><em class="point"></em>海量题库</span>
-                <span><em class="point"></em>全方位服务</span>
-                <span><em class="point"></em>超值课程礼包</span>
-            </div>
-            <p class="ft-de">雷哥网  让你学的更好、效率更高、让你每天进步一点点</p>
-        </div>
-    </div>
-    <div class="copyRight tm">
-        ©2016 gmatonline.cn All Rights Reserved    京ICP备15001182号-1 京公网安备11010802017681
-        <a href="http://www.gmatonline.cn/aboutUs/16.html#free_shengm">免责声明</a>
-    </div>
-</footer>
+<?php use app\commands\front\FooterWidget; ?>
+<?php FooterWidget::begin(); ?>
+<?php FooterWidget::end(); ?>
 </body>
 <script>
     $(function () {

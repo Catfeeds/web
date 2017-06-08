@@ -1,14 +1,51 @@
-<div class="footer">
-    <span>Copyright  2016 All Right Reserved toeflonline.cn 版权所有 京ICP备15001182号-1
-        京公网安备11010802017681 <a href="/cn/index/declare">免责声明</a></span> <br/>
-    <span>本网站提供的TPO1-34套内容，来源于互联网整理，其版权归ETS所有，仅供学习者交流免费使用。</span>
-<script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?09f7b04249bf6d643147d054c2cb123c";
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-</div>
+<footer>
+    <div class="w12 tm" style="padding: 30px 0">
+        <ul class="footer-list">
+            <li><a href="javascript:void(0);">课程类型</a></li>
+            <li><a href="http://www.gmatonline.cn/index.html">GMAT</a></li>
+            <li><a href="http://www.toeflonline.cn/">TOEFL</a></li>
+            <li><a href="http://ielts.gmatonline.cn/">IELTS</a></li>
+            <li><a href="http://smartapply.gmatonline.cn/">留学</a></li>
+        </ul>
+        <ul class="footer-list">
+            <li><a href="javascript:void(0);">题库</a></li>
+            <li><a href="http://www.gmatonline.cn/question/stog8leetkey.html">PREP</a></li>
+            <li><a href="http://www.gmatonline.cn/question/stog1leetkey.html">OG</a></li>
+            <li><a href="http://www.toeflonline.cn/tpoExam.html">TPO</a></li>
+            <li><a href="http://ielts.gmatonline.cn/">剑桥</a></li>
+        </ul>
+        <ul class="footer-list erm-3-wrap">
+            <li><a href="javascript:void(0);">关注我们</a></li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥GMAT</a>
+                <div class="erm-3"><img src="/cn/images/erm-6.jpg" alt=""></div>
+            </li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥托福</a>
+                <div class="erm-3"><img src="/cn/images/erm-7.jpg" alt=""></div>
+            </li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥雅思</a>
+                <div class="erm-3"><img src="/cn/images/erm-8.png" alt=""></div>
+            </li>
+            <li>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥留学</a>
+                <div class="erm-3"><img src="/cn/images/erm-9.jpg" alt=""></div>
+            </li>
+        </ul>
+        <div class="leige-tag inb">
+            <div><img src="/cn/images/logo-2.png" alt=""></div>
+            <div class="ft-tag">
+                <span><em class="point"></em>优质教学</span>
+                <span><em class="point"></em>海量题库</span>
+                <span><em class="point"></em>全方位服务</span>
+                <span><em class="point"></em>超值课程礼包</span>
+            </div>
+            <p class="ft-de">雷哥网  让你学的更好、效率更高、让你每天进步一点点</p>
+        </div>
+    </div>
+    <div class="copyRight tm">
+        ©2016 gmatonline.cn All Rights Reserved    京ICP备15001182号-1 京公网安备11010802017681
+        <a href="http://www.gmatonline.cn/aboutUs/16.html#free_shengm">免责声明</a>
+    </div>
+</footer>
