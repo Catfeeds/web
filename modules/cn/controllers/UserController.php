@@ -30,7 +30,7 @@ class UserController extends ToeflController {
      */
     public function actionOrder(){
         $uid = Yii::$app->session->get('uid');
-        $page = Yii::$app->request->get('page',2);
+        $page = Yii::$app->request->get('page',1);
         $status = Yii::$app->request->get('status','');
         if($status == 3){
             $status = '';
