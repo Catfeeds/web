@@ -14,6 +14,7 @@ use app\libs\Method;
 use app\modules\cn\models\Cart;
 use app\modules\cn\models\Goods;
 use app\modules\cn\models\Category;
+use app\modules\cn\models\Livesdkid;
 use app\modules\cn\models\Video;
 use yii;
 
@@ -587,6 +588,16 @@ class ApiController extends ToeflApiControl
         $session->set('cartSign', 1);
     }
 
+    public function actionGetLive(){
+        $contentId = Yii::$app->request->post('contentId');
+        $type = Yii::$app->request->post('type');
+        $data = Goods::getVideo($contentId,$type);
+        $live = Livesdkid::find()->asArray()->where("contentId = $contentId")->one();
+        $data['sdk'] = $live['livesdkid'];
+        $data['webKey'] = $live['webKey'];
+        die(json_encode($data));
+    }
+
     /**
      * 获取公开课
      * by  obelisk
@@ -603,8 +614,8 @@ class ApiController extends ToeflApiControl
         $data['pwd'] = $video['pwd'];
         $data['name'] = $video['name'];
         $data['image'] = $content['image'];
-        $data['duration'] = $content['courseDuration'];
-        $data['commencement'] = $content['openingDate'];
+        $data['duration'] = isset($content['courseDuration'])?$content['courseDuration']:'';
+        $data['commencement'] = isset($content['openingDate'])?$content['openingDate']:'';
         die(json_encode($data));
     }
 }
