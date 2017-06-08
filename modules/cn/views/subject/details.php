@@ -169,7 +169,7 @@
             $('.checked_item').eq(obj).fadeIn().siblings('div.checked_item').hide();
         });
         $('.collect span.sc').click(function () {
-            $.post('/cn/api/add-collect', {contentId: 25, catId: 188}, function (re) {
+            $.post('/cn/api/add-collect', {contentId: <?php echo $_GET['id'] ?>, catType: <?php echo $_GET['type'] ?>}, function (re) {
                 alert(re.message);
                 if (re == 1) {
                     $(this).addClass('on');

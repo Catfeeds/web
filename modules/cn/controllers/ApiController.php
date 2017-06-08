@@ -105,9 +105,7 @@ class ApiController extends ToeflApiControl
 
                 die(json_encode($res));
             } else {
-                $catId = Yii::$app->request->post('catId');
-                $catType = Category::findOne($catId);
-                $catType = $catType['type'];
+                $catType = Yii::$app->request->post('catType');
                 $model = new Collection();
                 $model->contentId = $contentId;
                 $model->userId = $userId;

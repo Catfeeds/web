@@ -55,7 +55,7 @@ class SubjectController extends ToeflController {
 
     }
     public function actionDetails(){
-        $userId = Yii::$app->session->get('userId');
+        $userId = Yii::$app->session->get('uid');
         $id = Yii::$app->request->get('id');
         $type = Yii::$app->request->get('type');
         $collection = 0;
