@@ -171,9 +171,9 @@
         $('.collect span.sc').click(function () {
             $.post('/cn/api/add-collect', {contentId: <?php echo $_GET['id'] ?>, catType: <?php echo $_GET['type'] ?>}, function (re) {
                 alert(re.message);
-                if (re == 1) {
-                    $(this).addClass('on');
-                    $(this).find("i").removeClass(' icon-star-empty').addClass(' icon-star');
+                if (re.code == 1) {
+                    $('.collect span.sc').addClass('on');
+                    $('.collect span.sc').find("i").removeClass(' icon-star-empty').addClass(' icon-star');
                 }
 
             }, "json")
