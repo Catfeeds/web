@@ -54,7 +54,7 @@
                                             if($k>4){break;}
                                             ?>
 
-                                            <a href="#"><?php echo $val['name']?></a>
+                                            <a href="subject/<?php echo $val['id'] ?>.html"><?php echo $val['name']?></a>
                                         <?php
                                         }
                                     ?>
@@ -66,7 +66,7 @@
                                     <?php
                                         foreach($v['child'] as $val) {
                                             ?>
-                                            <a href="#"><?php echo $val['name']?></a>
+                                            <a href="subject/<?php echo $val['id'] ?>.html"><?php echo $val['name']?></a>
                                         <?php
                                         }
                                     ?>
