@@ -5,7 +5,9 @@ use app\modules\cn\models\Course;
 use app\modules\cn\models\En;
 use app\modules\cn\models\Smart;
 use app\modules\cn\models\Vip;
+use app\libs\Pager;
 use yii\db\ActiveRecord;
+
 class Category extends ActiveRecord {
     public $category;
     public static function tableName(){
@@ -59,7 +61,7 @@ class Category extends ActiveRecord {
         }
     }
     /**
-     * 获取内容属性值
+     * 获取内容
      * by  yanni
      */
     public function getContentExtend($catId,$limit=4){
@@ -67,7 +69,7 @@ class Category extends ActiveRecord {
         $cat = $model->getChild($catId);
         $sign = Category::findOne($catId);
         $models = $this->getModel($sign['type']);
-        $data = $models->find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit($limit)->all();
+        $data = $models->find()->asArray()->where(['in' , 'catId' , $cat])->where("status=2")->orderBy('createTime desc')->limit($limit)->all();
         return $data;
     }
 
@@ -82,19 +84,44 @@ class Category extends ActiveRecord {
             $cats[] = $model->getChild($v);
         }
         $cat = $this->arrToOne($cats);
-        $data = Course::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('startTime desc')->limit(4)->all();
+        $data = Course::find()->asArray()->where(['in' , 'catId' , $cat])->where("status=2")->orderBy('startTime desc')->limit(4)->all();
         return $data;
     }
 
     /**
-     * 获取留学分类内容
+     * 搜索内容
      * by  yanni
      */
-    public function getSmatContent($catId){
-        $model = new Goods();
-        $cat = $model->getChild($catId);
-        $data = Smart::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(4)->all();
-        return $data;
+    public function getSelectContent($where,$page,$pageSize){
+        $limit = " limit ".($page-1)*$pageSize.",$pageSize";
+        $sql = "select a.* from (select co.id,co.name,co.catId from {{%course}} as co union all select en.id,en.name,en.catId from {{%en}} as en union all select s.id,s.name,s.catId from {{%smart}} as s union all select v.id,v.name,v.catId from {{%vip}} as v union all select b.id,b.name,b.catId from {{%book}} as b) as a where $where";
+        $count = count(\Yii::$app->db->createCommand($sql)->queryAll());
+        $sql .= " $limit";
+        $data = \Yii::$app->db->createCommand($sql)->queryAll();
+        foreach($data as $k=>$v){
+            $res = Category::find()->asArray()->where("id=".$v['catId'])->one();
+            $models = $this->getModel($res['type']);
+            $value = $models->find()->asArray()->where("id=".$v['id'])->one();
+            $extend = Extend::find()->asArray()->where("type=".$res['type'])->orderBy(" id asc ")->limit(2)->all();
+            $data[$k]['type'] = $res['type'];
+            $data[$k]['image'] = $value['image'];
+            $data[$k]['price'] = $value['price'];
+            $data[$k]['sales'] = $value['sales'];
+            $data[$k]['url'] = $value['url'];
+            $data[$k]['extendOne'] = '';
+            $data[$k]['extendOneName'] = '';
+            $data[$k]['extendTwo'] = '';
+            $data[$k]['extendTwoName'] = '';
+            if(!empty($extend)){
+                $data[$k]['extendOne'] = $value[$extend[0]['value']];
+                $data[$k]['extendOneName'] = $extend[0]['name'];
+                $data[$k]['extendTwo'] = $value[$extend[1]['value']];
+                $data[$k]['extendTwoName'] =$extend[1]['name'];
+            }
+        }
+        $pageModel = new Pager($count,$page,$pageSize);
+        $pageStr = $pageModel->GetPagerContent();
+        return ['data' => $data,'pageStr' => $pageStr];
     }
     /**
      * 获取英语分类内容

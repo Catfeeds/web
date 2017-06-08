@@ -35,121 +35,9 @@
     <div class="w12">
         <!--当前地址-->
         <div class="address_bar bg_f">
-            <div class="inm"><a href="/">全部</a></div>
-            <?php
-                foreach($category as $k => $v) {
-                        foreach($v as $val){
-                            if(isset($val['checked'])&&$val['checked'] == 1) {
-                                $sign = 1;break;
-                            }else{
-                                $sign = 0;
-                            }
-                        }
-                        if($sign == 0){
-                            break;
-                        }
-                    ?>
-                    <em class="icon-angle-right"></em>
-                    <div class="address_nav2">
-                        <?php
-                            foreach($v as $val) {
-                                ?>
-                                <?php
-                                    if(isset($val['checked'])&&$val['checked'] == 1) {
-                                        ?>
-                                        <a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name']?><em class="icon-angle-down"></em></a>
-                                    <?php
-                                    }
-                                        ?>
-                            <?php
-                            }
-                        ?>
-                        <ul class="address_nav3">
-                            <?php
-                            foreach($v as $val) {
-                                ?>
-                            <?php
-                            if(isset($val['checked'])&&$val['checked'] == 1) {
-                                continue;
-                            }
-                                ?>
-                                <li><a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name'] ?></a></li>
-                            <?php
-                            }
-                            ?>
-                        </ul>
-                    </div>
-                <?php
-                }
-            ?>
+            <div class="inm"><a href="/">全部</a>><span><?php echo isset($_GET['word'])?$_GET['word']:'' ?></span> </div>
+
         </div>
-        <!--选择搜索标签-->
-        <div class="pl_20 search_tag_bar bg_f">
-            <?php
-                foreach($category as $v) {
-                    ?>
-                    <?php
-                    if (count($v) > 0) {
-                        ?>
-                        <div class="stag_list_wrap">
-                            <span class="int tag_classify"><?php echo $v[0]['title']?>：</span>
-                            <ul class="int sTAG-list clearfix">
-                                <?php
-                                    foreach($v as $val) {
-                                        ?>
-                                        <li <?php echo isset($val['checked'])&&$val['checked']==1?'class="on"':''?>>
-                                            <a href="/subject/<?php echo $val['id']?>.html"><?php echo $val['name']?></a>
-                                        </li>
-                                    <?php
-                                    }
-                                        ?>
-                            </ul>
-                        </div>
-                    <?php
-                    }
-                }
-            ?>
-        </div>
-        <!--推荐版块课程-->
-        <ul class="bg_f recommend_list">
-            <?php
-                foreach($recommend as $v) {
-                    ?>
-                    <li>
-                        <div class="subject_img inm"><img src="<?php echo $v['image']?>" alt=""></div>
-                        <p class="ellipsis-2 inm recommend_subject_name"><?php echo $v['name']?></p>
-
-                        <div class="inm recommend_subject_data">
-                            <p>时间：<?php echo isset($v['openingDate'])?$v['openingDate']:'滚动开课'?></p>
-
-                            <p>课时：<?php echo isset($v['courseDuration'])?$v['courseDuration']:'待定'?></p>
-                        </div>
-                        <div class="recommend_quota inm tm">
-                            <p class="quota_num"><?php echo isset($v['quota'])?$v['quota']:'10'?></p>
-
-                            <p class="quota_name">剩余名额</p>
-                        </div>
-                        <span class="recommend_subject_price inm">￥<?php echo $v['price']?></span>
-
-                        <div class="inm recommend_subject_check">
-                            <?php if(isset($v['url'])&&$v['url']) {
-                                ?>
-                                <a href="<?php echo $v['url']?>">免费试听</a>
-                            <?php
-                            }else {
-                                ?>
-                                <a onclick="addCart(<?php echo $v['id'],$v['type']?>)" href="javascript:;">加入购物车</a>
-                            <?php
-                            }
-                            ?>
-                            <a onclick="toBuy(<?php echo $v['id'],$v['type']?>)" href="javascript:;">立即报名</a>
-                        </div>
-                    </li>
-                <?php
-                }
-            ?>
-            <??>
-        </ul>
         <!--两侧内容-->
         <div class="clearfix">
             <div class="left-subject bg_f fl">
@@ -167,14 +55,8 @@
                                             <span class="sbj_name">价<i class="kg inm"></i>格：</span>
                                             <span class="new_price">￥<?php echo $v['price']?></span><span class="old_price">￥<?php echo $v['sales']?></span>
                                         </dt>
-                                        <?php
-                                            foreach($extend as $k => $val) {
-                                                if($k == 2){break;}
-                                                ?>
-                                                <dt><span class="sbj_name"><?php echo $val['name']?>：</span><?php echo $v[$val['value']]?></dt>
-                                            <?php
-                                            }
-                                        ?>
+                                        <dt><span class="sbj_name"><?php echo $v['extendOneName']?>：</span><?php echo $v['extendOne']?></dt>
+                                        <dt><span class="sbj_name"><?php echo $v['extendTwoName']?>：</span><?php echo $v['extendTwo']?></dt>
                                     </dl>
                                 </div>
                                 <div class="subject_btn inb">
@@ -255,19 +137,19 @@
          */
         $(".iPage").on("click",function(){
             var page = $(this).html();
-            location.href="/subject-<?php echo isset($_GET['catId'])?$_GET['catId']:'' ?>/page-"+page+'.html';
+            location.href="/select-<?php echo isset($_GET['word'])?$_GET['word']:'' ?>/page-"+page+'.html';
         });
 
         $('.prev').click(function(){
             var page = $('.table-page').find('.on').html();
             page = parseInt(page)-1;
-            location.href="/subject-<?php echo isset($_GET['catId'])?$_GET['catId']:'' ?>/page-"+page+'.html';
+            location.href="/select-<?php echo isset($_GET['word'])?$_GET['word']:'' ?>/page-"+page+'.html';
         });
 
         $('.next').click(function(){
             var page = $('.table-page').find('.on').html();
             page = parseInt(page)+1;
-            location.href="/subject-<?php echo isset($_GET['catId'])?$_GET['catId']:'' ?>/page-"+page+'.html';
+            location.href="/select-<?php echo isset($_GET['word'])?$_GET['word']:'' ?>/page-"+page+'.html';
         })
     })
 </script>

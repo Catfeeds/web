@@ -93,7 +93,7 @@ class ApiController extends ToeflApiControl
     public function actionAddCollect()
     {
         $session = Yii::$app->session;
-        $userId = $session->get('uid',1);
+        $userId = $session->get('uid');
         if($userId){
             $contentId = Yii::$app->request->post('contentId');
             $sign = Collection::find()->where("contentId=$contentId AND userId=$userId")->one();

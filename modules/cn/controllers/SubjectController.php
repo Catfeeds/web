@@ -40,8 +40,22 @@ class SubjectController extends ToeflController {
         return $this->renderPartial('index',['love' => $love,'recommend' => $recommend,'extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
     }
 
+    public function actionSelect(){
+        $word = Yii::$app->request->get('word','');
+        $page = Yii::$app->request->get('page',1);
+        $where = "1=1";
+        if($word){
+            $where .= " AND a.name like '%".$word."%'";
+        }
+        $model = new Category();
+        $data = $model->getSelectContent($where,$page,1);
+        $model = new Goods();
+        $love = $model ->getAllLove(200);
+        return $this->renderPartial('select',['pageStr'=>$data['pageStr'],'data'=>$data['data'],'love'=>$love]);
+
+    }
     public function actionDetails(){
-        $userId = Yii::$app->session->get('userId',1);
+        $userId = Yii::$app->session->get('userId');
         $id = Yii::$app->request->get('id');
         $type = Yii::$app->request->get('type');
         $collection = 0;
