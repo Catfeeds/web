@@ -589,10 +589,12 @@ class ApiController extends ToeflApiControl
     }
 
     public function actionGetLive(){
-        $contentId = Yii::$app->request->post('contentId');
+        $contentId = Yii::$app->request->post('goodsId');
         $type = Yii::$app->request->post('type');
         $data = Goods::getVideo($contentId,$type);
-        $live = Livesdkid::find()->asArray()->where("contentId = $contentId")->one();
+        $live = Livesdkid::find()->asArray()->where("contentId = $contentId AND type=$type")->one();
+        $data['duration'] = isset($data['courseDuration'])?$data['courseDuration']:'';
+        $data['commencement'] =isset($data['openingDate'])?$data['openingDate']:'';;
         $data['sdk'] = $live['livesdkid'];
         $data['webKey'] = $live['webKey'];
         die(json_encode($data));
