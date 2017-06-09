@@ -93,6 +93,10 @@
                     if(re.code == 1){
                         location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
                     }
+
+                    if(re.code == 1){
+                        alert(re.message);
+                    }
                 },'json')
             }
         </script>
