@@ -92,9 +92,7 @@
                 $.post("/cn/api/cart-clearing",{id:arr},function(re){
                     if(re.code == 1){
                         location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
-                    }
-
-                    if(re.code == 1){
+                    }else{
                         alert(re.message);
                     }
                 },'json')
