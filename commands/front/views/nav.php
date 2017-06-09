@@ -62,8 +62,8 @@
             <div class="search_wrap fl">
                 <span class="search_name inm">选课中心</span>
                 <div class="inm sint_wrap">
-                    <input class="search_int inm" type="search">
-                    <a class="search_btn inm tm" href="javascript:;">搜索</a>
+                    <input class="search_int inm" id="word" type="search" value="<?php echo isset($_GET['word'])?$_GET['word']:'' ?>">
+                    <a class="search_btn inm tm" href="javascript:;" onclick="selectGoods()">搜索</a>
                 </div>
             </div>
             <div class="fr search_ermList">
@@ -96,5 +96,17 @@
                 location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
             }
         },'json')
+    }
+    function selectGoods(){
+        var content = $('#word').val();
+        if(content == ''){
+            alert('请输入关键词');return false;
+        }
+        location.href = '/select-'+content+'/page-1.html'
+    }
+    function searchs(e){
+        if(e.keyCode==13){
+            selectGoods();
+        }
     }
 </script>

@@ -16,7 +16,11 @@
          * @Obelisk
          */
 		public function init() {
-
+            $session  = Yii::$app->session;
+            $userId = $session->get('adminId');
+            if(!$userId){
+                $this->redirect('/user/login/index');
+            }
 		}
 	}
 ?>

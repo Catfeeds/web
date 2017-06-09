@@ -47,6 +47,11 @@ $config = [
             'class'=>'app\modules\collection\CollectionModule'
 
         ],
+        'user' => [
+
+            'class'=>'app\modules\user\UserModule'
+
+        ],
     ],
 
     'components' => [
@@ -116,7 +121,11 @@ $config = [
             'rules' => [
                 ''=>'cn/index',
 
+                'select-<word>/page-<page:\d+>.html'=>'cn/subject/select',
+
                 'subject/<catId:\d+>.html' => 'cn/subject/index',
+
+                'subject-<catId:\d+>/page-<page:\d+>.html' => 'cn/subject/index',
 
                 'goods/<id:\d+>/<type:\d+>.html' => 'cn/subject/details',
 

@@ -183,6 +183,12 @@ class Goods extends ActiveRecord
         $data = $model->find()->asArray()->where("id=$goodsId")->one();
         return $data;
     }
+
+    public static function getSdk($goodsId,$type){
+        $data = Video::find()->asArray()->where("cid=$goodsId and type=$type")->orderBy("createTime ASC")->all();
+        return json_encode($data);
+    }
+
     /**
      * @param $type
      * @return Book|Course|En|Smart|Vip

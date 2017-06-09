@@ -94,7 +94,7 @@ class ApiController extends ToeflApiControl
     public function actionAddCollect()
     {
         $session = Yii::$app->session;
-        $userId = $session->get('uid',1);
+        $userId = $session->get('uid');
         if($userId){
             $contentId = Yii::$app->request->post('contentId');
             $sign = Collection::find()->where("contentId=$contentId AND userId=$userId")->one();
@@ -105,9 +105,7 @@ class ApiController extends ToeflApiControl
 
                 die(json_encode($res));
             } else {
-                $catId = Yii::$app->request->post('catId');
-                $catType = Category::findOne($catId);
-                $catType = $catType['type'];
+                $catType = Yii::$app->request->post('catType');
                 $model = new Collection();
                 $model->contentId = $contentId;
                 $model->userId = $userId;
@@ -589,17 +587,19 @@ class ApiController extends ToeflApiControl
     }
 
     public function actionGetLive(){
-        $contentId = Yii::$app->request->post('contentId');
+        $contentId = Yii::$app->request->post('goodsId');
         $type = Yii::$app->request->post('type');
         $data = Goods::getVideo($contentId,$type);
-        $live = Livesdkid::find()->asArray()->where("contentId = $contentId")->one();
+        $live = Livesdkid::find()->asArray()->where("contentId = $contentId AND type=$type")->one();
+        $data['duration'] = isset($data['courseDuration'])?$data['courseDuration']:'';
+        $data['commencement'] =isset($data['openingDate'])?$data['openingDate']:'';;
         $data['sdk'] = $live['livesdkid'];
         $data['webKey'] = $live['webKey'];
         die(json_encode($data));
     }
 
     /**
-     * 获取公开课
+     * 获取视频课
      * by  obelisk
      */
     public function actionGetVideo(){
