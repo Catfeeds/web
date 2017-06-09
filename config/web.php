@@ -47,6 +47,11 @@ $config = [
             'class'=>'app\modules\collection\CollectionModule'
 
         ],
+        'user' => [
+
+            'class'=>'app\modules\user\UserModule'
+
+        ],
     ],
 
     'components' => [
