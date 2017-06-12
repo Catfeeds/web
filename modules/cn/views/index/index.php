@@ -293,30 +293,6 @@
                         }
                     }
                     ?>
-                    <div class="pb_list_item">
-                        <div class="ani pb_check">
-                            <div class="rh100 relative">
-                                <div class="pb_handle-wrap">
-                                    <a href="#" class="pb_big_btn bg_g2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
-                                        <span class="inm">回放课程</span>
-                                    </a>
-                                    <a href="#" class="pb_big_btn bg_f2">
-                                        <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
-                                        <span class="inm">查看详情</span>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <p class="pb_name">怎样准确解析GMAT SC 700+难题</p>
-                        <div class="pb_btn_wrap tr">
-                            <a class="small_try_btn pb_btn inb" href="#">回放</a>
-                            <a class="small_try_btn inb" href="#">详情</a>
-                        </div>
-                        <div class="2cr_img cr2_2 ani"><img src="/cn/images/2cr_2.png" alt=""></div>
-                    </div>
-                </div>
-                <div class="pb_middle fl">
                     <?php
                     foreach($playback as $k=>$v) {
                         if ($k == 2) {
