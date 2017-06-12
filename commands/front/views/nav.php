@@ -17,7 +17,7 @@
             <li><a href="#">会员</a></li>
             <li><a href="#">学习小组</a></li>
             <li><a href="#">活动</a></li>
-            <li><a href="#">八卦社区</a></li>
+            <li><a href="http://bbs.viplgw.cn/">八卦社区</a></li>
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
                     <img src="/cn/images/shopping_icon.png" alt="">
