@@ -112,7 +112,7 @@ class GoodsController extends AppControl {
             $model->image =  $data['image'];
             $model->view =  $data['view'];
             $model->save();
-            $this->redirect('/goods/goods/index');
+            $this->redirect('/goods/goods/index?type='.$type);
         }else{
             $type = Yii::$app->session->get('goodsType');
             $category = Category::find()->asArray()->where("pid=0 AND type = $type")->all();
@@ -123,11 +123,12 @@ class GoodsController extends AppControl {
 
     public function actionUpdate(){
         if($_POST){
+            $type = Yii::$app->session->get('goodsType');
             $id = Yii::$app->request->post('id');
             $data = Yii::$app->request->post('data');
             $model = $this->getModel();
             $model->updateAll($data,"id=$id");
-            $this->redirect('/goods/goods/index');
+            $this->redirect('/goods/goods/index?type='.$type);
         }else{
             $type = Yii::$app->session->get('goodsType');
             $id = Yii::$app->request->get('id');
