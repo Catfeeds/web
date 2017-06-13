@@ -94,7 +94,11 @@
         $.post("/cn/api/to-buy",{id:id,type:type},function(re){
             if(re.code == 1){
                 location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
-            }else{
+            }
+            else if(re.code==0){
+                location.href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
+            }
+            else{
                 alert(re.message);
             }
         },'json')
