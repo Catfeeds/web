@@ -67,9 +67,10 @@ class Category extends ActiveRecord {
     public function getContentExtend($catId,$limit=4){
         $model = new Goods();
         $cat = $model->getChild($catId);
+        $where = " status=2 and catId in (".implode(",",$cat).")";
         $sign = Category::findOne($catId);
         $models = $this->getModel($sign['type']);
-        $data = $models->find()->asArray()->where(['in' , 'catId' , $cat])->where("status=2")->orderBy('createTime desc')->limit($limit)->all();
+        $data = $models->find()->asArray()->where($where)->orderBy('createTime desc')->limit($limit)->all();
         return $data;
     }
 
