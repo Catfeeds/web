@@ -97,9 +97,15 @@
                                                             <?php
                                                             }
                                                         ?>
-                                                        <!--<a href="#" class="dis-B">订单详情</a>-->
-                                                        <a href="#" class="dis-B redColor"
-                                                           onclick="deleteCourseRecord(this)">删除记录</a>
+                                                        <?php
+                                                        if($v['order_status'] != 1) {
+                                                            ?>
+                                                            <!--<a href="#" class="dis-B">订单详情</a>-->
+                                                            <a href="#" class="dis-B redColor"
+                                                               onclick="deleteCourseRecord(this)">删除记录</a>
+                                                        <?php
+                                                        }
+                                                        ?>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -220,9 +226,15 @@
                                                                 <?php
                                                                 }
                                                                 ?>
-                                                                <!--<a href="#" class="dis-B">订单详情</a>-->
-                                                                <a href="#" class="dis-B redColor"
-                                                                   onclick="deleteCourseRecord(this)">删除记录</a>
+                                                                <?php
+                                                                if($v['status'] == 1) {
+                                                                    ?>
+                                                                    <!--<a href="#" class="dis-B">订单详情</a>-->
+                                                                    <a href="#" class="dis-B redColor"
+                                                                       onclick="deleteCourseRecord(this)">删除记录</a>
+                                                                <?php
+                                                                }
+                                                                ?>
                                                             </li>
                                                         </ul>
                                                     </div>

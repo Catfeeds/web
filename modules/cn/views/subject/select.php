@@ -49,7 +49,7 @@
                                 <div class="subject_img2 inm"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="<?php echo $v['image']?>" alt=""></a>
                                 </div>
                                 <div class="subject_data inb">
-                                    <h1 class="subject_name ellipsis"><a href="#"><?php echo $v['name']?></a></h1>
+                                    <h1 class="subject_name ellipsis"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><?php echo $v['name']?></a></h1>
                                     <dl class="subject_data_wrap">
                                         <dt>
                                             <span class="sbj_name">价<i class="kg inm"></i>格：</span>
@@ -64,6 +64,10 @@
                                         if(isset($v['url'])&&!empty($v['url'])) {
                                             ?>
                                             <a href="<?php echo $v['url']?>">免费试听</a>
+                                        <?php
+                                        }else {
+                                            ?>
+                                            <a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html">查看详情</a>
                                         <?php
                                         }
                                     ?>
@@ -92,10 +96,10 @@
                             foreach($love as $v) {
                                 ?>
                                 <li>
-                                    <div class="recommend_like_img int"><a href="#"><img src="<?php echo $v['image']?>"
+                                    <div class="recommend_like_img int"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="<?php echo $v['image']?>"
                                                                                          alt=""></a></div>
                                     <dl class="int like_data">
-                                        <dt class="like_name ellipsis"><a href="#"><?php echo $v['name']?></a></dt>
+                                        <dt class="like_name ellipsis"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><?php echo $v['name']?></a></dt>
                                         <dt><span class="like_new_price">￥<?php echo $v['price']?></span> <span
                                                 class="like_old_price">￥<?php echo $v['sales']?></span></dt>
                                         <?php if(isset($v['url'])&&$v['url']) {

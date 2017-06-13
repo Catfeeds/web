@@ -165,6 +165,12 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label for="modulename" class="control-label">有效期（月）</label>
+                        <div class="controls">
+                            <input type="text" value="<?php echo $data['indate']?>" id="input1" name="data[indate]">
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label for="modulename" class="control-label">试听链接</label>
                         <div class="controls">
                             <input type="text" value="<?php echo $data['url']?>" id="input1" name="data[url]">
@@ -172,7 +178,7 @@
                     </div>
 
                     <div class="control-group">
-                        <label for="catdes" class="control-label">鲜花描述</label>
+                        <label for="catdes" class="control-label">描述</label>
                         <div class="controls">
                             <textarea  id="editor" name="data[description]"><?php echo $data['description']?></textarea>
                             <span class="help-block">对这个分类进行描述</span>

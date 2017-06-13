@@ -214,10 +214,10 @@
                             foreach($love as $v) {
                                 ?>
                                 <li>
-                                    <div class="recommend_like_img int"><a href="#"><img src="<?php echo $v['image']?>"
+                                    <div class="recommend_like_img int"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="<?php echo $v['image']?>"
                                                                                          alt=""></a></div>
                                     <dl class="int like_data">
-                                        <dt class="like_name ellipsis"><a href="#"><?php echo $v['name']?></a></dt>
+                                        <dt class="like_name ellipsis"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><?php echo $v['name']?></a></dt>
                                         <dt><span class="like_new_price">￥<?php echo $v['price']?></span> <span
                                                 class="like_old_price">￥<?php echo $v['sales']?></span></dt>
                                         <?php if(isset($v['url'])&&$v['url']) {
