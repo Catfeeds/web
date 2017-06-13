@@ -630,87 +630,94 @@
                     <a class="sort_more" href="/subject/200.html">查看更多></a>
                 </div>
             </div>
+            <div class="vipCourse_list clearfix">
             <?php
             foreach($lgwVip as $k=>$v) {
-                if ($k==0) {
+                if ($k == 0) {
                     ?>
-                    <div class="vipCourse_list clearfix">
                     <div class="vipCourse_item_1 fl vc_im">
                         <div class="vcImg"><img src="/cn/images/9cr_1.png" alt=""></div>
                         <div class="wrap_info">
-                            <p class="common_cr_name"><?php echo $v['name']?></p>
+                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
                             <div class="gmat_price_wrap">
                                 <div class="inb pr_wrap">
-                                    <span class="index_new_price">￥<?php echo $v['price']?></span>
-                                    <span class="index_old_price">￥<?php echo $v['sales']?></span>
+                                    <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                    <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                 </div>
-                                <a class="small_try_btn inb" href="<?php echo $v['url']?>">试听</a>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                             </div>
                         </div>
                     </div>
                     <?php
                 }
-                ?>
+            }
+            ?>
                 <ul class="vip_middle_md fl">
                     <?php
-                    if($k==1) {
-                        ?>
-                        <li>
-                            <div class="wrap_info">
-                                <p class="common_cr_name"><?php echo $v['name']?></p>
-                                <div class="gmat_price_wrap">
-                                    <div class="inb pr_wrap">
-                                        <span class="index_new_price">￥<?php echo $v['price']?></span>
-                                        <span class="index_old_price">￥<?php echo $v['sales']?></span>
+                    foreach($lgwVip as $k=>$v) {
+                        if ($k == 1) {
+                            ?>
+                            <li>
+                                <div class="wrap_info">
+                                    <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                    <div class="gmat_price_wrap">
+                                        <div class="inb pr_wrap">
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url']?>">试听</a>
                                 </div>
-                            </div>
-                            <div class="vcImg"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/9cr_2.png' ?>" alt=""></div>
-                        </li>
-                        <?php
-                    } if($k==2) {
-                        ?>
-                        <li>
-                            <div class="wrap_info">
-                                <p class="common_cr_name"><?php echo $v['name']?></p>
-                                <div class="gmat_price_wrap">
-                                    <div class="inb pr_wrap">
-                                        <span class="index_new_price">￥<?php echo $v['price']?></span>
-                                        <span class="index_old_price">￥<?php echo $v['sales']?></span>
+                                <div class="vcImg"><img
+                                        src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/9cr_2.png' ?>"
+                                        alt=""></div>
+                            </li>
+                            <?php
+                        }
+                        if ($k == 2) {
+                            ?>
+                            <li>
+                                <div class="wrap_info">
+                                    <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                    <div class="gmat_price_wrap">
+                                        <div class="inb pr_wrap">
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url']?>">试听</a>
                                 </div>
-                            </div>
-                            <div class="vcImg"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/9cr_3.png' ?>" alt=""></div>
-                        </li>
-                        <?php
+                                <div class="vcImg"><img
+                                        src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/9cr_3.png' ?>"
+                                        alt=""></div>
+                            </li>
+                            <?php
+                        }
                     }
                     ?>
                 </ul>
                 <?php
-                if($k==3) {
-                    ?>
-                    <div class="vipCourse_item_1 fl vc_im">
-                        <div class="vcImg"><img src="/cn/images/9cr_4.png" alt=""></div>
-                        <div class="wrap_info">
-                            <p class="common_cr_name"><?php echo $v['name']?></p>
-                            <div class="gmat_price_wrap">
-                                <div class="inb pr_wrap">
-                                    <span class="index_new_price">￥<?php echo $v['price']?></span>
-                                    <span class="index_old_price">￥<?php echo $v['sales']?></span>
+                foreach($lgwVip as $k=>$v) {
+                    if ($k == 3) {
+                        ?>
+                        <div class="vipCourse_item_1 fl vc_im">
+                            <div class="vcImg"><img src="/cn/images/9cr_4.png" alt=""></div>
+                            <div class="wrap_info">
+                                <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                <div class="gmat_price_wrap">
+                                    <div class="inb pr_wrap">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                 </div>
-                                <a class="small_try_btn inb" href="<?php echo $v['url']?>">试听</a>
                             </div>
                         </div>
-                    </div>
-                    <?php
+                        <?php
+                    }
                 }
                 ?>
-                </div>
-                <?php
-            }
-            ?>
+            </div>
         </div>
     </div>
 </section>
