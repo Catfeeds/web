@@ -78,7 +78,7 @@
                    data-samrtid="<?php echo $_GET['id'] ?>"><?php echo $data['name'] ?></p>
                 <dl class="sd_info_wrap">
                     <dt><span class="sd_name">价<i class="inm kg"></i>格：</span><span
-                            class="new_price">￥<?php echo $data['name'] ?></span><span
+                            class="new_price">￥<?php echo $data['price'] ?></span><span
                             class="old_price">￥<?php echo $data['sales'] ?></span></dt>
                     <?php
                     foreach ($extend as $v) {
