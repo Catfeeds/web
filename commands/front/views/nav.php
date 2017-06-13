@@ -94,6 +94,8 @@
         $.post("/cn/api/to-buy",{id:id,type:type},function(re){
             if(re.code == 1){
                 location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
+            }else{
+                alert(re.message);
             }
         },'json')
     }
