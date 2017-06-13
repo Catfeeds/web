@@ -1,5 +1,5 @@
 <?php 
-namespace app\modules\goods\models;
+namespace app\modules\collection\models;
 use yii\db\ActiveRecord;
 class Category extends ActiveRecord {
     public $cateData;

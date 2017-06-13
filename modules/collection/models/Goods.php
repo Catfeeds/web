@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\goods\models;
+namespace app\modules\collection\models;
 
 use app\libs\Method;
 use yii\db\ActiveRecord;
