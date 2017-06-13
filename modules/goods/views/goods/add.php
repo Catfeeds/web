@@ -31,7 +31,7 @@
                             var str = "";
                             $.post('/goods/api/category',{id:id},function(re){
                                 if(re.length>0){
-                                    str +='<select onchange="getNextCategory(this)" name="data[catId]">';
+                                    str +='<select onchange="getNextCategory(this)" name="data[catId]"><option value="0">请选择分类</option>';
                                     for(var i=0;i<re.length;i++){
                                         str +='<option value="'+re[i].id+'">'+re[i].name+'</option>';
                                     }
