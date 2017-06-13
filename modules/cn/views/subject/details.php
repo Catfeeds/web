@@ -53,7 +53,7 @@
                 <div class="sd_img">
                     <img src="<?php echo $data['image'] ?>" alt="">
                     <?php if (isset($data['url']) && $data['url']) { ?>
-                        <a href="#" class="try_listen">
+                        <a href="<?php echo $data['url']?>" class="try_listen">
                             <i class="icon-play try_listen_btn"></i>免费试听
                         </a>
                         <?php
