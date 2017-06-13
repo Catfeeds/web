@@ -26,7 +26,7 @@ class Goods extends ActiveRecord
      */
     public function getAllGoods($where,$page,$pageSize,$type){
         $model = $this->getModel($type);
-        $data = $model->find()->asArray()->where($where)->where("status=2")->orderBy('sort ASC')->limit($pageSize)->offset(($page-1)*$pageSize)->all();
+        $data = $model->find()->asArray()->where($where)->orderBy('sort ASC')->limit($pageSize)->offset(($page-1)*$pageSize)->all();
         foreach($data as $k => $v){
             $data[$k]['type'] = $type;
         }
