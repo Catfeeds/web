@@ -6,7 +6,7 @@
     </ul>
     <ul class="nav">
         <li class="dropdown pull-right">
-            <a class="dropdown-toggle" href="/home/top/add">添加促销</a>
+            <a class="dropdown-toggle" href="/home/hot-sell/add">添加促销</a>
         </li>
     </ul>
     <ul class="nav nav-tabs">
