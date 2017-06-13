@@ -30,7 +30,7 @@ class SubjectController extends ToeflController {
         $model = new Goods();
         $where = $model->getChild($catId);
         $sign = Category::findOne($catId);
-        $where = "catId in (".implode(",",$where).")";
+        $where = "status=2 AND catId in (".implode(",",$where).")";
         $data = $model->getAllGoods($where,$page,10,$sign->type);
         $extend = Extend::find()->asArray()->where("type = $sign->type")->orderBy("sort ASC")->limit(2)->all();
         $pageStr = $data['pageStr'];
