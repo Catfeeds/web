@@ -98,6 +98,12 @@ class GoodsController extends AppControl {
             $type = Yii::$app->session->get('goodsType');
             $extend = Extend::find()->asArray()->where("type = $type")->all();
             $data = Yii::$app->request->post('data');
+            if($data['catId']==0){
+                die('<script>alert("请选择分类");history.go(-1);</script>');
+            }
+            if(!$data['name']){
+                die('<script>alert("必须输入商品名称");history.go(-1);</script>');
+            }
             $model = $this->getModel();
             $model->name = $data['name'];
             $model->price = $data['price'];
@@ -126,6 +132,12 @@ class GoodsController extends AppControl {
             $type = Yii::$app->session->get('goodsType');
             $id = Yii::$app->request->post('id');
             $data = Yii::$app->request->post('data');
+            if($data['catId']==0){
+                die('<script>alert("请选择分类");history.go(-1);</script>');
+            }
+            if(!$data['name']){
+                die('<script>alert("必须输入商品名称");history.go(-1);</script>');
+            }
             $model = $this->getModel();
             $model->updateAll($data,"id=$id");
             $this->redirect('/goods/goods/index?type='.$type);
