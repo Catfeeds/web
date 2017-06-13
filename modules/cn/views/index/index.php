@@ -217,7 +217,7 @@
                                         <span class="inm">点击试听</span>
                                     </a>
                                     <div class="live_user_handle clearfix">
-                                        <a class="fl" onclick="toBuy(<?php echo $data['id'] ?>,<?php echo $type ?>)" href="javascript:;">购买</a>
+                                        <a class="fl"  href="javascript:;">购买</a>
                                         <a class="fr" href="/goods/<?php echo $v['id']?>/1.html">详情</a>
                                     </div>
                                 </div>
