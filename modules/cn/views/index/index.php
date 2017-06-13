@@ -212,12 +212,12 @@
                         <div class="ani live_user_check">
                             <div class="relative rh100">
                                 <div class="user_handle_wrap">
-                                    <a class="big_try_btn" href="#">
+                                    <a class="big_try_btn" href="<?php echo $v['url'] ?>">
                                         <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                         <span class="inm">点击试听</span>
                                     </a>
                                     <div class="live_user_handle clearfix">
-                                        <a class="fl" href="#">购买</a>
+                                        <a class="fl"  href="javascript:;">购买</a>
                                         <a class="fr" href="/goods/<?php echo $v['id']?>/1.html">详情</a>
                                     </div>
                                 </div>
