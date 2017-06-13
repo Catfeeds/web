@@ -44,6 +44,7 @@ class Goods extends ActiveRecord
     public function getChild($catId){
         $sign = Category::find()->asArray()->where("pid=$catId")->all();
         if(count($sign)>0){
+            $this->childCat[] = $catId;
             foreach($sign as $v){
                 $this->getChild($v['id']);
             }
