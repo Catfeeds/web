@@ -69,7 +69,7 @@
                     } else {
                         echo 'icon-star-empty';
                     } ?>"></i>
-                    收藏课程（2000）
+                    收藏课程（<?php echo $collectionNum ?>）
                     </span>
                 </div>
             </div>
