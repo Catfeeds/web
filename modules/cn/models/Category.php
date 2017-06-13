@@ -70,7 +70,7 @@ class Category extends ActiveRecord {
         $where = " status=2 and catId in (".implode(",",$cat).")";
         $sign = Category::findOne($catId);
         $models = $this->getModel($sign['type']);
-        $data = $models->find()->asArray()->where($where)->orderBy('createTime desc')->limit($limit)->all();
+        $data = $models->find()->asArray()->where($where)->orderBy('sort ASC,createTime desc')->limit($limit)->all();
         return $data;
     }
 
@@ -85,7 +85,8 @@ class Category extends ActiveRecord {
             $cats[] = $model->getChild($v);
         }
         $cat = $this->arrToOne($cats);
-        $data = Course::find()->asArray()->where(['in' , 'catId' , $cat])->where("status=2")->orderBy('startTime desc')->limit(4)->all();
+        $where = " status=2 and catId in (".implode(",",$cat).")";
+        $data = Course::find()->asArray()->where($where)->orderBy('startTime desc')->limit(4)->all();
         return $data;
     }
 
@@ -123,38 +124,6 @@ class Category extends ActiveRecord {
         $pageModel = new Pager($count,$page,$pageSize);
         $pageStr = $pageModel->GetPagerContent();
         return ['data' => $data,'pageStr' => $pageStr];
-    }
-    /**
-     * 获取英语分类内容
-     * by  yanni
-     */
-    public function getEnglishContent($catId){
-        $model = new Goods();
-        $cat = $model->getChild($catId);
-        $data = En::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(4)->all();
-        return $data;
-    }
-
-    /**
-     * 获取书籍分类内容
-     * by  yanni
-     */
-    public function getBookContent($catId){
-        $model = new Goods();
-        $cat = $model->getChild($catId);
-        $data = Book::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(10)->all();
-        return $data;
-    }
-
-    /**
-     * 获取vip分类内容
-     * by  yanni
-     */
-    public function getVipContent($catId){
-        $model = new Goods();
-        $cat = $model->getChild($catId);
-        $data = Vip::find()->asArray()->where(['in' , 'catId' , $cat])->orderBy('createTime desc')->limit(4)->all();
-        return $data;
     }
     /**
      * 多维数组转换成一维数组
