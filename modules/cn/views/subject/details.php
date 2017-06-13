@@ -53,7 +53,7 @@
                 <div class="sd_img">
                     <img src="<?php echo $data['image'] ?>" alt="">
                     <?php if (isset($data['url']) && $data['url']) { ?>
-                        <a href="#" class="try_listen">
+                        <a href="<?php echo $data['url']?>" class="try_listen">
                             <i class="icon-play try_listen_btn"></i>免费试听
                         </a>
                         <?php
@@ -78,7 +78,7 @@
                    data-samrtid="<?php echo $_GET['id'] ?>"><?php echo $data['name'] ?></p>
                 <dl class="sd_info_wrap">
                     <dt><span class="sd_name">价<i class="inm kg"></i>格：</span><span
-                            class="new_price">￥<?php echo $data['name'] ?></span><span
+                            class="new_price">￥<?php echo $data['price'] ?></span><span
                             class="old_price">￥<?php echo $data['sales'] ?></span></dt>
                     <?php
                     foreach ($extend as $v) {
