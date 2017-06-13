@@ -67,6 +67,7 @@ class SubjectController extends ToeflController {
                 $collection = 0;
             }
         }
+        $collectionNum = count(Collection::find()->asArray()->where("contentId=$id")->all());
         $model = new Goods();
         $data = $model->getGoodsDetails($id,$type);
         $extend = Extend::find()->asArray()->where("type = $type")->orderBy("sort ASC")->limit(2)->all();
@@ -75,7 +76,7 @@ class SubjectController extends ToeflController {
         $category = $model->getParentCategoryArr($data['catId']);
 
 //        $reply = $model->getGoodsReply($id,$type);
-        return $this->renderPartial('details',['category' => array_reverse($category),'extend' => $extend,'data' => $data,'type' => $type,'evaluate'=>$evaluate,'collection'=>$collection]);
+        return $this->renderPartial('details',['category' => array_reverse($category),'extend' => $extend,'data' => $data,'type' => $type,'evaluate'=>$evaluate,'collection'=>$collection,'collectionNum'=>$collectionNum]);
     }
 
 }
