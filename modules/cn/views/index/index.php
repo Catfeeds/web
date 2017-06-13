@@ -489,62 +489,71 @@
                         </div>
                         <?php
                     }
-                    ?>
+                }
+                ?>
                     <div class="sr_wrap fl">
                         <?php
-                        if($key==1) {
-                            ?>
-                            <div class="smartItem_2 smartItem">
-                                <div class="wrap_info">
-                                    <p class="common_cr_name"><?php echo $v['name'] ?></p>
-                                    <div class="gmat_price_wrap">
-                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                        foreach($lgwLiuxue as $key=>$v) {
+                            if ($key == 1) {
+                                ?>
+                                <div class="smartItem_2 smartItem">
+                                    <div class="wrap_info">
+                                        <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                        <div class="gmat_price_wrap">
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                    <div class="smartImg"><img
+                                            src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_2.png' ?>"
+                                            alt=""></div>
                                 </div>
-                                <div class="smartImg"><img src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_2.png' ?>" alt=""></div>
-                            </div>
-                            <?php
+                                <?php
+                            }
                         }
                         ?>
                         <div class="sbtm_wrap clearfix">
                             <?php
-                            if($key==2) {
-                                ?>
-                                <div class="smartItem_3 fl smartItem">
-                                    <div class="wrap_info">
-                                        <p class="common_cr_name"><?php echo $v['name'] ?></p>
-                                        <div class="gmat_price_wrap">
-                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                            foreach($lgwLiuxue as $key=>$v) {
+                                if ($key == 2) {
+                                    ?>
+                                    <div class="smartItem_3 fl smartItem">
+                                        <div class="wrap_info">
+                                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                            <div class="gmat_price_wrap">
+                                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                            </div>
+                                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                         </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                        <div class="smartImg"><img
+                                                src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_3.png' ?>"
+                                                alt=""></div>
                                     </div>
-                                    <div class="smartImg"><img src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_3.png' ?>" alt=""></div>
-                                </div>
-                                <?php
-                            } if($key==3) {
-                                ?>
-                                <div class="smartItem_3 fr smartItem">
-                                    <div class="wrap_info">
-                                        <p class="common_cr_name"><?php echo $v['name'] ?></p>
-                                        <div class="gmat_price_wrap">
-                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    <?php
+                                }
+                                if ($key == 3) {
+                                    ?>
+                                    <div class="smartItem_3 fr smartItem">
+                                        <div class="wrap_info">
+                                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                            <div class="gmat_price_wrap">
+                                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                            </div>
+                                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                         </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                        <div class="smartImg"><img
+                                                src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_4.png' ?>"
+                                                alt=""></div>
                                     </div>
-                                    <div class="smartImg"><img src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_4.png' ?>" alt=""></div>
-                                </div>
-                                <?php
+                                    <?php
+                                }
                             }
                             ?>
                         </div>
                     </div>
-                    <?php
-                }
-                ?>
             </div>
 
         </div>
