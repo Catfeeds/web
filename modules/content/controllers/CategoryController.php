@@ -54,8 +54,8 @@ class CategoryController extends AppControl {
             }
         }
         else{
-            $category = Category::find()->asArray()->where("pid=0 AND type=1")->all();
-            return $this->render('add',['category' => $category]);
+            $type = Yii::$app->request->get('type');
+            return $this->render('add',['type' => $type]);
         }
     }
 
@@ -84,10 +84,10 @@ class CategoryController extends AppControl {
 
     public function actionUpdate(){
         $id = Yii::$app->request->get('id');
+        $type = Yii::$app->request->get('type');
         $model = new Category();
         $data = $model->findOne($id);
-        $category = Category::find()->asArray()->where("type=$data->type")->all();
-        return $this->render('add',array('category'=> $category,'data' =>$data,'id' => $id));
+        return $this->render('add',array('type'=> $type?$type:$data['type'],'data' =>$data,'id' => $id));
     }
 
 
