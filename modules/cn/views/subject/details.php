@@ -53,7 +53,7 @@
                 <div class="sd_img">
                     <img src="<?php echo $data['image'] ?>" alt="">
                     <?php if (isset($data['url']) && $data['url']) { ?>
-                        <a href="<?php echo $data['url']?>" class="try_listen">
+                        <a href="<?php echo $data['url']?>" class="try_listen" target="_blank">
                             <i class="icon-play try_listen_btn"></i>免费试听
                         </a>
                         <?php
@@ -69,7 +69,7 @@
                     } else {
                         echo 'icon-star-empty';
                     } ?>"></i>
-                    收藏课程（<?php echo $collectionNum ?>）
+                    收藏课程（<span class="sc_num"><?php echo $collectionNum ?></span>）
                     </span>
                 </div>
             </div>
@@ -91,7 +91,7 @@
                 </dl>
                 <div class="sd_check_bt">
                     <a onclick="toBuy(<?php echo $data['id'] ?>,<?php echo $type ?>)" href="javascript:;">立即购买</a>
-                    <a href="javascript:;">在线咨询</a>
+                    <a href="tencent://message/?uin=2095453331&Site=www.cnclcy&Menu=yes" target="_blank">在线咨询</a>
                 </div>
                 <!--分享-->
                 <div class="share_wrap clearfix">
@@ -169,9 +169,12 @@
             $('.checked_item').eq(obj).fadeIn().siblings('div.checked_item').hide();
         });
         $('.collect span.sc').click(function () {
+            var sc_num=$(this).find("span.sc_num");
+            var sc_val=parseInt($(this).find("span.sc_num").html());
             $.post('/cn/api/add-collect', {contentId: <?php echo $_GET['id'] ?>, catType: <?php echo $_GET['type'] ?>}, function (re) {
                 alert(re.message);
                 if (re.code == 1) {
+                    sc_num.html(sc_val+1);
                     $('.collect span.sc').addClass('on');
                     $('.collect span.sc').find("i").removeClass(' icon-star-empty').addClass(' icon-star');
                 }
