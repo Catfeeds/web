@@ -154,6 +154,12 @@
                         </div>
                     </div>
                     <div class="control-group">
+                        <label for="modulename" class="control-label">有效期（月）</label>
+                        <div class="controls">
+                            <input type="text" id="input1" name="data[indate]">
+                        </div>
+                    </div>
+                    <div class="control-group">
                         <label for="modulename" class="control-label">试听链接</label>
                         <div class="controls">
                             <input type="text" id="input1" name="data[url]">
