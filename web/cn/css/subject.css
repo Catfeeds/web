@@ -254,8 +254,15 @@
 .subject_img2 img{
     width: 240px;
     height: 145px;
+    transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
 }
-
+.subject_img2 img:hover{
+    transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+}
 .subject_btn a {
     display: block;
     width: 145px;
@@ -288,6 +295,9 @@
     color: #393939;
     font-size: 22px;
     font-weight: normal;
+}
+.subject_name:hover a{
+    color: #dc9000;
 }
 .sbj_name .kg{
     margin: 0 16px;

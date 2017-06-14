@@ -91,7 +91,7 @@
                 </dl>
                 <div class="sd_check_bt">
                     <a onclick="toBuy(<?php echo $data['id'] ?>,<?php echo $type ?>)" href="javascript:;">立即购买</a>
-                    <a href="javascript:;">在线咨询</a>
+                    <a href="tencent://message/?uin=2095453331&Site=www.cnclcy&Menu=yes" target="_blank">在线咨询</a>
                 </div>
                 <!--分享-->
                 <div class="share_wrap clearfix">
