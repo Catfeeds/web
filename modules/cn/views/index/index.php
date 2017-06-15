@@ -206,41 +206,152 @@
             </div>
             <ul class="live_course_list clearfix">
                 <?php
-                foreach($recording as $v) {
-                    ?>
-                    <li>
-                        <div class="ani live_user_check">
-                            <div class="relative rh100">
-                                <div class="user_handle_wrap">
-                                    <a class="big_try_btn" href="<?php echo $v['url'] ?>">
-                                        <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
-                                        <span class="inm">点击试听</span>
-                                    </a>
-                                    <div class="live_user_handle clearfix">
-                                        <a class="fl"  href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
-                                        <a class="fr" href="/goods/<?php echo $v['id']?>/1.html">详情</a>
+                foreach($recording as $key=>$v) {
+                    if ($key == 0) {
+                        ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt="">
+                                            </div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="live_time2 ani">时间：<?php echo date('Y-m-d', strtotime($v['startTime']));?></div>
-                        <div class="cr1_img"><img src="<?php echo $v['image'] ?>" alt=""></div>
-                        <div class="live_course_info">
-                            <div class="live_course_name_wrap">
-                                <p class="live_course_name"><?php echo $v['name'] ?></p>
-                                <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
-                            </div>
-                            <div>
-                                <div class="inb">
-                                    <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                    <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                            <div class="live_time2 ani">
+                                时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                            <div class="cr1_img"><img src="/cn/images/1cr_1.png" alt=""></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
                                 </div>
-                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                            </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                </div>
 
-                        </div>
-                    </li>
-                    <?php
+                            </div>
+                        </li>
+                        <?php
+                    }
+                    if ($key == 1) { ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">
+                                时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                            <div class="cr1_img"><img src="/cn/images/1cr_2.png" alt=""></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                </div>
+
+                            </div>
+                        </li>
+                        <?php
+                    }if($key == 2) {
+                        ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">
+                                时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                </div>
+
+                            </div>
+                            <div class="cr1_img"><img src="/cn/images/1cr_3.png" alt=""></div>
+                        </li>
+                        <?php
+                    }
+                    if($key == 3){ ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                            <div class="cr1_img"><img src="/cn/images/1cr_4.png" alt=""></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                </div>
+
+                            </div>
+                        </li>
+                        <?php
+                    }
                 }
                 ?>
             </ul>
@@ -261,20 +372,18 @@
                 <div class="pb_left fl">
                     <?php
                     foreach($playback as $k=>$v) {
-                        if($k<2) {
+                        if($k==0) {
                             ?>
                             <div class="pb_list_item">
                                 <div class="ani pb_check">
                                     <div class="rh100 relative">
                                         <div class="pb_handle-wrap">
                                             <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
-                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt="">
-                                                </div>
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
                                                 <span class="inm">回放课程</span>
                                             </a>
                                             <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
-                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt="">
-                                                </div>
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
                                                 <span class="inm">查看详情</span>
                                             </a>
                                         </div>
@@ -285,14 +394,38 @@
                                     <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
                                     <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                 </div>
-                                <div class="2cr_img cr2_1 ani"><img
-                                        src="<?php echo isset($v['name']) ? $v['name'] : '/cn//images/2cr_1.png' ?>"
-                                        alt=""></div>
+                                <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_1.png" alt=""></div>
+                            </div>
+                            <?php
+                        }if ($k==1) { ?>
+                            <div class="pb_list_item">
+                                <div class="ani pb_check">
+                                    <div class="rh100 relative">
+                                        <div class="pb_handle-wrap">
+                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                                <span class="inm">回放课程</span>
+                                            </a>
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                                <span class="inm">查看详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pb_name"><?php echo $v['name'] ?></p>
+                                <div class="pb_btn_wrap tr">
+                                    <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
+                                    <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                </div>
+                                <div class="2cr_img cr2_2 ani"><img src="/cn/images/2cr_2.png" alt=""></div>
                             </div>
                             <?php
                         }
                     }
                     ?>
+                </div>
+                <div class="pb_middle fl">
                     <?php
                     foreach($playback as $k=>$v) {
                         if ($k == 2) {
@@ -315,14 +448,11 @@
                                     </div>
                                 </div>
                                 <p class="pb_name"><?php echo $v['name'] ?></p>
-                                <div class="pb_btn_wrap">
+                                <div class="pb_btn_wrap tl">
                                     <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
                                     <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                 </div>
-                                <div class="2cr_img cr2_1 ani"><img
-                                        src="<?php echo isset($v['name']) ? $v['name'] : '/cn//images/2cr_1.png' ?>"
-                                        alt="">
-                                </div>
+                                <div class="2cr_img cr2_3 ani"><img src="/cn/images/2cr_5.png" alt=""></div>
                             </div>
                             <?php
                         }
@@ -332,7 +462,7 @@
                 <div class="pb_fight fl">
                     <?php
                     foreach($playback as $k=>$v) {
-                        if ($k > 2) {
+                        if ($k == 3) {
                             ?>
                             <div class="pb_list_item">
                                 <div class="ani pb_check">
@@ -356,9 +486,31 @@
                                     <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
                                     <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                 </div>
-                                <div class="2cr_img cr2_1 ani"><img
-                                        src="<?php echo isset($v['name']) ? $v['name'] : '/cn//images/2cr_1.png' ?>"
-                                        alt=""></div>
+                                <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_5.png" alt=""></div>
+                            </div>
+                            <?php
+                        }if($k == 4){ ?>
+                            <div class="pb_list_item">
+                                <div class="ani pb_check">
+                                    <div class="rh100 relative">
+                                        <div class="pb_handle-wrap">
+                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
+                                                <span class="inm">回放课程</span>
+                                            </a>
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                                <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
+                                                <span class="inm">查看详情</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="pb_name"><?php echo $v['name'] ?></p>
+                                <div class="pb_btn_wrap tr">
+                                    <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
+                                    <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                </div>
+                                <div class="2cr_img cr2_2 ani"><img src="/cn/images/2cr_4.png" alt=""></div>
                             </div>
                             <?php
                         }
@@ -380,7 +532,7 @@
             </div>
             <ul class="gmat_course_list clearfix">
                 <?php
-                foreach($lgwGmat as $v) {
+                foreach($lgwGmat as $key=>$v) {
                     ?>
                     <li>
                         <p class="gmat_cr_name"><?php echo $v['name'] ?></p>
@@ -389,7 +541,7 @@
                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                         </div>
                         <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                        <div class="cr3_img"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/3cr_1.png' ?>" alt=""></div>
+                        <div class="cr3_img"><img src="/cn/images/3cr_<?php echo $key+1; ?>.png" alt=""></div>
                     </li>
                     <?php
                 }
@@ -409,7 +561,7 @@
             </div>
             <ul class="teofl_course_list clearfix">
                 <?php
-                foreach($lgwToefl as $v) {
+                foreach($lgwToefl as $key=>$v) {
                     ?>
                     <li>
                         <div class="wrap_info">
@@ -420,7 +572,7 @@
                             </div>
                             <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                         </div>
-                        <div class="cr4_img"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/4cr_1.png' ?>" alt=""></div>
+                        <div class="cr4_img"><img src="/cn/images/4cr_<?php echo $key+1 ?>.png" alt=""></div>
                     </li>
                     <?php
                 }
@@ -440,7 +592,7 @@
             </div>
             <ul class="teofl_course_list yasi_list clearfix">
                 <?php
-                foreach($lgwIelts as $v) {
+                foreach($lgwIelts as $key=>$v) {
                     ?>
                     <li>
                         <div class="wrap_info">
@@ -451,7 +603,7 @@
                             </div>
                             <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                         </div>
-                        <div class="cr4_img"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/5cr_1.png' ?>" alt=""></div>
+                        <div class="cr4_img"><img src="/cn/images/5cr_<?php echo $key+1; ?>.png" alt=""></div>
                     </li>
                     <?php
                 }
@@ -570,7 +722,7 @@
             </div>
             <ul class="lgyList clearfix">
                 <?php
-                foreach($lgwEnglish as $v) {
+                foreach($lgwEnglish as $key=>$v) {
                     ?>
                     <li>
                         <div class="wrap_info">
@@ -581,7 +733,7 @@
                             </div>
                             <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                         </div>
-                        <div class="lgyImg"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/7cr_1.png' ?>>" alt=""></div>
+                        <div class="lgyImg"><img src="/cn/images/7cr_<?php echo $key+1;?>.png" alt=""></div>
                     </li>
                     <?php
                 }
@@ -668,9 +820,7 @@
                                         <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                     </div>
                                 </div>
-                                <div class="vcImg"><img
-                                        src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/9cr_2.png' ?>"
-                                        alt=""></div>
+                                <div class="vcImg"><img src="/cn/images/9cr_2.png" alt=""></div>
                             </li>
                             <?php
                         }
@@ -687,9 +837,7 @@
                                         <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
                                     </div>
                                 </div>
-                                <div class="vcImg"><img
-                                        src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/9cr_3.png' ?>"
-                                        alt=""></div>
+                                <div class="vcImg"><img src="/cn/images/9cr_3.png" alt=""></div>
                             </li>
                             <?php
                         }

@@ -471,7 +471,7 @@
 }
 
 .live_course_list .small_try_btn {
-    margin-left: 75px;
+    margin-left: 35px;
 }
 
 .live_course_list li:nth-child(2) {
@@ -495,11 +495,11 @@
 }
 
 .live_course_list li:nth-child(2) .live_course_info {
-    margin-left: 25px;
+    margin-left: 5px;
 }
 
 .live_course_list li:nth-child(3) .live_course_info {
-    margin-right: 30px;
+    margin-right: 5px;
 }
 
 .live_course_list li:nth-child(2) .live_course_info, .live_course_list li:nth-child(3) .live_course_info {
