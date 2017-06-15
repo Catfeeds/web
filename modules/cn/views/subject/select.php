@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
     <script src="/cn/js/jquery-1.12.2.min.js"></script>
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
-    <title>网校课程</title>
+    <title><?php echo isset($_GET['word'])?$_GET['word']:'' ?>_出国留学考试在线课程中心_海量优质网络课程_雷哥网网校</title>
 </head>
 <body>
 <?php use app\commands\front\NavWidget; ?>

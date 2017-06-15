@@ -27,6 +27,7 @@ class SubjectController extends ToeflController {
         $page = Yii::$app->request->get('page',1);
         $model = new Category();
         $category = $model->getRelateAllCategory($catId);
+        $catName = $model->find()->asArray()->where("id=$catId")->one();
         $model = new Goods();
         $where = $model->getChild($catId);
         $sign = Category::findOne($catId);
@@ -37,7 +38,7 @@ class SubjectController extends ToeflController {
         $data = $data['data'];
         $recommend = $model ->getAllRecommend(2);
         $love = $model ->getAllLove(200);
-        return $this->renderPartial('index',['love' => $love,'recommend' => $recommend,'extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category]);
+        return $this->renderPartial('index',['love' => $love,'recommend' => $recommend,'extend' => $extend,'pageStr' => $pageStr,'data' => $data,'category' => $category,'catName'=>$catName['name']]);
     }
 
     public function actionSelect(){
@@ -48,7 +49,7 @@ class SubjectController extends ToeflController {
             $where .= " AND a.name like '%".$word."%'";
         }
         $model = new Category();
-        $data = $model->getSelectContent($where,$page,1);
+        $data = $model->getSelectContent($where,$page,10);
         $model = new Goods();
         $love = $model ->getAllLove(200);
         return $this->renderPartial('select',['pageStr'=>$data['pageStr'],'data'=>$data['data'],'love'=>$love]);

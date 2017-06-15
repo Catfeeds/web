@@ -26,7 +26,7 @@
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
     <script src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script>
     <script src="http://static.bshare.cn/b/bshareC0.js"></script>
-    <title></title>
+    <title><?php echo $data['name']?>_出国留学考试在线课程中心_海量优质网络课程_雷哥网网校！</title>
 </head>
 <body>
 <?php use app\commands\front\NavWidget; ?>

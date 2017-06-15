@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="雷哥网、雷哥培训、GMAT网课、GMAT培训、托福网课、托福培训、雅思培训、雅思网课、美国留学、英国留学、留学申请">
+    <meta name="description" content="雷哥网开设留学在线课程、留学申请服务、GMAT在线课程、托福雅思在线课程，网络课程随时随地上课，更高效！">
     <meta name="title" content="">
     <meta name="author" content="">
     <meta name="Copyright" content="">
@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
     <script src="/cn/js/jquery-1.12.2.min.js"></script>
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
-    <title>网校课程</title>
+    <title><?php echo isset($catName)?$catName:'' ?>_出国留学考试在线课程中心_海量优质网络课程_雷哥网网校</title>
 </head>
 <body>
 <?php use app\commands\front\NavWidget; ?>
