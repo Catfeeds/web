@@ -43,7 +43,7 @@ class IndexController extends ToeflController {
             'category' => $category,
             'banner' => $banner,
             'openClass'=>$openClass,
-            'playback'=>$model->getContentExtend(190), //获取回放课
+            'playback'=>$model->getContentExtend(190,5), //获取回放课
             'lgwIelts'=>$model->getContentExtend(209), //获取雷哥网雅思
             'recording'=>$model->getContentExtend(188), //获取直播课
             'lgwGmat'=>$model->getCategoryContent([191,193]),  //获取雷哥网GMAT
