@@ -4,9 +4,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="title" content="">
+    <meta name="keywords" content="<?php echo isset($keywords)?$keywords:'' ?>">
+    <meta name="description" content="<?php echo isset($description)?$description:'' ?>">
+    <meta name="title" content="<?php echo isset($title)?$title:'' ?>">
     <meta name="author" content="">
     <meta name="Copyright" content="">
     <!-- <meta name="description" content=""> -->
@@ -27,7 +27,7 @@
     <script src="/cn/js/jquery-1.12.2.min.js"></script>
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
     <script src="/cn/js/index.js"></script>
-    <title>网校首页</title>
+    <title><?php echo isset($title)?$title:'' ?></title>
 </head>
 <body>
 <?php use app\commands\front\NavWidget; ?>

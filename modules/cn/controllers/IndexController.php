@@ -38,7 +38,13 @@ class IndexController extends ToeflController {
             $res[$k] = strtotime($v['cnName']);
         }
         array_multisort($res,$openClass);
+        $title = '雷哥网网校_出国留学考试在线课程中心_海量优质网络课程！';
+        $keywords = '雷哥网、雷哥培训、GMAT网课、GMAT培训、托福网课、托福培训、雅思培训、雅思网课、美国留学、英国留学、留学申请';
+        $description = '雷哥网开设留学在线课程、留学申请服务、GMAT在线课程、托福雅思在线课程，网络课程随时随地上课，更高效！';
         return $this->renderPartial('index', [
+            'title'=>$title,
+            'keywords'=>$keywords,
+            'description'=>$description,
             'hot' => $hot,
             'category' => $category,
             'banner' => $banner,
