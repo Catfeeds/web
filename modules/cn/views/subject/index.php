@@ -134,7 +134,7 @@
                         <div class="inm recommend_subject_check">
                             <?php if(isset($v['url'])&&$v['url']) {
                                 ?>
-                                <a href="<?php echo $v['url']?>">免费试听</a>
+                                <a href="<?php echo $v['url']?>" target="_blank">免费试听</a>
                             <?php
                             }else {
                                 ?>
@@ -181,7 +181,7 @@
                                     <?php
                                         if(isset($v['url'])&&!empty($v['url'])) {
                                             ?>
-                                            <a href="<?php echo $v['url']?>">免费试听</a>
+                                            <a href="<?php echo $v['url']?>" target="_blank">免费试听</a>
                                         <?php
                                         }else {
                                             ?>
@@ -222,7 +222,7 @@
                                                 class="like_old_price">￥<?php echo $v['sales']?></span></dt>
                                         <?php if(isset($v['url'])&&$v['url']) {
                                             ?>
-                                            <dt><a class="like_btn" href="<?php echo $v['url']?>">试听</a></dt>
+                                            <dt><a class="like_btn" href="<?php echo $v['url']?>" target="_blank">试听</a></dt>
                                         <?php
                                         }else {
                                             ?>

@@ -267,7 +267,33 @@
 .help_live {
     padding: 15px 0;
 }
-
+.fourClass{
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+.fourClass:hover a.prev,
+.fourClass:hover a.next{
+    display: block;
+}
+.fourClass a.prev{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -44px;
+    z-index: 99;
+    display: none;
+}
+.fourClass a.next{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -44px;
+    z-index: 99;
+    display: none;
+}
 .user_head3 {
     width: 95px;
     height: 95px;
@@ -290,8 +316,16 @@
     width: 290px;
     height: 210px;
     margin-right: 13px;
-}
+    transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
 
+}
+.help_live li:hover{
+    transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+}
 .help_live li:last-child {
     margin-right: 0;
 }
