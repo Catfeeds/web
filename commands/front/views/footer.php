@@ -34,7 +34,7 @@
             </li>
         </ul>
         <div class="leige-tag inb">
-            <div><img src="/cn/images/logo-2.png" alt=""></div>
+            <div><img src="/cn/images/logo-2.png" alt="footerlogo" width="250"/></div>
             <div class="ft-tag">
                 <span><em class="point"></em>优质教学</span>
                 <span><em class="point"></em>海量题库</span>

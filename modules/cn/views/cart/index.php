@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>购物车页面</title>
+    <title>购物车_出国留学考试在线课程中心_海量优质网络课程_雷哥网网校！</title>
+    <meta name="keywords" content="雷哥网、雷哥培训、GMAT网课、GMAT培训、托福网课、托福培训、雅思培训、雅思网课、美国留学、英国留学、留学申请">
+    <meta name="description" content="雷哥网开设留学在线课程、留学申请服务、GMAT在线课程、托福雅思在线课程，网络课程随时随地上课，更高效！">
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
     <link rel="stylesheet" href="/cn/css/public.css"/>
     <link rel="stylesheet" href="/cn/css/shoppingCart.css"/>
@@ -17,8 +19,8 @@
 <?php NavWidget::begin(); ?>
 <?php NavWidget::end(); ?>
 <div class="shoppingCont">
-    <h4>全部商品 <span>12</span></h4>
-    <span class="right-grey">已选商品（不含运费）0.00</span>
+    <h4>全部商品 <span><?php echo $cartCount?></span></h4>
+    <span class="right-grey"></span>
     <div class="catContent">
         <table cellspacing="0">
             <tr>

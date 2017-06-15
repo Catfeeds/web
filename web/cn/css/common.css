@@ -210,7 +210,9 @@
 .search_btn:hover {
     background: #e49300;
 }
-
+.search_ermList{
+    margin-right: 20px;
+}
 .sint_el:first-child {
     margin-right: 10px;
 }

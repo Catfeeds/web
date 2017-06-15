@@ -4,8 +4,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
+    <meta name="keywords" content="雷哥网、雷哥培训、GMAT网课、GMAT培训、托福网课、托福培训、雅思培训、雅思网课、美国留学、英国留学、留学申请">
+    <meta name="description" content="雷哥网开设留学在线课程、留学申请服务、GMAT在线课程、托福雅思在线课程，网络课程随时随地上课，更高效！">
     <meta name="title" content="">
     <meta name="author" content="">
     <meta name="Copyright" content="">
@@ -27,7 +27,7 @@
     <script src="/cn/js/jquery-1.12.2.min.js"></script>
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
     <script src="/cn/js/index.js"></script>
-    <title>网校首页</title>
+    <title>雷哥网网校_出国留学考试在线课程中心_海量优质网络课程！</title>
 </head>
 <body>
 <?php use app\commands\front\NavWidget; ?>
@@ -158,40 +158,50 @@
             </div>
         </div>
         <!--老师答疑-->
-        <ul class="help_live clearfix">
-            <?php
-            foreach(array_reverse($openClass) as $key=>$v ) {
-                if ($key < 4) {
-                    ?>
-                    <li>
-                        <div class="live_time ani">时间：<?php echo date('Y-m-d', $v['cnName']) ?></div>
-                        <p class="help_live_tit"><a class="ellipsis" target="_blank" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
-                        <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
-                        <div class="tm">
-                            <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://smartapply.gmatonline.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
-                            <div class="inm tl P_info">
-                                <p>主讲人：<?php echo $v['listeningFile'] ?></p>
-                                <p>课<i class="inm tp_zw"></i>时：<?php echo $v['problemComplement'] ?></p>
-                                <p class="price">￥：<?php echo isset($v['price']) ? $v['price'] : '0' ?></p>
-                                <?php
-                                if ($v['duration']) {
-                                    ?>
-                                    <a class="inm playback_btn" target="_blank" href="http://smartapply.gmatonline.cn/public-class/back/<?php echo $v['id'] ?>.html">观看回放</a>
-                                    <?php
-                                } else {
-                                    ?>
-                                    <a class="inm playback_btn" target="_blank" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html">详情</a>
-                                    <?php
-                                }
-                                ?>
-                            </div>
-                        </div>
-                    </li>
+        <div class="fourClass">
+            <a href="javascript:void(0);" class="prev">
+                <img src="/cn/images/home-left.png" alt="left"/>
+            </a>
+            <a href="javascript:void(0);" class="next">
+                <img src="/cn/images/home-right.png" alt="right"/>
+            </a>
+            <div class="fourBd">
+                <ul class="help_live clearfix">
                     <?php
-                }
-            }
-            ?>
-        </ul>
+                    foreach(array_reverse($openClass) as $key=>$v ) {
+//                        if ($key < 4) {
+                            ?>
+                            <li>
+                                <div class="live_time ani">时间：<?php echo date('Y-m-d', $v['cnName']) ?></div>
+                                <p class="help_live_tit"><a class="ellipsis" target="_blank" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
+                                <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
+                                <div class="tm">
+                                    <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://smartapply.gmatonline.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
+                                    <div class="inm tl P_info">
+                                        <p>主讲人：<?php echo $v['listeningFile'] ?></p>
+                                        <p>课<i class="inm tp_zw"></i>时：<?php echo $v['problemComplement'] ?></p>
+                                        <p class="price">￥：<?php echo isset($v['price']) ? $v['price'] : '0' ?></p>
+                                        <?php
+                                        if ($v['duration']) {
+                                            ?>
+                                            <a class="inm playback_btn" target="_blank" href="http://smartapply.gmatonline.cn/public-class/back/<?php echo $v['id'] ?>.html">观看回放</a>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <a class="inm playback_btn" target="_blank" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html">详情</a>
+                                            <?php
+                                        }
+                                        ?>
+                                    </div>
+                                </div>
+                            </li>
+                            <?php
+//                        }
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
         <!--课程分类&直播课程-->
         <div class="bg_f sort_wrap">
             <div class="subject_sort_tit_wrap clearfix">
@@ -213,7 +223,7 @@
                             <div class="ani live_user_check">
                                 <div class="relative rh100">
                                     <div class="user_handle_wrap">
-                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
                                             <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt="">
                                             </div>
                                             <span class="inm">点击试听</span>
@@ -238,7 +248,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
 
                             </div>
@@ -250,7 +260,7 @@
                             <div class="ani live_user_check">
                                 <div class="relative rh100">
                                     <div class="user_handle_wrap">
-                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
                                             <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                             <span class="inm">点击试听</span>
                                         </a>
@@ -274,7 +284,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
 
                             </div>
@@ -286,7 +296,7 @@
                             <div class="ani live_user_check">
                                 <div class="relative rh100">
                                     <div class="user_handle_wrap">
-                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
                                             <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                             <span class="inm">点击试听</span>
                                         </a>
@@ -309,7 +319,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
 
                             </div>
@@ -322,7 +332,7 @@
                             <div class="ani live_user_check">
                                 <div class="relative rh100">
                                     <div class="user_handle_wrap">
-                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
                                             <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
                                             <span class="inm">点击试听</span>
                                         </a>
@@ -345,7 +355,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
 
                             </div>
@@ -486,7 +496,7 @@
                                     <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
                                     <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                 </div>
-                                <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_5.png" alt=""></div>
+                                <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_3.png" alt=""></div>
                             </div>
                             <?php
                         }if($k == 4){ ?>
@@ -519,6 +529,105 @@
                 </div>
             </div>
         </div>
+        <!--雷哥网留学-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_6.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网留学</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" href="/subject/194.html">查看更多></a>
+                </div>
+            </div>
+            <div class="smartList clearfix">
+                <?php
+                foreach($lgwLiuxue as $key=>$v) {
+                    if ($key == 0) {
+                        ?>
+                        <div class="smartItem_1 fl smartItem">
+                            <div class="wrap_info">
+                                <a href="#" target="_blank" class="common_cr_name"><?php echo $v['name'] ?></a>
+                                <div class="gmat_price_wrap">
+                                    <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                    <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                </div>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                            </div>
+                            <div class="smartImg"><img
+                                    src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_1.png' ?>"
+                                    alt=""></div>
+                        </div>
+                    <?php
+                    }
+                }
+                ?>
+                <div class="sr_wrap fl">
+                    <?php
+                    foreach($lgwLiuxue as $key=>$v) {
+                        if ($key == 1) {
+                            ?>
+                            <div class="smartItem_2 smartItem">
+                                <div class="wrap_info">
+                                    <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
+                                    <div class="gmat_price_wrap">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                </div>
+                                <div class="smartImg"><img
+                                        src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_2.png' ?>"
+                                        alt=""></div>
+                            </div>
+                        <?php
+                        }
+                    }
+                    ?>
+                    <div class="sbtm_wrap clearfix">
+                        <?php
+                        foreach($lgwLiuxue as $key=>$v) {
+                            if ($key == 2) {
+                                ?>
+                                <div class="smartItem_3 fl smartItem">
+                                    <div class="wrap_info">
+                                        <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
+                                        <div class="gmat_price_wrap">
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                    </div>
+                                    <div class="smartImg"><img
+                                            src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_3.png' ?>"
+                                            alt=""></div>
+                                </div>
+                            <?php
+                            }
+                            if ($key == 3) {
+                                ?>
+                                <div class="smartItem_3 fr smartItem">
+                                    <div class="wrap_info">
+                                        <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
+                                        <div class="gmat_price_wrap">
+                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                        </div>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                    </div>
+                                    <div class="smartImg"><img
+                                            src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_4.png' ?>"
+                                            alt=""></div>
+                                </div>
+                            <?php
+                            }
+                        }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <!--雷哥网GMAT-->
         <div class="bg_f sort_wrap">
             <div class="subject_sort_tit_wrap clearfix">
@@ -540,7 +649,7 @@
                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                         </div>
-                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                         <div class="cr3_img"><img src="/cn/images/3cr_<?php echo $key+1; ?>.png" alt=""></div>
                     </li>
                     <?php
@@ -570,7 +679,7 @@
                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                             </div>
-                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                         </div>
                         <div class="cr4_img"><img src="/cn/images/4cr_<?php echo $key+1 ?>.png" alt=""></div>
                     </li>
@@ -601,7 +710,7 @@
                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                             </div>
-                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                         </div>
                         <div class="cr4_img"><img src="/cn/images/5cr_<?php echo $key+1; ?>.png" alt=""></div>
                     </li>
@@ -610,138 +719,40 @@
                 ?>
             </ul>
         </div>
-        <!--雷哥网留学-->
-        <div class="bg_f sort_wrap">
-            <div class="subject_sort_tit_wrap clearfix">
-                <div class="fl left_sort_tit">
-                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_6.png" alt=""></div>
-                    <span class="inm sort_name">雷哥网留学</span>
-                </div>
-                <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/194.html">查看更多></a>
-                </div>
-            </div>
-            <div class="smartList clearfix">
-                <?php
-                foreach($lgwLiuxue as $key=>$v) {
-                    if ($key == 0) {
-                        ?>
-                        <div class="smartItem_1 fl smartItem">
-                            <div class="wrap_info">
-                                <a href="#" target="_blank" class="common_cr_name"><?php echo $v['name'] ?></a>
-                                <div class="gmat_price_wrap">
-                                    <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                    <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
-                                </div>
-                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                            </div>
-                            <div class="smartImg"><img
-                                    src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_1.png' ?>"
-                                    alt=""></div>
-                        </div>
-                        <?php
-                    }
-                }
-                ?>
-                    <div class="sr_wrap fl">
-                        <?php
-                        foreach($lgwLiuxue as $key=>$v) {
-                            if ($key == 1) {
-                                ?>
-                                <div class="smartItem_2 smartItem">
-                                    <div class="wrap_info">
-                                        <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
-                                        <div class="gmat_price_wrap">
-                                            <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                            <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
-                                        </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                                    </div>
-                                    <div class="smartImg"><img
-                                            src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_2.png' ?>"
-                                            alt=""></div>
-                                </div>
-                                <?php
-                            }
-                        }
-                        ?>
-                        <div class="sbtm_wrap clearfix">
-                            <?php
-                            foreach($lgwLiuxue as $key=>$v) {
-                                if ($key == 2) {
-                                    ?>
-                                    <div class="smartItem_3 fl smartItem">
-                                        <div class="wrap_info">
-                                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
-                                            <div class="gmat_price_wrap">
-                                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
-                                            </div>
-                                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                                        </div>
-                                        <div class="smartImg"><img
-                                                src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_3.png' ?>"
-                                                alt=""></div>
-                                    </div>
-                                    <?php
-                                }
-                                if ($key == 3) {
-                                    ?>
-                                    <div class="smartItem_3 fr smartItem">
-                                        <div class="wrap_info">
-                                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
-                                            <div class="gmat_price_wrap">
-                                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
-                                            </div>
-                                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                                        </div>
-                                        <div class="smartImg"><img
-                                                src="<?php echo isset($v['iamge']) ? $v['iamge'] : '/cn/images/6cr_4.png' ?>"
-                                                alt=""></div>
-                                    </div>
-                                    <?php
-                                }
-                            }
-                            ?>
-                        </div>
-                    </div>
-            </div>
 
-        </div>
         <!--雷哥网英语-->
-        <div class="bg_f sort_wrap">
-            <div class="subject_sort_tit_wrap clearfix">
-                <div class="fl left_sort_tit">
-                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_7.png" alt=""></div>
-                    <span class="inm sort_name">雷哥网英语</span>
-                </div>
-                <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/196.html">查看更多></a>
-                </div>
-            </div>
-            <ul class="lgyList clearfix">
-                <?php
-                foreach($lgwEnglish as $key=>$v) {
-                    ?>
-                    <li>
-                        <div class="wrap_info">
-                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
-                            <div class="gmat_price_wrap">
-                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
-                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
-                            </div>
-                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
-                        </div>
-                        <div class="lgyImg"><img src="/cn/images/7cr_<?php echo $key+1;?>.png" alt=""></div>
-                    </li>
-                    <?php
-                }
-                ?>
-            </ul>
-
-
-        </div>
+<!--        <div class="bg_f sort_wrap">-->
+<!--            <div class="subject_sort_tit_wrap clearfix">-->
+<!--                <div class="fl left_sort_tit">-->
+<!--                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_7.png" alt=""></div>-->
+<!--                    <span class="inm sort_name">雷哥网英语</span>-->
+<!--                </div>-->
+<!--                <div class="fr right_sort_more">-->
+<!--                    <a class="sort_more" href="/subject/196.html">查看更多></a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <ul class="lgyList clearfix">-->
+<!--                --><?php
+//                foreach($lgwEnglish as $key=>$v) {
+//                    ?>
+<!--                    <li>-->
+<!--                        <div class="wrap_info">-->
+<!--                            <a target="_blank" href="#" class="common_cr_name">--><?php //echo $v['name'] ?><!--</a>-->
+<!--                            <div class="gmat_price_wrap">-->
+<!--                                <span class="index_new_price">￥--><?php //echo $v['price'] ?><!--</span>-->
+<!--                                <span class="index_old_price">￥--><?php //echo $v['sales'] ?><!--</span>-->
+<!--                            </div>-->
+<!--                            <a class="small_try_btn inb" href="--><?php //echo $v['url'] ?><!--">试听</a>-->
+<!--                        </div>-->
+<!--                        <div class="lgyImg"><img src="/cn/images/7cr_--><?php //echo $key+1;?><!--.png" alt=""></div>-->
+<!--                    </li>-->
+<!--                    --><?php
+//                }
+//                ?>
+<!--            </ul>-->
+<!---->
+<!---->
+<!--        </div>-->
         <!--雷哥网书籍-->
         <div class="bg_f sort_wrap">
             <div class="subject_sort_tit_wrap clearfix">
@@ -796,7 +807,7 @@
                                     <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                     <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                 </div>
-                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                             </div>
                         </div>
                     </div>
@@ -817,7 +828,7 @@
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                         </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                     </div>
                                 </div>
                                 <div class="vcImg"><img src="/cn/images/9cr_2.png" alt=""></div>
@@ -834,7 +845,7 @@
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                         </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                     </div>
                                 </div>
                                 <div class="vcImg"><img src="/cn/images/9cr_3.png" alt=""></div>
@@ -857,7 +868,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>">试听</a>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
                             </div>
                         </div>

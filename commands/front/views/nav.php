@@ -21,7 +21,7 @@
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
                     <img src="/cn/images/shopping_icon.png" alt="">
-                    <span class="shop_msg ani">1</span>
+                    <span class="shop_msg ani"><?php echo $count?></span>
                 </div>
                 <a href="/cart.html">购物车</a>
             </li>
@@ -56,13 +56,13 @@
         <div class="clearfix">
             <div class="leige_logo fl">
                 <a href="/">
-                    <img src="/cn/images/logo.png" alt="">
+                    <img src="/cn/images/logo.png" alt="logo" width="169"/>
                 </a>
             </div>
             <div class="search_wrap fl">
                 <span class="search_name inm">选课中心</span>
                 <div class="inm sint_wrap">
-                    <input class="search_int inm" id="word" type="search" value="<?php echo isset($_GET['word'])?$_GET['word']:'' ?>">
+                    <input class="search_int inm" id="word" type="search" value="<?php echo isset($_GET['word'])?$_GET['word']:'' ?>" onkeydown="javascript:searchs(event);"/>
                     <a class="search_btn inm tm" href="javascript:;" onclick="selectGoods()">搜索</a>
                 </div>
             </div>
@@ -71,11 +71,11 @@
                     <div class="erm_k">
                         <a href="#"><img src="/cn/images/erm_1.png" alt=""></a>
                     </div>
-                    <p class="erm_de">雷哥GMATAPP</p>
+                    <p class="erm_de">雷哥GMAT公众号</p>
                 </div>
                 <div class="int sint_el">
                     <div class="erm_k"><img src="/cn/images/erm_2.png" alt=""></div>
-                    <p class="erm_de">雷哥托福APP</p>
+                    <p class="erm_de">雷哥托福公众号</p>
                 </div>
             </div>
         </div>

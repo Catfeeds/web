@@ -1,3 +1,6 @@
+$(function(){
+    jQuery(".fourClass").slide({mainCell:".fourBd ul",autoPlay:true,effect:"leftLoop",vis:4,scroll:1,autoPage:true});
+});
 //发送验证码
 function sendYzm(e) {
     var phone = $("#phone").val();
