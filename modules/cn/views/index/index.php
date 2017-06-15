@@ -486,7 +486,7 @@
                                     <a class="small_try_btn pb_btn inb" href="<?php echo $v['url'] ?>">回放</a>
                                     <a class="small_try_btn inb" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                 </div>
-                                <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_5.png" alt=""></div>
+                                <div class="2cr_img cr2_1 ani"><img src="/cn/images/2cr_3.png" alt=""></div>
                             </div>
                             <?php
                         }if($k == 4){ ?>
