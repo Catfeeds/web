@@ -5,6 +5,8 @@ namespace app\modules\cn\models;
 use app\libs\GoodsPager;
 use app\libs\Method;
 use app\libs\Pager;
+//use app\modules\cn\models\Course;
+use app\modules\cn\models\Course;
 use yii\db\ActiveRecord;
 
 class Goods extends ActiveRecord
@@ -62,13 +64,16 @@ class Goods extends ActiveRecord
 
     public function getAllRecommend($limit)
     {
-        $data = Recommend::find()->asArray()->orderBy('sort ASC')->limit($limit)->all();
-        foreach ($data as $k => $v) {
-            $model = $this->getModel($v['type']);
-            $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
-            $arr['type'] = $v['type'];
-            $data[$k] = $arr;
-        }
+        $dayTime = strtotime(date('Y-m-d',strtotime("+1 day")));
+        $dayTime = date("Y-m-d H:i:s",$dayTime);
+        $data = Course::find()->asArray()->where("startTime>'$dayTime'")->orderBy("startTime asc")->limit($limit)->all();
+//        foreach ($data as $k => $v) {
+//            $model = new Course();
+//            $arr = $model->find()->asArray()->where("id = {$v['goodsId']}")->one();
+//            $arr['type'] = $v['type'];
+//            $data[$k] = $arr;
+//        }
+//        var_dump($data);die;
         return $data;
     }
 

@@ -116,7 +116,7 @@
                 foreach($recommend as $v) {
                     ?>
                     <li>
-                        <div class="subject_img inm"><img src="<?php echo $v['image']?>" alt=""></div>
+                        <div class="subject_img inm"><img src="http://class.viplgw.cn<?php echo $v['image']?>" alt=""></div>
                         <p class="ellipsis-2 inm recommend_subject_name"><?php echo $v['name']?></p>
 
                         <div class="inm recommend_subject_data">
@@ -138,11 +138,11 @@
                             <?php
                             }else {
                                 ?>
-                                <a onclick="addCart(<?php echo $v['id'],$v['type']?>)" href="javascript:;">加入购物车</a>
+                                <a onclick="addCart(<?php echo $v['id']?>,1)" href="javascript:;">加入购物车</a>
                             <?php
                             }
                             ?>
-                            <a onclick="toBuy(<?php echo $v['id'],$v['type']?>)" href="javascript:;">立即报名</a>
+                            <a onclick="toBuy(<?php echo $v['id']?>,1)" href="javascript:;">立即报名</a>
                         </div>
                     </li>
                 <?php

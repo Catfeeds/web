@@ -21,7 +21,7 @@
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
                     <img src="/cn/images/shopping_icon.png" alt="">
-                    <span class="shop_msg ani">1</span>
+                    <span class="shop_msg ani"><?php echo $count?></span>
                 </div>
                 <a href="/cart.html">购物车</a>
             </li>

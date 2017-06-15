@@ -17,8 +17,8 @@
 <?php NavWidget::begin(); ?>
 <?php NavWidget::end(); ?>
 <div class="shoppingCont">
-    <h4>全部商品 <span>12</span></h4>
-    <span class="right-grey">已选商品（不含运费）0.00</span>
+    <h4>全部商品 <span><?php echo $cartCount?></span></h4>
+    <span class="right-grey"></span>
     <div class="catContent">
         <table cellspacing="0">
             <tr>
