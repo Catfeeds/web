@@ -126,13 +126,22 @@ class Category extends ActiveRecord {
     }
 
     /**
-     *
+     * 获取树形菜单
+     * @param $pid
+     * @param $id  选中的分类Id
+     * @param  $type 是否递归查询
+     * @param array $data
+     * @return array
      * @Obelisk
      */
-    public function getTag(){
-        $sql = "select id,name as text from {{%category}} WHERE pid = 147";
-        $data = \Yii::$app->db->createCommand($sql)->queryAll();
+    public function getPid($type,$pid=0){
+        $data = \Yii::$app->db->createCommand("select id,name as text from {{%category}} where pid=$pid AND type=$type")->queryAll();
+        foreach($data as $k => $v){
+                $childData = $this->getPid($type,$v['id']);
+                if(count($childData) > 0){
+                    $data[$k]['children'] = $childData ;
+                }
+        }
         return $data;
-
     }
 }

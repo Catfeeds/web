@@ -158,7 +158,7 @@
                         foreach($data as $v) {
                             ?>
                             <li>
-                                <div class="subject_img2 inm"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="<?php echo $v['image']?>" alt=""></a>
+                                <div class="subject_img2 inm"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><img src="http://class.viplgw.cn/<?php echo $v['image']?>" alt=""></a>
                                 </div>
                                 <div class="subject_data inb">
                                     <h1 class="subject_name ellipsis"><a href="/goods/<?php echo $v['id']?>/<?php echo $v['type']?>.html"><?php echo $v['name']?></a></h1>

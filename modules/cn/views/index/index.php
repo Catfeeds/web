@@ -165,7 +165,7 @@
                     ?>
                     <li>
                         <div class="live_time ani">时间：<?php echo date('Y-m-d', $v['cnName']) ?></div>
-                        <p class="help_live_tit"><a class="ellipsis" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
+                        <p class="help_live_tit"><a class="ellipsis" target="_blank" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
                         <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
                         <div class="tm">
                             <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://smartapply.gmatonline.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
@@ -176,11 +176,11 @@
                                 <?php
                                 if ($v['duration']) {
                                     ?>
-                                    <a class="inm playback_btn" href="http://smartapply.gmatonline.cn/public-class/back/<?php echo $v['id'] ?>.html">观看回放</a>
+                                    <a class="inm playback_btn" target="_blank" href="http://smartapply.gmatonline.cn/public-class/back/<?php echo $v['id'] ?>.html">观看回放</a>
                                     <?php
                                 } else {
                                     ?>
-                                    <a class="inm playback_btn" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html">详情</a>
+                                    <a class="inm playback_btn" target="_blank" href="http://smartapply.gmatonline.cn/public-class/<?php echo $v['id'] ?>.html">详情</a>
                                     <?php
                                 }
                                 ?>
@@ -434,12 +434,12 @@
                                 <div class="ani pb_check">
                                     <div class="rh100 relative">
                                         <div class="pb_handle-wrap">
-                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                            <a href="<?php echo $v['url'] ?>" target="_blank" class="pb_big_btn bg_g2">
                                                 <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt="">
                                                 </div>
                                                 <span class="inm">回放课程</span>
                                             </a>
-                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" target="_blank" class="pb_big_btn bg_f2">
                                                 <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt="">
                                                 </div>
                                                 <span class="inm">查看详情</span>
@@ -468,12 +468,12 @@
                                 <div class="ani pb_check">
                                     <div class="rh100 relative">
                                         <div class="pb_handle-wrap">
-                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                            <a href="<?php echo $v['url'] ?>" target="_blank" class="pb_big_btn bg_g2">
                                                 <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt="">
                                                 </div>
                                                 <span class="inm">回放课程</span>
                                             </a>
-                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" target="_blank" class="pb_big_btn bg_f2">
                                                 <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt="">
                                                 </div>
                                                 <span class="inm">查看详情</span>
@@ -535,7 +535,7 @@
                 foreach($lgwGmat as $key=>$v) {
                     ?>
                     <li>
-                        <p class="gmat_cr_name"><?php echo $v['name'] ?></p>
+                        <a href="#" target="_blank" class="gmat_cr_name"><?php echo $v['name'] ?></a>
                         <div class="gmat_price_wrap">
                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -565,7 +565,7 @@
                     ?>
                     <li>
                         <div class="wrap_info">
-                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <a href="#" target="_blank" class="common_cr_name"><?php echo $v['name'] ?></a>
                             <div class="gmat_price_wrap">
                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -596,7 +596,7 @@
                     ?>
                     <li>
                         <div class="wrap_info">
-                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                             <div class="gmat_price_wrap">
                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -628,7 +628,7 @@
                         ?>
                         <div class="smartItem_1 fl smartItem">
                             <div class="wrap_info">
-                                <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                <a href="#" target="_blank" class="common_cr_name"><?php echo $v['name'] ?></a>
                                 <div class="gmat_price_wrap">
                                     <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                     <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -650,7 +650,7 @@
                                 ?>
                                 <div class="smartItem_2 smartItem">
                                     <div class="wrap_info">
-                                        <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                        <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                                         <div class="gmat_price_wrap">
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -672,7 +672,7 @@
                                     ?>
                                     <div class="smartItem_3 fl smartItem">
                                         <div class="wrap_info">
-                                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                                             <div class="gmat_price_wrap">
                                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -689,7 +689,7 @@
                                     ?>
                                     <div class="smartItem_3 fr smartItem">
                                         <div class="wrap_info">
-                                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                                             <div class="gmat_price_wrap">
                                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -726,7 +726,7 @@
                     ?>
                     <li>
                         <div class="wrap_info">
-                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                             <div class="gmat_price_wrap">
                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
@@ -760,7 +760,7 @@
                         foreach($lgwBook as $v) {
                             ?>
                             <li>
-                                <a href="/goods/<?php echo $v['id']?>/4.html" title="<?php echo $v['name'] ?>"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/books.png' ?>" alt=""></a>
+                                <a href="/goods/<?php echo $v['id']?>/4.html" target="_blank" title="<?php echo $v['name'] ?>"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/books.png' ?>" alt=""></a>
                             </li>
                             <?php
                         }
@@ -790,7 +790,7 @@
                     <div class="vipCourse_item_1 fl vc_im">
                         <div class="vcImg"><img src="/cn/images/9cr_1.png" alt=""></div>
                         <div class="wrap_info">
-                            <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                            <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                             <div class="gmat_price_wrap">
                                 <div class="inb pr_wrap">
                                     <span class="index_new_price">￥<?php echo $v['price'] ?></span>
@@ -811,7 +811,7 @@
                             ?>
                             <li>
                                 <div class="wrap_info">
-                                    <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                    <a target="_blank" href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                                     <div class="gmat_price_wrap">
                                         <div class="inb pr_wrap">
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
@@ -828,7 +828,7 @@
                             ?>
                             <li>
                                 <div class="wrap_info">
-                                    <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                    <a href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                                     <div class="gmat_price_wrap">
                                         <div class="inb pr_wrap">
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
@@ -851,7 +851,7 @@
                         <div class="vipCourse_item_1 fl vc_im">
                             <div class="vcImg"><img src="/cn/images/9cr_4.png" alt=""></div>
                             <div class="wrap_info">
-                                <p class="common_cr_name"><?php echo $v['name'] ?></p>
+                                <a href="#" class="common_cr_name"><?php echo $v['name'] ?></a>
                                 <div class="gmat_price_wrap">
                                     <div class="inb pr_wrap">
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>

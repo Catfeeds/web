@@ -9,44 +9,97 @@
     </ul>
     <form action="/content/category/add" method="post" class="form-horizontal">
         <fieldset>
-            <div class="control-group">
-                <label for="modulename" class="control-label">分类类型</label>
-                <div class="controls">
-                    <select onchange="getPidCategory(this)" name="data[type]">
-                        <option value="0">选择分类类型</option>
-                        <option <?php echo isset($data['type'])&&$data['type'] == 1?"selected":''?> value="1">课程分类</option>
-                        <option <?php echo isset($data['type'])&&$data['type'] == 2?"selected":''?> value="2">留学分类</option>
-                        <option <?php echo isset($data['type'])&&$data['type'] == 3?"selected":''?> value="3">英语分类</option>
-                        <option <?php echo isset($data['type'])&&$data['type'] == 4?"selected":''?> value="4">书籍分类</option>
-                        <option <?php echo isset($data['type'])&&$data['type'] == 5?"selected":''?> value="5">会员分类</option>
-                    </select>
-                </div>
-            </div>
+            <?php
+            if(isset($id)) {
+                ?>
+                <div class="control-group">
+                    <label for="modulename" class="control-label">分类类型</label>
 
+                    <div class="controls">
+                        <select onchange="getPidCategory(this)" name="data[type]">
+                            <option value="0">选择分类类型</option>
+                            <option <?php echo isset($data['type']) && $data['type'] == 1 ? "selected" : '' ?>
+                                value="1">课程分类
+                            </option>
+                            <option <?php echo isset($data['type']) && $data['type'] == 2 ? "selected" : '' ?>
+                                value="2">留学分类
+                            </option>
+                            <option <?php echo isset($data['type']) && $data['type'] == 3 ? "selected" : '' ?>
+                                value="3">英语分类
+                            </option>
+                            <option <?php echo isset($data['type']) && $data['type'] == 4 ? "selected" : '' ?>
+                                value="4">书籍分类
+                            </option>
+                            <option <?php echo isset($data['type']) && $data['type'] == 5 ? "selected" : '' ?>
+                                value="5">会员分类
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            <?php
+            }else {
+                ?>
+                <div class="control-group">
+                    <label for="modulename" class="control-label">分类类型</label>
+
+                    <div class="controls">
+                        <select onchange="getPidCategory(this)" name="data[type]">
+                            <option value="0">选择分类类型</option>
+                            <option <?php echo isset($type) && $type == 1 ? "selected" : '' ?>
+                                value="1">课程分类
+                            </option>
+                            <option <?php echo isset($type) && $type == 2 ? "selected" : '' ?>
+                                value="2">留学分类
+                            </option>
+                            <option <?php echo isset($type) && $type == 3 ? "selected" : '' ?>
+                                value="3">英语分类
+                            </option>
+                            <option <?php echo isset($type) && $type == 4 ? "selected" : '' ?>
+                                value="4">书籍分类
+                            </option>
+                            <option <?php echo isset($type) && $type == 5 ? "selected" : '' ?>
+                                value="5">会员分类
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            <?php
+            }
+            ?>
             <?php
                 if(isset($id)) {
                     ?>
                     <div class="control-group pcat">
                         <label for="modulename" class="control-label">父级分类</label>
+
                         <div class="controls">
-                        <select onchange="getPidCategory(this)" name="data[pid]">
-                        <option value="0">一级分类</option>
-                        <?php
-                            foreach($category as $v) {
-                                ?>
-                                <option <?php echo isset($data['pid'])&&$data['pid'] == $v['id']?"selected":''?> value="<?php echo $v['id']?>"><?php echo $v['name']?></option>
-                            <?php
-                            }
-                        ?>
-                            </select>
-                    </div>
+                            <select style="width: 400px" id="contentcatid" msg="您必须选择一个分类"
+                                    url='/content/api/pid?type=<?php echo $type?>'
+                                    class="main autocombox input-medium easyui-combotree">
+                            </select><br/><br/>
+                            <input type="hidden" name="data[pid]" value="<?php echo isset($data['pid'])?$data['pid']:''?>">
                         </div>
+                    </div>
                 <?php
                 }else {
                     ?>
-                    <div class="control-group pcat">
+                    <?php
+                        if($type) {
+                            ?>
+                            <div class="control-group pcat">
+                                <label for="modulename" class="control-label">父级分类</label>
 
-                    </div>
+                                <div class="controls">
+                                    <select style="width: 400px" id="contentcatid" msg="您必须选择一个分类"
+                                            url='/content/api/pid?type=<?php echo $type?>'
+                                            class="main autocombox input-medium easyui-combotree">
+                                    </select><br/><br/>
+                                    <input type="hidden" name="data[pid]" value="<?php echo isset($data['pid'])?$data['pid']:''?>">
+                                </div>
+                            </div>
+                        <?php
+                        }
+                            ?>
                 <?php
                 }
             ?>
@@ -139,15 +192,37 @@
 </script>
 <script type="text/plain" id="j_ueditorupload"></script>
 <script type="text/javascript">
+    <?php
+if(isset($id)){
+    ?>
+    $('.main').tree({
+        onLoadSuccess: function (newValue, oldValue) {
+            $('.main').combotree('setValue', <?php echo isset($data['pid'])?$data['pid']:''?>);
+        }
+    })
+<?php
+}
+?>
+
     function getPidCategory(_this){
         var type = $(_this).val();
-        var str = '<label for="modulename" class="control-label">父级分类</label> <div class="controls"> <select name="data[pid]" style="width: 400px" ><option value="0">一级分类</option>'
-        $.post("/content/api/cat",{type:type},function(re){
-            for(var i=0;i<re.length;i++){
-                str += '<option value="'+re[i].id+'">'+re[i].name+'</option>';
-            }
-            str += '</select></div>'
-            $(".pcat").html(str);
-        },'json')
+        <?php
+            $action = Yii::$app->controller->action->id;
+            if($action == 'add'){
+            ?>
+                location.href="/content/category/add?type="+type;
+            <?php
+            }else{
+            ?>
+                location.href="/content/category/update?id=<?php echo $id?>&type="+type;
+        <?php
+        }
+        ?>
     }
+
+    $('.main').combotree({
+        onClick: function (node) {
+            $("input[name='data[pid]']").val(node.id);
+        }
+    })
 </script>

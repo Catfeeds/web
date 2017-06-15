@@ -69,12 +69,13 @@ class ApiController extends ApiControl {
     }
 
     /**
-     * 获取所有扩展属性
+     * 获取父级ID
      * @Obelisk
      */
-    public function actionExtend(){
-        $model = new CategoryExtend();
-        $data = $model->getAllExtend(1);
+    public function actionPid(){
+        $model = new Category();
+        $type = Yii::$app->request->get('type');
+        $data = $model->getPid($type);
         echo json_encode($data);
     }
 
