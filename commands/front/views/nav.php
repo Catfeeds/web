@@ -4,20 +4,20 @@
     <div class="w12 clearfix">　　
         <ul class="nav_list fl clearfix">
             <li>
-                <a href="#">雷哥网网校<img src="/cn/images/crow_1.png" style="margin-left: 7px" alt=""></a>
+                <a href="/">雷哥网网校<img src="/cn/images/crow_1.png" style="margin-left: 7px" alt=""></a>
                 <dl class="nav2_list">
-                    <dt><a href="#">雷哥网留学</a></dt>
-                    <dt><a href="#">雷哥网GMAT</a></dt>
-                    <dt><a href="#">雷哥网托福</a></dt>
-                    <dt><a href="#">雷哥网雅思</a></dt>
+                    <dt><a href="http://smartapply.gmatonline.cn/" target="_blank">雷哥网留学</a></dt>
+                    <dt><a href="http://www.gmatonline.cn/index.html" target="_blank">雷哥网GMAT</a></dt>
+                    <dt><a href="http://www.toeflonline.cn/" target="_blank">雷哥网托福</a></dt>
+                    <dt><a href="http://ielts.gmatonline.cn/" target="_blank">雷哥网雅思</a></dt>
                 </dl>
             </li>
-            <li><a href="#">首页</a></li>
+            <li><a href="/">首页</a></li>
             <li><a href="#">学习工具</a></li>
             <li><a href="#">会员</a></li>
             <li><a href="#">学习小组</a></li>
             <li><a href="#">活动</a></li>
-            <li><a href="http://bbs.viplgw.cn/">八卦社区</a></li>
+            <li><a href="http://bbs.viplgw.cn/" target="_blank">八卦社区</a></li>
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
                     <img src="/cn/images/shopping_icon.png" alt="">
@@ -80,6 +80,8 @@
             </div>
         </div>
     </div>
+
+    <div id="uidSign" data-uid="<?php echo $userId?1:0?>" style='display:none'><a href="http://www.51js.com" target="_blank" id="link">text</a></div>
 </section>
 <script type="text/javascript">
     function addCart(id,type){
@@ -91,17 +93,19 @@
     }
 
     function toBuy(id,type){
-        $.post("/cn/api/to-buy",{id:id,type:type},function(re){
-            if(re.code == 1){
-                location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
-            }
-            else if(re.code==0){
-                location.href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
+        var sign = $('#uidSign').attr('data-uid');
+//        $.post("/cn/api/to-buy",{id:id,type:type},function(re){
+            if(sign == 1){
+                $('#link').attr('href',"http://order.gmatonline.cn/pay/order?id="+id+"&type="+type+"&belong=5");
+                document.getElementById("link").click();
             }
             else{
-                alert(re.message);
+                location.href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
             }
-        },'json')
+//            else{
+//                alert(re.message);
+//            }
+//        },'json')
     }
     function selectGoods(){
         var content = $('#word').val();
