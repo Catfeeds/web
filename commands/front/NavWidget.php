@@ -21,7 +21,7 @@
             if($uid){
                 $this->count = Cart::find()->where("uid=$uid")->count();
             } else {
-                $this->count = 0;
+                $this->count = count(\Yii::$app->session->get('shopCart'));;
             }
 
         }
