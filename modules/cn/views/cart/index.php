@@ -79,23 +79,26 @@
         </div>
         <script type="text/javascript">
             function clearing(){
-                var arr=[];
+                var arr="";
                 $(".catContent table tr:not(:first-child)").each(function(){
                     var _that=$(this);
                     if(_that.find("td input")[0].checked){
-                        arr.push(_that.find("td:last-child a.redColor").attr("data-recordId"));
+                        arr +=(_that.find("td:last-child a.redColor").attr("data-recordId"))+",";
                     }
                 });
-                if(arr.length <= 0){
+                if(arr == ''){
                     alert('请选择结算商品');return false;
+                }else{
+                    arr = arr.substr(0,arr.length-1);
                 }
-                $.post("/cn/api/cart-clearing",{id:arr},function(re){
-                    if(re.code == 1){
-                        location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
-                    }else{
-                        alert(re.message);
-                    }
-                },'json')
+                var sign = $('#uidSign').attr('data-uid');
+                if(sign == 1){
+                    $('#link').attr('href',"http://order.gmatonline.cn/pay/order/cart?id="+arr+"&belong=5");
+                    document.getElementById("link").click();
+                }
+                else{
+                    location.href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
+                }
             }
         </script>
     </div>

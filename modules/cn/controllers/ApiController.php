@@ -384,13 +384,6 @@ class ApiController extends ToeflApiControl
     }
 
     public function actionToBuy(){
-        $session =  Yii::$app->session;
-        $uid = $session->get('uid');
-        if(!$uid){
-            $re['code'] = 0;
-            $re['message'] = '请登录';
-            die(json_encode($re));
-        }
         $id = Yii::$app->request->post('id');
         $type = Yii::$app->request->post('type');
         $model = new Goods();
@@ -405,21 +398,10 @@ class ApiController extends ToeflApiControl
      * @Obelisk
      */
     public function actionCartClearing(){
-        $session =  Yii::$app->session;
-        $uid = $session->get('uid');
-        if(!$uid){
-            $re['code'] = 0;
-            $re['message'] = '请登录';
-            die(json_encode($re));
-        }
         $id = Yii::$app->request->post('id');
-        if(count($id)<=0){
-            $re['code'] = 0;
-            $re['message'] = '请选择结算商品';
-            die(json_encode($re));
-        }
+        $id = explode(",",$id);
         $model = new Goods();
-        $data = $model->getCartGoods($id,$uid);
+        $data = $model->getCartGoods($id);
         $data = ['typeUrl' => 'classUrl','type' => 5,'totalMoney' => $data['totalMoney'],'goods' =>$data['data']];
         $re = ['code' => 1,'data' => serialize($data)];
         die(json_encode($re));

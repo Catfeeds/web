@@ -80,6 +80,8 @@
             </div>
         </div>
     </div>
+
+    <div id="uidSign" data-uid="<?php echo $userId?1:0?>" style='display:none'><a href="http://www.51js.com" target="_blank" id="link">text</a></div>
 </section>
 <script type="text/javascript">
     function addCart(id,type){
@@ -91,17 +93,19 @@
     }
 
     function toBuy(id,type){
-        $.post("/cn/api/to-buy",{id:id,type:type},function(re){
-            if(re.code == 1){
-                location.href= "http://order.gmatonline.cn/pay/order?data="+re.data;
-            }
-            else if(re.code==0){
-                location.href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
+        var sign = $('#uidSign').attr('data-uid');
+//        $.post("/cn/api/to-buy",{id:id,type:type},function(re){
+            if(sign == 1){
+                $('#link').attr('href',"http://order.gmatonline.cn/pay/order?id="+id+"&type="+type+"&belong=5");
+                document.getElementById("link").click();
             }
             else{
-                alert(re.message);
+                location.href="http://login.gmatonline.cn/cn/index?source=11&url=<?php echo Yii::$app->request->hostInfo.Yii::$app->request->getUrl()?>"
             }
-        },'json')
+//            else{
+//                alert(re.message);
+//            }
+//        },'json')
     }
     function selectGoods(){
         var content = $('#word').val();

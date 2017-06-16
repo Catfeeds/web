@@ -148,7 +148,7 @@ class Goods extends ActiveRecord
         return $data;
     }
 
-    public function getCartGoods($id,$uid){
+    public function getCartGoods($id){
         $totalMoney = 0;
         $data = Cart::find()->asArray()->where(['in','id',$id])->all();
         foreach($data as $k => $v){
