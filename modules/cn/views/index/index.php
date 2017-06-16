@@ -211,7 +211,7 @@
                     <img src="/cn/images/sort_icon_1b.png" alt="">
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/188.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/188.html">查看更多></a>
                 </div>
             </div>
             <ul class="live_course_list clearfix">
@@ -230,7 +230,7 @@
                                         </a>
                                         <div class="live_user_handle clearfix">
                                             <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
-                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@
                                         </a>
                                         <div class="live_user_handle clearfix">
                                             <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
-                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                         </div>
                                     </div>
                                 </div>
@@ -302,7 +302,7 @@
                                         </a>
                                         <div class="live_user_handle clearfix">
                                             <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
-                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                         </div>
                                     </div>
                                 </div>
@@ -338,7 +338,7 @@
                                         </a>
                                         <div class="live_user_handle clearfix">
                                             <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
-                                            <a class="fr" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
                                         </div>
                                     </div>
                                 </div>
@@ -375,7 +375,7 @@
                     <img src="/cn/images/sort_icon_2b.png" alt="">
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/190.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/190.html">查看更多></a>
                 </div>
             </div>
             <div class="playback_course_list clearfix">
@@ -388,11 +388,11 @@
                                 <div class="ani pb_check">
                                     <div class="rh100 relative">
                                         <div class="pb_handle-wrap">
-                                            <a href="<?php echo $v['url'] ?>" class="pb_big_btn bg_g2">
+                                            <a href="<?php echo $v['url'] ?>" target="_blank" class="pb_big_btn bg_g2">
                                                 <div class="pb_icon inm"><img src="/cn/images/pb_icon_1.png" alt=""></div>
                                                 <span class="inm">回放课程</span>
                                             </a>
-                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" class="pb_big_btn bg_f2">
+                                            <a href="/goods/<?php echo $v['id'] ?>/1.html" target="_blank" class="pb_big_btn bg_f2">
                                                 <div class="pb_icon inm"><img src="/cn/images/pb_icon_2.png" alt=""></div>
                                                 <span class="inm">查看详情</span>
                                             </a>
@@ -537,7 +537,7 @@
                     <span class="inm sort_name">雷哥网留学</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/194.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/194.html">查看更多></a>
                 </div>
             </div>
             <div class="smartList clearfix">
@@ -636,7 +636,7 @@
                     <span class="inm sort_name">雷哥网GMAT</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/193.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/193.html">查看更多></a>
                 </div>
             </div>
             <ul class="gmat_course_list clearfix">
@@ -665,7 +665,7 @@
                     <span class="inm sort_name">雷哥网托福</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/192.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/192.html">查看更多></a>
                 </div>
             </div>
             <ul class="teofl_course_list clearfix">
@@ -696,7 +696,7 @@
                     <span class="inm sort_name">雷哥网雅思</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/209.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/209.html">查看更多></a>
                 </div>
             </div>
             <ul class="teofl_course_list yasi_list clearfix">
@@ -728,7 +728,7 @@
 <!--                    <span class="inm sort_name">雷哥网英语</span>-->
 <!--                </div>-->
 <!--                <div class="fr right_sort_more">-->
-<!--                    <a class="sort_more" href="/subject/196.html">查看更多></a>-->
+<!--                    <a class="sort_more" target="_blank" href="/subject/196.html">查看更多></a>-->
 <!--                </div>-->
 <!--            </div>-->
 <!--            <ul class="lgyList clearfix">-->
@@ -761,7 +761,7 @@
                     <span class="inm sort_name">雷哥网书籍</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/198.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/198.html">查看更多></a>
                 </div>
             </div>
             <div class="picMarquee-left relative">
@@ -790,7 +790,7 @@
                     <span class="inm sort_name">雷哥网会员课程</span>
                 </div>
                 <div class="fr right_sort_more">
-                    <a class="sort_more" href="/subject/200.html">查看更多></a>
+                    <a class="sort_more" target="_blank" href="/subject/200.html">查看更多></a>
                 </div>
             </div>
             <div class="vipCourse_list clearfix">
