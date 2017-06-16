@@ -4,24 +4,24 @@
     <div class="w12 clearfix">　　
         <ul class="nav_list fl clearfix">
             <li>
-                <a href="#">雷哥网网校<img src="/cn/images/crow_1.png" style="margin-left: 7px" alt=""></a>
+                <a href="/">雷哥网网校<img src="/cn/images/crow_1.png" style="margin-left: 7px" alt=""></a>
                 <dl class="nav2_list">
-                    <dt><a href="#">雷哥网留学</a></dt>
-                    <dt><a href="#">雷哥网GMAT</a></dt>
-                    <dt><a href="#">雷哥网托福</a></dt>
-                    <dt><a href="#">雷哥网雅思</a></dt>
+                    <dt><a href="http://smartapply.gmatonline.cn/" target="_blank">雷哥网留学</a></dt>
+                    <dt><a href="http://www.gmatonline.cn/index.html" target="_blank">雷哥网GMAT</a></dt>
+                    <dt><a href="http://www.toeflonline.cn/" target="_blank">雷哥网托福</a></dt>
+                    <dt><a href="http://ielts.gmatonline.cn/" target="_blank">雷哥网雅思</a></dt>
                 </dl>
             </li>
-            <li><a href="#">首页</a></li>
+            <li><a href="/">首页</a></li>
             <li><a href="#">学习工具</a></li>
             <li><a href="#">会员</a></li>
             <li><a href="#">学习小组</a></li>
             <li><a href="#">活动</a></li>
-            <li><a href="http://bbs.viplgw.cn/">八卦社区</a></li>
+            <li><a href="http://bbs.viplgw.cn/" target="_blank">八卦社区</a></li>
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
                     <img src="/cn/images/shopping_icon.png" alt="">
-                    <span class="shop_msg ani">1</span>
+                    <span class="shop_msg ani"><?php echo $count?></span>
                 </div>
                 <a href="/cart.html">购物车</a>
             </li>
@@ -56,13 +56,13 @@
         <div class="clearfix">
             <div class="leige_logo fl">
                 <a href="/">
-                    <img src="/cn/images/logo.png" alt="">
+                    <img src="/cn/images/logo.png" alt="logo" width="169"/>
                 </a>
             </div>
             <div class="search_wrap fl">
                 <span class="search_name inm">选课中心</span>
                 <div class="inm sint_wrap">
-                    <input class="search_int inm" id="word" type="search" value="<?php echo isset($_GET['word'])?$_GET['word']:'' ?>">
+                    <input class="search_int inm" id="word" type="search" value="<?php echo isset($_GET['word'])?$_GET['word']:'' ?>" onkeydown="javascript:searchs(event);"/>
                     <a class="search_btn inm tm" href="javascript:;" onclick="selectGoods()">搜索</a>
                 </div>
             </div>
@@ -71,11 +71,11 @@
                     <div class="erm_k">
                         <a href="#"><img src="/cn/images/erm_1.png" alt=""></a>
                     </div>
-                    <p class="erm_de">雷哥GMATAPP</p>
+                    <p class="erm_de">雷哥GMAT公众号</p>
                 </div>
                 <div class="int sint_el">
                     <div class="erm_k"><img src="/cn/images/erm_2.png" alt=""></div>
-                    <p class="erm_de">雷哥托福APP</p>
+                    <p class="erm_de">雷哥托福公众号</p>
                 </div>
             </div>
         </div>

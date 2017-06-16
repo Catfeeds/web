@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="/cn/css/font-awesome.min.css">
     <script src="/cn/js/jquery-1.12.2.min.js"></script>
     <script src="/cn/js/jquery.SuperSlide.2.1.1.js"></script>
-    <title>网校课程</title>
+    <title><?php echo isset($_GET['word'])?$_GET['word']:'' ?>_出国留学考试在线课程中心_海量优质网络课程_雷哥网网校</title>
 </head>
 <body>
 <?php use app\commands\front\NavWidget; ?>
@@ -63,7 +63,7 @@
                                     <?php
                                         if(isset($v['url'])&&!empty($v['url'])) {
                                             ?>
-                                            <a href="<?php echo $v['url']?>">免费试听</a>
+                                            <a href="<?php echo $v['url']?>" target="_blank">免费试听</a>
                                         <?php
                                         }else {
                                             ?>
@@ -104,7 +104,7 @@
                                                 class="like_old_price">￥<?php echo $v['sales']?></span></dt>
                                         <?php if(isset($v['url'])&&$v['url']) {
                                             ?>
-                                            <dt><a class="like_btn" href="<?php echo $v['url']?>">试听</a></dt>
+                                            <dt><a class="like_btn" href="<?php echo $v['url']?>" target="_blank">试听</a></dt>
                                         <?php
                                         }else {
                                             ?>

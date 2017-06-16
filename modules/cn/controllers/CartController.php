@@ -8,6 +8,7 @@
  */
 namespace app\modules\cn\controllers;
 
+use app\modules\cn\models\Cart;
 use app\modules\cn\models\Goods;
 use yii;
 use app\libs\ToeflController;
@@ -27,7 +28,12 @@ class CartController extends ToeflController {
         $uid = $session->get('uid');
         $model = new Goods();
         $data = $model->getCart($uid);
-        return $this->renderPartial('index',['data' => $data]);
+        if($uid){
+            $cartCount = Cart::find()->where("uid=$uid")->count();
+        } else {
+            $cartCount = count(\Yii::$app->session->get('shopCart'));
+        }
+        return $this->renderPartial('index',['data' => $data,'cartCount'=>$cartCount]);
     }
 
     /**
