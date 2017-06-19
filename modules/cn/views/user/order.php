@@ -71,7 +71,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="right-introduce">
-                                                            <h4><a href="#"><?php echo $v['title']?></a></h4>
+                                                            <h4><a href="<?php echo Yii::$app->params['gmatUrl'].$v['url']?>"><?php echo $v['title']?></a></h4>
                                                             <span><a href="#"></a></span>
                                                         </div>
                                                         <div style="clear: both"></div>
@@ -213,8 +213,16 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="right-introduce">
-                                                                    <h4><a href="#"><?php echo $val['contentName']?></a></h4>
-                                                                    <span><a href="#"><?php echo $val['contentTag']?></a></span>
+                                                                    <h4><a href="<?php
+                                                                                if($v['orderBelong'] == 2){
+                                                                                    echo Yii::$app->params['toeflUrl']."/toeflcourses/".$val['contentId'].".html";
+                                                                                }elseif($v['orderBelong'] == 3){
+                                                                                    echo Yii::$app->params['smartUrl']."/goods/".$val['contentId'].".html";
+                                                                                }elseif($v['orderBelong'] == 5){
+                                                                                    echo "/goods/".$val['contentId']."/".$val['type'].".html";
+                                                                                }
+                                                                            ?>"><?php echo $val['contentName']?></a></h4>
+                                                                    <span><a href="javascript:;"><?php echo $val['contentTag']?></a></span>
                                                                 </div>
                                                                 <div style="clear: both"></div>
                                                             </li>
@@ -328,13 +336,14 @@
 </html>
 <script type="text/javascript">
 
-    function CancelOrder(_id,_this){
-        $.post("/pay/api/cancel-order",{orderId:_id},function(re){
-            alert(re.message);
-            if(re.code == 1){
-                window.location.href="/order.html"
-            }
-        },'json')
+    function CancelOrder(_id,belong){
+        if(confirm("确定删除订单吗，删除后将无法恢复")){
+            $.post("/cn/api/cancel-order",{id:_id,belong:belong},function(re){
+                if(re.code == 1){
+                    location.reload();
+                }
+            },'json')
+        }
     }
     $(function(){
         /**
