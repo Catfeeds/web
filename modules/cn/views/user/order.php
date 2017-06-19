@@ -88,8 +88,17 @@
                                                     <li class="btnMartop">
                                                         <?php
                                                             if($v['order_status'] == 1) {
+                                                                $sign = \app\libs\Method::post(Yii::$app->params['gmatUrl'] . "/index.php?web/webapi/isLive", ['contentId' => $v['commodity_id']]);
+                                                                $sign = json_decode($sign,true);
                                                                 ?>
-                                                                <a href="<?php echo Yii::$app->params['gmatUrl']?>/liveclass/<?php echo $v['order_id']?>.html" class="orderD">进入教室</a>
+                                                                <?php
+                                                                    if($sign['code'] == 1) {
+                                                                        ?>
+                                                                        <a href="<?php echo Yii::$app->params['gmatUrl']?>/liveclass/<?php echo $v['order_id']?>.html"
+                                                                           class="orderD">进入教室</a>
+                                                                    <?php
+                                                                    }
+                                                                        ?>
                                                             <?php
                                                             }else {
                                                                 ?>
@@ -222,7 +231,24 @@
                                                                 <?php
                                                                 if($v['status']>2) {
                                                                     ?>
-                                                                    <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/index?contentId=<?php echo $val['contentId']?>" class="orderD">进入教室</a>
+                                                                <?php
+                                                                    if ($v['orderBelong'] == 2) {
+                                                                        $sign = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/is-live", ['contentId' => $val['contentId']]);
+                                                                    }
+                                                                    if ($v['orderBelong'] == 3) {
+                                                                        $sign = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/is-live", ['contentId' => $val['contentId']]);
+                                                                    }
+                                                                    if ($v['orderBelong'] == 5) {
+                                                                        $sign = \app\modules\cn\models\Goods::isSdk($val['contentId'], $val['type']);
+                                                                    }
+                                                                    $sign = json_decode($sign,true);
+                                                                if($sign['code'] == 1) {
+                                                                    ?>
+                                                                    <a href="<?php echo Yii::$app->params['orderUrl'] ?>/pay/video/index?contentId=<?php echo $val['contentId'] ?>"
+                                                                       class="orderD">进入教室</a>
+                                                                <?php
+                                                                }
+                                                                    ?>
                                                                 <?php
                                                                 }
                                                                 ?>

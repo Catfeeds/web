@@ -195,6 +195,15 @@ class Goods extends ActiveRecord
         return json_encode($data);
     }
 
+    public static function isSdk($goodsId,$type){
+        $data = Livesdkid::find()->asArray()->where("contentId=$goodsId and type=$type")->one();
+        if($data){
+            $data = ['code' => 1];
+        }else{
+            $data = ['code' => 0];
+        }
+        return json_encode($data);
+    }
     /**
      * @param $type
      * @return Book|Course|En|Smart|Vip
