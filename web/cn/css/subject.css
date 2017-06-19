@@ -155,7 +155,9 @@
     max-height: 60px;
     overflow: hidden;
 }
-
+.recommend_subject_name a{
+    color: #ffa800;
+}
 .recommend_quota {
     width: 86px;
     height: 89px;

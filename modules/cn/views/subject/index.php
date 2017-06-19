@@ -116,8 +116,16 @@
                 foreach($recommend as $v) {
                     ?>
                     <li>
-                        <div class="subject_img inm"><img src="http://class.viplgw.cn<?php echo $v['image']?>" alt=""></div>
-                        <p class="ellipsis-2 inm recommend_subject_name"><?php echo $v['name']?></p>
+                        <div class="subject_img inm">
+                            <a href="/goods/<?php echo $v['id']?>/1.html">
+                                <img src="http://class.viplgw.cn<?php echo $v['image']?>" alt=""/>
+                            </a>
+                        </div>
+                        <p class="ellipsis-2 inm recommend_subject_name">
+                            <a href="/goods/<?php echo $v['id']?>/1.html">
+                            <?php echo $v['name']?>
+                            </a>
+                        </p>
 
                         <div class="inm recommend_subject_data">
                             <p>时间：<?php echo isset($v['openingDate'])?$v['openingDate']:'滚动开课'?></p>
