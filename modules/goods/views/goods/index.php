@@ -15,6 +15,29 @@
             <a href="javascript:;" >商品管理</a>
         </li>
     </ul>
+    <form action="/goods/goods/index/" method="get" class="form-horizontal">
+        <table class="table">
+            <tr>
+                <td>
+                    分类：
+                </td>
+                <td>
+                    <select style="width: 400px" id="contentcatid" msg="您必须选择一个分类"
+                            url='/content/api/pid?type=<?php echo $_GET['type']?>'
+                            class="main autocombox input-medium easyui-combotree">
+                    </select><br/><br/>
+                    <input type="hidden" name="catId" value="<?php echo isset($_GET['catId'])?$_GET['catId']:''?>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="hidden" name="type" value="<?php echo $_GET['type']?>">
+                    <button class="btn btn-primary" type="submit">提交</button>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </form>
     <form action="/content/content/sort" method="post">
         <table class="table table-hover add_defined">
             <thead>
@@ -58,6 +81,17 @@
 </div>
 
 <script type="text/javascript">
+    <?php
+if(isset($_GET['catId'])){
+?>
+    $('.main').tree({
+        onLoadSuccess: function (newValue, oldValue) {
+            $('.main').combotree('setValue', <?php echo $_GET['catId']?>);
+        }
+    })
+    <?php
+    }
+    ?>
     function flowerUpdate(_status,_id){
         if(_status==2){
             alert("请先下架");
@@ -65,5 +99,11 @@
             location.href="/goods/goods/update?id="+_id;
         }
     }
+
+    $('.main').combotree({
+        onClick: function (node) {
+            $("input[name='catId']").val(node.id);
+        }
+    })
 </script>
 
