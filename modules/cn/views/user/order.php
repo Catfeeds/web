@@ -198,7 +198,15 @@
                                                         <ul>
                                                             <li>
                                                                 <div class="left-picture">
-                                                                    <a href="#">
+                                                                    <a href="<?php
+                                                                    if($v['orderBelong'] == 2){
+                                                                        echo Yii::$app->params['toeflUrl']."/toeflcourses/".$val['contentId'].".html";
+                                                                    }elseif($v['orderBelong'] == 3){
+                                                                        echo Yii::$app->params['smartUrl']."/goods/".$val['contentId'].".html";
+                                                                    }elseif($v['orderBelong'] == 5){
+                                                                        echo "/goods/".$val['contentId']."/".$val['type'].".html";
+                                                                    }
+                                                                    ?>">
                                                                         <img
                                                                             src="<?php
                                                                                 if($v['orderBelong'] == 2){
