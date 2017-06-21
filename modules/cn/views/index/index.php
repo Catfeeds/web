@@ -771,7 +771,7 @@
                         foreach($lgwBook as $v) {
                             ?>
                             <li>
-                                <a href="/goods/<?php echo $v['id']?>/4.html" target="_blank" title="<?php echo $v['name'] ?>"><img src="<?php echo isset($v['iamge'])?$v['iamge']:'/cn/images/books.png' ?>" alt=""></a>
+                                <a href="/goods/<?php echo $v['id']?>/4.html" target="_blank" title="<?php echo $v['name'] ?>"><img src="<?php echo isset($v['image'])?$v['image']:'/cn/images/books.png' ?>" alt=""></a>
                             </li>
                             <?php
                         }
