@@ -86,7 +86,7 @@ class Category extends ActiveRecord {
         }
         $cat = $this->arrToOne($cats);
         $where = " status=2 and catId in (".implode(",",$cat).")";
-        $data = Course::find()->asArray()->where($where)->orderBy('startTime desc')->limit(4)->all();
+        $data = Course::find()->asArray()->where($where)->orderBy('sort ASC')->limit(4)->all();
         return $data;
     }
 
