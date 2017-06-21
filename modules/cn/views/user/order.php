@@ -361,7 +361,7 @@
             var type = $('.orderHd').find('.on').attr('data-value');
             var page = $(this).html();
             location.href="/order/"+type+"/"+page+'.html';
-        })
+        });
 
         /**
          * 类型点击
