@@ -475,7 +475,11 @@
     font-size: 20px;
     margin-bottom: 5px;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    max-width: 200px;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    -webkit-line-clamp: 2;
     overflow: hidden;
 }
 
@@ -838,8 +842,12 @@
     font-size: 18px;
     color: #333333;
     display: block;
+    height: 36px;
     text-overflow: ellipsis;
-    white-space: nowrap;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    -webkit-line-clamp: 2;
     overflow: hidden;
     max-width: 240px;
     cursor: pointer;
