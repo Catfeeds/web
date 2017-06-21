@@ -807,7 +807,7 @@
                                     <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                     <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                 </div>
-                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">购买</a>
                             </div>
                         </div>
                     </div>
@@ -828,7 +828,7 @@
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                         </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">购买</a>
                                     </div>
                                 </div>
                                 <div class="vcImg"><img src="/cn/images/9cr_2.png" alt=""></div>
@@ -845,7 +845,7 @@
                                             <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                             <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                         </div>
-                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                        <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">购买</a>
                                     </div>
                                 </div>
                                 <div class="vcImg"><img src="/cn/images/9cr_3.png" alt=""></div>
@@ -868,7 +868,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">购买</a>
                                 </div>
                             </div>
                         </div>

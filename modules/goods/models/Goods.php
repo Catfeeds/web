@@ -24,7 +24,7 @@ class Goods extends ActiveRecord
             case 5: $table = 'vip';break;
         }
         $sql = "select f.*,n.name as catName from {{%$table}} f LEFT JOIN {{%category}} n ON n.id = f.catId  WHERE $where $order $limit";
-        $countSql = "select id from {{%$table}} WHERE $where";
+        $countSql = "select id from {{%$table}} f WHERE $where";
         $data = \Yii::$app->db->createCommand($sql)->queryAll();
         $count = \Yii::$app->db->createCommand($countSql)->queryAll();
         $pageStr = Method::getPagedRows(['count'=>count($count),'pageSize'=>$pageSize, 'rows'=>'models']);

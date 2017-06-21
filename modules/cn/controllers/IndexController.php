@@ -30,7 +30,7 @@ class IndexController extends ToeflController {
         $model = new Category();
         $category = $model->getNavigationCategory();
         $banner = Banner::find()->asArray()->all();
-        $hot = HotSell::find()->asArray()->orderBy("sort ASC")->limit(4)->all();
+        $hot = HotSell::find()->asArray()->orderBy("sort ASC")->limit(6)->all();
         $openClass = file_get_contents("http://smartapply.gmatonline.cn/cn/api/class");
         $openClass = json_decode($openClass,true);
         foreach($openClass as $k=>$v){

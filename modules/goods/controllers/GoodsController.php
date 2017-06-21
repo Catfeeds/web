@@ -49,7 +49,7 @@ class GoodsController extends AppControl {
         $endTime  = Yii::$app->request->get('endTime','');
         $id  = Yii::$app->request->get('id','');
         $goodsNumber  = Yii::$app->request->get('goodsNumber','');
-        $purpose  = Yii::$app->request->get('purpose','');//用途
+        $catId  = Yii::$app->request->get('catId','');//用途
         $flower  = Yii::$app->request->get('flower','');//花材
         $object  = Yii::$app->request->get('object','');//对象
         $flowerNum  = Yii::$app->request->get('flowerNum','');//支数
@@ -68,8 +68,11 @@ class GoodsController extends AppControl {
         if($flower){
             $where .= " AND f.flower = $flower";
         }
-        if($purpose){
-            $where .= " AND f.purpose = $purpose";
+        if($catId){
+            $categoryModel = new Category();
+            $str = $categoryModel->getChild($catId);
+            $str = implode(",",$str);
+            $where .= " AND f.catId in ($str)";
         }
         if($object){
             $where .= " AND f.object = $object";

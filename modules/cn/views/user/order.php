@@ -71,7 +71,7 @@
                                                             </a>
                                                         </div>
                                                         <div class="right-introduce">
-                                                            <h4><a href="#"><?php echo $v['title']?></a></h4>
+                                                            <h4><a href="<?php echo Yii::$app->params['gmatUrl'].$v['url']?>"><?php echo $v['title']?></a></h4>
                                                             <span><a href="#"></a></span>
                                                         </div>
                                                         <div style="clear: both"></div>
@@ -88,8 +88,17 @@
                                                     <li class="btnMartop">
                                                         <?php
                                                             if($v['order_status'] == 1) {
+                                                                $sign = \app\libs\Method::post(Yii::$app->params['gmatUrl'] . "/index.php?web/webapi/isLive", ['contentId' => $v['commodity_id']]);
+                                                                $sign = json_decode($sign,true);
                                                                 ?>
-                                                                <a href="<?php echo Yii::$app->params['gmatUrl']?>/liveclass/<?php echo $v['order_id']?>.html" class="orderD">进入教室</a>
+                                                                <?php
+                                                                    if($sign['code'] == 1) {
+                                                                        ?>
+                                                                        <a href="<?php echo Yii::$app->params['gmatUrl']?>/liveclass/<?php echo $v['order_id']?>.html"
+                                                                           class="orderD">进入教室</a>
+                                                                    <?php
+                                                                    }
+                                                                        ?>
                                                             <?php
                                                             }else {
                                                                 ?>
@@ -189,7 +198,15 @@
                                                         <ul>
                                                             <li>
                                                                 <div class="left-picture">
-                                                                    <a href="#">
+                                                                    <a href="<?php
+                                                                    if($v['orderBelong'] == 2){
+                                                                        echo Yii::$app->params['toeflUrl']."/toeflcourses/".$val['contentId'].".html";
+                                                                    }elseif($v['orderBelong'] == 3){
+                                                                        echo Yii::$app->params['smartUrl']."/goods/".$val['contentId'].".html";
+                                                                    }elseif($v['orderBelong'] == 5){
+                                                                        echo "/goods/".$val['contentId']."/".$val['type'].".html";
+                                                                    }
+                                                                    ?>">
                                                                         <img
                                                                             src="<?php
                                                                                 if($v['orderBelong'] == 2){
@@ -204,8 +221,16 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="right-introduce">
-                                                                    <h4><a href="#"><?php echo $val['contentName']?></a></h4>
-                                                                    <span><a href="#"><?php echo $val['contentTag']?></a></span>
+                                                                    <h4><a href="<?php
+                                                                                if($v['orderBelong'] == 2){
+                                                                                    echo Yii::$app->params['toeflUrl']."/toeflcourses/".$val['contentId'].".html";
+                                                                                }elseif($v['orderBelong'] == 3){
+                                                                                    echo Yii::$app->params['smartUrl']."/goods/".$val['contentId'].".html";
+                                                                                }elseif($v['orderBelong'] == 5){
+                                                                                    echo "/goods/".$val['contentId']."/".$val['type'].".html";
+                                                                                }
+                                                                            ?>"><?php echo $val['contentName']?></a></h4>
+                                                                    <span><a href="javascript:;"><?php echo $val['contentTag']?></a></span>
                                                                 </div>
                                                                 <div style="clear: both"></div>
                                                             </li>
@@ -222,7 +247,24 @@
                                                                 <?php
                                                                 if($v['status']>2) {
                                                                     ?>
-                                                                    <a href="<?php echo Yii::$app->params['orderUrl']?>/pay/video/index?contentId=<?php echo $val['contentId']?>" class="orderD">进入教室</a>
+                                                                <?php
+                                                                    if ($v['orderBelong'] == 2) {
+                                                                        $sign = \app\libs\Method::post(Yii::$app->params['toeflUrl'] . "/cn/api/is-live", ['contentId' => $val['contentId']]);
+                                                                    }
+                                                                    if ($v['orderBelong'] == 3) {
+                                                                        $sign = \app\libs\Method::post(Yii::$app->params['smartUrl'] . "/cn/api/is-live", ['contentId' => $val['contentId']]);
+                                                                    }
+                                                                    if ($v['orderBelong'] == 5) {
+                                                                        $sign = \app\modules\cn\models\Goods::isSdk($val['contentId'], $val['type']);
+                                                                    }
+                                                                    $sign = json_decode($sign,true);
+                                                                if($sign['code'] == 1) {
+                                                                    ?>
+                                                                    <a href="<?php echo Yii::$app->params['orderUrl'] ?>/pay/video/index?contentId=<?php echo $val['contentId'] ?>"
+                                                                       class="orderD">进入教室</a>
+                                                                <?php
+                                                                }
+                                                                    ?>
                                                                 <?php
                                                                 }
                                                                 ?>
@@ -302,13 +344,14 @@
 </html>
 <script type="text/javascript">
 
-    function CancelOrder(_id,_this){
-        $.post("/pay/api/cancel-order",{orderId:_id},function(re){
-            alert(re.message);
-            if(re.code == 1){
-                window.location.href="/order.html"
-            }
-        },'json')
+    function CancelOrder(_id,belong){
+        if(confirm("确定删除订单吗，删除后将无法恢复")){
+            $.post("/cn/api/cancel-order",{id:_id,belong:belong},function(re){
+                if(re.code == 1){
+                    location.reload();
+                }
+            },'json')
+        }
     }
     $(function(){
         /**
