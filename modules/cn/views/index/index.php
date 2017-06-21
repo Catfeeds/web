@@ -236,7 +236,7 @@
                                 </div>
                             </div>
                             <div class="live_time2 ani">
-                                时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                                时间：<?php echo $v['openingDate']; ?></div>
                             <div class="cr1_img"><img src="/cn/images/1cr_1.png" alt=""></div>
                             <div class="live_course_info">
                                 <div class="live_course_name_wrap">
@@ -272,7 +272,7 @@
                                 </div>
                             </div>
                             <div class="live_time2 ani">
-                                时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                                时间：<?php echo $v['openingDate']; ?></div>
                             <div class="cr1_img"><img src="/cn/images/1cr_2.png" alt=""></div>
                             <div class="live_course_info">
                                 <div class="live_course_name_wrap">
@@ -308,7 +308,7 @@
                                 </div>
                             </div>
                             <div class="live_time2 ani">
-                                时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                                时间：<?php echo $v['openingDate']; ?></div>
                             <div class="live_course_info">
                                 <div class="live_course_name_wrap">
                                     <p class="live_course_name"><?php echo $v['name'] ?></p>
@@ -343,7 +343,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="live_time2 ani">时间：<?php echo date('Y-m-d', strtotime($v['startTime'])); ?></div>
+                            <div class="live_time2 ani">时间：<?php echo $v['openingDate']; ?></div>
                             <div class="cr1_img"><img src="/cn/images/1cr_4.png" alt=""></div>
                             <div class="live_course_info">
                                 <div class="live_course_name_wrap">
