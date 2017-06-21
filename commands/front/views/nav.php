@@ -75,7 +75,7 @@
                 </div>
                 <div class="int sint_el">
                     <div class="erm_k"><img src="/cn/images/erm_2.png" alt=""></div>
-                    <p class="erm_de">雷哥托福公众号</p>
+                    <p class="erm_de">雷哥留学公众号</p>
                 </div>
             </div>
         </div>
