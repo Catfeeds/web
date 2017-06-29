@@ -139,6 +139,7 @@ class uc_note {
         $email = $get['email'];
         $phone = $get['phone'];
         $username = $get['username'];
+        $nickname = $get['nickname'];
         $password = $get['password'];
         if(!API_SYNLOGIN) {
             return API_RETURN_FORBIDDEN;
@@ -149,15 +150,15 @@ class uc_note {
         $u = $this->dbLink->fetch_first($sql);
         if (!$u) {
             $time = time();
-            $sql = "INSERT INTO x2_user (`username`,`email`,`password`,`phone`,`createTime`,`uid`,`roleId`) VALUES ('{$username}','{$email}','".md5($password)."','{$phone}','{$time}','{$uid}',4)";
+            $sql = "INSERT INTO x2_user (`username`,`nickname`,`email`,`password`,`phone`,`createTime`,`uid`,`roleId`) VALUES ('{$username}','{$nickname}','{$email}','".md5($password)."','{$phone}','{$time}','{$uid}',4)";
             $this->dbLink->query($sql);
             $userId = $this->dbLink->insert_id();
             $data = array(
                 'username' => $username,
+                'nickname' => $nickname,
                 'email' => $email,
                 'phone' => $phone,
                 'image' => '',
-                'nickname' => '',
                 'id' => $userId,
                 'roleId' => 4
             );
@@ -172,6 +173,10 @@ class uc_note {
             }
             if($username != $u['username']){
                 $sql = "UPDATE x2_user SET username = '$username' WHERE uid = $uid";
+                $this->dbLink->query($sql);
+            }
+            if($nickname != $u['nickname']){
+                $sql = "UPDATE x2_user SET nickname = '$nickname' WHERE uid = $uid";
                 $this->dbLink->query($sql);
             }
 

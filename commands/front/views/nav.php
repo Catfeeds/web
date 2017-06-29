@@ -6,10 +6,10 @@
             <li>
                 <a href="/">雷哥网网校<img src="/cn/images/crow_1.png" style="margin-left: 7px" alt=""></a>
                 <dl class="nav2_list">
-                    <dt><a href="http://smartapply.gmatonline.cn/" target="_blank">雷哥网留学</a></dt>
+                    <dt><a href="http://www.smartapply.cn/" target="_blank">雷哥网留学</a></dt>
                     <dt><a href="http://www.gmatonline.cn/index.html" target="_blank">雷哥网GMAT</a></dt>
                     <dt><a href="http://www.toeflonline.cn/" target="_blank">雷哥网托福</a></dt>
-                    <dt><a href="http://ielts.gmatonline.cn/" target="_blank">雷哥网雅思</a></dt>
+                    <dt><a href="http://ielts.viplgw.cn/" target="_blank">雷哥网雅思</a></dt>
                 </dl>
             </li>
             <li><a href="/">首页</a></li>
@@ -75,7 +75,7 @@
                 </div>
                 <div class="int sint_el">
                     <div class="erm_k"><img src="/cn/images/erm_2.png" alt=""></div>
-                    <p class="erm_de">雷哥托福公众号</p>
+                    <p class="erm_de">雷哥留学公众号</p>
                 </div>
             </div>
         </div>
