@@ -173,7 +173,7 @@
                             ?>
                             <li>
                                 <div class="live_time ani">时间：<?php echo date('Y-m-d', $v['cnName']) ?></div>
-                                <p class="help_live_tit"><a class="ellipsis" target="_blank" href="http://www.smartapply.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
+                                <p class="help_live_tit"><a class="ellipsis" target="_blank" href="http://open.viplgw.cn/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
                                 <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
                                 <div class="tm">
                                     <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://www.smartapply.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
@@ -184,11 +184,11 @@
                                         <?php
                                         if ($v['duration']) {
                                             ?>
-                                            <a class="inm playback_btn" target="_blank" href="http://www.smartapply.cn/public-class/back/<?php echo $v['id'] ?>.html">观看回放</a>
+                                            <a class="inm playback_btn" target="_blank" href="http://open.viplgw.cn/back/<?php echo $v['id'] ?>.html">观看回放</a>
                                             <?php
                                         } else {
                                             ?>
-                                            <a class="inm playback_btn" target="_blank" href="http://www.smartapply.cn/public-class/<?php echo $v['id'] ?>.html">详情</a>
+                                            <a class="inm playback_btn" target="_blank" href="http://open.viplgw.cn/<?php echo $v['id'] ?>.html">详情</a>
                                             <?php
                                         }
                                         ?>
