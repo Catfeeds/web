@@ -42,7 +42,7 @@
             <div class="yesLogin fr">
                 <a href="/order.html">
                 <div class="common_user_head inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
-                <span class="header_username inm"><?php echo $userData['username']?></span>
+                <span class="header_username inm"><?php echo $userData['nickname']?></span>
                 </a>
             </div>
             <?php

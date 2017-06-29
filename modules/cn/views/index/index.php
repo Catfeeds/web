@@ -102,7 +102,7 @@
                         ?>
                         <div>
                             <div class="user_head2 inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
-                            <div class="inm welcome_hint">Hi，<span class="username_r"><?php echo $userData['username'] ?></span><br>欢迎来到雷哥网！</div>
+                            <div class="inm welcome_hint">Hi，<span class="username_r"><?php echo $userData['nickname'] ?></span><br>欢迎来到雷哥网！</div>
                         </div>
                         <?php
                     } else {
