@@ -39,11 +39,22 @@
         } else {
             ?>
             <!--已登录-->
-            <div class="yesLogin fr" style="margin-right: 85px;">
+            <div class="yesLogin fr">
                 <a href="/order.html">
                 <div class="common_user_head inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
                 <span class="header_username inm"><?php echo $userData['nickname']?></span>
                 </a>
+                <!--下拉-->
+                <div class="xiala-con">
+                    <ul>
+                        <li><a href="/smart_order.html">留学订单</a></li>
+                        <li><a href="/gmat_order.html">gmat订单</a></li>
+                        <li class="on"><a href="/toefl_order.html">托福订单</a></li>
+                        <li><a href="/class_order.html">网校订单</a></li>
+                        <li><a href="/integral.html">我的雷豆</a></li>
+                        <li><a href="/cart.html">我的购物车</a></li>
+                    </ul>
+                </div>
             </div>
             <?php
         }
