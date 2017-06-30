@@ -141,6 +141,12 @@ $config = [
 
                 'order/<status:\d+>/<page:\d+>.html' => 'cn/user/order',
 
+                'vip.html' => 'cn/vip/vip',
+
+                'studyGroup.html' => 'cn/study-group/study-group',
+
+                'studyTool.html' => 'cn/study-tool/study-tool',
+
             ],
 
 

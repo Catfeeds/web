@@ -13,9 +13,9 @@
                 </dl>
             </li>
             <li><a href="/">首页</a></li>
-            <li><a href="#">学习工具</a></li>
-            <li><a href="#">会员</a></li>
-            <li><a href="#">学习小组</a></li>
+            <li><a href="/studyTool.html">学习工具</a></li>
+            <li><a href="/vip.html">会员</a></li>
+            <li><a href="/studyGroup.html">学习小组</a></li>
             <li><a href="http://open.viplgw.cn" target="_blank">活动</a></li>
             <li><a href="http://bbs.viplgw.cn/" target="_blank">八卦社区</a></li>
             <li class="shop_car">

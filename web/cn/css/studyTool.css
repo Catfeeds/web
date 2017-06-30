@@ -1,0 +1,245 @@
+.study-tool{
+    width: 100%;
+    background-color: #4d9dff;
+    padding: 60px 0 0 0;
+}
+.stu-t-bg{
+    width: 100%;
+    background: url("../images/tool02-bg01.png") no-repeat center bottom;
+    padding-bottom: 60px;
+}
+.study-tool .com-auto{
+    width: 1071px;
+}
+.study-tool h4{
+    text-align: center;
+    color: white;
+    font-weight: normal;
+    font-size: 25px;
+    margin-bottom: 40px;
+}
+.study-tool ul:after{
+    content: '';
+    height: 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+.study-tool ul li{
+    width: 218px;
+    float: left;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 60px;
+}
+.study-tool ul li:nth-child(4n){
+    margin-right:0;
+}
+.tool-box{
+    width: 114px;
+    height: 101px;
+    margin: 0 auto;
+    background: url("../images/tool02-iconBG.png") no-repeat;
+}
+.tool-box a{
+    width: 100%;
+    height: 100%;
+    display: table;
+}
+.tool-box p{
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center!important;
+}
+.tool-box p img{
+    height: 48px;
+}
+.study-tool ul li h5{
+    font-weight: normal;
+    font-size: 16.5px;
+    color: white;
+    margin: 8px 0;
+}
+.study-tool ul li h5 a{
+    color: white;
+}
+.study-tool ul li>p {
+    width: 158px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: white;
+    text-align: left;
+}
+.s-tool-left{
+    width: 453px;
+    height: 430px;
+    float: left;
+    border: 1px white solid;
+    border-radius: 5px;
+    padding: 30px 30px 0 30px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    text-align: center;
+    margin-top: 30px;
+}
+.s-tool-left p{
+    line-height: 30px;
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    margin-bottom: 30px;
+}
+.s-tool-left h5{
+    color: white;
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: normal;
+}
+.s-tool-right{
+    float: left;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.study-app{
+    width: 100%;
+    padding: 50px 0;
+    background: url("../images/tool02-bg02.png") no-repeat center 60px;
+}
+.in-app{
+    width: 898px;
+    margin: 0 auto;
+}
+.in-app-left{
+    float: left;
+    text-align: center;
+    margin-top: 30px;
+}
+.ewm-group ul:after{
+    content: '';
+    height: 0;
+    display: block;
+    overflow: hidden;
+    clear: both;
+}
+.ewm-group ul{
+    margin-top: 30px;
+}
+.ewm-group ul li{
+    text-align: center;
+    color: #5b5b5b;
+    float: left;
+}
+.ewm-group ul li p{
+    margin-top:8px;
+}
+.ewm-group ul li:first-child{
+    margin-right:80px;
+}
+.ewm-group.last ul{
+    margin-top: 50px;
+}
+.ewm-group.last ul li{
+    color: white;
+    font-size: 18px;
+}
+.ewm-group.last ul li:first-child{
+    margin-right:50px;
+}
+.ewm-group.last ul li p{
+    margin-top:15px;
+}
+.in-app-right{
+    float: left;
+    margin-left: 200px;
+}
+.in-app-right h4{
+    font-weight: normal;
+    font-size: 25px;
+}
+.in-app-right p{
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.in-app-right ul li{
+    margin-bottom: 10px;
+}
+.in-a-r-left{
+    width: 147px;
+    height: 130px;
+    float: left;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    background: url("../images/tool02-appBG.png") no-repeat;
+    padding-top: 25px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.in-a-r-right{
+    float: left;
+    margin-left: 30px;
+    font-size: 20px;
+    line-height: 30px;
+    margin-top: 15px;
+}
+.study-toefl{
+    width:100%;
+    background-color: #6eb1d6;
+    padding-top: 50px;
+}
+.in-toefl{
+   width: 1050px;
+    margin: 0 auto;
+}
+.study-toefl h4.title{
+    text-align: center;
+    color: #2577c7;
+    font-weight: normal;
+    font-size: 25px;
+}
+.study-toefl p.title-p{
+    text-align: center;
+    color: #2577c7;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+.s-t-left{
+    float: left;
+}
+.con-l-ul ul li{
+    margin-bottom: 30px;
+}
+.con-l-ul ul li .c-l-left{
+    width: 107px;
+    height: 95px;
+    float: left;
+    text-align: center;
+    background: url("../images/tool02-greyBG.png") no-repeat;
+    display: table;
+}
+.con-l-ul ul li .c-l-left p{
+    display: table-cell;
+    vertical-align: middle;
+}
+.con-l-ul ul li .c-l-right{
+    float: left;
+    color: white;
+    margin-left:20px;
+}
+.con-l-ul ul li .c-l-right h4{
+    font-size: 19px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.s-t-center{
+    float: left;
+    margin-left: 20px;
+}
+.s-t-right{
+    float: left;
+    margin-left: 40px;
+}
