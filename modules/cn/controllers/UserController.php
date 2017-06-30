@@ -28,38 +28,80 @@ class UserController extends ToeflController {
      * @return string
      * @Obelisk
      */
-    public function actionOrder(){
+    public function actionGmatOrder(){
         $uid = Yii::$app->session->get('uid');
         $page = Yii::$app->request->get('page',1);
         $status = Yii::$app->request->get('status','');
         if($status == 3){
             $status = '';
         }
-
         if(!$uid){
             die('<script>alert("请登录");history.go(-1);</script>');
         }
         $data = Method::post(Yii::$app->params['gmatUrl']."/index.php?web/webapi/classOrder",['uid' => $uid,'status' => $status,'pageSize' => 10,'page' => $page]);
         $data = json_decode($data,true);
-        $count1 = $data['count'];
+        $count = $data['count'];
         $data = $data['data'];
-        $number = $page*10;
-        $limit = $number-$count1;
-        $p = $limit/10;
-        $l = $limit%10;
-        if($limit<10){
-            $limit = 0;
-        }else{
-            $limit = $l+($p-1)*10;
-        }
-        $order = Method::post("http://order.gmatonline.cn/pay/api/class-order",['uid' => $uid,'status' => $status,'limit' => $limit]);
-        $order = json_decode($order,true);
-        $count2 = $order['count'];
-        $order = $order['data'];
-        $count = $count1+$count2;
         $pageModel = new Pager($count,$page,10);
         $pageStr = $pageModel->GetPagerContent();
-        return $this->renderPartial("order",['data' => $data,'order' => $order,'pageStr' =>$pageStr]);
+        return $this->renderPartial("gmatOrder",['data' => $data,'pageStr' =>$pageStr]);
+    }
+
+    public function actionSmartOrder(){
+        $uid = Yii::$app->session->get('uid');
+        $page = Yii::$app->request->get('page',1);
+        $status = Yii::$app->request->get('status','');
+        if($status == 3){
+            $status = '';
+        }
+        if(!$uid){
+            die('<script>alert("请登录");history.go(-1);</script>');
+        }
+        $order = Method::post("http://order.gmatonline.cn/pay/api/class-order",['belong' => 3,'uid' => $uid,'status' => $status,'page' => $page]);
+        $order = json_decode($order,true);
+        $count = $order['count'];
+        $order = $order['data'];
+        $pageModel = new Pager($count,$page,10);
+        $pageStr = $pageModel->GetPagerContent();
+        return $this->renderPartial("smartOrder",['order' => $order,'pageStr' =>$pageStr]);
+    }
+
+    public function actionToeflOrder(){
+        $uid = Yii::$app->session->get('uid');
+        $page = Yii::$app->request->get('page',1);
+        $status = Yii::$app->request->get('status','');
+        if($status == 3){
+            $status = '';
+        }
+        if(!$uid){
+            die('<script>alert("请登录");history.go(-1);</script>');
+        }
+        $order = Method::post("http://order.gmatonline.cn/pay/api/class-order",['belong' => 2,'uid' => $uid,'status' => $status,'page' => $page]);
+        $order = json_decode($order,true);
+        $count = $order['count'];
+        $order = $order['data'];
+        $pageModel = new Pager($count,$page,10);
+        $pageStr = $pageModel->GetPagerContent();
+        return $this->renderPartial("toeflOrder",['order' => $order,'pageStr' =>$pageStr]);
+    }
+
+    public function actionClassOrder(){
+        $uid = Yii::$app->session->get('uid');
+        $page = Yii::$app->request->get('page',1);
+        $status = Yii::$app->request->get('status','');
+        if($status == 3){
+            $status = '';
+        }
+        if(!$uid){
+            die('<script>alert("请登录");history.go(-1);</script>');
+        }
+        $order = Method::post("http://order.gmatonline.cn/pay/api/class-order",['belong' => 5,'uid' => $uid,'status' => $status,'page' => $page]);
+        $order = json_decode($order,true);
+        $count = $order['count'];
+        $order = $order['data'];
+        $pageModel = new Pager($count,$page,10);
+        $pageStr = $pageModel->GetPagerContent();
+        return $this->renderPartial("classOrder",['classOrder' => $order,'pageStr' =>$pageStr]);
     }
 
     /**

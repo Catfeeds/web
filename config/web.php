@@ -131,16 +131,27 @@ $config = [
 
                 'cart.html' => 'cn/cart/index',
 
-                'order.html' => 'cn/user/order',
-
                 'integral.html' => 'cn/lei-dou/index', //雷豆
 
                 'integral/<type:\d+>/<page:\d+>.html' => 'cn/lei-dou/index', //雷豆
 
                 'use.html' => 'cn/lei-dou/use',
 
-                'order/<status:\d+>/<page:\d+>.html' => 'cn/user/order',
+                'gmat_order.html' => 'cn/user/gmat-order',
 
+                'gmat_order/<status:\d+>/<page:\d+>.html' => 'cn/user/gmat-order',
+
+                'smart_order.html' => 'cn/user/smart-order',
+
+                'smart_order/<status:\d+>/<page:\d+>.html' => 'cn/user/smart-order',
+
+                'toefl_order.html' => 'cn/user/toefl-order',
+
+                'toefl_order/<status:\d+>/<page:\d+>.html' => 'cn/user/toefl-order',
+
+                'class_order.html' => 'cn/user/class-order',
+
+                'class_order/<status:\d+>/<page:\d+>.html' => 'cn/user/class-order',
             ],
 
 

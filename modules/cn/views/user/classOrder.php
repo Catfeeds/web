@@ -24,7 +24,10 @@
 <div class="orderContent">
     <div class="order-left">
         <ul>
-            <li class="on"><a href="/order.html">我的订单</a></li>
+            <li><a href="/smart_order.html">留学订单</a></li>
+            <li><a href="/gmat_order.html">gmat订单</a></li>
+            <li><a href="/toefl_order.html">托福订单</a></li>
+            <li class="on"><a href="/class_order.html">网校订单</a></li>
             <li><a href="/integral.html">我的雷豆</a></li>
             <li><a href="/cart.html">我的购物车</a></li>
         </ul>
@@ -360,7 +363,7 @@
         $(".iPage").on("click",function(){
             var type = $('.orderHd').find('.on').attr('data-value');
             var page = $(this).html();
-            location.href="/order/"+type+"/"+page+'.html';
+            location.href="/class_order/"+type+"/"+page+'.html';
         });
 
         /**
@@ -370,7 +373,7 @@
             $(this).siblings().removeClass('on');
             $(this).addClass('on');
             var type = $('.orderHd').find('.on').attr('data-value');
-            location.href="/order/"+type+"/1.html";
+            location.href="/class_order/"+type+"/1.html";
         })
     })
 </script>
