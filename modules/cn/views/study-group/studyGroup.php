@@ -186,58 +186,26 @@
                 <img src="/cn/images/tool-titleicon.png" alt="图标"/>
                 <b>热门留学服务/</b>
                 <span>98%的学员通过我们专业申请服务在1-3月内拿到3+封女神院offer</span>
-                <a href="#">more&gt;</a>
+                <a href="http://www.smartapply.cn/study-abroad/category-152/aim-0/country-0/page-1.html">more&gt;</a>
             </div>
             <div class="hot-service">
                 <ul>
-                    <li>
-                        <div class="img-thumb">
-                            <a href="#">
-                                <img src="/cn/images/tool-hotimg.png" alt="图片"/>
-                            </a>
-                        </div>
-                       <div class="bot-info">
-                           <p class="ellipsis"><a href="#">美国综排Top30名校留...</a></p>
-                           <p class="price">￥58800  <span>￥60000</span></p>
-                           <a href="#" class="btn">查看详情</a>
-                       </div>
-                    </li>
-                    <li>
-                        <div class="img-thumb">
-                            <a href="#">
-                                <img src="/cn/images/tool-hotimg.png" alt="图片"/>
-                            </a>
-                        </div>
-                        <div class="bot-info">
-                            <p class="ellipsis"><a href="#">美国综排Top30名校留...</a></p>
-                            <p class="price">￥58800  <span>￥60000</span></p>
-                            <a href="#" class="btn">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img-thumb">
-                            <a href="#">
-                                <img src="/cn/images/tool-hotimg.png" alt="图片"/>
-                            </a>
-                        </div>
-                        <div class="bot-info">
-                            <p class="ellipsis"><a href="#">美国综排Top30名校留...</a></p>
-                            <p class="price">￥58800  <span>￥60000</span></p>
-                            <a href="#" class="btn">查看详情</a>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="img-thumb">
-                            <a href="#">
-                                <img src="/cn/images/tool-hotimg.png" alt="图片"/>
-                            </a>
-                        </div>
-                        <div class="bot-info">
-                            <p class="ellipsis"><a href="#">美国综排Top30名校留...</a></p>
-                            <p class="price">￥58800  <span>￥60000</span></p>
-                            <a href="#" class="btn">查看详情</a>
-                        </div>
-                    </li>
+                    <?php foreach($service as $v) { ?>
+                        <li>
+                            <div class="img-thumb">
+                                <a href="http://www.smartapply.cn/goods/<?php echo $v['id'] ?>.html">
+                                    <img src="http://www.smartapply.cn/<?php echo $v['image'] ?>" alt="图片"/>
+                                </a>
+                            </div>
+                            <div class="bot-info">
+                                <p class="ellipsis"><a href="http://www.smartapply.cn/goods/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
+                                <p class="price">￥<?php echo $v['price'] ?> <span>￥<?php echo $v['originalPrice'] ?></span></p>
+                                <a href="http://www.smartapply.cn/goods/<?php echo $v['id'] ?>.html" class="btn">查看详情</a>
+                            </div>
+                        </li>
+                        <?php
+                    }
+                    ?>
                 </ul>
             </div>
             <div class="abroad-title">
@@ -250,7 +218,7 @@
                 <div class="hot-c-bd">
                     <ul>
                         <li>
-                            <a href="#">
+                            <a href="http://www.gmatonline.cn/index.html">
                                 <div class="out-box">
                                     <img src="/cn/images/tool-hot01.png" alt="图片"/>
                                     <div class="bot-mask">
@@ -260,7 +228,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="http://www.toeflonline.cn/">
                                 <div class="out-box">
                                     <img src="/cn/images/tool-hot02.png" alt="图片"/>
                                     <div class="bot-mask">

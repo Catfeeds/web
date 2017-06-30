@@ -24,6 +24,8 @@ class StudyGroupController extends ToeflController {
      * @Obelisk
      */
     public function actionStudyGroup(){
-        return $this->renderPartial("studyGroup");
+        $service = file_get_contents("http://www.smartapply.cn/cn/api/service");
+        $service = json_decode($service,true);
+        return $this->renderPartial("studyGroup",['service'=>$service]);
     }
 }
