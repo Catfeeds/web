@@ -13,10 +13,10 @@
                 </dl>
             </li>
             <li><a href="/">首页</a></li>
-            <li><a href="#">学习工具</a></li>
-            <li><a href="#">会员</a></li>
-            <li><a href="#">学习小组</a></li>
-            <li><a href="#">活动</a></li>
+            <li><a href="/studyTool.html">学习工具</a></li>
+            <li><a href="/vip.html">会员</a></li>
+            <li><a href="/studyGroup.html">学习小组</a></li>
+            <li><a href="http://open.viplgw.cn" target="_blank">活动</a></li>
             <li><a href="http://bbs.viplgw.cn/" target="_blank">八卦社区</a></li>
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
@@ -42,8 +42,19 @@
             <div class="yesLogin fr">
                 <a href="/order.html">
                 <div class="common_user_head inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
-                <span class="header_username inm"><?php echo $userData['username']?></span>
+                <span class="header_username inm"><?php echo $userData['nickname']?></span>
                 </a>
+                <!--下拉-->
+                <div class="xiala-con">
+                    <ul>
+                        <li><a href="/smart_order.html">留学订单</a></li>
+                        <li><a href="/gmat_order.html">gmat订单</a></li>
+                        <li class="on"><a href="/toefl_order.html">托福订单</a></li>
+                        <li><a href="/class_order.html">网校订单</a></li>
+                        <li><a href="/integral.html">我的雷豆</a></li>
+                        <li><a href="/cart.html">我的购物车</a></li>
+                    </ul>
+                </div>
             </div>
             <?php
         }

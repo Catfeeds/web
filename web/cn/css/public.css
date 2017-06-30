@@ -25,4 +25,19 @@ a{
 input[type='button']{
     font-family: '微软雅黑';
 }
-
+.clearB{
+    clear: both;
+}
+.ellipsis {text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.ellipsis-2{
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+}
+.com-auto{
+    width: 1200px;
+    margin: 0 auto;
+}

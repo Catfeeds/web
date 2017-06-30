@@ -124,7 +124,7 @@
                             <li>
                                 <div class="user_head inm"><img src="/cn/images/user_head.png" alt=""></div>
                                 <div class="reply_data_wrap inm">
-                                    <p class="nick_name"><?php echo $v['username'] ?></p>
+                                    <p class="nick_name"><?php echo $v['nickname'] ?></p>
                                     <p class="reply_time"><?php echo date('Y-m-d',$v['createTime']) ?></p>
                                     <p class="reply_text"><?php echo $v['value'] ?></p>
                                 </div>

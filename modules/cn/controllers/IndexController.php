@@ -39,8 +39,8 @@ class IndexController extends ToeflController {
         }
         array_multisort($res,$openClass);
         $title = '雷哥网网校_出国留学考试在线课程中心_海量优质网络课程！';
-        $keywords = '雷哥网、雷哥培训、GMAT网课、GMAT培训、托福网课、托福培训、雅思培训、雅思网课、美国留学、英国留学、留学申请';
-        $description = '雷哥网开设留学在线课程、留学申请服务、GMAT在线课程、托福雅思在线课程，网络课程随时随地上课，更高效！';
+        $keywords = '网校,雷哥网校,雷哥网校首页,雷哥,网络课程,在线学习,在线学习平台,网络课程在线学习，出国留学考试，留学考试在线学习';
+        $description = '雷哥网校采取互联网一站式智能学习模式，雷哥网校开设GMAT、托福、雅思等网校课程，用户可自主在网校自行购买课程学习。通过雷哥网校在线学习，高效高速出分，快人一步申请心仪offer，走入理想校园。';
         return $this->renderPartial('index', [
             'title'=>$title,
             'keywords'=>$keywords,
