@@ -16,7 +16,7 @@
             <li><a href="#">学习工具</a></li>
             <li><a href="#">会员</a></li>
             <li><a href="#">学习小组</a></li>
-            <li><a href="#">活动</a></li>
+            <li><a href="http://open.viplgw.cn" target="_blank">活动</a></li>
             <li><a href="http://bbs.viplgw.cn/" target="_blank">八卦社区</a></li>
             <li class="shop_car">
                 <div class="shoppingIcon inm relative">
@@ -39,7 +39,7 @@
         } else {
             ?>
             <!--已登录-->
-            <div class="yesLogin fr">
+            <div class="yesLogin fr" style="margin-right: 85px;">
                 <a href="/order.html">
                 <div class="common_user_head inm"><img src="<?php echo $userData['image']?$userData['image']:'/cn/images/details_defaultImg.png'?>" alt=""></div>
                 <span class="header_username inm"><?php echo $userData['nickname']?></span>
