@@ -127,8 +127,10 @@
 }
 /*已登录*/
 .yesLogin{
+    width: 200px;
     margin-top: 20px;
     height: 45px;
+    position: relative;
 }
 .common_user_head{
     width: 45px;
@@ -158,6 +160,39 @@
     display: inline-block;
     vertical-align: middle;
     max-width: 50px;
+}
+.yesLogin:hover .xiala-con{
+    display: block;
+}
+.xiala-con{
+    width: 100%;
+    border: 1px #c1c1c1 solid;
+    position: absolute;
+    left: 0;
+    top: 42px;
+    z-index: 1100;
+    background: white;
+    display: none;
+}
+.xiala-con ul li{
+    width: 100%;
+    border-bottom: 1px #c1c1c1 solid;
+}
+.xiala-con ul li a{
+    width: 100%;
+    display: block;
+    padding: 10px 0 10px 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+.xiala-con ul li:last-child{
+    border-bottom: none;
+}
+
+.xiala-con ul li:hover a{
+    background: #ffeddb;
+    color: #f59f44;
 }
 
 /*搜索栏*/
