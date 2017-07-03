@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="copyRight tm">
-        ©2016 gmatonline.cn All Rights Reserved    京ICP备15001182号-1 京公网安备11010802017681
+        ©2017 viplgw.cn All Rights Reserved    京ICP备15001182号-1 京公网安备11010802017681
         <a href="http://www.gmatonline.cn/aboutUs/16.html#free_shengm">免责声明</a>
     </div>
 </footer>

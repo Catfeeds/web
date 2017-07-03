@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学习小组</title>
+    <title>雷哥网学习社群，分享学习资讯与方法！</title>
+    <meta name="keywords" content="雷哥网，GMAT考试，GMAT培训，GMAT网课、SAT培训、SAT课程、托福培训，托福考试，雅思考试，雅思培训，留学中介，美国留学，英国留学，留学文书，雷哥培训。">
+    <meta name="description" content="雷哥网，成立于2012年，提供大数据驱动下的国际教育O＋O服务。雷哥网通过PC、WAP和APP等互联网平台和工具，搭建在线题库、模考库和知识库等，分析研究用户的做题数据和学习轨迹，以人工智能为用户提供精准的留学英语备考服务。通过院校库、
+    案例库和录取条件库等建立选校模型，为客户的留学申请精准定位，提供个性化留学选校与申请服务，并以雷哥网学习中心提供留学与出国英语辅导线下服务，二者相辅相成。">
     <link rel="stylesheet" href="/cn/css/reset.css">
     <link rel="stylesheet" href="/cn/css/common.css">
     <link rel="stylesheet" href="/cn/css/public.css"/>
@@ -212,7 +215,7 @@
                 <img src="/cn/images/tool-titleicon02.png" alt="图标"/>
                 <b>热门课程/</b>
                 <span>98%的学员通过我们专业申请服务在1-3月内拿到3+封女神院offer</span>
-                <a href="#">more&gt;</a>
+<!--                <a href="#">more&gt;</a>-->
             </div>
             <div class="hot-course">
                 <div class="hot-c-bd">
