@@ -199,7 +199,7 @@
                      </div>
                      <div class="in-a-r-right">
                          <span>离线做题  <br>
-                        语音照片
+                        拍照搜题  语音搜题
                          <br>搜题更快捷</span>
                      </div>
                      <div class="clearB"></div>
