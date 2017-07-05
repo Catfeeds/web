@@ -134,15 +134,15 @@
         <div class="lsj-left">
             <img src="/cn/images/tool-qiuqiu.png" alt="背景球球图标" class="qiu"/>
 
-            <p>4-2017雷哥网GMAT杀G群</p>
-            <p>雷哥GMAT高分课程活动群</p>
+            <p>2017雷哥SAT备考群</p>
+            <p> 词汇打卡群、长难句训练营</p>
             <div class="ll-left">
-                添加小7君微信： <br>
-                gmatonline-lindy <br>
-                备注“入群”
+                添加小T君微信：
+                <br>sat0704
+                <br>备注：入群
             </div>
             <div class="ll-right">
-                <img src="/cn/images/tool-ewm01.png" alt="二维码"/>
+                <img src="/cn/images/tool-ewm01.png" alt="二维码" width="128"/>
             </div>
             <div class="clearB"></div>
         </div>
