@@ -4,7 +4,7 @@
             <li><a href="javascript:void(0);">课程类型</a></li>
             <li><a href="http://www.gmatonline.cn/index.html">GMAT</a></li>
             <li><a href="http://www.toeflonline.cn/">TOEFL</a></li>
-            <li><a href="http://ielts.viplgw.cn/">IELTS</a></li>
+            <li><a href="http://sat.thinkuedu.com/">SAT</a></li>
             <li><a href="http://www.smartapply.cn/">留学</a></li>
         </ul>
         <ul class="footer-list">
@@ -25,7 +25,7 @@
                 <div class="erm-3"><img src="/cn/images/erm-7.jpg" alt=""></div>
             </li>
             <li>
-                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥雅思</a>
+                <a href="#"><div class="ft-icon"><img src="/cn/images/icon-wx.png" alt=""></div>：雷哥SAT</a>
                 <div class="erm-3"><img src="/cn/images/erm-8.png" alt=""></div>
             </li>
             <li>
