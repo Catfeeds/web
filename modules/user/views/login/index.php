@@ -3,13 +3,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>小申教育</title>
+    <title>网校后台</title>
     <link rel="stylesheet" type="text/css" href="/css/coreCss/styles.css">
 </head>
 <body>
 <div class="wrapper">
     <div class="container">
-        <h1>小申教育</h1>
+        <h1>网校后台</h1>
         <form class="form" method="post" action="/user/login/check">
             <input type="text" name="userName" placeholder="用户名">
             <input type="password" name="userPass" placeholder="密码">
