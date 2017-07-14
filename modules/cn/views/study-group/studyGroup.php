@@ -79,7 +79,7 @@
 <div class="toolLSJ">
     <div class="com-auto">
         <h4>一人学习太孤单，加入雷哥网学习群老司机带路 <br/>
-            让你的GMAT/托福/雅思备考不迷茫</h4>
+            让你的GMAT/托福/SAT备考不迷茫</h4>
         <ul>
             <li>
                 <img src="/cn/images/tool-qiuqiu.png" alt="背景球球图标" class="qiu"/>
