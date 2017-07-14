@@ -152,7 +152,7 @@ $config = [
                 'class_order.html' => 'cn/user/class-order',
 
                 'class_order/<status:\d+>/<page:\d+>.html' => 'cn/user/class-order',
-                
+
                 'vip.html' => 'cn/vip/vip',
 
                 'studyGroup.html' => 'cn/study-group/study-group',
