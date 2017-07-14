@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>网校会员</title>
+    <title>雷哥网会员，特权享不停！</title>
+    <meta name="keywords" content="雷哥网，GMAT考试，GMAT培训，GMAT网课、SAT培训、SAT课程、托福培训，托福考试，雅思考试，雅思培训，留学中介，美国留学，英国留学，留学文书，雷哥培训。">
+    <meta name="description" content="雷哥网，成立于2012年，提供大数据驱动下的国际教育O＋O服务。雷哥网通过PC、WAP和APP等互联网平台和工具，搭建在线题库、模考库和知识库等，分析研究用户的做题数据和学习轨迹，以人工智能为用户提供精准的留学英语备考服务。通过院校库、
+    案例库和录取条件库等建立选校模型，为客户的留学申请精准定位，提供个性化留学选校与申请服务，并以雷哥网学习中心提供留学与出国英语辅导线下服务，二者相辅相成。">
     <link rel="stylesheet" href="/cn/css/reset.css">
     <link rel="stylesheet" href="/cn/css/common.css">
     <link rel="stylesheet" href="/cn/css/public.css"/>
@@ -80,8 +83,8 @@
                 <p>加入雷哥网交流学习群</p>
             </div>
             <div class="brass-l-right">
-                <a href="#">免费注册</a>
-                <a href="#">立即登录</a>
+                <a href="http://login.gmatonline.cn/cn/index/register?source=11&url=http://class.viplgw.cn/">免费注册</a>
+                <a href="http://login.gmatonline.cn/cn/index?source=11&url=http://class.viplgw.cn/">立即登录</a>
             </div>
             <div class="clearB"></div>
         </div>
@@ -151,8 +154,8 @@
                     <div class="clearB"></div>
                 </li>
             </ul>
-            <a href="#" class="zixun">立即咨询</a>
-            <a href="#" class="buy">立即购买</a>
+            <a href="tencent://message/?uin=2095453331&Site=www.cnclcy&Menu=yes" target="_blank" class="zixun">立即咨询</a>
+            <a href="http://order.gmatonline.cn/pay/order?id=23&type=5&belong=5" class="buy" target="_blank">立即购买</a>
         </div>
         <div class="clearB"></div>
     </div>
@@ -192,8 +195,8 @@
                         背景提升：实习就业、科研比赛，内推名额提供</p>
                 </li>
             </ul>
-            <a href="#" class="zixun">立即咨询</a>
-            <a href="#" class="buy">立即购买</a>
+            <a href="tencent://message/?uin=2095453331&Site=www.cnclcy&Menu=yes" target="_blank" class="zixun">立即咨询</a>
+            <a href="http://order.gmatonline.cn/pay/order?id=24&type=5&belong=5" target="_blank" class="buy">立即购买</a>
         </div>
         <div class="gold-right">
             <img src="/cn/images/vip-gold.png" alt="黄金"/>
@@ -238,8 +241,8 @@
             </ul>
         </div>
         <div class="bot-btn">
-            <a href="#" class="zixun">立即咨询</a>
-            <a href="#" class="buy">立即购买</a>
+            <a href="tencent://message/?uin=2095453331&Site=www.cnclcy&Menu=yes" target="_blank" class="zixun">立即咨询</a>
+            <a href="http://order.gmatonline.cn/pay/order?id=25&type=5&belong=5" target="_blank" class="buy">立即购买</a>
         </div>
     </div>
 </div>

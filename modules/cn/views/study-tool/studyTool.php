@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学习工具</title>
+    <title>雷哥网学习APP，智能留学备考服务！</title>
+    <meta name="keywords" content="雷哥网，GMAT考试，GMAT培训，GMAT网课、SAT培训、SAT课程、托福培训，托福考试，雅思考试，雅思培训，留学中介，美国留学，英国留学，留学文书，雷哥培训。">
+    <meta name="description" content="雷哥网，成立于2012年，提供大数据驱动下的国际教育O＋O服务。雷哥网通过PC、WAP和APP等互联网平台和工具，搭建在线题库、模考库和知识库等，分析研究用户的做题数据和学习轨迹，以人工智能为用户提供精准的留学英语备考服务。通过院校库、
+    案例库和录取条件库等建立选校模型，为客户的留学申请精准定位，提供个性化留学选校与申请服务，并以雷哥网学习中心提供留学与出国英语辅导线下服务，二者相辅相成。">
     <link rel="stylesheet" href="/cn/css/reset.css">
     <link rel="stylesheet" href="/cn/css/common.css">
     <link rel="stylesheet" href="/cn/css/public.css"/>
@@ -14,6 +17,9 @@
 <?php use app\commands\front\NavWidget; ?>
 <?php NavWidget::begin(); ?>
 <?php NavWidget::end(); ?>
+<div class="tool02-banner">
+    <img src="/cn/images/tool02-banner.jpg" alt="banner"/>
+</div>
 <!--雷哥网留学学习工具-->
 <div class="study-tool">
    <div class="stu-t-bg">
@@ -22,83 +28,83 @@
            <ul>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://schools.smartapply.cn/schools.html">
                            <p><img src="/cn/images/tool02-icon01.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">查院校，搜排名</a></h5>
+                   <h5><a href="http://schools.smartapply.cn/schools.html">查院校，搜排名</a></h5>
                    <p>美英加港澳新，热门留学院校
                        权威网站最新排名，简单直观</p>
                </li>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://open.viplgw.cn/">
                            <p><img src="/cn/images/tool02-icon02.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">留学活动</a></h5>
+                   <h5><a href="http://open.viplgw.cn/">留学活动</a></h5>
                    <p>精品留学课程，实用留学干货
                        不定期福利赠送</p>
                </li>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://www.smartapply.cn/cn/case.html">
                            <p><img src="/cn/images/tool02-icon03.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">留学攻略&案例库</a></h5>
+                   <h5><a href="http://www.smartapply.cn/cn/case.html">留学攻略&案例库</a></h5>
                    <p>最新留学资讯，最全申请攻略
                        名校成功案例，留学前辈经验</p>
                </li>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://www.smartapply.cn/cn/question">
                            <p><img src="/cn/images/tool02-icon04.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">留学问答</a></h5>
+                   <h5><a href="http://www.smartapply.cn/cn/question">留学问答</a></h5>
                    <p>申请、备考小问题，专业
                        留学行家及时免费解答</p>
                </li>
 
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://schools.smartapply.cn/assess.html">
                            <p><img src="/cn/images/tool02-icon05.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">留学评估</a></h5>
+                   <h5><a href="http://schools.smartapply.cn/assess.html">留学评估</a></h5>
                    <p>大数据留学评估，免费匹配
                        录取几率</p>
                </li>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://ncrm.thinkwithu.com/">
                            <p><img src="/cn/images/tool02-icon06.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">申请进度查询</a></h5>
+                   <h5><a href="http://ncrm.thinkwithu.com/">申请进度查询</a></h5>
                    <p>随时追踪申请状态
                        掌控申请进度</p>
                </li>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://www.smartapply.cn/cn/know.html">
                            <p><img src="/cn/images/tool02-icon07.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">留学知识库</a></h5>
+                   <h5><a href="http://www.smartapply.cn/cn/know.html">留学知识库</a></h5>
                    <p>申请前、申请中、申请后、
                        申请项目、视频解析，留学
                        申请不求人</p>
                </li>
                <li>
                    <div class="tool-box">
-                       <a href="#">
+                       <a href="http://www.smartapply.cn/cn/project.html">
                            <p><img src="/cn/images/tool02-icon08.png" alt="图片"/></p>
                        </a>
                    </div>
-                   <h5><a href="#">背景提升</a></h5>
+                   <h5><a href="http://www.smartapply.cn/cn/project.html">背景提升</a></h5>
                    <p>实习就业、科研比赛、公益项目
                        国际化、专业性、多样化留学
                        背景提升项目</p>
@@ -193,7 +199,7 @@
                      </div>
                      <div class="in-a-r-right">
                          <span>离线做题  <br>
-                        语音照片
+                        拍照搜题  语音搜题
                          <br>搜题更快捷</span>
                      </div>
                      <div class="clearB"></div>

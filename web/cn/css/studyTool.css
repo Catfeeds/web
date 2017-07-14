@@ -1,3 +1,9 @@
+.tool02-banner{
+    width: 100%;
+}
+.tool02-banner img{
+    width: 100%;
+}
 .study-tool{
     width: 100%;
     background-color: #4d9dff;
@@ -153,7 +159,7 @@
 }
 .in-app-right{
     float: left;
-    margin-left: 200px;
+    margin-left: 170px;
 }
 .in-app-right h4{
     font-weight: normal;

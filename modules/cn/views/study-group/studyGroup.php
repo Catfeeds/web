@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>学习小组</title>
+    <title>雷哥网学习社群，分享学习资讯与方法！</title>
+    <meta name="keywords" content="雷哥网，GMAT考试，GMAT培训，GMAT网课、SAT培训、SAT课程、托福培训，托福考试，雅思考试，雅思培训，留学中介，美国留学，英国留学，留学文书，雷哥培训。">
+    <meta name="description" content="雷哥网，成立于2012年，提供大数据驱动下的国际教育O＋O服务。雷哥网通过PC、WAP和APP等互联网平台和工具，搭建在线题库、模考库和知识库等，分析研究用户的做题数据和学习轨迹，以人工智能为用户提供精准的留学英语备考服务。通过院校库、
+    案例库和录取条件库等建立选校模型，为客户的留学申请精准定位，提供个性化留学选校与申请服务，并以雷哥网学习中心提供留学与出国英语辅导线下服务，二者相辅相成。">
     <link rel="stylesheet" href="/cn/css/reset.css">
     <link rel="stylesheet" href="/cn/css/common.css">
     <link rel="stylesheet" href="/cn/css/public.css"/>
@@ -163,19 +166,19 @@
                 <img src="/cn/images/tool-qiuqiu.png" alt="背景球球图标" class="qiu"/>
 
                 <div class="r-ewm-left">
-                    <p>雅思7分冲刺群—雷哥网 <br>
-                        6月雅思单词群—雷哥网</p>
-                     <span>添加小托君微信：thinkuxxs <br>
-                       备注“入群”</span>
+                    <p>2017雷哥SAT备考群 <br>
+                        词汇打卡群、长难句训练营</p>
+                     <span>添加小T君微信：sat0704<br>
+                       备注：入群</span>
                 </div>
                 <div class="r-ewm-right">
-                    <img src="/cn/images/tool-ewm02.png" alt="二维码"/>
+                    <img src="/cn/images/tool-ewm03.png" alt="二维码" width="131"/>
                 </div>
                 <div class="clearB"></div>
             </div>
         </div>
         <div class="clearB" style="margin-bottom: 30px"></div>
-        <h4>加入GMAT-托福-雅思备考群，上着雷哥网“强化班”提分更快更猛</h4>
+        <h4>加入GMAT-托福-SAT备考群，上着雷哥网“强化班”提分更快更猛</h4>
     </div>
 </div>
 <!--热门留学服务、热门课程-->
@@ -212,7 +215,7 @@
                 <img src="/cn/images/tool-titleicon02.png" alt="图标"/>
                 <b>热门课程/</b>
                 <span>98%的学员通过我们专业申请服务在1-3月内拿到3+封女神院offer</span>
-                <a href="#">more&gt;</a>
+<!--                <a href="#">more&gt;</a>-->
             </div>
             <div class="hot-course">
                 <div class="hot-c-bd">
