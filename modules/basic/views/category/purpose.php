@@ -3,11 +3,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="title" content="小申教育在线后台">
-    <meta name="description" content="小申教育在线后台">
-    <meta name="keywords" content="小申教育在线后台">
+    <meta name="title" content="网校后台在线后台">
+    <meta name="description" content="网校后台在线后台">
+    <meta name="keywords" content="网校后台在线后台">
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>小申教育</title>
+    <title>网校后台</title>
     <!-- Le styles -->
     <link href="/css/coreCss/bootstrap-combined.min.css" rel="stylesheet">
     <link href="/css/coreCss/layoutit.css" rel="stylesheet">
