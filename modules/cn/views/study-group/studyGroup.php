@@ -178,7 +178,7 @@
             </div>
         </div>
         <div class="clearB" style="margin-bottom: 30px"></div>
-        <h4>加入GMAT-托福-雅思备考群，上着雷哥网“强化班”提分更快更猛</h4>
+        <h4>加入GMAT-托福-SAT备考群，上着雷哥网“强化班”提分更快更猛</h4>
     </div>
 </div>
 <!--热门留学服务、热门课程-->
