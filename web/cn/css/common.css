@@ -1,3 +1,4 @@
+.ellipsis{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .w12 {
     width: 1200px;
     margin: 0 auto;

@@ -176,10 +176,10 @@
                                 <p class="help_live_tit"><a class="ellipsis" target="_blank" href="http://open.viplgw.cn/public-class/<?php echo $v['id'] ?>.html"><?php echo $v['name'] ?></a></p>
                                 <div class="b_line tm"><img src="/cn/images/b_line.png" alt=""></div>
                                 <div class="tm">
-                                    <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://www.smartapply.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
-                                    <div class="inm tl P_info">
-                                        <p>主讲人：<?php echo $v['listeningFile'] ?></p>
-                                        <p>课<i class="inm tp_zw"></i>时：<?php echo $v['problemComplement'] ?></p>
+                                    <div class="user_head3 inm"><img src="<?php echo isset($v['article']) ? 'http://open.viplgw.cn'.$v['article'] : '/cn/images/user_head2.png' ?>" alt=""></div>
+                                    <div class="inm tl P_info" style="width: 120px">
+                                        <p class="ellipsis">主讲人：<?php echo $v['listeningFile'] ?></p>
+                                        <p class="ellipsis">课<i class="inm tp_zw"></i>时：<?php echo $v['problemComplement'] ?></p>
                                         <p class="price">￥：<?php echo isset($v['price']) ? $v['price'] : '0' ?></p>
                                         <?php
                                         if ($v['duration']) {
