@@ -4,7 +4,7 @@
             <li><a href="javascript:void(0);">课程类型</a></li>
             <li><a href="http://www.gmatonline.cn/index.html">GMAT</a></li>
             <li><a href="http://www.toeflonline.cn/">TOEFL</a></li>
-            <li><a href="http://sat.thinkuedu.com/">SAT</a></li>
+            <li><a href="http://sat.viplgw.cn/">SAT</a></li>
             <li><a href="http://www.smartapply.cn/">留学</a></li>
         </ul>
         <ul class="footer-list">
