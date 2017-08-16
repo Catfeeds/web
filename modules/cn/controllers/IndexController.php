@@ -53,6 +53,7 @@ class IndexController extends ToeflController {
             'lgwIelts'=>$model->getContentExtend(209), //获取雷哥网雅思
             'recording'=>$model->getContentExtend(188), //获取直播课
             'lgwGmat'=>$model->getCategoryContent([191,193]),  //获取雷哥网GMAT
+            'lgwSat'=>$model->getContentExtend(267),  //获取雷哥网SAT
             'lgwToefl'=>$model->getContentExtend(192),   //获取雷哥网托福
             'lgwLiuxue'=>$model->getContentExtend(194),   //获取雷哥网留学
             'lgwEnglish'=>$model->getContentExtend(196),  //获取雷哥网英语

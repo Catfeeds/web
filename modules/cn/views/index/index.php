@@ -670,7 +670,7 @@
             </div>
             <ul class="live_course_list clearfix anne-sat">
                 <?php
-                foreach($recording as $key=>$v) {
+                foreach($lgwSat as $key=>$v) {
                     if ($key == 0) {
                         ?>
                         <li>
