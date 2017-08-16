@@ -657,6 +657,201 @@
                 ?>
             </ul>
         </div>
+        <!--课程分类&SAT课程-->
+        <div class="bg_f sort_wrap">
+            <div class="subject_sort_tit_wrap clearfix">
+                <div class="fl left_sort_tit">
+                    <div class="sort_icon_wrap inm"><img src="/cn/images/sort_icon_1.png" alt=""></div>
+                    <span class="inm sort_name">雷哥网SAT</span>
+                </div>
+                <div class="fr right_sort_more">
+                    <a class="sort_more" target="_blank" href="/subject/188.html">查看更多></a>
+                </div>
+            </div>
+            <ul class="live_course_list clearfix anne-sat">
+                <?php
+                foreach($recording as $key=>$v) {
+                    if ($key == 0) {
+                        ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt="">
+                                            </div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">
+                                时间：<?php echo $v['openingDate']; ?></div>
+                            <div class="cr1_img"><img src="/cn/images/sat-a.jpg" alt=""></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                </div>
+
+                            </div>
+                        </li>
+                        <?php
+                    }
+                    if ($key == 1) { ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">
+                                时间：<?php echo $v['openingDate']; ?></div>
+                            <div class="cr1_img"><img src="/cn/images/sat-b.jpg" alt=""></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                </div>
+
+                            </div>
+                        </li>
+                        <?php
+                    }if($key == 2) {
+                        ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">
+                                时间：<?php echo $v['openingDate']; ?></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                </div>
+
+                            </div>
+                            <div class="cr1_img"><img src="/cn/images/sat-c.jpg" alt=""></div>
+                        </li>
+                        <?php
+                    }
+                    if($key == 3){ ?>
+                        <li>
+                            <div class="ani live_user_check">
+                                <div class="relative rh100">
+                                    <div class="user_handle_wrap">
+                                        <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
+                                            <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                            <span class="inm">点击试听</span>
+                                        </a>
+                                        <div class="live_user_handle clearfix">
+                                            <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                            <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="live_time2 ani">时间：<?php echo $v['openingDate']; ?></div>
+                            <div class="cr1_img"><img src="/cn/images/sat-d.jpg" alt=""></div>
+                            <div class="live_course_info">
+                                <div class="live_course_name_wrap">
+                                    <p class="live_course_name"><?php echo $v['name'] ?></p>
+                                    <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                                </div>
+                                <div>
+                                    <div class="inb">
+                                        <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                        <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                                    </div>
+                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                </div>
+
+                            </div>
+                        </li>
+                        <?php
+                    }
+                }
+                ?>
+                <li>
+                    <div class="ani live_user_check">
+                        <div class="relative rh100">
+                            <div class="user_handle_wrap">
+                                <a class="big_try_btn" href="<?php echo $v['url'] ?>" target="_blank">
+                                    <div class="playIcon_img inm"><img src="/cn/images/piay_icon.png" alt=""></div>
+                                    <span class="inm">点击试听</span>
+                                </a>
+                                <div class="live_user_handle clearfix">
+                                    <a class="fl" href="javascript:;" onclick="toBuy(<?php echo $v['id'] ?>,1)">购买</a>
+                                    <a class="fr" target="_blank" href="/goods/<?php echo $v['id'] ?>/1.html">详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="live_time2 ani">时间：<?php echo $v['openingDate']; ?></div>
+                    <div class="cr1_img"><img src="/cn/images/sat-e.jpg" alt=""></div>
+                    <div class="live_course_info">
+                        <div class="live_course_name_wrap">
+                            <p class="live_course_name"><?php echo $v['name'] ?></p>
+                            <p class="live_course_ks">课时：<?php echo $v['courseDuration'] ?></p>
+                        </div>
+                        <div>
+                            <div class="inb">
+                                <span class="index_new_price">￥<?php echo $v['price'] ?></span>
+                                <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
+                            </div>
+                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
         <!--雷哥网托福-->
         <div class="bg_f sort_wrap">
             <div class="subject_sort_tit_wrap clearfix">

@@ -640,7 +640,69 @@
 .sort_wrap {
     margin-bottom: 25px;
 }
-
+/*anne新增sat*/
+.anne-sat li{
+    padding: 0;
+}
+.anne-sat li:first-child{
+    width: 290px;
+    height: 580px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0!important;
+}
+.anne-sat li:nth-child(2){
+    width: 850px;
+    height: 290px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0 0 20px 20px;
+}
+.anne-sat li:nth-child(3),
+.anne-sat li:nth-child(4),
+.anne-sat li:nth-child(5){
+    width: 270px;
+    height: 270px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    margin: 0 0 0 20px;
+}
+.anne-sat li .cr1_img{
+    width: 100%!important;
+    height: 100%!important;
+    margin: 0!important;
+    position: absolute!important;
+    left: 0;
+    top: 0;
+}
+.anne-sat li .live_time2{
+    z-index: 22;
+}
+.anne-sat li .live_course_info{
+    position: relative;
+    z-index: 23;
+}
+.anne-sat li:first-child .live_course_info{
+    margin-top: 100px;
+}
+.anne-sat li:nth-child(2) .live_course_info{
+    margin-top: 100px;
+    margin-left: 50px;
+}
+.anne-sat li:nth-child(3) .live_course_info,
+.anne-sat li:nth-child(4) .live_course_info,
+.anne-sat li:nth-child(5) .live_course_info{
+    margin-top: 80px;
+}
+.anne-sat li .live_user_check{
+    z-index: 24;
+}
+.anne-sat li .live_course_name{
+    max-width: none;
+}
 /*课程回放*/
 .playback_course_list {
     padding: 30px 15px 15px;
