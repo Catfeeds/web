@@ -703,6 +703,12 @@
 .anne-sat li .live_course_name{
     max-width: none;
 }
+.anne-sat li:nth-child(3)  .small_try_btn,
+.anne-sat li:nth-child(4)  .small_try_btn,
+.anne-sat li:nth-child(5)  .small_try_btn{
+    margin-left: 0!important;
+    margin-top: 10px!important;
+}
 /*课程回放*/
 .playback_course_list {
     padding: 30px 15px 15px;
