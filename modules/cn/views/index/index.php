@@ -773,7 +773,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                    <br/><a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
 
                             </div>
@@ -809,7 +809,7 @@
                                         <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                         <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                                     </div>
-                                    <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                                    <br/> <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                                 </div>
 
                             </div>
@@ -845,7 +845,7 @@
                                 <span class="index_new_price">￥<?php echo $v['price'] ?></span>
                                 <span class="index_old_price">￥<?php echo $v['sales'] ?></span>
                             </div>
-                            <a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
+                            <br/><a class="small_try_btn inb" href="<?php echo $v['url'] ?>" target="_blank">试听</a>
                         </div>
 
                     </div>

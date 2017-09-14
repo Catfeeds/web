@@ -49,7 +49,7 @@
            <li>
                <img src="/cn/images/vip-crown04.png" alt="皇冠图标"/>
                <div class="box01">
-                   <p>璀璨砖石会员
+                   <p>璀璨钻石会员
                        <br/>强化班学员
                        <br/>12个月</p>
                </div>
@@ -172,7 +172,7 @@
                 <li>
                     <img src="/cn/images/vip-gold01.png" alt="数字图标"/>
                     <h4>特权一：题库神助攻</h4>
-                    <p>雷豆赠送：3000雷豆，可用于购买题目音频解析、模考LGSR、培训课程、留学服务。
+                    <p>雷豆赠送：8000雷豆，可用于购买题目音频解析、模考LGSR、培训课程、留学服务。
                         留学报告：根据你的背景根据大数据独家为你精准匹配适合你的院校，生成匹配报告</p>
                 </li>
                 <li>
@@ -209,14 +209,14 @@
     <div class="com-auto">
         <h4 class="title-1">璀璨钻石会员</h4>
         <p class="title-2">Bright diamond members</p>
-        <p class="mason-price">价格：<span>5800</span>元
+        <p class="mason-price">价格：<span>6500</span>元
             &nbsp;&nbsp;&nbsp;&nbsp;有效期：<span>12</span>个月</p>
         <div class="masonry-box">
             <img src="/cn/images/vip-masony.png" alt="图片"/>
             <ul>
                 <li>
                     <h4>特权一：题库神助攻</h4>
-                    <p>雷豆赠送：3000雷豆，可用于购买题目音频解析、 <br/>
+                    <p>雷豆赠送：10000雷豆，可用于购买题目音频解析、 <br/>
                         模考LGSR、培训课程、留学服务。</p>
                 </li>
                 <li>
