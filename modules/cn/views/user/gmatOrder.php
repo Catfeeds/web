@@ -142,7 +142,7 @@
                                                                 <?php
                                                                 }else {
                                                                     ?>
-                                                                    <a href="<?php echo Yii::$app->params['gmatUrl']?>/livevideo/<?php echo $v['order_id']?>-<?php echo $k+1?>.html" target="_blank">
+                                                                    <a href="<?php echo Yii::$app->params['gmatUrl']?>/choice/<?php echo $v['order_id']?>-<?php echo $k+1?>.html" target="_blank">
                                                                         <button type="button"
                                                                                 value=""><?php echo $val['name'] ?>
                                                                         </button>
