@@ -17,7 +17,7 @@ class LoginController extends ApiControl
     public $enableCsrfValidation = false;
 
     /**
-     * 登陆界面
+     * 登录界面
      * @return string
      */
     public function actionIndex()
@@ -33,7 +33,7 @@ class LoginController extends ApiControl
 
 
     /**
-     * 登陆验证
+     * 登录验证
      * @return string
      * */
     public function actionCheck()

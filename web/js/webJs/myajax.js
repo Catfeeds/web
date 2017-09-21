@@ -140,7 +140,7 @@ function EmailReg(e) {
     }
 }
 /**
- * 公用登陆函数
+ * 公用登录函数
  */
 function login(e) {
     var username = $("#log_username").val();
