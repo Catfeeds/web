@@ -212,6 +212,10 @@
     color: #757575;
     font-size: 15px;
 }
+.silver-right ul li .si-r-right p b{
+    color: #5c5c5c;
+    font-weight: bold;
+}
 .silver-right ul li:first-child .si-r-right h4{
     color: #78d2c9;
 }
@@ -296,7 +300,7 @@ a.buy:hover{
 }
 .gold-left ul li{
     position: relative;
-    color: #898787;
+    color: #757575;
     margin-bottom: 20px;
     padding-left: 25px;
 }
@@ -312,6 +316,10 @@ a.buy:hover{
 }
 .gold-left ul li p{
     font-size: 14px;
+}
+.gold-left ul li p b{
+    color: #5c5c5c;
+    font-weight: bold;
 }
 .gold-right{
     float: left;
