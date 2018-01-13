@@ -8,6 +8,7 @@
                 <dl class="nav2_list">
                     <dt><a href="http://www.viplgw.cn/" target="_blank">雷哥网首页</a></dt>
                     <dt><a href="http://www.gmatonline.cn/index.html" target="_blank">雷哥网GMAT</a></dt>
+                    <dt><a href="http://www.greonline.cn/" target="_blank">雷哥网GRE</a></dt>
                     <dt><a href="http://www.toeflonline.cn/" target="_blank">雷哥网托福</a></dt>
                     <dt><a href="http://ielts.viplgw.cn/" target="_blank">雷哥网雅思</a></dt>
                     <dt><a href="http://sat.viplgw.cn/" target="_blank">雷哥网SAT</a></dt>
