@@ -249,3 +249,12 @@
     float: left;
     margin-left: 40px;
 }
+.xscApp_info{
+    background:url("../images/xcs_tool_bg.png") no-repeat 0 0;
+    background-size: 100% 100%;
+}
+.xscApp_info_cont{
+    margin: auto;
+    padding: 60px 0;
+    min-width: 1200px;
+}

@@ -21,7 +21,7 @@
     <img src="/cn/images/tool02-banner.jpg" alt="banner"/>
 </div>
 <!--雷哥网留学学习工具-->
-<div class="study-tool">
+<div style="display: none;" class="study-tool">
    <div class="stu-t-bg">
        <div class="com-auto">
            <h4>雷哥网留学学习工具</h4>
@@ -125,6 +125,7 @@
        </div>
    </div>
 </div>
+<div class="xscApp_info"><div class="xscApp_info_cont tm"><img src="/cn/images/xsc_tool.png" alt=""></div></div>
 <!--雷哥GMAT APP-->
 <div class="study-app">
      <div class="in-app">
